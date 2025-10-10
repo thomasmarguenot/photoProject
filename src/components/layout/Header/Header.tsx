@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import type { HeaderProps } from './types';
 import './Header.css';
 
-export function Header({ title = 'PhotoProject' }: HeaderProps) {
+export function Header({ title = 'ふぉとぷろじぇくと' }: HeaderProps) {
   return (
     <header className="header">
       <div className="header-container">

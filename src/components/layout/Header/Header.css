@@ -1,11 +1,47 @@
 @reference "../../../index.css";
 
 .header {
-  @apply bg-white shadow-md;
+  @apply bg-white relative;
+  overflow: hidden;
+}
+
+/* Animated borders - horizontal lines growing from center */
+.header::before,
+.header::after {
+  content: '';
+  position: absolute;
+  background-color: black;
+  z-index: 1;
+}
+
+/* Top and bottom borders */
+.header::before {
+  top: 0;
+  left: 50%;
+  right: 50%;
+  height: 1px;
+  animation: expandHorizontal 1.2s ease-out forwards;
+}
+
+.header::after {
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  height: 1px;
+  animation: expandHorizontal 1.2s ease-out forwards;
+}
+
+@keyframes expandHorizontal {
+  to {
+    left: 0;
+    right: 0;
+  }
 }
 
 .header-container {
   @apply max-w-7xl mx-auto px-4 py-4 flex items-center justify-between;
+  position: relative;
+  z-index: 2;
 }
 
 .header-logo {
@@ -13,7 +49,15 @@
 }
 
 .header-title {
-  @apply text-2xl font-bold text-gray-900 no-underline hover:text-gray-700 transition-colors;
+  @apply text-2xl font-bold no-underline transition-colors;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  color: black;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.header-title:hover {
+  @apply opacity-70;
 }
 
 .header-nav {
@@ -21,5 +65,10 @@
 }
 
 .header-link {
-  @apply text-gray-600 hover:text-gray-900 transition-colors font-medium;
+  @apply font-medium transition-colors;
+  color: black;
+}
+
+.header-link:hover {
+  @apply opacity-70;
 }

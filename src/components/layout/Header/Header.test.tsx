@@ -14,7 +14,7 @@ describe('Header', () => {
   it('should render with default title', () => {
     renderWithRouter(<Header />);
 
-    expect(screen.getByText('PhotoProject')).toBeInTheDocument();
+    expect(screen.getByText('ふぉとぷろじぇくと')).toBeInTheDocument();
   });
 
   it('should render with custom title', () => {
