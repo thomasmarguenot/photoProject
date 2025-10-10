@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import type { HeaderProps } from './types';
 import './Header.css';
 
@@ -6,18 +8,20 @@ export function Header({ title = 'PhotoProject' }: HeaderProps) {
     <header className="header">
       <div className="header-container">
         <div className="header-logo">
-          <h1 className="header-title">{title}</h1>
+          <Link to="/" className="header-title">
+            {title}
+          </Link>
         </div>
         <nav className="header-nav">
-          <a href="/" className="header-link">
+          <Link to="/" className="header-link">
             Home
-          </a>
-          <a href="/about" className="header-link">
+          </Link>
+          <Link to="/about" className="header-link">
             About
-          </a>
-          <a href="/contact" className="header-link">
+          </Link>
+          <Link to="/contact" className="header-link">
             Contact
-          </a>
+          </Link>
         </nav>
       </div>
     </header>

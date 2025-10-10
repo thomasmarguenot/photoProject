@@ -1,0 +1,17 @@
+@reference "../../index.css";
+
+.about {
+  @apply py-12;
+}
+
+.about-container {
+  @apply max-w-4xl mx-auto px-4;
+}
+
+.about-title {
+  @apply text-4xl font-bold text-gray-900 mb-6;
+}
+
+.about-text {
+  @apply text-lg text-gray-700 mb-4;
+}

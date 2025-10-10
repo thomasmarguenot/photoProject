@@ -36,6 +36,7 @@ export default [
           project: './tsconfig.json',
         },
       },
+      'import/ignore': ['\\.(css|scss|sass|less)$'],
     },
     plugins: {
       '@typescript-eslint': tseslint,
@@ -60,7 +61,12 @@ export default [
         { argsIgnorePattern: '^_' },
       ],
       'prettier/prettier': 'error',
-      'import/no-unresolved': 'error',
+      'import/no-unresolved': [
+        'error',
+        {
+          ignore: ['\\.css$', '\\.scss$', '\\.sass$', '\\.less$'],
+        },
+      ],
       'import/order': [
         'error',
         {

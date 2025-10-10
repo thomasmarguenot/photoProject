@@ -1,13 +1,10 @@
-import { Layout } from '@/components/layout/Layout';
-import { Home } from '@/pages/Home';
+import { RouterProvider } from 'react-router-dom';
+
+import { router } from '@/router';
 import '@/App.css';
 
 function App() {
-  return (
-    <Layout>
-      <Home />
-    </Layout>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

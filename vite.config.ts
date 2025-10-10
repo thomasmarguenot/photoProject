@@ -30,6 +30,5 @@ export default defineConfig({
     host: 'photoproject.local',
     port: 5173,
     strictPort: true,
-    https: true,
   },
 });

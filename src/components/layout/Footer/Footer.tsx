@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import type { FooterProps } from './types';
 import './Footer.css';
 
@@ -13,15 +15,15 @@ export function Footer({
             © {year} {companyName}. All rights reserved.
           </p>
           <div className="footer-links">
-            <a href="/privacy" className="footer-link">
+            <Link to="/privacy" className="footer-link">
               Privacy Policy
-            </a>
-            <a href="/terms" className="footer-link">
+            </Link>
+            <Link to="/terms" className="footer-link">
               Terms of Service
-            </a>
-            <a href="/contact" className="footer-link">
+            </Link>
+            <Link to="/contact" className="footer-link">
               Contact
-            </a>
+            </Link>
           </div>
         </div>
       </div>

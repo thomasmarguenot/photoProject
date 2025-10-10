@@ -1,0 +1,13 @@
+@reference "../../../index.css";
+
+.loading-fallback {
+  @apply flex flex-col items-center justify-center min-h-screen gap-4;
+}
+
+.loading-spinner {
+  @apply w-12 h-12 border-4 border-gray-200 border-t-blue-500 rounded-full animate-spin;
+}
+
+.loading-text {
+  @apply text-gray-600 text-lg;
+}

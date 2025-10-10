@@ -1,0 +1,21 @@
+@reference "../../index.css";
+
+.not-found {
+  @apply min-h-screen flex items-center justify-center py-12;
+}
+
+.not-found-container {
+  @apply text-center;
+}
+
+.not-found-title {
+  @apply text-9xl font-bold text-gray-900 mb-4;
+}
+
+.not-found-text {
+  @apply text-2xl text-gray-600 mb-8;
+}
+
+.not-found-link {
+  @apply inline-block px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors;
+}

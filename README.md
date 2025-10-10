@@ -7,6 +7,7 @@ Vite + React + TypeScript Project
 - **React** 19.2.0
 - **TypeScript** 5.9+ (with strict mode)
 - **Vite** 7.1.9
+- **React Router** 7+ (with lazy loading)
 - **Tailwind CSS** 4.1.14
 - **ESLint** 9.37.0 + **Prettier** 3.6.2
 - **Husky** + **lint-staged** for pre-commit hooks
@@ -77,6 +78,7 @@ photoProject/
 ├── CODE_QUALITY.md  # Code quality tools documentation
 ├── STRUCTURE.md     # Detailed project structure guide
 ├── TAILWIND.md      # Tailwind CSS documentation
+├── ROUTER.md        # React Router documentation
 └── README.md        # This file
 ```
 
@@ -109,6 +111,24 @@ Available aliases:
 - `@/types/*` → `src/types/*`
 - `@/assets/*` → `src/assets/*`
 - `@/styles/*` → `src/styles/*`
+
+**See [ALIASES.md](./ALIASES.md) for complete documentation.**
+
+## 🧭 Routing
+
+This project uses React Router with lazy-loaded routes for optimal performance:
+
+- **Lazy Loading**: Routes are loaded only when needed
+- **Suspense**: Loading fallback while routes are being loaded
+- **Code Splitting**: Automatic chunk splitting per route
+
+**Routes**:
+
+- `/` - Home page
+- `/about` - About page
+- `*` - 404 Not Found
+
+**See [ROUTER.md](./ROUTER.md) for complete documentation.**
 
 ## �📝 Notes
 
