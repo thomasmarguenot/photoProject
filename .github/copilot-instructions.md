@@ -12,6 +12,7 @@ PhotoProject is a modern React application built with:
 - **Path aliases** (`@/`) for clean imports
 - **Commitlint + Husky** for conventional commits
 - **Semantic Release** for automated versioning and changelog
+- **Vitest + React Testing Library** for unit and integration tests
 
 ## Critical Rules
 
@@ -249,6 +250,65 @@ feat!: change API response structure (breaking change)
 - Rejects commits that don't follow the format
 - Ensures consistent commit history for semantic-release
 
+### 12. Testing with Vitest
+
+All code should be tested using **Vitest** and **React Testing Library**:
+
+**Test files:**
+- Component tests: `ComponentName.test.tsx` (same folder as component)
+- Hook tests: `hookName.test.ts` (same folder as hook)
+- Place test files alongside the code they test
+
+**Running tests:**
+```bash
+pnpm test              # Run tests in watch mode
+pnpm test --run        # Run tests once
+pnpm test:ui           # Open Vitest UI
+pnpm test:coverage     # Generate coverage report
+```
+
+**Example component test:**
+```tsx
+import { render, screen } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+
+import { Button } from './Button';
+
+describe('Button', () => {
+  it('should render with text', () => {
+    render(<Button>Click me</Button>);
+    expect(screen.getByText('Click me')).toBeInTheDocument();
+  });
+});
+```
+
+**Example hook test:**
+```tsx
+import { renderHook, act } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+
+import { useCounter } from './useCounter';
+
+describe('useCounter', () => {
+  it('should increment counter', () => {
+    const { result } = renderHook(() => useCounter());
+    
+    act(() => {
+      result.current.increment();
+    });
+    
+    expect(result.current.count).toBe(1);
+  });
+});
+```
+
+**Testing best practices:**
+- Write tests for all components, hooks, and utilities
+- Use `screen.getByRole()` for better accessibility testing
+- Test user interactions with `@testing-library/user-event`
+- Mock external dependencies when needed
+- Aim for high coverage but focus on meaningful tests
+
 ## Common Patterns
 
 ### Creating a New Page
@@ -402,6 +462,9 @@ pnpm typecheck        # TypeScript check
 pnpm lint             # Check linting
 pnpm lint:fix         # Fix linting and format
 pnpm format           # Format with Prettier
+pnpm test             # Run tests in watch mode
+pnpm test:ui          # Open Vitest UI
+pnpm test:coverage    # Generate coverage report
 pnpm release          # Run semantic-release to create new version and changelog
 ```
 

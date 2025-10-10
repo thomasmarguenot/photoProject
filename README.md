@@ -68,6 +68,7 @@ The project uses **semantic-release** for automated versioning and changelog gen
 - **ESLint** 9.37.0 + **Prettier** 3.6.2
 - **Husky** + **Commitlint** for conventional commits
 - **Semantic Release** for automated versioning
+- **Vitest + React Testing Library** for testing
 - **pnpm** as package manager
 - **Local HTTPS** with self-signed certificates (vite-plugin-mkcert)
 
@@ -87,6 +88,10 @@ pnpm install
 - `pnpm lint:fix` - Fix linting errors automatically
 - `pnpm format` - Format all files with Prettier
 - `pnpm format:check` - Check formatting without modifying files
+- `pnpm test` - Run tests in watch mode
+- `pnpm test:ui` - Open Vitest UI
+- `pnpm test:coverage` - Generate test coverage report
+- `pnpm release` - Create a new release with semantic-release
 - `pnpm release` - Run semantic-release to create a new version and update CHANGELOG
 
 ## 🏃 Quick Start
@@ -190,7 +195,70 @@ This project uses React Router with lazy-loaded routes for optimal performance:
 
 **See [docs/ROUTER.md](./docs/ROUTER.md) for complete documentation.**
 
-## �📝 Notes
+## 🧪 Testing
+
+This project uses **Vitest** and **React Testing Library** for unit and integration testing.
+
+### Running Tests
+
+```bash
+pnpm test              # Run tests in watch mode
+pnpm test --run        # Run tests once
+pnpm test:ui           # Open Vitest UI in browser
+pnpm test:coverage     # Generate coverage report
+```
+
+### Test Structure
+
+Tests are colocated with the code they test:
+
+```
+src/
+├── components/
+│   └── common/
+│       └── Button/
+│           ├── Button.tsx
+│           ├── Button.test.tsx  # Component test
+│           └── Button.css
+├── hooks/
+│   ├── useWindowSize.ts
+│   └── useWindowSize.test.ts    # Hook test
+└── test/
+    └── setup.ts                 # Test configuration
+```
+
+### Example Tests
+
+**Component Test:**
+```tsx
+import { render, screen } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+import { Button } from './Button';
+
+describe('Button', () => {
+  it('should render with text', () => {
+    render(<Button>Click me</Button>);
+    expect(screen.getByText('Click me')).toBeInTheDocument();
+  });
+});
+```
+
+**Hook Test:**
+```tsx
+import { renderHook, act } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+import { useCounter } from './useCounter';
+
+describe('useCounter', () => {
+  it('should increment counter', () => {
+    const { result } = renderHook(() => useCounter());
+    act(() => result.current.increment());
+    expect(result.current.count).toBe(1);
+  });
+});
+```
+
+## 📝 Notes
 
 **Local HTTPS**: The project uses `vite-plugin-mkcert` to generate trusted local SSL certificates. On first launch, you will need to enter your sudo password to install the certificate in your system keychain.
 
