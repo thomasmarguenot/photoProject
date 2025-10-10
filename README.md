@@ -4,10 +4,11 @@ Projet Vite + React + TypeScript
 
 ## 🚀 Technologies
 
-- **React** 18.3.1
-- **TypeScript** 5.5+
-- **Vite** 6.3.6 (compatible avec Node.js 22.11)
+- **React** 19.2.0
+- **TypeScript** 5.9+
+- **Vite** 7.1.9
 - **pnpm** comme gestionnaire de paquets
+- **HTTPS local** avec certificats auto-signés (vite-plugin-mkcert)
 
 ## 📦 Installation
 
@@ -33,8 +34,9 @@ pnpm install
    ```bash
    pnpm dev
    ```
+   **Note** : Au premier lancement, le plugin mkcert vous demandera votre mot de passe sudo pour installer le certificat SSL dans votre trousseau système.
 
-3. Ouvrir http://localhost:5173 dans votre navigateur
+3. Ouvrir **https://photoproject.local:5173** dans votre navigateur
 
 ## 📁 Structure du projet
 
@@ -56,6 +58,12 @@ photoProject/
 ```
 
 ## 📝 Notes
+
+**HTTPS Local** : Le projet utilise `vite-plugin-mkcert` pour générer des certificats SSL locaux de confiance. Au premier lancement, vous devrez entrer votre mot de passe sudo pour installer le certificat dans votre trousseau système.
+
+**Host personnalisé** : Le projet est accessible via `https://photoproject.local:5173` au lieu de `localhost`. L'entrée a été ajoutée dans `/etc/hosts`.
+
+**Port fixe** : Le serveur utilisera toujours le port 5173 et ne changera jamais (`strictPort: true`).
 
 **Note sur la version de Vite** : Le projet utilise Vite 6.3.6 au lieu de 7.1.9 pour des raisons de compatibilité avec Node.js 22.11.0. Vite 7+ nécessite Node.js 22.12+.
 
