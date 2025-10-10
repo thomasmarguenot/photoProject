@@ -1,4 +1,4 @@
-import { motion, type Variants } from 'framer-motion';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 import './Gallery.css';
@@ -8,8 +8,11 @@ interface ImageData {
   alt: string;
 }
 
+type ImageFormat = 'portrait' | 'landscape' | 'large';
+
 export function Gallery() {
   const [images, setImages] = useState<ImageData[]>([]);
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   useEffect(() => {
     // Dynamically import all images from the pictures folder
@@ -35,6 +38,33 @@ export function Gallery() {
 
     loadImages();
   }, []);
+
+  // Handle escape key to close lightbox
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && selectedImage !== null) {
+        setSelectedImage(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [selectedImage]);
+
+  // Determine image format based on index for alternating pattern
+  const getImageFormat = (index: number): ImageFormat => {
+    const patterns: ImageFormat[] = [
+      'portrait',
+      'landscape',
+      'landscape',
+      'portrait',
+      'large',
+      'landscape',
+      'portrait',
+      'landscape',
+    ];
+    return patterns[index % patterns.length];
+  };
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -84,25 +114,64 @@ export function Gallery() {
             initial="hidden"
             animate="visible"
           >
-            {images.map((image, index) => (
-              <motion.div
-                key={index}
-                className="gallery-item"
-                variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="gallery-image"
-                  loading="lazy"
-                />
-              </motion.div>
-            ))}
+            {images.map((image, index) => {
+              const format = getImageFormat(index);
+              return (
+                <motion.div
+                  key={index}
+                  className={`gallery-item ${format}`}
+                  variants={itemVariants}
+                  onClick={() => setSelectedImage(index)}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="gallery-image"
+                    loading="lazy"
+                  />
+                </motion.div>
+              );
+            })}
           </motion.div>
         )}
       </div>
+
+      {/* Lightbox overlay */}
+      <AnimatePresence>
+        {selectedImage !== null && (
+          <motion.div
+            className="lightbox-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => setSelectedImage(null)}
+          >
+            <div
+              className="lightbox-content"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <motion.img
+                key={selectedImage}
+                src={images[selectedImage].src}
+                alt={images[selectedImage].alt}
+                className="lightbox-image"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                transition={{ duration: 0.4 }}
+              />
+              <button
+                className="lightbox-close"
+                onClick={() => setSelectedImage(null)}
+                aria-label="Close lightbox"
+              >
+                ×
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

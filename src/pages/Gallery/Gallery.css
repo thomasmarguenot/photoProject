@@ -24,43 +24,85 @@
   @apply flex min-h-[400px] items-center justify-center text-gray-500;
 }
 
-/* Modern CSS Grid Masonry Layout */
+/* Modern CSS Grid Masonry Layout with alternating sizes */
 .gallery-grid {
-  @apply grid gap-4;
+  @apply grid gap-6;
   
-  /* Responsive columns */
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  
-  /* Enable masonry layout (experimental but modern) */
-  /* Falls back to regular grid in unsupported browsers */
+  /* Responsive columns with better spacing */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-auto-flow: dense;
 }
 
-/* Masonry item */
+/* Masonry item with alternating portrait/landscape */
 .gallery-item {
-  @apply overflow-hidden rounded-lg bg-gray-100 shadow-md transition-shadow hover:shadow-xl;
-  
-  /* Random heights for masonry effect */
-  /* These will be overridden by content */
+  @apply overflow-hidden rounded-md bg-gray-100 shadow-lg transition-all duration-300 hover:shadow-2xl;
   break-inside: avoid;
+  cursor: pointer;
+}
+
+/* Portrait format - taller */
+.gallery-item.portrait {
+  grid-row: span 2;
+}
+
+/* Landscape format - wider */
+.gallery-item.landscape {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+/* Large format - takes more space */
+.gallery-item.large {
+  grid-column: span 2;
+  grid-row: span 2;
 }
 
 /* Image styling */
 .gallery-image {
   @apply h-full w-full object-cover;
   display: block;
+  transition: transform 0.4s ease-out;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.1);
+}
+
+/* Lightbox overlay */
+.lightbox-overlay {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-black/95;
+}
+
+.lightbox-content {
+  @apply relative flex h-full w-full items-center justify-center p-4;
+}
+
+.lightbox-image {
+  @apply max-h-[90vh] max-w-full object-contain shadow-2xl;
+}
+
+.lightbox-close {
+  @apply absolute right-4 top-4 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/20 hover:scale-110;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.lightbox-close:hover {
+  @apply bg-white/30;
 }
 
 /* Responsive adjustments */
 @media (min-width: 640px) {
   .gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    @apply gap-6;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    @apply gap-8;
   }
 }
 
 @media (min-width: 1024px) {
   .gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    @apply gap-10;
   }
 }
