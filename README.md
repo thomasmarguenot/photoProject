@@ -75,14 +75,16 @@ photoProject/
 ├── tsconfig.json    # TypeScript configuration
 ├── eslint.config.js # ESLint configuration
 ├── prettier.config.cjs # Prettier configuration
-├── CODE_QUALITY.md  # Code quality tools documentation
-├── STRUCTURE.md     # Detailed project structure guide
-├── TAILWIND.md      # Tailwind CSS documentation
-├── ROUTER.md        # React Router documentation
+├── docs/            # Documentation folder
+│   ├── ALIASES.md   # Path aliases guide
+│   ├── CODE_QUALITY.md # Code quality tools
+│   ├── ROUTER.md    # React Router documentation
+│   ├── STRUCTURE.md # Project structure guide
+│   └── TAILWIND.md  # Tailwind CSS guide
 └── README.md        # This file
 ```
 
-**See [STRUCTURE.md](./STRUCTURE.md) for detailed conventions and best practices.**
+**See [docs/STRUCTURE.md](./docs/STRUCTURE.md) for detailed conventions and best practices.**
 
 ## � Path Aliases
 
@@ -112,7 +114,7 @@ Available aliases:
 - `@/assets/*` → `src/assets/*`
 - `@/styles/*` → `src/styles/*`
 
-**See [ALIASES.md](./ALIASES.md) for complete documentation.**
+**See [docs/ALIASES.md](./docs/ALIASES.md) for complete documentation.**
 
 ## 🧭 Routing
 
@@ -128,7 +130,7 @@ This project uses React Router with lazy-loaded routes for optimal performance:
 - `/about` - About page
 - `*` - 404 Not Found
 
-**See [ROUTER.md](./ROUTER.md) for complete documentation.**
+**See [docs/ROUTER.md](./docs/ROUTER.md) for complete documentation.**
 
 ## �📝 Notes
 
@@ -137,5 +139,19 @@ This project uses React Router with lazy-loaded routes for optimal performance:
 **Custom Host**: The project is accessible via `https://photoproject.local:5173` instead of `localhost`. The entry has been added to `/etc/hosts`.
 
 **Fixed Port**: The server will always use port 5173 and will never change (`strictPort: true`).
+
+## 📚 Documentation
+
+Complete documentation is available in the `docs/` folder:
+
+- **[docs/STRUCTURE.md](./docs/STRUCTURE.md)** - Project structure and folder conventions
+- **[docs/ALIASES.md](./docs/ALIASES.md)** - Path aliases configuration and usage
+- **[docs/ROUTER.md](./docs/ROUTER.md)** - React Router setup and lazy loading
+- **[docs/TAILWIND.md](./docs/TAILWIND.md)** - Tailwind CSS with @apply pattern
+- **[docs/CODE_QUALITY.md](./docs/CODE_QUALITY.md)** - ESLint, Prettier, Husky setup
+
+### GitHub Copilot Instructions
+
+For the best Copilot experience, this project includes a comprehensive instruction file at `.github/copilot-instructions.md`. This ensures that Copilot generates code following the project's conventions and best practices.
 
 **Note on Vite version**: The project uses Vite 7.1.9. Note that Vite 7+ requires Node.js 22.12+.
