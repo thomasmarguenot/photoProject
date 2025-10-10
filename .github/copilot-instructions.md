@@ -10,6 +10,8 @@ PhotoProject is a modern React application built with:
 - **Tailwind CSS 4.1.14** using `@apply` in separate CSS files
 - **ESLint 9 + Prettier** with import auto-sorting
 - **Path aliases** (`@/`) for clean imports
+- **Commitlint + Husky** for conventional commits
+- **Semantic Release** for automated versioning and changelog
 
 ## Critical Rules
 
@@ -203,7 +205,49 @@ src/
 
 - Run `pnpm run lint:fix` before committing
 - Husky pre-commit hooks will auto-format code
+- Commitlint ensures conventional commits format
 - All code must pass: `pnpm run typecheck`, `pnpm run lint`, `pnpm build`
+
+### 11. Conventional Commits
+
+All commits must follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
+
+```bash
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+**Allowed types:**
+- `feat:` - New feature (triggers minor version bump)
+- `fix:` - Bug fix (triggers patch version bump)
+- `docs:` - Documentation only changes
+- `style:` - Code style changes (formatting, white-space)
+- `refactor:` - Code change that neither fixes a bug nor adds a feature
+- `perf:` - Performance improvements
+- `test:` - Adding or correcting tests
+- `build:` - Changes to build system or dependencies
+- `ci:` - Changes to CI configuration
+- `chore:` - Other changes that don't modify src or test files
+- `revert:` - Reverts a previous commit
+
+**Breaking changes:**
+- Add `!` after type/scope or `BREAKING CHANGE:` in footer (triggers major version bump)
+
+**Examples:**
+```bash
+feat: add user authentication
+fix: resolve navigation bug on mobile
+docs: update README with setup instructions
+feat!: change API response structure (breaking change)
+```
+
+**Commitlint validation:**
+- Runs automatically on commit via husky `commit-msg` hook
+- Rejects commits that don't follow the format
+- Ensures consistent commit history for semantic-release
 
 ## Common Patterns
 
@@ -358,6 +402,7 @@ pnpm typecheck        # TypeScript check
 pnpm lint             # Check linting
 pnpm lint:fix         # Fix linting and format
 pnpm format           # Format with Prettier
+pnpm release          # Run semantic-release to create new version and changelog
 ```
 
 ## Documentation
@@ -378,5 +423,6 @@ pnpm format           # Format with Prettier
 5. **Follow folder structure** - components, pages, hooks pattern
 6. **TypeScript strict mode** - always type everything
 7. **Import order matters** - ESLint will enforce it
+8. **Conventional commits required** - commitlint validates all commits
 
 When generating code, prioritize clean architecture, type safety, and performance optimization.

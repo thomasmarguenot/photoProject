@@ -6,11 +6,68 @@ Vite + React + TypeScript Project
 
 - **React** 19.2.0
 - **TypeScript** 5.9+ (with strict mode)
-- **Vite** 7.1.9
+- **V## 📝 Notes
+
+**Local HTTPS**: The project uses `vite-plugin-mkcert` to generate trusted local SSL certificates. On first launch, you will need to enter your sudo password to install the certificate in your system keychain.
+
+**Custom Host**: The project is accessible via `https://photoproject.local:5173` instead of `localhost`. The entry has been added to `/etc/hosts`.
+
+**Fixed Port**: The server will always use port 5173 and will never change (`strictPort: true`).
+
+## 🔒 Git Workflow
+
+This project uses **Husky** and **Commitlint** to enforce conventional commits:
+
+### Pre-commit Hook
+- Automatically runs `pnpm run lint:fix` before each commit
+- Ensures code is formatted and linted
+
+### Commit-msg Hook
+- Validates commit messages follow the [Conventional Commits](https://www.conventionalcommits.org/) specification
+- Format: `<type>[optional scope]: <description>`
+
+**Allowed types:**
+- `feat:` - New feature (minor version bump)
+- `fix:` - Bug fix (patch version bump)
+- `docs:` - Documentation changes
+- `style:` - Code style changes
+- `refactor:` - Code refactoring
+- `perf:` - Performance improvements
+- `test:` - Test changes
+- `build:` - Build system changes
+- `ci:` - CI configuration changes
+- `chore:` - Other changes
+- `revert:` - Revert a previous commit
+
+**Examples:**
+```bash
+git commit -m "feat: add user profile page"
+git commit -m "fix: resolve mobile navigation bug"
+git commit -m "docs: update README installation steps"
+git commit -m "feat!: change API response format" # Breaking change
+```
+
+### Semantic Release
+
+The project uses **semantic-release** for automated versioning and changelog generation:
+
+1. Commit your changes following conventional commits format
+2. Push to the `main` branch
+3. Run `pnpm release` to:
+   - Analyze commits and determine version bump
+   - Generate/update `CHANGELOG.md`
+   - Create a new git tag
+   - Update `package.json` version
+
+**Version bumping:**
+- `feat:` commits → minor version (0.X.0)
+- `fix:` commits → patch version (0.0.X)
+- `feat!:` or `BREAKING CHANGE:` → major version (X.0.0).1.9
 - **React Router** 7+ (with lazy loading)
 - **Tailwind CSS** 4.1.14
 - **ESLint** 9.37.0 + **Prettier** 3.6.2
-- **Husky** + **lint-staged** for pre-commit hooks
+- **Husky** + **Commitlint** for conventional commits
+- **Semantic Release** for automated versioning
 - **pnpm** as package manager
 - **Local HTTPS** with self-signed certificates (vite-plugin-mkcert)
 
@@ -30,6 +87,7 @@ pnpm install
 - `pnpm lint:fix` - Fix linting errors automatically
 - `pnpm format` - Format all files with Prettier
 - `pnpm format:check` - Check formatting without modifying files
+- `pnpm release` - Run semantic-release to create a new version and update CHANGELOG
 
 ## 🏃 Quick Start
 
