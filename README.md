@@ -54,25 +54,63 @@ pnpm install
 photoProject/
 ├── public/          # Static assets
 ├── src/
-│   ├── assets/      # Images, SVG, etc.
-│   ├── App.tsx      # Main component
-│   ├── App.css      # App component styles
+│   ├── assets/      # Images, SVG, fonts, etc.
+│   ├── components/  # Reusable UI components
+│   │   ├── common/  # Generic components (Button, Input, etc.)
+│   │   └── layout/  # Layout components (Header, Footer, Layout)
+│   ├── features/    # Feature-based modules
+│   ├── hooks/       # Custom React hooks
+│   ├── pages/       # Page components (one per route)
+│   ├── services/    # API calls and external services
+│   ├── styles/      # Global styles
+│   ├── types/       # Shared TypeScript types
+│   ├── utils/       # Utility functions
+│   ├── App.tsx      # Main App component
 │   ├── main.tsx     # Application entry point
-│   ├── index.css    # Global styles + Tailwind CSS
-│   └── vite-env.d.ts # Vite types
+│   └── index.css    # Global styles + Tailwind CSS
+├── .husky/          # Git hooks
 ├── index.html       # HTML template
 ├── package.json     # Dependencies and scripts
 ├── tsconfig.json    # TypeScript configuration
-├── tsconfig.node.json # TypeScript configuration for Vite
-├── vite.config.ts   # Vite configuration
 ├── eslint.config.js # ESLint configuration
 ├── prettier.config.cjs # Prettier configuration
 ├── CODE_QUALITY.md  # Code quality tools documentation
+├── STRUCTURE.md     # Detailed project structure guide
 ├── TAILWIND.md      # Tailwind CSS documentation
 └── README.md        # This file
 ```
 
-## 📝 Notes
+**See [STRUCTURE.md](./STRUCTURE.md) for detailed conventions and best practices.**
+
+## � Path Aliases
+
+This project uses TypeScript path aliases to avoid relative imports. Always use absolute imports with the `@` prefix:
+
+```typescript
+// ✅ Good - Use aliases
+import { Button } from '@/components/common/Button';
+import { useAuth } from '@/hooks/useAuth';
+import { formatDate } from '@/utils/formatters';
+
+// ❌ Bad - Don't use relative imports
+import { Button } from '../../components/common/Button';
+import { useAuth } from '../hooks/useAuth';
+```
+
+Available aliases:
+
+- `@/*` → `src/*`
+- `@/components/*` → `src/components/*`
+- `@/features/*` → `src/features/*`
+- `@/pages/*` → `src/pages/*`
+- `@/hooks/*` → `src/hooks/*`
+- `@/services/*` → `src/services/*`
+- `@/utils/*` → `src/utils/*`
+- `@/types/*` → `src/types/*`
+- `@/assets/*` → `src/assets/*`
+- `@/styles/*` → `src/styles/*`
+
+## �📝 Notes
 
 **Local HTTPS**: The project uses `vite-plugin-mkcert` to generate trusted local SSL certificates. On first launch, you will need to enter your sudo password to install the certificate in your system keychain.
 

@@ -7,6 +7,8 @@
   text-align: center;
 }
 
+@reference "./index.css";
+
 .logo {
   height: 6em;
   padding: 1.5em;

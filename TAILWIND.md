@@ -17,7 +17,7 @@ pnpm add -D tailwindcss@4.1.14 @tailwindcss/vite
 The `@tailwindcss/vite` plugin has been added in `vite.config.ts`:
 
 ```typescript
-import tailwindcss from "@tailwindcss/vite";
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   plugins: [react(), mkcert(), tailwindcss()],
@@ -30,7 +30,7 @@ export default defineConfig({
 In `src/index.css`, the Tailwind v4 import uses the new syntax:
 
 ```css
-@import "tailwindcss";
+@import 'tailwindcss';
 ```
 
 **Note**: Tailwind v4 uses `@import` instead of the old `@tailwind base`, `@tailwind components`, `@tailwind utilities` directives.
@@ -40,7 +40,7 @@ In `src/index.css`, the Tailwind v4 import uses the new syntax:
 The CSS file is imported in `src/main.tsx`:
 
 ```typescript
-import "./index.css";
+import './index.css';
 ```
 
 ## 🎨 Usage
@@ -50,17 +50,15 @@ import "./index.css";
 This project uses the `@apply` directive to extract Tailwind classes into separate CSS files. This keeps JSX clean and styles organized.
 
 **In your React component:**
+
 ```tsx
 function Button() {
-  return (
-    <button className="primary-button">
-      Click me
-    </button>
-  );
+  return <button className="primary-button">Click me</button>;
 }
 ```
 
 **In your CSS file (e.g. App.css):**
+
 ```css
 @reference "./index.css";
 
@@ -69,25 +67,40 @@ function Button() {
 }
 ```
 
-**Important Note**: You must add `@reference "./index.css"` at the top of each CSS file that uses `@apply` to reference Tailwind utilities.
+**Important Notes**:
+
+- You **must** add `@reference` at the top of each CSS file that uses `@apply` to reference Tailwind utilities.
+- ⚠️ **Limitation**: Tailwind CSS v4 does not support path aliases (like `@/`) in `@reference` directives. You must use **relative paths** (e.g., `"./index.css"`, `"../../index.css"`).
+- For TypeScript/JavaScript imports, use path aliases normally (e.g., `import '@/App.css'`).
+
+**Example with nested folders:**
+
+```css
+/* In src/components/Button/Button.css */
+@reference "../../index.css";
+
+.button {
+  @apply px-4 py-2 rounded;
+}
+```
 
 ### Complete Example
 
 **Component (src/components/Card.tsx):**
+
 ```tsx
 export function Card({ title, children }) {
   return (
     <div className="card-container">
       <h2 className="card-title">{title}</h2>
-      <div className="card-content">
-        {children}
-      </div>
+      <div className="card-content">{children}</div>
     </div>
   );
 }
 ```
 
 **Styles (src/components/Card.css):**
+
 ```css
 @reference "../index.css";
 
@@ -118,12 +131,12 @@ export function Card({ title, children }) {
 If you want to customize the theme, add `@theme` rules in your CSS:
 
 ```css
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-primary: #3b82f6;
   --color-secondary: #8b5cf6;
-  --font-display: "Inter", sans-serif;
+  --font-display: 'Inter', sans-serif;
 }
 ```
 

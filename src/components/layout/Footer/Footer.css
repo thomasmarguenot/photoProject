@@ -1,0 +1,25 @@
+@reference "../../../index.css";
+
+.footer {
+  @apply bg-gray-800 text-white mt-auto;
+}
+
+.footer-container {
+  @apply max-w-7xl mx-auto px-4 py-8;
+}
+
+.footer-content {
+  @apply flex flex-col md:flex-row items-center justify-between gap-4;
+}
+
+.footer-text {
+  @apply text-gray-300;
+}
+
+.footer-links {
+  @apply flex gap-6;
+}
+
+.footer-link {
+  @apply text-gray-300 hover:text-white transition-colors;
+}

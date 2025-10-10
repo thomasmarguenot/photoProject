@@ -1,0 +1,37 @@
+@reference "../../index.css";
+
+.home {
+  @apply py-12;
+}
+
+.home-container {
+  @apply max-w-7xl mx-auto px-4;
+}
+
+.home-hero {
+  @apply text-center mb-16;
+}
+
+.home-title {
+  @apply text-5xl font-bold text-gray-900 mb-4;
+}
+
+.home-subtitle {
+  @apply text-xl text-gray-600;
+}
+
+.home-features {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8;
+}
+
+.feature-card {
+  @apply bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow;
+}
+
+.feature-title {
+  @apply text-xl font-semibold text-gray-900 mb-3;
+}
+
+.feature-description {
+  @apply text-gray-600;
+}

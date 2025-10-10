@@ -1,0 +1,9 @@
+@reference "../../../index.css";
+
+.layout {
+  @apply min-h-screen flex flex-col;
+}
+
+.layout-main {
+  @apply flex-1;
+}
