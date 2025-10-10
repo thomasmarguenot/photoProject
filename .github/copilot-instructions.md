@@ -13,6 +13,7 @@ PhotoProject is a modern React application built with:
 - **Commitlint + Husky** for conventional commits
 - **Semantic Release** for automated versioning and changelog
 - **Vitest + React Testing Library** for unit and integration tests
+- **Framer Motion 12+** for smooth animations
 
 ## Critical Rules
 
@@ -309,6 +310,80 @@ describe('useCounter', () => {
 - Mock external dependencies when needed
 - Aim for high coverage but focus on meaningful tests
 
+### 13. Animations with Framer Motion
+
+Use **Framer Motion** for smooth, performant animations:
+
+**Basic animation:**
+```tsx
+import { motion } from 'framer-motion';
+
+export function FadeIn({ children }: { children: ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+```
+
+**Using variants:**
+```tsx
+import { motion, type Variants } from 'framer-motion';
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5 },
+  },
+};
+
+export function Card() {
+  return (
+    <motion.div
+      variants={cardVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      Content
+    </motion.div>
+  );
+}
+```
+
+**Staggered children:**
+```tsx
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+<motion.div variants={containerVariants} initial="hidden" animate="visible">
+  <motion.div variants={itemVariants}>Item 1</motion.div>
+  <motion.div variants={itemVariants}>Item 2</motion.div>
+</motion.div>
+```
+
+**Animation best practices:**
+- Always type variants with `Variants` type from framer-motion
+- Use `initial`, `animate`, and `exit` props for declarative animations
+- Leverage `variants` for coordinated animations
+- Use `staggerChildren` for sequential animations
+- Keep animations subtle and purposeful
+- Test performance on lower-end devices
+
 ## Common Patterns
 
 ### Creating a New Page
@@ -444,6 +519,7 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
 3. **Memoize expensive computations** - Use `useMemo` when needed
 4. **Memoize callbacks** - Use `useCallback` for event handlers passed as props
 5. **Split CSS** - Keep CSS files separate for better caching
+6. **Optimize animations** - Use Framer Motion's performance features
 
 ## Environment
 
