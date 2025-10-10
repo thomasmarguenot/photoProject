@@ -16,6 +16,9 @@ export function Header({ title = 'PhotoProject' }: HeaderProps) {
           <Link to="/" className="header-link">
             Home
           </Link>
+          <Link to="/gallery" className="header-link">
+            Gallery
+          </Link>
           <Link to="/about" className="header-link">
             About
           </Link>

@@ -6,6 +6,7 @@ import { Layout } from '@/components/layout/Layout';
 // Lazy load pages
 const Home = lazy(() => import('@/pages/Home'));
 const About = lazy(() => import('@/pages/About'));
+const Gallery = lazy(() => import('@/pages/Gallery'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 export const router = createBrowserRouter([
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: 'about',
         element: <About />,
+      },
+      {
+        path: 'gallery',
+        element: <Gallery />,
       },
       {
         path: '*',

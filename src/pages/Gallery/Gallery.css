@@ -1,0 +1,66 @@
+@reference "../../index.css";
+
+.gallery {
+  @apply min-h-screen py-12;
+}
+
+.gallery-container {
+  @apply mx-auto max-w-7xl px-4;
+}
+
+.gallery-header {
+  @apply mb-12 text-center;
+}
+
+.gallery-title {
+  @apply mb-4 text-5xl font-bold;
+}
+
+.gallery-subtitle {
+  @apply text-xl text-gray-600;
+}
+
+.gallery-empty {
+  @apply flex min-h-[400px] items-center justify-center text-gray-500;
+}
+
+/* Modern CSS Grid Masonry Layout */
+.gallery-grid {
+  @apply grid gap-4;
+  
+  /* Responsive columns */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  
+  /* Enable masonry layout (experimental but modern) */
+  /* Falls back to regular grid in unsupported browsers */
+  grid-auto-flow: dense;
+}
+
+/* Masonry item */
+.gallery-item {
+  @apply overflow-hidden rounded-lg bg-gray-100 shadow-md transition-shadow hover:shadow-xl;
+  
+  /* Random heights for masonry effect */
+  /* These will be overridden by content */
+  break-inside: avoid;
+}
+
+/* Image styling */
+.gallery-image {
+  @apply h-full w-full object-cover;
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (min-width: 640px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    @apply gap-6;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+}
