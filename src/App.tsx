@@ -16,15 +16,15 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1 className="text-4xl font-bold">Vite + React + Tailwind</h1>
+      <h1 className="title">Vite + React + Tailwind</h1>
       <div className="card">
-        <button 
+        <button
           onClick={() => setCount((count) => count + 1)}
-          className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors"
+          className="counter-button"
         >
           count is {count}
         </button>
-        <p className="mt-4">
+        <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>

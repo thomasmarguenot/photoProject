@@ -1,6 +1,6 @@
 # PhotoProject
 
-Projet Vite + React + TypeScript
+Vite + React + TypeScript Project
 
 ## 🚀 Technologies
 
@@ -8,8 +8,8 @@ Projet Vite + React + TypeScript
 - **TypeScript** 5.9+
 - **Vite** 7.1.9
 - **Tailwind CSS** 4.1.14
-- **pnpm** comme gestionnaire de paquets
-- **HTTPS local** avec certificats auto-signés (vite-plugin-mkcert)
+- **pnpm** as package manager
+- **Local HTTPS** with self-signed certificates (vite-plugin-mkcert)
 
 ## 📦 Installation
 
@@ -17,56 +17,56 @@ Projet Vite + React + TypeScript
 pnpm install
 ```
 
-## 🛠️ Scripts disponibles
+## 🛠️ Available Scripts
 
-- `pnpm dev` - Démarre le serveur de développement
-- `pnpm build` - Compile le projet pour la production
-- `pnpm preview` - Prévisualise le build de production
-- `pnpm typecheck` - Vérifie les types TypeScript sans émission de fichiers
+- `pnpm dev` - Start the development server
+- `pnpm build` - Build the project for production
+- `pnpm preview` - Preview the production build
+- `pnpm typecheck` - Check TypeScript types without emitting files
 
-## 🏃 Démarrage rapide
+## 🏃 Quick Start
 
-1. Installer les dépendances :
+1. Install dependencies:
    ```bash
    pnpm install
    ```
 
-2. Lancer le serveur de développement :
+2. Start the development server:
    ```bash
    pnpm dev
    ```
-   **Note** : Au premier lancement, le plugin mkcert vous demandera votre mot de passe sudo pour installer le certificat SSL dans votre trousseau système.
+   **Note**: On first launch, the mkcert plugin will ask for your sudo password to install the SSL certificate in your system keychain.
 
-3. Ouvrir **https://photoproject.local:5173** dans votre navigateur
+3. Open **https://photoproject.local:5173** in your browser
 
-## 📁 Structure du projet
+## 📁 Project Structure
 
 ```
 photoProject/
-├── public/          # Assets statiques
+├── public/          # Static assets
 ├── src/
 │   ├── assets/      # Images, SVG, etc.
-│   ├── App.tsx      # Composant principal
-│   ├── App.css      # Styles du composant App
-│   ├── main.tsx     # Point d'entrée de l'application
-│   ├── index.css    # Styles globaux + Tailwind CSS
-│   └── vite-env.d.ts # Types Vite
-├── index.html       # Template HTML
-├── package.json     # Dépendances et scripts
-├── tsconfig.json    # Configuration TypeScript
-├── tsconfig.node.json # Configuration TypeScript pour Vite
-├── vite.config.ts   # Configuration Vite
-├── TAILWIND.md      # Documentation Tailwind CSS
-└── README.md        # Ce fichier
+│   ├── App.tsx      # Main component
+│   ├── App.css      # App component styles
+│   ├── main.tsx     # Application entry point
+│   ├── index.css    # Global styles + Tailwind CSS
+│   └── vite-env.d.ts # Vite types
+├── index.html       # HTML template
+├── package.json     # Dependencies and scripts
+├── tsconfig.json    # TypeScript configuration
+├── tsconfig.node.json # TypeScript configuration for Vite
+├── vite.config.ts   # Vite configuration
+├── TAILWIND.md      # Tailwind CSS documentation
+└── README.md        # This file
 ```
 
 ## 📝 Notes
 
-**HTTPS Local** : Le projet utilise `vite-plugin-mkcert` pour générer des certificats SSL locaux de confiance. Au premier lancement, vous devrez entrer votre mot de passe sudo pour installer le certificat dans votre trousseau système.
+**Local HTTPS**: The project uses `vite-plugin-mkcert` to generate trusted local SSL certificates. On first launch, you will need to enter your sudo password to install the certificate in your system keychain.
 
-**Host personnalisé** : Le projet est accessible via `https://photoproject.local:5173` au lieu de `localhost`. L'entrée a été ajoutée dans `/etc/hosts`.
+**Custom Host**: The project is accessible via `https://photoproject.local:5173` instead of `localhost`. The entry has been added to `/etc/hosts`.
 
-**Port fixe** : Le serveur utilisera toujours le port 5173 et ne changera jamais (`strictPort: true`).
+**Fixed Port**: The server will always use port 5173 and will never change (`strictPort: true`).
 
-**Note sur la version de Vite** : Le projet utilise Vite 6.3.6 au lieu de 7.1.9 pour des raisons de compatibilité avec Node.js 22.11.0. Vite 7+ nécessite Node.js 22.12+.
+**Note on Vite version**: The project uses Vite 7.1.9. Note that Vite 7+ requires Node.js 22.12+.
 
