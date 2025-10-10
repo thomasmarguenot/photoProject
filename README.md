@@ -7,6 +7,7 @@ Projet Vite + React + TypeScript
 - **React** 19.2.0
 - **TypeScript** 5.9+
 - **Vite** 7.1.9
+- **Tailwind CSS** 4.1.14
 - **pnpm** comme gestionnaire de paquets
 - **HTTPS local** avec certificats auto-signés (vite-plugin-mkcert)
 
@@ -48,13 +49,15 @@ photoProject/
 │   ├── App.tsx      # Composant principal
 │   ├── App.css      # Styles du composant App
 │   ├── main.tsx     # Point d'entrée de l'application
-│   ├── index.css    # Styles globaux
+│   ├── index.css    # Styles globaux + Tailwind CSS
 │   └── vite-env.d.ts # Types Vite
 ├── index.html       # Template HTML
 ├── package.json     # Dépendances et scripts
 ├── tsconfig.json    # Configuration TypeScript
 ├── tsconfig.node.json # Configuration TypeScript pour Vite
-└── vite.config.ts   # Configuration Vite
+├── vite.config.ts   # Configuration Vite
+├── TAILWIND.md      # Documentation Tailwind CSS
+└── README.md        # Ce fichier
 ```
 
 ## 📝 Notes
