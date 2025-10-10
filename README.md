@@ -5,9 +5,11 @@ Vite + React + TypeScript Project
 ## 🚀 Technologies
 
 - **React** 19.2.0
-- **TypeScript** 5.9+
+- **TypeScript** 5.9+ (with strict mode)
 - **Vite** 7.1.9
 - **Tailwind CSS** 4.1.14
+- **ESLint** 9.37.0 + **Prettier** 3.6.2
+- **Husky** + **lint-staged** for pre-commit hooks
 - **pnpm** as package manager
 - **Local HTTPS** with self-signed certificates (vite-plugin-mkcert)
 
@@ -23,18 +25,25 @@ pnpm install
 - `pnpm build` - Build the project for production
 - `pnpm preview` - Preview the production build
 - `pnpm typecheck` - Check TypeScript types without emitting files
+- `pnpm lint` - Check for linting errors
+- `pnpm lint:fix` - Fix linting errors automatically
+- `pnpm format` - Format all files with Prettier
+- `pnpm format:check` - Check formatting without modifying files
 
 ## 🏃 Quick Start
 
 1. Install dependencies:
+
    ```bash
    pnpm install
    ```
 
 2. Start the development server:
+
    ```bash
    pnpm dev
    ```
+
    **Note**: On first launch, the mkcert plugin will ask for your sudo password to install the SSL certificate in your system keychain.
 
 3. Open **https://photoproject.local:5173** in your browser
@@ -56,6 +65,9 @@ photoProject/
 ├── tsconfig.json    # TypeScript configuration
 ├── tsconfig.node.json # TypeScript configuration for Vite
 ├── vite.config.ts   # Vite configuration
+├── eslint.config.js # ESLint configuration
+├── prettier.config.cjs # Prettier configuration
+├── CODE_QUALITY.md  # Code quality tools documentation
 ├── TAILWIND.md      # Tailwind CSS documentation
 └── README.md        # This file
 ```
@@ -69,4 +81,3 @@ photoProject/
 **Fixed Port**: The server will always use port 5173 and will never change (`strictPort: true`).
 
 **Note on Vite version**: The project uses Vite 7.1.9. Note that Vite 7+ requires Node.js 22.12+.
-

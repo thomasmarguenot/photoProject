@@ -1,0 +1,17 @@
+# Dependencies
+node_modules
+pnpm-lock.yaml
+
+# Build outputs
+dist
+dist-ssr
+*.local
+
+# Cache
+.vite
+.eslintcache
+
+# Misc
+coverage
+.DS_Store
+*.log
