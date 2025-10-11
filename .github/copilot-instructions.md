@@ -113,29 +113,50 @@ import { Link } from 'react-router-dom';
 
 ### 5. Component Structure
 
+**CRITICAL: NO index.ts files - Always import directly from component files**
+
 Every component folder should follow this structure:
 
 ```
 ComponentName/
 ├── ComponentName.tsx        # Component implementation
 ├── ComponentName.css        # Styles with @apply
-├── ComponentName.types.ts   # Component types (if needed)
-└── index.ts                 # Barrel export
+└── ComponentName.types.ts   # Component types (if needed)
 ```
 
-**index.ts pattern:**
+**Component exports:**
 
 ```typescript
-export { ComponentName } from './ComponentName';
-export type { ComponentNameProps } from './ComponentName.types';
+// ComponentName.tsx
+export function ComponentName() {
+  // Implementation
+}
 ```
 
-**For pages (lazy loading):**
+**For pages (lazy loading with default export):**
 
 ```typescript
-export { PageName } from './PageName';
-export { PageName as default } from './PageName';
-export type { PageNameProps } from './PageName.types';
+// PageName.tsx
+export function PageName() {
+  // Implementation
+}
+
+export default PageName;
+```
+
+**Importing components:**
+
+```typescript
+// ✅ CORRECT - Direct import from component file
+import { Button } from '@/components/common/Button/Button';
+import { Header } from '@/components/layout/Header/Header';
+
+// ✅ CORRECT - Lazy loading pages
+const Home = lazy(() => import('@/pages/Home/Home'));
+
+// ❌ WRONG - Using index.ts (DON'T DO THIS)
+import { Button } from '@/components/common/Button';
+const Home = lazy(() => import('@/pages/Home'));
 ```
 
 ### 6. Import Order (Enforced by ESLint)
@@ -451,7 +472,7 @@ const containerVariants: Variants = {
 
 ```bash
 mkdir -p src/pages/NewPage
-touch src/pages/NewPage/{NewPage.tsx,NewPage.css,index.ts}
+touch src/pages/NewPage/{NewPage.tsx,NewPage.css}
 ```
 
 2. Component with CSS:
@@ -467,6 +488,8 @@ export function NewPage() {
     </div>
   );
 }
+
+export default NewPage;
 ```
 
 3. CSS with @apply:
@@ -484,19 +507,11 @@ export function NewPage() {
 }
 ```
 
-4. Export (with default for lazy loading):
-
-```typescript
-// index.ts
-export { NewPage } from './NewPage';
-export { NewPage as default } from './NewPage';
-```
-
-5. Add to router:
+4. Add to router:
 
 ```typescript
 // router.tsx
-const NewPage = lazy(() => import('@/pages/NewPage'));
+const NewPage = lazy(() => import('@/pages/NewPage/NewPage'));
 
 // Add route
 {
@@ -543,12 +558,6 @@ export interface CardProps {
   title: string;
   children: ReactNode;
 }
-```
-
-```typescript
-// index.ts
-export { Card } from './Card';
-export type { CardProps } from './Card.types';
 ```
 
 ### Creating a Custom Hook

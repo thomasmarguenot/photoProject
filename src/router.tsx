@@ -1,13 +1,13 @@
 import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
-import { Layout } from '@/components/layout/Layout';
+import { Layout } from '@/components/layout/Layout/Layout';
 
 // Lazy load pages
-const Home = lazy(() => import('@/pages/Home'));
-const About = lazy(() => import('@/pages/About'));
-const Gallery = lazy(() => import('@/pages/Gallery'));
-const NotFound = lazy(() => import('@/pages/NotFound'));
+const Home = lazy(() => import('@/pages/Home/Home'));
+const About = lazy(() => import('@/pages/About/About'));
+const Gallery = lazy(() => import('@/pages/Gallery/Gallery'));
+const NotFound = lazy(() => import('@/pages/NotFound/NotFound'));
 
 export const router = createBrowserRouter([
   {

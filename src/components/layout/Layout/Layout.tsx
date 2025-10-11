@@ -1,9 +1,9 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { LoadingFallback } from '@/components/common/LoadingFallback';
-import { Footer } from '@/components/layout/Footer';
-import { Header } from '@/components/layout/Header';
+import { LoadingFallback } from '@/components/common/LoadingFallback/LoadingFallback';
+import { Footer } from '@/components/layout/Footer/Footer';
+import { Header } from '@/components/layout/Header/Header';
 
 import './Layout.css';
 
