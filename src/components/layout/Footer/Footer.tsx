@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import type { FooterProps } from './types';
+import type { FooterProps } from './Footer.types';
 import './Footer.css';
 
 export function Footer({

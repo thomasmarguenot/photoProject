@@ -117,17 +117,17 @@ Every component folder should follow this structure:
 
 ```
 ComponentName/
-├── ComponentName.tsx      # Component implementation
-├── ComponentName.css      # Styles with @apply
-├── index.ts              # Barrel export
-└── types.ts              # Component types (optional)
+├── ComponentName.tsx        # Component implementation
+├── ComponentName.css        # Styles with @apply
+├── ComponentName.types.ts   # Component types (if needed)
+└── index.ts                 # Barrel export
 ```
 
 **index.ts pattern:**
 
 ```typescript
 export { ComponentName } from './ComponentName';
-export type { ComponentNameProps } from './types';
+export type { ComponentNameProps } from './ComponentName.types';
 ```
 
 **For pages (lazy loading):**
@@ -135,6 +135,7 @@ export type { ComponentNameProps } from './types';
 ```typescript
 export { PageName } from './PageName';
 export { PageName as default } from './PageName';
+export type { PageNameProps } from './PageName.types';
 ```
 
 ### 6. Import Order (Enforced by ESLint)
@@ -149,7 +150,7 @@ import { Button } from '@/components/common/Button';
 import { useAuth } from '@/hooks/useAuth';
 
 // 3. Relative imports (same folder only)
-import type { Props } from './types';
+import type { Props } from './Component.types';
 
 // 4. Styles
 import './Component.css';
@@ -179,15 +180,73 @@ export function Button({
 }
 ```
 
-### 8. File Naming Conventions
+### 8. File Separation and Organization - Keep Files Small and Focused
+
+**CRITICAL: Always separate types/interfaces into dedicated `ComponentName.types.ts` files**
+
+- **NEVER** define types/interfaces directly in component files
+- **ALWAYS** create a separate `ComponentName.types.ts` file for component-specific types
+- **NEVER** use generic names like `types.ts` or `index.ts` - always use explicit names
+- Keep files focused on a single responsibility
+- Avoid files longer than 200-300 lines (consider splitting if larger)
+
+```typescript
+// ✅ CORRECT - Button.types.ts (explicit name)
+export interface ButtonProps {
+  children: ReactNode;
+  onClick?: () => void;
+  variant?: 'primary' | 'secondary';
+}
+
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
+```
+
+```tsx
+// ✅ CORRECT - Button.tsx imports from Button.types.ts
+import type { ButtonProps } from './Button.types';
+import './Button.css';
+
+export function Button({ children, onClick, variant }: ButtonProps) {
+  // Implementation
+}
+```
+
+```typescript
+// ❌ WRONG - Generic filename types.ts
+import type { ButtonProps } from './types';  // DON'T DO THIS
+```
+
+```typescript
+// ❌ WRONG - Types defined in component file
+export function Button() {
+  interface ButtonProps {  // DON'T DO THIS
+    children: ReactNode;
+  }
+  // ...
+}
+```
+
+**File size guidelines:**
+- **Components:** Max ~150 lines (split into subcomponents if larger)
+- **Pages:** Max ~200 lines (extract sections into components)
+- **Utilities:** Max ~100 lines per file (group by functionality)
+- **Types:** No limit, but organize logically (one file per domain/feature)
+
+**When to split files:**
+- Component has multiple interfaces/types → Extract to `ComponentName.types.ts`
+- Component is too long → Extract subcomponents to separate files
+- Utility file has multiple unrelated functions → Split by domain
+- Test file is too long → Split into multiple test suites
+
+### 9. File Naming Conventions
 
 - **Components:** PascalCase (`Button.tsx`, `UserProfile.tsx`)
 - **Utilities:** camelCase (`formatters.ts`, `apiHelpers.ts`)
 - **Hooks:** `use` prefix (`useAuth.ts`, `useWindowSize.ts`)
-- **Types:** `[name].types.ts` (`user.types.ts`)
+- **Types:** `ComponentName.types.ts` (component-specific) or `[domain].types.ts` (shared types)
 - **CSS:** Match component name (`Button.css`)
 
-### 9. Folder Organization
+### 10. Folder Organization
 
 ```
 src/
@@ -203,14 +262,14 @@ src/
 └── router.tsx           # Route configuration
 ```
 
-### 10. Code Quality
+### 11. Code Quality
 
 - Run `pnpm run lint:fix` before committing
 - Husky pre-commit hooks will auto-format code
 - Commitlint ensures conventional commits format
 - All code must pass: `pnpm run typecheck`, `pnpm run lint`, `pnpm build`
 
-### 11. Conventional Commits
+### 12. Conventional Commits
 
 All commits must follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
 
@@ -251,7 +310,7 @@ feat!: change API response structure (breaking change)
 - Rejects commits that don't follow the format
 - Ensures consistent commit history for semantic-release
 
-### 12. Testing with Vitest
+### 13. Testing with Vitest
 
 All code should be tested using **Vitest** and **React Testing Library**:
 
@@ -310,7 +369,7 @@ describe('useCounter', () => {
 - Mock external dependencies when needed
 - Aim for high coverage but focus on meaningful tests
 
-### 13. Animations with Framer Motion
+### 14. Animations with Framer Motion
 
 Use **Framer Motion** for smooth, performant animations:
 
@@ -450,7 +509,7 @@ const NewPage = lazy(() => import('@/pages/NewPage'));
 
 ```tsx
 // src/components/common/Card/Card.tsx
-import type { CardProps } from './types';
+import type { CardProps } from './Card.types';
 import './Card.css';
 
 export function Card({ title, children }: CardProps) {
@@ -477,7 +536,7 @@ export function Card({ title, children }: CardProps) {
 ```
 
 ```typescript
-// types.ts
+// Card.types.ts
 import type { ReactNode } from 'react';
 
 export interface CardProps {
@@ -489,7 +548,7 @@ export interface CardProps {
 ```typescript
 // index.ts
 export { Card } from './Card';
-export type { CardProps } from './types';
+export type { CardProps } from './Card.types';
 ```
 
 ### Creating a Custom Hook

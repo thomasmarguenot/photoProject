@@ -1,14 +1,8 @@
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
+import type { ImageData, ImageFormat } from './Gallery.types';
 import './Gallery.css';
-
-interface ImageData {
-  src: string;
-  alt: string;
-}
-
-type ImageFormat = 'portrait' | 'landscape' | 'large';
 
 export function Gallery() {
   const [images, setImages] = useState<ImageData[]>([]);
