@@ -15,6 +15,7 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
+    "optimize-images": "node scripts/optimize-images.js",
     "prepare": "husky",
     "release": "semantic-release"
   },

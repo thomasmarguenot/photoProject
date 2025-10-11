@@ -91,8 +91,8 @@ pnpm install
 - `pnpm test` - Run tests in watch mode
 - `pnpm test:ui` - Open Vitest UI
 - `pnpm test:coverage` - Generate test coverage report
+- `pnpm optimize-images` - Optimize images in src/assets/pictures/
 - `pnpm release` - Create a new release with semantic-release
-- `pnpm release` - Run semantic-release to create a new version and update CHANGELOG
 
 ## 🏃 Quick Start
 
@@ -149,7 +149,18 @@ photoProject/
 
 **See [docs/STRUCTURE.md](./docs/STRUCTURE.md) for detailed conventions and best practices.**
 
-## � Path Aliases
+## 🖼️ Image Optimization
+
+This project includes automatic image optimization for fast loading times:
+
+- **Automatic**: Images optimized during `pnpm build`
+- **Manual**: Run `pnpm optimize-images` to optimize existing images
+- **Formats**: Auto-converts to WebP/AVIF (50-90% smaller)
+- **Quality**: 85% quality (visually lossless)
+
+**See [docs/IMAGE_OPTIMIZATION.md](./docs/IMAGE_OPTIMIZATION.md) for complete guide.**
+
+## 🔗 Path Aliases
 
 This project uses TypeScript path aliases to avoid relative imports. Always use absolute imports with the `@` prefix:
 

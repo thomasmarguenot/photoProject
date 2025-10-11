@@ -94,4 +94,21 @@ export default [
       ],
     },
   },
+  // Configuration for Node.js scripts
+  {
+    files: ['scripts/**/*.js'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: {
+        ...globals.node,
+        console: 'readonly',
+        process: 'readonly',
+      },
+      sourceType: 'module',
+    },
+    rules: {
+      'no-console': 'off',
+      'no-undef': 'off',
+    },
+  },
 ];

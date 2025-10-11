@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import mkcert from 'vite-plugin-mkcert';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -11,7 +12,32 @@ const __dirname = dirname(__filename);
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), mkcert(), tailwindcss()],
+  plugins: [
+    react(),
+    mkcert(),
+    tailwindcss(),
+    ViteImageOptimizer({
+      // Optimize PNG
+      png: {
+        quality: 85,
+      },
+      // Optimize JPEG
+      jpeg: {
+        quality: 85,
+      },
+      jpg: {
+        quality: 85,
+      },
+      // Optimize WebP (format moderne, 30% plus léger)
+      webp: {
+        quality: 85,
+      },
+      // Optimize AVIF (format le plus moderne, 50% plus léger)
+      avif: {
+        quality: 85,
+      },
+    }),
+  ],
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
