@@ -9,37 +9,14 @@ export function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   useEffect(() => {
-    // Dynamically import all images from the pictures folder
+    // Dynamically import all webp images from the pictures folder
     const imageModules = import.meta.glob<{ default: string }>(
-      '@/assets/pictures/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}'
+      '@/assets/pictures/*.webp'
     );
 
     const loadImages = async () => {
-      // Filter out .original files and deduplicate by base filename
-      const imageMap = new Map<
-        string,
-        { path: string; importFunc: () => Promise<{ default: string }> }
-      >();
-
-      Object.entries(imageModules).forEach(([path, importFunc]) => {
-        // Skip .original files
-        if (path.includes('.original')) {
-          return;
-        }
-
-        const fileName = path.split('/').pop() || '';
-        const baseName = fileName.split('.')[0];
-        const extension = fileName.split('.').pop()?.toLowerCase();
-
-        // Prefer webp over other formats
-        const existingEntry = imageMap.get(baseName);
-        if (!existingEntry || extension === 'webp') {
-          imageMap.set(baseName, { path, importFunc });
-        }
-      });
-
-      const imagePromises = Array.from(imageMap.values()).map(
-        async ({ path, importFunc }) => {
+      const imagePromises = Object.entries(imageModules).map(
+        async ([path, importFunc]) => {
           const module = await importFunc();
           const fileName = path.split('/').pop()?.split('.')[0] || 'image';
           return {
