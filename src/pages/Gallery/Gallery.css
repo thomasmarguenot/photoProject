@@ -27,7 +27,7 @@
 /* Modern CSS Grid Masonry Layout with alternating sizes */
 .gallery-grid {
   @apply grid gap-6;
-  
+
   /* Responsive columns with better spacing */
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-auto-flow: dense;

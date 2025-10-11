@@ -15,8 +15,31 @@ export function Gallery() {
     );
 
     const loadImages = async () => {
-      const imagePromises = Object.entries(imageModules).map(
-        async ([path, importFunc]) => {
+      // Filter out .original files and deduplicate by base filename
+      const imageMap = new Map<
+        string,
+        { path: string; importFunc: () => Promise<{ default: string }> }
+      >();
+
+      Object.entries(imageModules).forEach(([path, importFunc]) => {
+        // Skip .original files
+        if (path.includes('.original')) {
+          return;
+        }
+
+        const fileName = path.split('/').pop() || '';
+        const baseName = fileName.split('.')[0];
+        const extension = fileName.split('.').pop()?.toLowerCase();
+
+        // Prefer webp over other formats
+        const existingEntry = imageMap.get(baseName);
+        if (!existingEntry || extension === 'webp') {
+          imageMap.set(baseName, { path, importFunc });
+        }
+      });
+
+      const imagePromises = Array.from(imageMap.values()).map(
+        async ({ path, importFunc }) => {
           const module = await importFunc();
           const fileName = path.split('/').pop()?.split('.')[0] || 'image';
           return {
