@@ -101,10 +101,9 @@ export function Gallery() {
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      scale: 1,
       transition: {
         duration: 0.5,
       },
@@ -165,17 +164,14 @@ export function Gallery() {
                 alt={images[selectedImage].alt}
                 className={`lightbox-image ${images[selectedImage].format}`}
                 initial={{
-                  scale: 0.8,
                   opacity: 0,
                   rotate: images[selectedImage].format === 'portrait' ? -90 : 0,
                 }}
                 animate={{
-                  scale: 1,
                   opacity: 1,
                   rotate: images[selectedImage].format === 'portrait' ? -90 : 0,
                 }}
                 exit={{
-                  scale: 0.8,
                   opacity: 0,
                   rotate: images[selectedImage].format === 'portrait' ? -90 : 0,
                 }}

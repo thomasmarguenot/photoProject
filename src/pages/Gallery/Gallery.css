@@ -35,7 +35,7 @@
 
 /* Masonry item with alternating portrait/landscape */
 .gallery-item {
-  @apply overflow-hidden rounded-md bg-gray-100 shadow-lg transition-all duration-300 hover:shadow-2xl;
+  @apply overflow-hidden bg-gray-100 shadow-lg transition-all duration-300 hover:shadow-2xl;
   break-inside: avoid;
   cursor: pointer;
 }
