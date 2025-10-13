@@ -259,15 +259,71 @@ export function Button() {
 - Utility file has multiple unrelated functions → Split by domain
 - Test file is too long → Split into multiple test suites
 
-### 9. File Naming Conventions
+### 9. Complex Pages - Modular Structure
+
+**CRITICAL: For complex pages (>150 lines), always split into modular architecture**
+
+When a page becomes complex, organize it as follows:
+
+```
+PageName/
+├── PageName.tsx              # Main orchestrator (simple, <100 lines)
+├── PageName.css              # Page-specific styles
+├── PageName.types.ts         # Shared types for the page
+├── pageNameUtils.ts          # Pure utility functions (testable)
+├── pageNameAnimations.ts     # Framer Motion variants
+├── usePageName.ts            # Custom hook for data/logic
+├── SubComponent1/
+│   ├── SubComponent1.tsx
+│   ├── SubComponent1.types.ts
+│   └── SubComponent1.css (optional)
+└── SubComponent2/
+    ├── SubComponent2.tsx
+    ├── SubComponent2.types.ts
+    └── SubComponent2.css (optional)
+```
+
+**Rules for complex pages:**
+1. **Main page file** should only orchestrate - import and compose subcomponents
+2. **Extract business logic** into utils files or custom hooks
+3. **Separate animations** into dedicated files (variants, transitions)
+4. **Create subcomponents** for distinct UI sections (grid, modal, form, etc.)
+5. **Keep utils pure** - no side effects, easily testable
+6. **Custom hooks** for data fetching, state management, side effects
+
+**Example: Gallery page structure**
+```
+Gallery/
+├── Gallery.tsx               # ~50 lines - orchestrates everything
+├── Gallery.css              # Shared styles
+├── Gallery.types.ts         # ImageData, ImageFormat types
+├── galleryUtils.ts          # loadImages(), mixImages() - pure functions
+├── galleryAnimations.ts     # Framer Motion variants
+├── useGalleryImages.ts      # Hook for loading images
+├── GalleryGrid/
+│   ├── GalleryGrid.tsx      # Grid display logic
+│   └── GalleryGrid.types.ts
+└── Lightbox/
+    ├── Lightbox.tsx         # Lightbox modal
+    └── Lightbox.types.ts
+```
+
+**Benefits:**
+- ✅ Easy to test (pure functions, isolated components)
+- ✅ Easy to understand (single responsibility)
+- ✅ Easy to maintain (small, focused files)
+- ✅ Reusable (components, hooks, utils can be moved)
+
+### 10. File Naming Conventions
 
 - **Components:** PascalCase (`Button.tsx`, `UserProfile.tsx`)
-- **Utilities:** camelCase (`formatters.ts`, `apiHelpers.ts`)
-- **Hooks:** `use` prefix (`useAuth.ts`, `useWindowSize.ts`)
+- **Utilities:** camelCase (`formatters.ts`, `apiHelpers.ts`, `pageNameUtils.ts`)
+- **Hooks:** `use` prefix (`useAuth.ts`, `useWindowSize.ts`, `usePageName.ts`)
 - **Types:** `ComponentName.types.ts` (component-specific) or `[domain].types.ts` (shared types)
 - **CSS:** Match component name (`Button.css`)
+- **Animations:** camelCase with suffix (`pageNameAnimations.ts`, `componentAnimations.ts`)
 
-### 10. Folder Organization
+### 11. Folder Organization
 
 ```
 src/
