@@ -5,29 +5,73 @@ import type { ImageData, ImageFormat } from './Gallery.types';
 import './Gallery.css';
 
 export function Gallery() {
-  const [images, setImages] = useState<ImageData[]>([]);
+  const [images, setImages] = useState<(ImageData & { format: ImageFormat })[]>(
+    []
+  );
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   useEffect(() => {
-    // Dynamically import all webp images from the pictures folder
-    const imageModules = import.meta.glob<{ default: string }>(
-      '@/assets/pictures/*.webp'
+    // Dynamically import images from landscape and portrait folders
+    const landscapeModules = import.meta.glob<{ default: string }>(
+      '@/assets/pictures/landscape/*.webp'
+    );
+    const portraitModules = import.meta.glob<{ default: string }>(
+      '@/assets/pictures/portrait/*.webp'
     );
 
     const loadImages = async () => {
-      const imagePromises = Object.entries(imageModules).map(
+      // Load landscape images
+      const landscapePromises = Object.entries(landscapeModules).map(
         async ([path, importFunc]) => {
           const module = await importFunc();
           const fileName = path.split('/').pop()?.split('.')[0] || 'image';
           return {
             src: module.default,
             alt: fileName.replace(/[-_]/g, ' '),
+            format: 'landscape' as ImageFormat,
           };
         }
       );
 
-      const loadedImages = await Promise.all(imagePromises);
-      setImages(loadedImages);
+      // Load portrait images
+      const portraitPromises = Object.entries(portraitModules).map(
+        async ([path, importFunc]) => {
+          const module = await importFunc();
+          const fileName = path.split('/').pop()?.split('.')[0] || 'image';
+          return {
+            src: module.default,
+            alt: fileName.replace(/[-_]/g, ' '),
+            format: 'portrait' as ImageFormat,
+          };
+        }
+      );
+
+      const [landscapeImages, portraitImages] = await Promise.all([
+        Promise.all(landscapePromises),
+        Promise.all(portraitPromises),
+      ]);
+
+      // Mix landscape and portrait images for visual variety
+      const mixedImages: (ImageData & { format: ImageFormat })[] = [];
+      let landscapeIndex = 0;
+      let portraitIndex = 0;
+
+      // Alternate between landscape and portrait with some variation
+      while (
+        landscapeIndex < landscapeImages.length ||
+        portraitIndex < portraitImages.length
+      ) {
+        // Add 1-2 landscape images
+        for (let i = 0; i < 2 && landscapeIndex < landscapeImages.length; i++) {
+          mixedImages.push(landscapeImages[landscapeIndex++]);
+        }
+        // Add 1 portrait image
+        if (portraitIndex < portraitImages.length) {
+          mixedImages.push(portraitImages[portraitIndex++]);
+        }
+      }
+
+      setImages(mixedImages);
     };
 
     loadImages();
@@ -44,21 +88,6 @@ export function Gallery() {
     window.addEventListener('keydown', handleEscape);
     return () => window.removeEventListener('keydown', handleEscape);
   }, [selectedImage]);
-
-  // Determine image format based on index for alternating pattern
-  const getImageFormat = (index: number): ImageFormat => {
-    const patterns: ImageFormat[] = [
-      'portrait',
-      'landscape',
-      'landscape',
-      'portrait',
-      'large',
-      'landscape',
-      'portrait',
-      'landscape',
-    ];
-    return patterns[index % patterns.length];
-  };
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -85,18 +114,6 @@ export function Gallery() {
   return (
     <div className="gallery">
       <div className="gallery-container">
-        <motion.header
-          className="gallery-header"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h1 className="gallery-title">Photo Gallery</h1>
-          <p className="gallery-subtitle">
-            A modern masonry layout showcasing beautiful photography
-          </p>
-        </motion.header>
-
         {images.length === 0 ? (
           <div className="gallery-empty">
             <p>No images found. Add images to src/assets/pictures/</p>
@@ -108,24 +125,21 @@ export function Gallery() {
             initial="hidden"
             animate="visible"
           >
-            {images.map((image, index) => {
-              const format = getImageFormat(index);
-              return (
-                <motion.div
-                  key={index}
-                  className={`gallery-item ${format}`}
-                  variants={itemVariants}
-                  onClick={() => setSelectedImage(index)}
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="gallery-image"
-                    loading="lazy"
-                  />
-                </motion.div>
-              );
-            })}
+            {images.map((image, index) => (
+              <motion.div
+                key={index}
+                className={`gallery-item ${image.format}`}
+                variants={itemVariants}
+                onClick={() => setSelectedImage(index)}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="gallery-image"
+                  loading="lazy"
+                />
+              </motion.div>
+            ))}
           </motion.div>
         )}
       </div>
@@ -149,10 +163,22 @@ export function Gallery() {
                 key={selectedImage}
                 src={images[selectedImage].src}
                 alt={images[selectedImage].alt}
-                className="lightbox-image"
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.8, opacity: 0 }}
+                className={`lightbox-image ${images[selectedImage].format}`}
+                initial={{
+                  scale: 0.8,
+                  opacity: 0,
+                  rotate: images[selectedImage].format === 'portrait' ? -90 : 0,
+                }}
+                animate={{
+                  scale: 1,
+                  opacity: 1,
+                  rotate: images[selectedImage].format === 'portrait' ? -90 : 0,
+                }}
+                exit={{
+                  scale: 0.8,
+                  opacity: 0,
+                  rotate: images[selectedImage].format === 'portrait' ? -90 : 0,
+                }}
                 transition={{ duration: 0.4 }}
               />
               <button
