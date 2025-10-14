@@ -61,6 +61,18 @@
   --header-blur: 20px;
   --header-link-size: 15px;
   --header-link-weight: 600;
+  
+  /* Footer specific */
+  --footer-width: 80%;
+  --footer-max-width: 1600px;
+  --footer-radius: 16px;
+  --footer-bottom: 2rem;
+  --footer-bg: rgba(255, 255, 255, 0.5);
+  --footer-border: rgba(0, 0, 0, 0.06);
+  --footer-blur: 20px;
+  --footer-text-size: 15px;
+  --footer-link-size: 15px;
+  --footer-link-weight: 600;
 }
 
 *,

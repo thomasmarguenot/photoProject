@@ -1,16 +1,15 @@
 @reference "../../../index.css";
 
 .footer {
-  @apply mt-auto;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-  color: var(--color-text);
+  @apply mx-auto border-t transition-all duration-300 ease-in-out;
+  @apply w-[var(--footer-width)] max-w-[var(--footer-max-width)];
+  @apply rounded-[var(--footer-radius)];
+  @apply bg-[var(--footer-bg)] backdrop-blur-[var(--footer-blur)];
+  @apply border-[var(--footer-border)];
 }
 
 .footer-container {
-  @apply max-w-[1400px] mx-auto px-6 py-12;
+  @apply px-6 py-5;
 }
 
 .footer-content {
@@ -18,9 +17,9 @@
 }
 
 .footer-text {
+  @apply tracking-[-0.01em];
+  @apply text-[var(--footer-text-size)];
   color: var(--color-text-secondary);
-  font-size: 15px;
-  letter-spacing: -0.01em;
 }
 
 .footer-links {
@@ -28,14 +27,24 @@
 }
 
 .footer-link {
-  @apply transition-all;
-  color: var(--color-text-secondary);
-  font-size: 15px;
-  letter-spacing: -0.01em;
+  @apply tracking-[-0.01em] transition-all relative;
+  @apply text-[var(--footer-link-size)] font-[var(--footer-link-weight)];
+  color: var(--color-text);
 }
 
 .footer-link:hover {
   color: var(--color-accent);
+}
+
+.footer-link::after {
+  @apply content-[''] absolute -bottom-1 left-0 right-0 h-0.5;
+  @apply scale-x-0 transition-transform duration-300;
+  background: var(--color-accent);
+  transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.footer-link:hover::after {
+  @apply scale-x-100;
 }
 
 @media (min-width: 1024px) {
