@@ -1,37 +1,77 @@
 @reference "../../index.css";
 
 .home {
-  @apply py-12;
+  @apply py-20;
+  background: var(--color-bg);
+  min-height: calc(100vh - 200px);
 }
 
 .home-container {
-  @apply max-w-7xl mx-auto px-4;
+  @apply max-w-[1400px] mx-auto px-6;
 }
 
 .home-hero {
-  @apply text-center mb-16;
+  @apply text-center mb-20;
 }
 
 .home-title {
-  @apply text-5xl font-bold text-gray-900 mb-4;
+  @apply text-7xl font-semibold mb-6;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 .home-subtitle {
-  @apply text-xl text-gray-600;
+  @apply text-2xl font-normal;
+  color: var(--color-text-secondary);
+  letter-spacing: -0.01em;
 }
 
 .home-features {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8;
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4;
+  gap: var(--spacing-lg);
 }
 
 .feature-card {
-  @apply bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow;
+  @apply p-8 transition-all duration-500 ease-out;
+  
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  
+  cursor: default;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--glass-shadow-hover);
+  border-color: rgba(255, 255, 255, 0.5);
+  background: var(--glass-bg-dark);
 }
 
 .feature-title {
-  @apply text-xl font-semibold text-gray-900 mb-3;
+  @apply text-xl font-semibold mb-4;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
 }
 
 .feature-description {
-  @apply text-gray-600;
+  color: var(--color-text-secondary);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 1024px) {
+  .home-container {
+    @apply px-12;
+  }
+  
+  .home-features {
+    gap: var(--spacing-xl);
+  }
 }

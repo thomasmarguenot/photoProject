@@ -1,17 +1,41 @@
 @reference "../../index.css";
 
 .about {
-  @apply py-12;
+  @apply py-20;
+  background: var(--color-bg);
+  min-height: calc(100vh - 200px);
 }
 
 .about-container {
-  @apply max-w-4xl mx-auto px-4;
+  @apply max-w-4xl mx-auto px-6;
+  
+  /* Liquid glass card */
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  
+  padding: var(--spacing-xl);
 }
 
 .about-title {
-  @apply text-4xl font-bold text-gray-900 mb-6;
+  @apply text-5xl font-semibold mb-8;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
 }
 
 .about-text {
-  @apply text-lg text-gray-700 mb-4;
+  @apply text-lg mb-6;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 1024px) {
+  .about-container {
+    @apply px-12 py-16;
+  }
 }

@@ -29,20 +29,23 @@ export function Lightbox({ image, onClose }: LightboxProps) {
       initial="hidden"
       animate="visible"
       exit="exit"
-      transition={{ duration: 0.3 }}
       onClick={onClose}
     >
       <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-        <motion.img
-          src={image.src}
-          alt={image.alt}
-          className={`lightbox-image ${image.format}`}
+        <motion.div
+          className="lightbox-image-wrapper"
           variants={imageVariants}
           initial="hidden"
           animate="visible"
           exit="exit"
-          transition={{ duration: 0.4 }}
-        />
+        >
+          <img
+            src={image.src}
+            alt={image.alt}
+            className={`lightbox-image ${image.format}`}
+          />
+        </motion.div>
+
         <button
           className="lightbox-close"
           onClick={onClose}

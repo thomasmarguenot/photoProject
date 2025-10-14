@@ -1,47 +1,19 @@
 @reference "../../../index.css";
 
 .header {
-  @apply bg-white relative;
-  overflow: hidden;
-}
-
-/* Animated borders - horizontal lines growing from center */
-.header::before,
-.header::after {
-  content: '';
-  position: absolute;
-  background-color: black;
-  z-index: 1;
-}
-
-/* Top and bottom borders */
-.header::before {
-  top: 0;
-  left: 50%;
-  right: 50%;
-  height: 1px;
-  animation: expandHorizontal 1.2s ease-out forwards;
-}
-
-.header::after {
-  bottom: 0;
-  left: 50%;
-  right: 50%;
-  height: 1px;
-  animation: expandHorizontal 1.2s ease-out forwards;
-}
-
-@keyframes expandHorizontal {
-  to {
-    left: 0;
-    right: 0;
-  }
+  @apply relative;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 2rem;
+  z-index: 100;
+  transition: all 0.3s ease;
 }
 
 .header-container {
-  @apply max-w-7xl mx-auto px-4 py-4 flex items-center justify-between;
-  position: relative;
-  z-index: 2;
+  @apply max-w-[1400px] mx-auto px-6 py-5 flex items-center justify-between;
 }
 
 .header-logo {
@@ -49,11 +21,10 @@
 }
 
 .header-title {
-  @apply text-2xl font-bold no-underline transition-colors;
-  font-family: 'Zen Maru Gothic', sans-serif;
-  color: black;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  @apply text-2xl font-semibold no-underline transition-opacity;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  font-weight: 600;
 }
 
 .header-title:hover {
@@ -61,14 +32,39 @@
 }
 
 .header-nav {
-  @apply flex gap-6;
+  @apply flex gap-8;
 }
 
 .header-link {
-  @apply font-medium transition-colors;
-  color: black;
+  @apply font-medium transition-all;
+  color: var(--color-text);
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  position: relative;
 }
 
 .header-link:hover {
-  @apply opacity-70;
+  color: var(--color-accent);
+}
+
+.header-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.header-link:hover::after {
+  transform: scaleX(1);
+}
+
+@media (min-width: 1024px) {
+  .header-container {
+    @apply px-12;
+  }
 }
