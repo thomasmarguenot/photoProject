@@ -2,6 +2,23 @@ import { useState, useEffect } from 'react';
 
 import type { ImageData } from './Gallery.types';
 
+// Load real image dimensions
+function loadImageDimensions(
+  src: string
+): Promise<{ width: number; height: number }> {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      resolve({ width: img.naturalWidth, height: img.naturalHeight });
+    };
+    img.onerror = () => {
+      // Fallback to default landscape dimensions if loading fails
+      resolve({ width: 1200, height: 800 });
+    };
+    img.src = src;
+  });
+}
+
 export function useGalleryImages() {
   const [images, setImages] = useState<ImageData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -16,21 +33,24 @@ export function useGalleryImages() {
     const loadImages = async () => {
       setIsLoading(true);
 
-      const loadedImages = Object.entries(imageModules).map(
-        ([path, module]) => {
+      const imagePromises = Object.entries(imageModules).map(
+        async ([path, module]) => {
           const fileName = path.split('/').pop()?.split('.')[0] || 'image';
-          const isPortrait = path.includes('/portrait/');
+          const src = module.default;
+
+          // Load real dimensions
+          const dimensions = await loadImageDimensions(src);
 
           return {
-            src: module.default,
+            src,
             alt: fileName.replace(/[-_]/g, ' '),
-            // Provide default dimensions based on orientation to prevent CLS
-            width: isPortrait ? 800 : 1200,
-            height: isPortrait ? 1200 : 800,
+            width: dimensions.width,
+            height: dimensions.height,
           };
         }
       );
 
+      const loadedImages = await Promise.all(imagePromises);
       setImages(loadedImages);
       setIsLoading(false);
     };

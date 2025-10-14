@@ -53,6 +53,12 @@ export function GalleryGrid({
         const offset =
           isSelected && shouldExpand ? centerOffset : { x: 0, y: 0 };
 
+        // Calculate appropriate scale based on image orientation
+        // Portrait: height > width (use smaller scale to fit screen)
+        // Landscape: width > height (use larger scale)
+        const isPortrait = (image.height || 800) > (image.width || 1200);
+        const expandScale = isPortrait ? 1.8 : 2.4;
+
         return (
           <motion.div
             key={`${image.src}-${index}`}
@@ -68,7 +74,7 @@ export function GalleryGrid({
                 : isSelected && shouldExpand
                   ? {
                       opacity: 1,
-                      scale: 2.4,
+                      scale: expandScale,
                       x: offset.x,
                       y: offset.y,
                       zIndex: 150,
