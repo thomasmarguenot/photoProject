@@ -66,6 +66,35 @@ export function Button() {
 - `@reference` directive MUST use relative paths (not aliases)
 - Always add `@reference` at the top of CSS files using `@apply`
 
+**Using CSS Variables with Tailwind:**
+
+For reusable values, define CSS variables in `index.css` and use them with Tailwind's bracket notation:
+
+```css
+/* index.css - Define variables */
+:root {
+  --header-width: 80%;
+  --header-max-width: 1600px;
+  --header-radius: 16px;
+}
+```
+
+```css
+/* Component.css - Use variables with @apply */
+@reference "../../../index.css";
+
+.header {
+  @apply w-[var(--header-width)] max-w-[var(--header-max-width)];
+  @apply rounded-[var(--header-radius)];
+}
+```
+
+**Benefits:**
+- ✅ Centralized design tokens
+- ✅ Easy global changes
+- ✅ Full Tailwind with reusable values
+- ✅ Type-safe with CSS variables
+
 ### 3. React Router - Lazy Loading Required
 
 ```typescript

@@ -1,19 +1,16 @@
 @reference "../../../index.css";
 
 .header {
-  @apply relative;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  position: sticky;
-  top: 2rem;
-  z-index: 100;
-  transition: all 0.3s ease;
+  @apply mx-auto sticky border-b transition-all duration-300 ease-in-out;
+  @apply top-[var(--header-top)] z-[var(--header-z-index)];
+  @apply w-[var(--header-width)] max-w-[var(--header-max-width)];
+  @apply rounded-[var(--header-radius)];
+  @apply bg-[var(--header-bg)] backdrop-blur-[var(--header-blur)];
+  @apply border-[var(--header-border)];
 }
 
 .header-container {
-  @apply max-w-[1400px] mx-auto px-6 py-5 flex items-center justify-between;
+  @apply px-6 py-5 flex items-center justify-between;
 }
 
 .header-logo {
@@ -22,9 +19,8 @@
 
 .header-title {
   @apply text-2xl font-semibold no-underline transition-opacity;
+  @apply tracking-[-0.02em];
   color: var(--color-text);
-  letter-spacing: -0.02em;
-  font-weight: 600;
 }
 
 .header-title:hover {
@@ -36,11 +32,8 @@
 }
 
 .header-link {
-  @apply font-medium transition-all;
+  @apply font-medium text-[17px] tracking-[-0.01em] transition-all relative;
   color: var(--color-text);
-  font-size: 17px;
-  letter-spacing: -0.01em;
-  position: relative;
 }
 
 .header-link:hover {
@@ -48,19 +41,14 @@
 }
 
 .header-link::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 2px;
+  @apply content-[''] absolute -bottom-1 left-0 right-0 h-0.5;
+  @apply scale-x-0 transition-transform duration-300;
   background: var(--color-accent);
-  transform: scaleX(0);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .header-link:hover::after {
-  transform: scaleX(1);
+  @apply scale-x-100;
 }
 
 @media (min-width: 1024px) {

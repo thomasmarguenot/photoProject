@@ -1,5 +1,18 @@
 @import 'tailwindcss';
 
+@theme {
+  /* Header dimensions */
+  --width-header: 80%;
+  --width-header-max: 1600px;
+  --radius-header: 16px;
+  --spacing-header-top: 2rem;
+  --z-header: 100;
+  
+  /* Header colors */
+  --color-header-bg: rgb(255 255 255 / 0.8);
+  --color-header-border: rgb(0 0 0 / 0.06);
+}
+
 :root {
   /* Apple SF Pro Typography */
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
@@ -36,6 +49,16 @@
   --color-text-secondary: #86868b;
   --color-accent: #0071e3;
   --color-accent-hover: #0077ed;
+  
+  /* Header specific */
+  --header-width: 80%;
+  --header-max-width: 1600px;
+  --header-radius: 16px;
+  --header-top: 2rem;
+  --header-z-index: 100;
+  --header-bg: rgba(255, 255, 255, 0.8);
+  --header-border: rgba(0, 0, 0, 0.06);
+  --header-blur: 20px;
 }
 
 *,
