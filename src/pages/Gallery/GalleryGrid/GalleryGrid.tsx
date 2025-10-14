@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
-import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
 import {
   ANIMATION_DURATION,
@@ -42,60 +41,62 @@ export function GalleryGrid({
   }, [selectedIndex, shouldExpand]);
 
   return (
-    <motion.div variants={containerVariants} initial="hidden" animate="visible">
-      <ResponsiveMasonry
-        columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
-        gutterBreakPoints={{ 350: '12px', 750: '24px', 900: '36px' }}
-      >
-        <Masonry gutter="1.5rem" columnsCount={3}>
-          {images.map((image, index) => {
-            const isSelected = index === selectedIndex;
-            const shouldHide = isLightboxOpen && !isSelected;
-            const offset =
-              isSelected && shouldExpand ? centerOffset : { x: 0, y: 0 };
+    <motion.div
+      className="gallery-grid"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      {images.map((image, index) => {
+        const isSelected = index === selectedIndex;
+        const shouldHide = isLightboxOpen && !isSelected;
+        const offset =
+          isSelected && shouldExpand ? centerOffset : { x: 0, y: 0 };
 
-            return (
-              <motion.div
-                key={`${image.src}-${index}`}
-                ref={(el) => {
-                  itemRefs.current[index] = el;
-                }}
-                className={`gallery-item ${isSelected && shouldExpand ? 'expanded-item' : ''}`}
-                variants={itemVariants}
-                initial="visible"
-                animate={
-                  shouldHide
-                    ? 'hidden'
-                    : isSelected && shouldExpand
-                      ? {
-                          opacity: 1,
-                          scale: 2.4,
-                          x: offset.x,
-                          y: offset.y,
-                          zIndex: 150,
-                        }
-                      : 'visible'
-                }
-                onClick={() => !isLightboxOpen && onImageClick(index)}
-                transition={{
-                  duration: ANIMATION_DURATION,
-                  ease: ANIMATION_EASING,
-                }}
-                style={{
-                  pointerEvents: shouldHide ? 'none' : 'auto',
-                }}
-              >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="gallery-image"
-                  loading="lazy"
-                />
-              </motion.div>
-            );
-          })}
-        </Masonry>
-      </ResponsiveMasonry>
+        return (
+          <motion.div
+            key={`${image.src}-${index}`}
+            ref={(el) => {
+              itemRefs.current[index] = el;
+            }}
+            className={`gallery-item ${isSelected && shouldExpand ? 'expanded-item' : ''}`}
+            variants={itemVariants}
+            initial="visible"
+            animate={
+              shouldHide
+                ? 'hidden'
+                : isSelected && shouldExpand
+                  ? {
+                      opacity: 1,
+                      scale: 2.4,
+                      x: offset.x,
+                      y: offset.y,
+                      zIndex: 150,
+                    }
+                  : 'visible'
+            }
+            onClick={() => !isLightboxOpen && onImageClick(index)}
+            transition={{
+              duration: ANIMATION_DURATION,
+              ease: ANIMATION_EASING,
+            }}
+            style={{
+              pointerEvents: shouldHide ? 'none' : 'auto',
+            }}
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              className="gallery-image"
+              loading={index < 6 ? 'eager' : 'lazy'}
+              fetchPriority={index === 0 ? 'high' : 'auto'}
+              width={image.width || 1200}
+              height={image.height || 800}
+              decoding="async"
+            />
+          </motion.div>
+        );
+      })}
     </motion.div>
   );
 }

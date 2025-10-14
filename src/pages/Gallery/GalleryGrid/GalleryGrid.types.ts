@@ -1,5 +1,7 @@
+import type { ImageData } from '../Gallery.types';
+
 export interface GalleryGridProps {
-  images: Array<{ src: string; alt: string }>;
+  images: ImageData[];
   onImageClick: (index: number) => void;
   selectedIndex: number | null;
   isLightboxOpen: boolean;

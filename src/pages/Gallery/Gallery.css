@@ -29,6 +29,65 @@
   color: var(--color-text-secondary);
 }
 
+/* CSS Grid Masonry Layout - Native implementation */
+.gallery-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: masonry;
+  align-items: start;
+}
+
+/* Fallback using CSS columns for browsers without masonry support */
+@supports not (grid-template-rows: masonry) {
+  .gallery-grid {
+    /* CSS columns create natural masonry effect */
+    display: block;
+    column-count: 3;
+    column-gap: 1.5rem;
+  }
+  
+  .gallery-item {
+    /* Prevent items from breaking across columns */
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+/* Responsive breakpoints for grid columns */
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  @supports not (grid-template-rows: masonry) {
+    .gallery-grid {
+      column-count: 2;
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  @supports not (grid-template-rows: masonry) {
+    .gallery-grid {
+      column-count: 1;
+      column-gap: 0.75rem;
+    }
+    
+    .gallery-item {
+      margin-bottom: 0.75rem;
+    }
+  }
+}
+
 /* Liquid Glass Item - effet frosted glass */
 .gallery-item {
   @apply relative overflow-hidden;
@@ -41,7 +100,6 @@
   box-shadow: var(--glass-shadow);
   
   cursor: pointer;
-  height: auto;
   
   /* Smooth transitions uniquement pour border et shadow */
   transition: 
@@ -63,10 +121,15 @@
 
 /* Image styling - clean and simple */
 .gallery-image {
-  @apply h-full w-full object-cover;
+  @apply w-full object-cover;
   display: block;
   transition: transform 0.4s ease-out;
   border-radius: 8px;
+  /* Explicit height: auto to maintain aspect ratio with width/height attributes */
+  height: auto !important;
+  /* Prevent layout shift by ensuring contain-intrinsic-size */
+  content-visibility: auto;
+  contain-intrinsic-size: 1200px 800px;
 }
 
 /* Zoom interne de l'image au hover - sauf si expanded */
