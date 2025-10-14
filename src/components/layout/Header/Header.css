@@ -27,13 +27,39 @@ body.lightbox-open .header {
 }
 
 .header-title {
-  @apply text-2xl font-semibold no-underline transition-opacity;
+  @apply text-2xl font-semibold no-underline;
   @apply tracking-[-0.02em];
-  color: var(--color-text);
+  background-image: linear-gradient(
+    90deg,
+    #000000 0,
+    #000000 33.33%,
+    #c679c4 40%,
+    #fa3d1d 45%,
+    #ffb005 50%,
+    #e1e1fe 55%,
+    #0358f7 60%,
+    transparent 66.67%,
+    transparent
+  );
+  background-size: 300% 100%;
+  background-position: 100% 0;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: header-title-reveal var(--header-title-animation-duration) ease-in-out forwards;
 }
 
 .header-title:hover {
-  @apply opacity-70;
+  animation-play-state: paused;
+}
+
+@keyframes header-title-reveal {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
 }
 
 .header-nav {

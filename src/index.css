@@ -67,6 +67,9 @@
   --header-link-size: 15px;
   --header-link-weight: 600;
   
+  /* Header title animation */
+  --header-title-animation-duration: 2.5s;
+  
   /* Footer specific */
   --footer-width: 80%;
   --footer-max-width: 1600px;
