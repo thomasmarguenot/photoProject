@@ -120,6 +120,36 @@ export function Button() {
 - ✅ Type-safe with CSS variables
 - ✅ Reusable values across components
 
+**Page Width Management:**
+
+**Standard pages (Home, About, etc.):**
+```css
+.page-container {
+  @apply mx-auto w-full px-6;
+  max-width: var(--page-max-width); /* 1600px */
+}
+```
+
+**Gallery page (full width exception):**
+```css
+.gallery-container {
+  @apply w-full px-20; /* No max-width - takes full screen width */
+}
+```
+
+**Header and Footer:**
+```css
+.header {
+  @apply w-[var(--header-width)] max-w-[var(--header-max-width)]; /* 80% max 1600px */
+  @apply mx-auto; /* Centered */
+}
+```
+
+**Rules:**
+- ✅ Standard pages: max-width 1600px, centered
+- ✅ Gallery: 100% width with padding, no max-width
+- ✅ Header/Footer: 80% width (max 1600px), centered
+
 ### 3. React Router - Lazy Loading Required
 
 ```typescript

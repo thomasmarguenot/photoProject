@@ -1,13 +1,14 @@
 @reference "../../index.css";
 
 .about {
-  @apply py-20;
+  @apply py-20 w-full;
   background: var(--color-bg);
   min-height: calc(100vh - 200px);
 }
 
 .about-container {
-  @apply max-w-4xl mx-auto px-6;
+  @apply mx-auto px-6;
+  max-width: var(--page-max-width);
   
   /* Liquid glass card */
   background: var(--glass-bg);

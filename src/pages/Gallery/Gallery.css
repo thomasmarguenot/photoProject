@@ -1,12 +1,12 @@
 @reference "../../index.css";
 
 .gallery {
-  @apply min-h-screen py-16;
+  @apply min-h-screen py-16 w-full;
   background: var(--color-bg);
 }
 
 .gallery-container {
-  @apply mx-auto max-w-[1400px] px-6;
+  @apply w-full px-20;
 }
 
 .gallery-header {

@@ -1,13 +1,14 @@
 @reference "../../index.css";
 
 .home {
-  @apply py-20;
+  @apply py-20 w-full;
   background: var(--color-bg);
   min-height: calc(100vh - 200px);
 }
 
 .home-container {
-  @apply max-w-[1400px] mx-auto px-6;
+  @apply mx-auto w-full px-6;
+  max-width: var(--page-max-width);
 }
 
 .home-hero {

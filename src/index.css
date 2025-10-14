@@ -52,7 +52,7 @@
   
   /* Header specific */
   --header-width: 80%;
-  --header-max-width: 1600px;
+  --header-max-width: 800px;
   --header-radius: 16px;
   --header-top: 2rem;
   --header-z-index: 100;
@@ -73,6 +73,13 @@
   --footer-text-size: 15px;
   --footer-link-size: 15px;
   --footer-link-weight: 600;
+  
+  /* Gallery specific */
+  --gallery-padding: 80px;
+  --gallery-gap: 80px;
+  
+  /* Page content (for all pages except gallery) */
+  --page-max-width: 1600px;
 }
 
 *,
@@ -85,10 +92,12 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  width: 100%;
   background: var(--color-bg);
   color: var(--color-text);
 }
 
 #root {
   min-height: 100vh;
+  width: 100%;
 }

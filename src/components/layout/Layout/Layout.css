@@ -1,9 +1,21 @@
 @reference "../../../index.css";
 
 .layout {
-  @apply min-h-screen flex flex-col;
+  @apply min-h-screen flex flex-col w-full;
 }
 
 .layout-main {
-  @apply flex-1;
+  @apply flex-1 w-full;
+}
+
+/* Container for standard pages (not gallery) */
+.page-container {
+  @apply mx-auto w-full px-6;
+  max-width: var(--page-max-width);
+}
+
+@media (min-width: 1024px) {
+  .page-container {
+    @apply px-12;
+  }
 }

@@ -1,11 +1,12 @@
 @reference "../../index.css";
 
 .not-found {
-  @apply min-h-screen flex items-center justify-center py-12;
+  @apply min-h-screen flex items-center justify-center py-12 w-full;
 }
 
 .not-found-container {
-  @apply text-center;
+  @apply text-center mx-auto px-6;
+  max-width: var(--page-max-width);
 }
 
 .not-found-title {
