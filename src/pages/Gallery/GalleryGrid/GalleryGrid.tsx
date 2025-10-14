@@ -2,7 +2,12 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
-import { containerVariants, itemVariants } from '../galleryAnimations';
+import {
+  ANIMATION_DURATION,
+  ANIMATION_EASING,
+  containerVariants,
+  itemVariants,
+} from '../galleryAnimations';
 import type { GalleryGridProps } from './GalleryGrid.types';
 
 export function GalleryGrid({
@@ -73,8 +78,8 @@ export function GalleryGrid({
                 }
                 onClick={() => !isLightboxOpen && onImageClick(index)}
                 transition={{
-                  duration: 0.8,
-                  ease: [0.34, 1.56, 0.64, 1],
+                  duration: ANIMATION_DURATION,
+                  ease: ANIMATION_EASING,
                 }}
                 style={{
                   pointerEvents: shouldHide ? 'none' : 'auto',

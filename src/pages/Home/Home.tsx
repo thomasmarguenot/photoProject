@@ -1,5 +1,7 @@
 import { motion, type Variants } from 'framer-motion';
 
+import { ANIMATION } from '@/utils/constants';
+
 import './Home.css';
 
 export function Home() {
@@ -20,7 +22,7 @@ export function Home() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
+        duration: ANIMATION.DURATION,
       },
     },
   };
@@ -32,7 +34,7 @@ export function Home() {
       scale: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: ANIMATION.DURATION,
       },
     },
   };

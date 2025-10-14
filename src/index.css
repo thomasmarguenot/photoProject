@@ -33,6 +33,11 @@
   --glass-blur: 20px;
   --glass-blur-strong: 40px;
   
+  /* Animation */
+  --animation-duration: 0.6s;
+  --animation-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --animation-easing-smooth: cubic-bezier(0.32, 0.72, 0, 1);
+  
   /* Spacing & Borders */
   --border-radius-sm: 16px;
   --border-radius-md: 24px;

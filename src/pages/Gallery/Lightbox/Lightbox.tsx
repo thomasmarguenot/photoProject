@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 
+import { ANIMATION } from '@/utils/constants';
+
 import type { LightboxProps } from './Lightbox.types';
 
 export function Lightbox({ onClose }: LightboxProps) {
@@ -21,7 +23,7 @@ export function Lightbox({ onClose }: LightboxProps) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: ANIMATION.DURATION }}
       onClick={onClose}
     >
       <button

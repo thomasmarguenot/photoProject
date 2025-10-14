@@ -17,7 +17,47 @@ PhotoProject is a modern React application built with:
 
 ## Critical Rules
 
-### 1. Path Aliases - ALWAYS Use Absolute Imports
+### 1. Code Comments - English Only, Minimal and Meaningful
+
+**CRITICAL: All comments must be in English and provide real value**
+
+```typescript
+// ✅ CORRECT - Meaningful English comments
+// Prevent scroll during lightbox animation
+document.body.style.overflow = 'hidden';
+
+// Calculate center offset for smooth image transition
+const centerX = window.innerWidth / 2;
+```
+
+```typescript
+// ❌ WRONG - French comments
+// Désactiver le scroll
+document.body.style.overflow = 'hidden';
+
+// ❌ WRONG - Obvious/useless comments
+// Set state to true
+setShouldExpand(true);
+
+// ❌ WRONG - Redundant comments
+// Handle image click
+const handleImageClick = (index: number) => {
+  setSelectedImage(index);
+};
+```
+
+**When to comment:**
+- ✅ Complex algorithms or business logic
+- ✅ Non-obvious workarounds or edge cases
+- ✅ Performance optimizations
+- ✅ External API quirks or requirements
+
+**When NOT to comment:**
+- ❌ Self-explanatory code (function names, variable names)
+- ❌ Obvious operations (setState, return, etc.)
+- ❌ Translating code to natural language
+
+### 2. Path Aliases - ALWAYS Use Absolute Imports
 
 ```typescript
 // ✅ CORRECT - Use path aliases
@@ -41,7 +81,7 @@ import { useAuth } from '../hooks/useAuth';
 - `@/types/*` → `src/types/*`
 - `@/assets/*` → `src/assets/*`
 
-### 2. Tailwind CSS - Use @apply in Separate Files
+### 3. Tailwind CSS - Use @apply in Separate Files
 
 ```css
 /* ✅ CORRECT - CSS file with @apply */
@@ -150,7 +190,7 @@ export function Button() {
 - ✅ Gallery: 100% width with padding, no max-width
 - ✅ Header/Footer: 80% width (max 1600px), centered
 
-### 3. React Router - Lazy Loading Required
+### 4. React Router - Lazy Loading Required
 
 ```typescript
 // ✅ CORRECT - Lazy loaded routes
@@ -184,7 +224,7 @@ export function Layout() {
 }
 ```
 
-### 4. Navigation - Use Link, Not <a>
+### 5. Navigation - Use Link, Not <a>
 
 ```tsx
 // ✅ CORRECT - React Router Link
@@ -195,7 +235,7 @@ import { Link } from 'react-router-dom';
 <a href="/about">About</a>
 ```
 
-### 5. Component Structure
+### 6. Component Structure
 
 **CRITICAL: NO index.ts files - Always import directly from component files**
 
@@ -243,7 +283,7 @@ import { Button } from '@/components/common/Button';
 const Home = lazy(() => import('@/pages/Home'));
 ```
 
-### 6. Import Order (Enforced by ESLint)
+### 7. Import Order (Enforced by ESLint)
 
 ```typescript
 // 1. External dependencies
@@ -261,7 +301,7 @@ import type { Props } from './Component.types';
 import './Component.css';
 ```
 
-### 7. TypeScript - Strict Mode
+### 8. TypeScript - Strict Mode
 
 - Always define types/interfaces
 - Use `type` for unions, `interface` for objects
@@ -285,7 +325,7 @@ export function Button({
 }
 ```
 
-### 8. File Separation and Organization - Keep Files Small and Focused
+### 9. File Separation and Organization - Keep Files Small and Focused
 
 **CRITICAL: Always separate types/interfaces into dedicated `ComponentName.types.ts` files**
 
@@ -343,7 +383,7 @@ export function Button() {
 - Utility file has multiple unrelated functions → Split by domain
 - Test file is too long → Split into multiple test suites
 
-### 9. Complex Pages - Modular Structure
+### 10. Complex Pages - Modular Structure
 
 **CRITICAL: For complex pages (>150 lines), always split into modular architecture**
 
@@ -398,7 +438,7 @@ Gallery/
 - ✅ Easy to maintain (small, focused files)
 - ✅ Reusable (components, hooks, utils can be moved)
 
-### 10. File Naming Conventions
+### 11. File Naming Conventions
 
 - **Components:** PascalCase (`Button.tsx`, `UserProfile.tsx`)
 - **Utilities:** camelCase (`formatters.ts`, `apiHelpers.ts`, `pageNameUtils.ts`)
@@ -407,7 +447,7 @@ Gallery/
 - **CSS:** Match component name (`Button.css`)
 - **Animations:** camelCase with suffix (`pageNameAnimations.ts`, `componentAnimations.ts`)
 
-### 11. Folder Organization
+### 12. Folder Organization
 
 ```
 src/
@@ -417,20 +457,91 @@ src/
 ├── pages/               # Page components (one per route)
 ├── hooks/               # Custom React hooks
 ├── services/            # API calls and services
-├── utils/               # Utility functions
+├── utils/               # Utility functions and global constants
 ├── types/               # Shared TypeScript types
 ├── assets/              # Images, icons, fonts
 └── router.tsx           # Route configuration
 ```
 
-### 11. Code Quality
+### 13. Global Constants - Single Source of Truth
+
+**CRITICAL: All shared constants must be defined in `src/utils/constants.ts`**
+
+This file serves as the single source of truth for all application-wide constants:
+
+```typescript
+// ✅ CORRECT - Define in src/utils/constants.ts
+export const ANIMATION = {
+  DURATION: 0.6,
+  EASING: [0.25, 0.46, 0.45, 0.94] as const,
+  EASING_SMOOTH: [0.32, 0.72, 0, 1] as const,
+} as const;
+
+export const ROUTES = {
+  HOME: '/',
+  ABOUT: '/about',
+  GALLERY: '/gallery',
+} as const;
+```
+
+```typescript
+// ✅ CORRECT - Import and use in components/pages
+import { ANIMATION } from '@/utils/constants';
+
+const transition = {
+  duration: ANIMATION.DURATION,
+  ease: ANIMATION.EASING,
+};
+```
+
+```typescript
+// ❌ WRONG - Don't hardcode values
+const transition = {
+  duration: 0.6,
+  ease: [0.25, 0.46, 0.45, 0.94],
+};
+
+// ❌ WRONG - Don't define constants locally
+const ANIMATION_DURATION = 0.6;
+```
+
+**What belongs in constants.ts:**
+- ✅ Animation timings and easing functions
+- ✅ Route paths
+- ✅ API endpoints
+- ✅ Breakpoints (if not using Tailwind)
+- ✅ Application-wide configuration values
+- ✅ Feature flags
+- ✅ Magic numbers used across multiple files
+
+**What does NOT belong in constants.ts:**
+- ❌ Component-specific values (keep in component file)
+- ❌ CSS variables (define in `index.css`)
+- ❌ Types/interfaces (use `types/` folder)
+- ❌ Functions (use appropriate utility files)
+
+**CSS Variables synchronization:**
+
+When defining animation constants, also define corresponding CSS variables in `index.css`:
+
+```css
+/* index.css */
+:root {
+  --animation-duration: 0.6s;
+  --animation-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+```
+
+This ensures consistency between JavaScript animations (Framer Motion) and CSS transitions.
+
+### 14. Code Quality
 
 - Run `pnpm run lint:fix` before committing
 - Husky pre-commit hooks will auto-format code
 - Commitlint ensures conventional commits format
 - All code must pass: `pnpm run typecheck`, `pnpm run lint`, `pnpm build`
 
-### 12. Conventional Commits
+### 15. Conventional Commits
 
 All commits must follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
 
@@ -471,7 +582,7 @@ feat!: change API response structure (breaking change)
 - Rejects commits that don't follow the format
 - Ensures consistent commit history for semantic-release
 
-### 13. Testing with Vitest
+### 16. Testing with Vitest
 
 All code should be tested using **Vitest** and **React Testing Library**:
 
@@ -530,7 +641,7 @@ describe('useCounter', () => {
 - Mock external dependencies when needed
 - Aim for high coverage but focus on meaningful tests
 
-### 14. Animations with Framer Motion
+### 17. Animations with Framer Motion
 
 Use **Framer Motion** for smooth, performant animations:
 
@@ -543,7 +654,7 @@ export function FadeIn({ children }: { children: ReactNode }) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.6 }}
     >
       {children}
     </motion.div>
@@ -560,7 +671,7 @@ const cardVariants: Variants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.5 },
+    transition: { duration: 0.6 },
   },
 };
 
