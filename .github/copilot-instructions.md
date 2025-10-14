@@ -749,8 +749,18 @@ pnpm format           # Format with Prettier
 pnpm test             # Run tests in watch mode
 pnpm test:ui          # Open Vitest UI
 pnpm test:coverage    # Generate coverage report
+pnpm optimize-images  # Optimize and convert images to WebP
+pnpm rotate-portraits # Rotate portrait images 270° (use if images are sideways)
 pnpm release          # Run semantic-release to create new version and changelog
 ```
+
+## Image Management
+
+- **Images location:** `src/assets/pictures/` (any subfolder structure supported)
+- **Format:** WebP for optimal performance
+- **Portrait images:** Must be in correct orientation (use `pnpm rotate-portraits` if needed)
+- **Optimization:** Use `pnpm optimize-images` to compress and convert to WebP
+- **Gallery loading:** Automatically loads all `.webp` files from `src/assets/pictures/**`
 
 ## Documentation
 

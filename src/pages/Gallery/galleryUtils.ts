@@ -27,21 +27,40 @@ export function mixImages(
   landscapeImages: ImageModule[],
   portraitImages: ImageModule[]
 ): ImageModule[] {
+  // Shuffle arrays pour un meilleur mélange
+  const shuffledLandscape = [...landscapeImages].sort(
+    () => Math.random() - 0.5
+  );
+  const shuffledPortrait = [...portraitImages].sort(() => Math.random() - 0.5);
+
   const mixedImages: ImageModule[] = [];
   let landscapeIndex = 0;
   let portraitIndex = 0;
 
+  // Pattern: 2 landscape, 1 portrait
   while (
-    landscapeIndex < landscapeImages.length ||
-    portraitIndex < portraitImages.length
+    landscapeIndex < shuffledLandscape.length &&
+    portraitIndex < shuffledPortrait.length
   ) {
-    for (let i = 0; i < 2 && landscapeIndex < landscapeImages.length; i++) {
-      mixedImages.push(landscapeImages[landscapeIndex++]);
+    // Ajouter 2 images landscape si disponibles
+    for (let i = 0; i < 2 && landscapeIndex < shuffledLandscape.length; i++) {
+      mixedImages.push(shuffledLandscape[landscapeIndex++]);
     }
 
-    if (portraitIndex < portraitImages.length) {
-      mixedImages.push(portraitImages[portraitIndex++]);
+    // Ajouter 1 image portrait si disponible
+    if (portraitIndex < shuffledPortrait.length) {
+      mixedImages.push(shuffledPortrait[portraitIndex++]);
     }
+  }
+
+  // Ajouter les images landscape restantes (s'il y en a)
+  while (landscapeIndex < shuffledLandscape.length) {
+    mixedImages.push(shuffledLandscape[landscapeIndex++]);
+  }
+
+  // Ajouter les images portrait restantes UNE PAR UNE (pas toutes d'un coup)
+  while (portraitIndex < shuffledPortrait.length) {
+    mixedImages.push(shuffledPortrait[portraitIndex++]);
   }
 
   return mixedImages;

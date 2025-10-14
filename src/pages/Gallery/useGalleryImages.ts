@@ -1,32 +1,30 @@
 import { useState, useEffect } from 'react';
 
-import type { ImageFormat } from './Gallery.types';
-import { loadImagesFromModules, mixImages } from './galleryUtils';
-
 export function useGalleryImages() {
-  const [images, setImages] = useState<
-    Array<{ src: string; alt: string; format: ImageFormat }>
-  >([]);
+  const [images, setImages] = useState<Array<{ src: string; alt: string }>>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const landscapeModules = import.meta.glob<{ default: string }>(
-      '@/assets/pictures/landscape/*.webp'
-    );
-    const portraitModules = import.meta.glob<{ default: string }>(
-      '@/assets/pictures/portrait/*.webp'
+    const imageModules = import.meta.glob<{ default: string }>(
+      '@/assets/pictures/**/*.webp'
     );
 
     const loadImages = async () => {
       setIsLoading(true);
 
-      const [landscapeImages, portraitImages] = await Promise.all([
-        loadImagesFromModules(landscapeModules, 'landscape'),
-        loadImagesFromModules(portraitModules, 'portrait'),
-      ]);
+      const imagePromises = Object.entries(imageModules).map(
+        async ([path, importFunc]) => {
+          const module = await importFunc();
+          const fileName = path.split('/').pop()?.split('.')[0] || 'image';
+          return {
+            src: module.default,
+            alt: fileName.replace(/[-_]/g, ' '),
+          };
+        }
+      );
 
-      const mixedImages = mixImages(landscapeImages, portraitImages);
-      setImages(mixedImages);
+      const loadedImages = await Promise.all(imagePromises);
+      setImages(loadedImages);
       setIsLoading(false);
     };
 
