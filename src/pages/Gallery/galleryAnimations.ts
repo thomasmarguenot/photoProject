@@ -15,9 +15,8 @@ export const containerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0,
-      delayChildren: 0,
       when: 'beforeChildren',
+      staggerChildren: 0.02, // Small stagger to prevent Safari from choking
     },
   },
 };

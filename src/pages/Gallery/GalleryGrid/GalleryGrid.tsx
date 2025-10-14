@@ -88,6 +88,9 @@ export function GalleryGrid({
             }}
             style={{
               pointerEvents: shouldHide ? 'none' : 'auto',
+              // Force hardware acceleration on Safari
+              WebkitTransform: 'translateZ(0)',
+              willChange: isSelected && shouldExpand ? 'transform' : 'auto',
             }}
           >
             <img

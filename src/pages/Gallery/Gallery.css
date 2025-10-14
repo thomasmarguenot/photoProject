@@ -106,6 +106,12 @@
     box-shadow 0.3s ease,
     background 0.3s ease,
     border-radius 0.3s ease;
+  
+  /* Safari optimization: hardware acceleration */
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 /* Hover effects - simple elevation sans changement de taille */
@@ -127,9 +133,13 @@
   border-radius: 8px;
   /* Explicit height: auto to maintain aspect ratio with width/height attributes */
   height: auto !important;
-  /* Prevent layout shift by ensuring contain-intrinsic-size */
-  content-visibility: auto;
-  contain-intrinsic-size: 1200px 800px;
+  /* Safari optimization: use will-change for smoother transforms */
+  will-change: transform;
+  /* Prevent blur during transform on Safari */
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 /* Zoom interne de l'image au hover - sauf si expanded */
