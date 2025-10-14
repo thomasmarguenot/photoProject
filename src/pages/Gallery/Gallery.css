@@ -36,44 +36,51 @@
   /* Liquid Glass effet - désactivé pour le lightbox */
   background: var(--glass-bg);
   
-  border-radius: var(--border-radius-md);
-  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  border: none;
   box-shadow: var(--glass-shadow);
   
   cursor: pointer;
   height: auto;
   
-  /* Smooth transitions */
+  /* Smooth transitions uniquement pour border et shadow */
   transition: 
-    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow 0.4s ease,
-    border-color 0.3s ease;
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    border-radius 0.3s ease;
 }
 
-/* Hover effects - Apple style */
-.gallery-item:hover {
-  transform: translateY(-8px) scale(1.02);
+/* Hover effects - simple elevation sans changement de taille */
+.gallery-item:hover:not(.expanded-item) {
   box-shadow: var(--glass-shadow-hover);
-  border-color: rgba(255, 255, 255, 0.5);
   background: var(--glass-bg-dark);
 }
 
 /* Active state */
-.gallery-item:active {
-  transform: translateY(-4px) scale(1.01);
+.gallery-item:active:not(.expanded-item) {
+  box-shadow: var(--glass-shadow);
 }
 
 /* Image styling - clean and simple */
 .gallery-image {
   @apply h-full w-full object-cover;
   display: block;
-  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  border-radius: var(--border-radius-md);
+  transition: transform 0.4s ease-out;
+  border-radius: 8px;
 }
 
-/* Subtle zoom on hover */
-.gallery-item:hover .gallery-image {
-  transform: scale(1.05);
+/* Zoom interne de l'image au hover - sauf si expanded */
+.gallery-item:hover:not(.expanded-item) .gallery-image {
+  transform: scale(1.08);
+}
+
+/* Radius réduit quand l'image est agrandie */
+.gallery-item.expanded-item {
+  border-radius: 4px;
+}
+
+.gallery-item.expanded-item .gallery-image {
+  border-radius: 4px;
 }
 
 /* Lightbox overlay - Fond sombre sans blur */

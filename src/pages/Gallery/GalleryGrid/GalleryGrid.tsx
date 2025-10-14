@@ -55,7 +55,7 @@ export function GalleryGrid({
                 ref={(el) => {
                   itemRefs.current[index] = el;
                 }}
-                className="gallery-item"
+                className={`gallery-item ${isSelected && shouldExpand ? 'expanded-item' : ''}`}
                 variants={itemVariants}
                 initial="visible"
                 animate={
