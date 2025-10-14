@@ -65,35 +65,60 @@ export function Button() {
 
 - `@reference` directive MUST use relative paths (not aliases)
 - Always add `@reference` at the top of CSS files using `@apply`
+- **ALWAYS use full Tailwind with @apply** - never use plain CSS properties
 
-**Using CSS Variables with Tailwind:**
+**Using CSS Variables with Tailwind (CRITICAL):**
 
-For reusable values, define CSS variables in `index.css` and use them with Tailwind's bracket notation:
+**When to use CSS variables:**
+- Values that will be reused across multiple components
+- Design tokens (colors, spacing, sizes, weights, etc.)
+- Component-specific values that may need to be adjusted globally
+- Any hardcoded value that appears more than once
+
+**How to use CSS variables:**
+1. Define variables in `index.css` under `:root`
+2. Use Tailwind's bracket notation `[var(--variable-name)]` with `@apply`
+3. **NEVER** use plain CSS properties like `font-size:` or `color:` - always use Tailwind classes
 
 ```css
-/* index.css - Define variables */
+/* ✅ CORRECT - index.css - Define variables */
 :root {
   --header-width: 80%;
   --header-max-width: 1600px;
   --header-radius: 16px;
+  --header-link-size: 15px;
+  --header-link-weight: 600;
 }
 ```
 
 ```css
-/* Component.css - Use variables with @apply */
+/* ✅ CORRECT - Component.css - Use variables with Tailwind @apply */
 @reference "../../../index.css";
 
 .header {
   @apply w-[var(--header-width)] max-w-[var(--header-max-width)];
   @apply rounded-[var(--header-radius)];
 }
+
+.header-link {
+  @apply text-[var(--header-link-size)] font-[var(--header-link-weight)];
+}
+```
+
+```css
+/* ❌ WRONG - Plain CSS properties (DON'T DO THIS) */
+.header-link {
+  font-size: var(--header-link-size);
+  font-weight: var(--header-link-weight);
+}
 ```
 
 **Benefits:**
 - ✅ Centralized design tokens
 - ✅ Easy global changes
-- ✅ Full Tailwind with reusable values
+- ✅ Full Tailwind consistency
 - ✅ Type-safe with CSS variables
+- ✅ Reusable values across components
 
 ### 3. React Router - Lazy Loading Required
 
