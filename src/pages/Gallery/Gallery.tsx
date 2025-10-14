@@ -14,6 +14,8 @@ export function Gallery() {
   useEffect(() => {
     if (isLightboxOpen) {
       document.body.classList.add('lightbox-open');
+      // Désactiver le scroll
+      document.body.style.overflow = 'hidden';
       // Attendre que les images disparaissent (0.5s) avant d'agrandir
       const timer = setTimeout(() => {
         setShouldExpand(true);
@@ -21,6 +23,7 @@ export function Gallery() {
       return () => {
         clearTimeout(timer);
         document.body.classList.remove('lightbox-open');
+        document.body.style.overflow = '';
       };
     }
   }, [isLightboxOpen]);
@@ -32,6 +35,7 @@ export function Gallery() {
   const handleCloseLightbox = () => {
     setShouldExpand(false);
     document.body.classList.remove('lightbox-open');
+    document.body.style.overflow = '';
     // Attendre la fin de l'animation de réduction avant de réinitialiser
     setTimeout(() => {
       setSelectedImage(null);

@@ -64,7 +64,7 @@ export function GalleryGrid({
                     : isSelected && shouldExpand
                       ? {
                           opacity: 1,
-                          scale: 3,
+                          scale: 2.4,
                           x: offset.x,
                           y: offset.y,
                           zIndex: 150,
