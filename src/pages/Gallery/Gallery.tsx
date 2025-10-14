@@ -36,10 +36,7 @@ export function Gallery() {
 
   return (
     <div className="gallery">
-      <div
-        className="gallery-container"
-        style={{ width: '100%', paddingLeft: '80px', paddingRight: '80px' }}
-      >
+      <div className="gallery-container">
         <GalleryGrid images={images} onImageClick={handleImageClick} />
       </div>
 

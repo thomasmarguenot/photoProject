@@ -3,6 +3,7 @@ declare module 'react-responsive-masonry' {
 
   export interface ResponsiveMasonryProps {
     columnsCountBreakPoints?: Record<number, number>;
+    gutterBreakPoints?: Record<number, string>;
     children: ReactNode;
   }
 
