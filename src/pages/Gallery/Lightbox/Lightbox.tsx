@@ -1,16 +1,9 @@
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 
-import {
-  getLightboxImageVariants,
-  lightboxOverlayVariants,
-} from '../galleryAnimations';
 import type { LightboxProps } from './Lightbox.types';
 
-export function Lightbox({ image, onClose }: LightboxProps) {
-  const isPortrait = image.format === 'portrait';
-  const imageVariants = getLightboxImageVariants(isPortrait);
-
+export function Lightbox({ onClose }: LightboxProps) {
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -25,35 +18,19 @@ export function Lightbox({ image, onClose }: LightboxProps) {
   return (
     <motion.div
       className="lightbox-overlay"
-      variants={lightboxOverlayVariants}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
       onClick={onClose}
     >
-      <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-        <motion.div
-          className="lightbox-image-wrapper"
-          variants={imageVariants}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-        >
-          <img
-            src={image.src}
-            alt={image.alt}
-            className={`lightbox-image ${image.format}`}
-          />
-        </motion.div>
-
-        <button
-          className="lightbox-close"
-          onClick={onClose}
-          aria-label="Close lightbox"
-        >
-          ×
-        </button>
-      </div>
+      <button
+        className="lightbox-close"
+        onClick={onClose}
+        aria-label="Close lightbox"
+      >
+        ×
+      </button>
     </motion.div>
   );
 }

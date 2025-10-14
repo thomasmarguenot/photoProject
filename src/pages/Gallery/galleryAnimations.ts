@@ -28,13 +28,13 @@ export const containerVariants: Variants = {
 export const itemVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 20,
-    scale: 0.95,
+    transition: {
+      duration: 0.5,
+      ease: [0.32, 0.72, 0, 1],
+    },
   },
   visible: {
     opacity: 1,
-    y: 0,
-    scale: 1,
     transition: smoothTransition,
   },
 };

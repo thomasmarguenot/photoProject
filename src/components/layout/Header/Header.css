@@ -1,12 +1,21 @@
 @reference "../../../index.css";
 
 .header {
-  @apply mx-auto sticky border-b transition-all duration-300 ease-in-out;
+  @apply mx-auto sticky border-b transition-all ease-in-out;
   @apply top-[var(--header-top)] z-[var(--header-z-index)];
   @apply w-[var(--header-width)] max-w-[var(--header-max-width)];
   @apply rounded-[var(--header-radius)];
   @apply bg-[var(--header-bg)] backdrop-blur-[var(--header-blur)];
   @apply border-[var(--header-border)];
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Animation quand le lightbox est ouvert */
+body.lightbox-open .header {
+  transform: translateY(-150%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .header-container {

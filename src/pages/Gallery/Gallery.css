@@ -31,12 +31,10 @@
 
 /* Liquid Glass Item - effet frosted glass */
 .gallery-item {
-  @apply relative overflow-hidden transition-all duration-500 ease-out;
+  @apply relative overflow-hidden;
   
-  /* Liquid Glass effet */
+  /* Liquid Glass effet - désactivé pour le lightbox */
   background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
   
   border-radius: var(--border-radius-md);
   border: 1px solid var(--glass-border);
@@ -78,12 +76,11 @@
   transform: scale(1.05);
 }
 
-/* Lightbox overlay - Frosted glass */
+/* Lightbox overlay - Fond sombre sans blur */
 .lightbox-overlay {
-  @apply fixed inset-0 z-50 flex items-center justify-center;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(var(--glass-blur-strong));
-  -webkit-backdrop-filter: blur(var(--glass-blur-strong));
+  @apply fixed inset-0 flex items-center justify-center;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 100;
 }
 
 .lightbox-content {

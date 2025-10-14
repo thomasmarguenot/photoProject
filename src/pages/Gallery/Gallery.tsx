@@ -1,21 +1,41 @@
-import { AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { GalleryGrid } from './GalleryGrid/GalleryGrid';
-import { Lightbox } from './Lightbox/Lightbox';
 import { useGalleryImages } from './useGalleryImages';
 import './Gallery.css';
 
 export function Gallery() {
   const { images, isLoading } = useGalleryImages();
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [shouldExpand, setShouldExpand] = useState(false);
+  const isLightboxOpen = selectedImage !== null;
+
+  // Gérer l'animation et le header
+  useEffect(() => {
+    if (isLightboxOpen) {
+      document.body.classList.add('lightbox-open');
+      // Attendre que les images disparaissent (0.5s) avant d'agrandir
+      const timer = setTimeout(() => {
+        setShouldExpand(true);
+      }, 500);
+      return () => {
+        clearTimeout(timer);
+        document.body.classList.remove('lightbox-open');
+      };
+    }
+  }, [isLightboxOpen]);
 
   const handleImageClick = (index: number) => {
     setSelectedImage(index);
   };
 
   const handleCloseLightbox = () => {
-    setSelectedImage(null);
+    setShouldExpand(false);
+    document.body.classList.remove('lightbox-open');
+    // Attendre la fin de l'animation de réduction avant de réinitialiser
+    setTimeout(() => {
+      setSelectedImage(null);
+    }, 600);
   };
 
   if (isLoading || images.length === 0) {
@@ -37,17 +57,24 @@ export function Gallery() {
   return (
     <div className="gallery">
       <div className="gallery-container">
-        <GalleryGrid images={images} onImageClick={handleImageClick} />
+        <GalleryGrid
+          images={images}
+          onImageClick={handleImageClick}
+          selectedIndex={selectedImage}
+          isLightboxOpen={isLightboxOpen}
+          shouldExpand={shouldExpand}
+        />
       </div>
 
-      <AnimatePresence>
-        {selectedImage !== null && (
-          <Lightbox
-            image={images[selectedImage]}
-            onClose={handleCloseLightbox}
-          />
-        )}
-      </AnimatePresence>
+      {shouldExpand && (
+        <button
+          className="lightbox-close"
+          onClick={handleCloseLightbox}
+          aria-label="Close lightbox"
+        >
+          ×
+        </button>
+      )}
     </div>
   );
 }
