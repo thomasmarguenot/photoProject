@@ -32,7 +32,8 @@
 }
 
 .header-link {
-  @apply font-medium text-[17px] tracking-[-0.01em] transition-all relative;
+  @apply tracking-[-0.01em] transition-all relative;
+  @apply text-[var(--header-link-size)] font-[var(--header-link-weight)];
   color: var(--color-text);
 }
 

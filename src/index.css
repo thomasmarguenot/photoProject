@@ -9,7 +9,7 @@
   --z-header: 100;
   
   /* Header colors */
-  --color-header-bg: rgb(255 255 255 / 0.8);
+  --color-header-bg: rgb(255 255 255 / 0.5);
   --color-header-border: rgb(0 0 0 / 0.06);
 }
 
@@ -56,9 +56,11 @@
   --header-radius: 16px;
   --header-top: 2rem;
   --header-z-index: 100;
-  --header-bg: rgba(255, 255, 255, 0.8);
+  --header-bg: rgba(255, 255, 255, 0.5);
   --header-border: rgba(0, 0, 0, 0.06);
   --header-blur: 20px;
+  --header-link-size: 15px;
+  --header-link-weight: 600;
 }
 
 *,
