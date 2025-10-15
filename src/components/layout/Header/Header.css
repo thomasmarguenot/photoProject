@@ -24,8 +24,12 @@ body.lightbox-open .header {
   @apply flex items-center;
 }
 
+.header-title-wrapper {
+  @apply relative no-underline;
+}
+
 .header-title {
-  @apply text-2xl font-semibold no-underline tracking-[-0.02em];
+  @apply text-2xl font-semibold tracking-[-0.02em];
   font-family: var(--font-heading);
   background-image: linear-gradient(
     90deg,
@@ -40,23 +44,56 @@ body.lightbox-open .header {
     transparent
   );
   background-size: 300% 100%;
-  background-position: 100% 0;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: header-title-reveal var(--header-title-animation-duration) ease-in-out forwards;
 }
 
-.header-title:hover {
+.header-title-base {
+  @apply block;
+  background-position: 0% 0;
+  animation: header-title-reveal-forward var(--header-title-animation-duration) ease-in-out forwards;
+}
+
+.header-title-overlay {
+  @apply absolute top-0 left-0;
+  background-position: 0% 0;
+  animation: header-title-reveal-backward var(--header-title-animation-duration) ease-in-out forwards;
+}
+
+.header-title-wrapper:hover .header-title-base,
+.header-title-wrapper:hover .header-title-overlay {
   animation-play-state: paused;
 }
 
-@keyframes header-title-reveal {
+@keyframes header-title-reveal-forward {
   0% {
     background-position: 100% 0;
   }
+  50% {
+    background-position: 0% 0;
+  }
   100% {
     background-position: 0% 0;
+  }
+}
+
+@keyframes header-title-reveal-backward {
+  0% {
+    opacity: 0;
+    background-position: 0% 0;
+  }
+  50% {
+    opacity: 0;
+    background-position: 0% 0;
+  }
+  51% {
+    opacity: 1;
+    background-position: 0% 0;
+  }
+  100% {
+    opacity: 1;
+    background-position: 100% 0;
   }
 }
 

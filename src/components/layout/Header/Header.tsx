@@ -8,8 +8,14 @@ export function Header({ title = 'とーます・まるぐの' }: HeaderProps) {
     <header className="header">
       <div className="header-container">
         <div className="header-logo">
-          <Link to="/" className="header-title">
-            {title}
+          <Link to="/" className="header-title-wrapper">
+            <span className="header-title header-title-base">{title}</span>
+            <span
+              className="header-title header-title-overlay"
+              aria-hidden="true"
+            >
+              {title}
+            </span>
           </Link>
         </div>
         <nav className="header-nav">
