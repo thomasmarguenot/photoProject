@@ -2,16 +2,8 @@
 
 .clients-section {
   @apply py-20 w-full;
-  background: linear-gradient(180deg, rgba(39, 125, 212, 0.02) 0%, rgba(39, 125, 212, 0.05) 100%);
+  background: var(--color-primary);
   position: relative;
-}
-
-.clients-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(39, 125, 212, 0.1) 0%, transparent 70%);
-  pointer-events: none;
 }
 
 .clients-container {
@@ -21,7 +13,7 @@
 
 .clients-title {
   @apply text-5xl font-bold mb-16 text-center;
-  color: var(--color-text);
+  color: white;
   letter-spacing: -0.02em;
 }
 
@@ -32,13 +24,13 @@
 .client-card {
   @apply p-8 flex items-center justify-center transition-all duration-300;
   
-  background: var(--glass-bg);
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
   
   border-radius: var(--border-radius-md);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   
   cursor: default;
   min-height: 140px;
@@ -47,9 +39,9 @@
 }
 
 .client-card:hover {
-  box-shadow: var(--glass-shadow-hover);
-  border-color: rgba(255, 255, 255, 0.4);
-  background: var(--glass-bg-dark);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
 }
 
