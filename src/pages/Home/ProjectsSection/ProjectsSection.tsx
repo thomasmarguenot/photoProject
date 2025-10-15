@@ -1,5 +1,10 @@
 import { motion } from 'framer-motion';
 
+import canalImage from '@/assets/projects/canal.jpg';
+import lorealImage from '@/assets/projects/loreal.webp';
+import quotatisImage from '@/assets/projects/quotatis.jpg';
+import woodAndMaryImage from '@/assets/projects/wood-and-mary.jpg';
+
 import type { ProjectsSectionProps } from './ProjectsSection.types';
 import './ProjectsSection.css';
 
@@ -9,7 +14,7 @@ const defaultProjects = [
     title: 'Canal Plus',
     description:
       'Refonte complète de la plateforme de streaming avec une architecture moderne React et une expérience utilisateur repensée.',
-    image: 'https://logo.clearbit.com/canalplus.com',
+    image: canalImage,
     technologies: ['React', 'TypeScript', 'Node.js'],
   },
   {
@@ -17,23 +22,23 @@ const defaultProjects = [
     title: "L'Oréal Digital",
     description:
       "Création d'une plateforme e-commerce innovante avec personnalisation avancée et intégration d'IA pour recommandations produits.",
-    image: 'https://logo.clearbit.com/loreal.com',
+    image: lorealImage,
     technologies: ['Next.js', 'Tailwind', 'AI'],
   },
   {
     id: '3',
-    title: 'The Voice TF1',
+    title: 'Quotatis',
     description:
-      "Application mobile et web pour le vote en direct avec gestion temps réel et scalabilité pour millions d'utilisateurs.",
-    image: 'https://logo.clearbit.com/tf1.fr',
-    technologies: ['React Native', 'WebSocket', 'AWS'],
+      'Plateforme de mise en relation entre particuliers et professionnels du bâtiment avec système de devis intelligent.',
+    image: quotatisImage,
+    technologies: ['React', 'WebSocket', 'AWS'],
   },
   {
     id: '4',
     title: 'Wood and Mary',
     description:
       'Site e-commerce haut de gamme avec configurateur 3D interactif et système de réservation sur-mesure.',
-    image: 'https://logo.clearbit.com/woodandmary.com',
+    image: woodAndMaryImage,
     technologies: ['Three.js', 'React', 'Stripe'],
   },
 ];
@@ -56,24 +61,15 @@ export function ProjectsSection({
           {projects.map((project, index) => (
             <motion.article
               key={project.id}
-              className={`project-card ${index % 2 === 0 ? 'project-card-left' : 'project-card-right'}`}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="project-card"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ scale: 1.02, y: -10 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -4 }}
             >
               <div className="project-image">
-                {project.image.startsWith('http') ? (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="project-logo"
-                    loading="lazy"
-                  />
-                ) : (
-                  <span className="project-icon">{project.image}</span>
-                )}
+                <img src={project.image} alt={project.title} loading="lazy" />
               </div>
               <div className="project-content">
                 <h3 className="project-name">{project.title}</h3>
