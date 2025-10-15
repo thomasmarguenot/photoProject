@@ -9,14 +9,14 @@ import './Layout.css';
 
 export function Layout() {
   return (
-    <div className="layout">
-      <Header />
-      <main className="layout-main">
-        <Suspense fallback={<LoadingFallback />}>
+    <Suspense fallback={<LoadingFallback />}>
+      <div className="layout">
+        <Header />
+        <main className="layout-main">
           <Outlet />
-        </Suspense>
-      </main>
-      <Footer />
-    </div>
+        </main>
+        <Footer />
+      </div>
+    </Suspense>
   );
 }
