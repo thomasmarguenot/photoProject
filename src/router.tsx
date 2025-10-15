@@ -7,6 +7,7 @@ import { Layout } from '@/components/layout/Layout/Layout';
 const Home = lazy(() => import('@/pages/Home/Home'));
 const About = lazy(() => import('@/pages/About/About'));
 const Gallery = lazy(() => import('@/pages/Gallery/Gallery'));
+const Charte = lazy(() => import('@/pages/Charte/Charte'));
 const NotFound = lazy(() => import('@/pages/NotFound/NotFound'));
 
 export const router = createBrowserRouter([
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: 'gallery',
         element: <Gallery />,
+      },
+      {
+        path: 'charte',
+        element: <Charte />,
       },
       {
         path: '*',

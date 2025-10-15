@@ -22,6 +22,9 @@ export function Header({ title = 'ふぉとぷろじぇくと' }: HeaderProps) {
           <Link to="/about" className="header-link">
             About
           </Link>
+          <Link to="/charte" className="header-link">
+            Charte
+          </Link>
           <Link to="/contact" className="header-link">
             Contact
           </Link>
