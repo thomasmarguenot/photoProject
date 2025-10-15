@@ -1,0 +1,53 @@
+@reference "../../../index.css";
+
+.clients-section {
+  @apply py-20 w-full;
+}
+
+.clients-container {
+  @apply mx-auto w-full px-6;
+  max-width: var(--page-max-width);
+}
+
+.clients-title {
+  @apply text-5xl font-bold mb-16 text-center;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.clients-grid {
+  @apply grid grid-cols-2 md:grid-cols-4 gap-8;
+}
+
+.client-card {
+  @apply p-8 flex items-center justify-center transition-all duration-300;
+  
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  
+  cursor: default;
+  min-height: 140px;
+}
+
+.client-card:hover {
+  box-shadow: var(--glass-shadow-hover);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: var(--glass-bg-dark);
+}
+
+.client-name {
+  @apply text-2xl font-bold text-center;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 1024px) {
+  .clients-container {
+    @apply px-12;
+  }
+}

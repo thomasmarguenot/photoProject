@@ -1,0 +1,104 @@
+@reference "../../../index.css";
+
+.agency-section {
+  @apply py-20 w-full;
+}
+
+.agency-container {
+  @apply mx-auto w-full px-6;
+  max-width: var(--page-max-width);
+}
+
+.agency-content {
+  @apply flex flex-col lg:flex-row gap-12 p-12;
+  
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow-hover);
+}
+
+.agency-logo {
+  @apply flex-shrink-0 flex items-center justify-center;
+  @apply w-32 h-32 rounded-full transition-transform duration-300;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.agency-logo-text {
+  @apply text-5xl font-bold;
+  color: var(--color-text);
+  letter-spacing: 0.05em;
+}
+
+.agency-text {
+  @apply flex-1;
+}
+
+.agency-title {
+  @apply text-4xl font-bold mb-4;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.agency-tagline {
+  @apply text-xl font-semibold mb-6;
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+}
+
+.agency-description {
+  @apply text-lg mb-4;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+.agency-services {
+  @apply flex flex-col gap-6 my-8 py-8 border-t border-b;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.service-item {
+  @apply flex flex-col gap-2;
+}
+
+.service-title {
+  @apply text-xl font-bold;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.service-detail {
+  @apply text-base;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.agency-link {
+  @apply inline-block px-8 py-4 text-lg font-semibold rounded-xl;
+  @apply transition-all duration-300 no-underline;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--color-text);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.agency-link:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 1024px) {
+  .agency-container {
+    @apply px-12;
+  }
+  
+  .agency-content {
+    @apply items-center;
+  }
+}

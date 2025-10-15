@@ -1,0 +1,69 @@
+@reference "../../../index.css";
+
+.hero-section {
+  @apply py-20 w-full;
+}
+
+.hero-content {
+  @apply flex flex-col lg:flex-row gap-12 mx-auto w-full px-6;
+  max-width: var(--page-max-width);
+}
+
+.hero-left {
+  @apply flex-1 flex flex-col gap-8;
+}
+
+.hero-photo {
+  @apply flex-shrink-0 w-32 h-32;
+}
+
+.photo-placeholder {
+  @apply w-full h-full rounded-full flex items-center justify-center text-5xl;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.hero-intro {
+  @apply flex flex-col gap-6;
+}
+
+.hero-title {
+  @apply text-5xl lg:text-6xl font-bold;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.hero-description {
+  @apply text-lg;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+.hero-card {
+  @apply flex-shrink-0 w-full lg:w-96 h-auto lg:h-[500px];
+  @apply p-12 flex items-center justify-center;
+  
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.card-placeholder {
+  @apply text-2xl font-semibold text-center;
+  color: var(--color-text);
+}
+
+@media (min-width: 1024px) {
+  .hero-content {
+    @apply px-12;
+  }
+}
