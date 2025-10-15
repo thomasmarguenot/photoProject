@@ -1,40 +1,49 @@
 import { motion } from 'framer-motion';
 
+import canalLogo from '@/assets/logo/canal.png';
+import konbibiLogo from '@/assets/logo/Konbibi.png';
+import leroyMerlinLogo from '@/assets/logo/Leroy-Merlin.png';
+import lorealLogo from '@/assets/logo/LOreal-logo-1536x864.png';
+import petitBateauLogo from '@/assets/logo/Petit-bateau.png';
+import peugeotLogo from '@/assets/logo/Peugeot-logo.png';
+import rolexLogo from '@/assets/logo/Rolex-logo.png';
+import tf1Logo from '@/assets/logo/TF1.png';
+
 import type { ClientsSectionProps } from './ClientsSection.types';
 import './ClientsSection.css';
 
 const defaultClients = [
   {
     name: 'Canal Plus',
-    logo: 'https://logo.clearbit.com/canalplus.com',
+    logo: canalLogo,
   },
   {
     name: 'Leroy Merlin',
-    logo: 'https://logo.clearbit.com/leroymerlin.fr',
+    logo: leroyMerlinLogo,
   },
   {
     name: 'Rolex',
-    logo: 'https://logo.clearbit.com/rolex.com',
+    logo: rolexLogo,
   },
   {
-    name: 'LVMH',
-    logo: 'https://logo.clearbit.com/lvmh.com',
+    name: 'Konbibi',
+    logo: konbibiLogo,
   },
   {
     name: "L'Oréal",
-    logo: 'https://logo.clearbit.com/loreal.com',
+    logo: lorealLogo,
   },
   {
-    name: 'BNP Paribas',
-    logo: 'https://logo.clearbit.com/bnpparibas.com',
+    name: 'Petit Bateau',
+    logo: petitBateauLogo,
   },
   {
     name: 'TF1',
-    logo: 'https://logo.clearbit.com/tf1.fr',
+    logo: tf1Logo,
   },
   {
     name: 'Peugeot',
-    logo: 'https://logo.clearbit.com/peugeot.com',
+    logo: peugeotLogo,
   },
 ];
 

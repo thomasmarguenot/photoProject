@@ -46,15 +46,14 @@
 }
 
 .client-logo {
-  @apply w-full h-auto max-w-[180px] max-h-[60px] object-contain;
-  filter: grayscale(1) brightness(1.2);
-  opacity: 0.85;
+  @apply object-contain;
+  width: 160px;
+  height: 80px;
   transition: all 0.3s ease;
 }
 
 .client-card:hover .client-logo {
-  filter: grayscale(0) brightness(1);
-  opacity: 1;
+  transform: scale(1.05);
 }
 
 .client-name {
