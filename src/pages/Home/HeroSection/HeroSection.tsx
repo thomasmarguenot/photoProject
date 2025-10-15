@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 
+import ppImage from '@/assets/home/pp.jpeg';
+
 import './HeroSection.css';
 
 export function HeroSection() {
@@ -13,7 +15,7 @@ export function HeroSection() {
       <div className="hero-content">
         <div className="hero-left">
           <div className="hero-photo">
-            <div className="photo-placeholder">📸</div>
+            <img src={ppImage} alt="Thomas Marguenot" className="photo-image" />
           </div>
 
           <div className="hero-intro">

@@ -14,16 +14,20 @@
 }
 
 .hero-photo {
-  @apply flex-shrink-0 w-32 h-32;
+  @apply flex-shrink-0 w-36 h-36 md:w-44 md:h-44;
 }
 
-.photo-placeholder {
-  @apply w-full h-full rounded-full flex items-center justify-center text-5xl;
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--glass-border);
+.photo-image {
+  @apply w-full h-full rounded-full object-cover;
+  border: 3px solid var(--color-primary);
   box-shadow: var(--glass-shadow);
+  transition: all var(--animation-duration) var(--animation-easing);
+}
+
+.photo-image:hover {
+  transform: scale(1.05);
+  box-shadow: var(--glass-shadow-hover);
+  border-color: var(--color-primary-light);
 }
 
 .hero-intro {
