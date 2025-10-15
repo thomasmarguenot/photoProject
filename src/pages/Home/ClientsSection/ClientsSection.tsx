@@ -4,14 +4,38 @@ import type { ClientsSectionProps } from './ClientsSection.types';
 import './ClientsSection.css';
 
 const defaultClients = [
-  { name: 'Canal Plus' },
-  { name: 'Leroy Merlin' },
-  { name: 'Rolex' },
-  { name: 'LVMH' },
-  { name: "L'Oréal" },
-  { name: 'BNP Paribas' },
-  { name: 'TF1' },
-  { name: 'Peugeot' },
+  {
+    name: 'Canal Plus',
+    logo: 'https://logo.clearbit.com/canalplus.com',
+  },
+  {
+    name: 'Leroy Merlin',
+    logo: 'https://logo.clearbit.com/leroymerlin.fr',
+  },
+  {
+    name: 'Rolex',
+    logo: 'https://logo.clearbit.com/rolex.com',
+  },
+  {
+    name: 'LVMH',
+    logo: 'https://logo.clearbit.com/lvmh.com',
+  },
+  {
+    name: "L'Oréal",
+    logo: 'https://logo.clearbit.com/loreal.com',
+  },
+  {
+    name: 'BNP Paribas',
+    logo: 'https://logo.clearbit.com/bnpparibas.com',
+  },
+  {
+    name: 'TF1',
+    logo: 'https://logo.clearbit.com/tf1.fr',
+  },
+  {
+    name: 'Peugeot',
+    logo: 'https://logo.clearbit.com/peugeot.com',
+  },
 ];
 
 export function ClientsSection({
@@ -39,7 +63,16 @@ export function ClientsSection({
               transition={{ duration: 0.4, delay: index * 0.1 }}
               whileHover={{ scale: 1.05 }}
             >
-              <span className="client-name">{client.name}</span>
+              {client.logo ? (
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="client-logo"
+                  loading="lazy"
+                />
+              ) : (
+                <span className="client-name">{client.name}</span>
+              )}
             </motion.div>
           ))}
         </div>

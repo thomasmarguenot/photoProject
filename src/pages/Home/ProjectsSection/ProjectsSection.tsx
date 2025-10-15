@@ -9,7 +9,7 @@ const defaultProjects = [
     title: 'Canal Plus',
     description:
       'Refonte complète de la plateforme de streaming avec une architecture moderne React et une expérience utilisateur repensée.',
-    image: '🎬',
+    image: 'https://logo.clearbit.com/canalplus.com',
     technologies: ['React', 'TypeScript', 'Node.js'],
   },
   {
@@ -17,7 +17,7 @@ const defaultProjects = [
     title: "L'Oréal Digital",
     description:
       "Création d'une plateforme e-commerce innovante avec personnalisation avancée et intégration d'IA pour recommandations produits.",
-    image: '💄',
+    image: 'https://logo.clearbit.com/loreal.com',
     technologies: ['Next.js', 'Tailwind', 'AI'],
   },
   {
@@ -25,7 +25,7 @@ const defaultProjects = [
     title: 'The Voice TF1',
     description:
       "Application mobile et web pour le vote en direct avec gestion temps réel et scalabilité pour millions d'utilisateurs.",
-    image: '🎤',
+    image: 'https://logo.clearbit.com/tf1.fr',
     technologies: ['React Native', 'WebSocket', 'AWS'],
   },
   {
@@ -33,7 +33,7 @@ const defaultProjects = [
     title: 'Wood and Mary',
     description:
       'Site e-commerce haut de gamme avec configurateur 3D interactif et système de réservation sur-mesure.',
-    image: '🪵',
+    image: 'https://logo.clearbit.com/woodandmary.com',
     technologies: ['Three.js', 'React', 'Stripe'],
   },
 ];
@@ -64,7 +64,16 @@ export function ProjectsSection({
               whileHover={{ scale: 1.02, y: -10 }}
             >
               <div className="project-image">
-                <span className="project-icon">{project.image}</span>
+                {project.image.startsWith('http') ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="project-logo"
+                    loading="lazy"
+                  />
+                ) : (
+                  <span className="project-icon">{project.image}</span>
+                )}
               </div>
               <div className="project-content">
                 <h3 className="project-name">{project.title}</h3>

@@ -2,6 +2,16 @@
 
 .projects-section {
   @apply py-20 w-full;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0%, rgba(39, 125, 212, 0.03) 100%);
+  position: relative;
+}
+
+.projects-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 100%, rgba(255, 184, 0, 0.08) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 .projects-container {
@@ -48,6 +58,22 @@
   @apply w-full lg:w-64 h-64 rounded-xl;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.project-logo {
+  @apply w-full h-full object-contain p-12;
+  filter: brightness(1.2);
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .project-logo {
+  filter: brightness(1);
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 .project-icon {

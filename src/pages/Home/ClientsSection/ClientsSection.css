@@ -2,6 +2,16 @@
 
 .clients-section {
   @apply py-20 w-full;
+  background: linear-gradient(180deg, rgba(39, 125, 212, 0.02) 0%, rgba(39, 125, 212, 0.05) 100%);
+  position: relative;
+}
+
+.clients-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(39, 125, 212, 0.1) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .clients-container {
@@ -32,12 +42,27 @@
   
   cursor: default;
   min-height: 140px;
+  position: relative;
+  z-index: 1;
 }
 
 .client-card:hover {
   box-shadow: var(--glass-shadow-hover);
   border-color: rgba(255, 255, 255, 0.4);
   background: var(--glass-bg-dark);
+  transform: translateY(-2px);
+}
+
+.client-logo {
+  @apply w-full h-auto max-w-[180px] max-h-[60px] object-contain;
+  filter: grayscale(1) brightness(1.2);
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
+
+.client-card:hover .client-logo {
+  filter: grayscale(0) brightness(1);
+  opacity: 1;
 }
 
 .client-name {
