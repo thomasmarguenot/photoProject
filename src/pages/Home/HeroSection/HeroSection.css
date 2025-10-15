@@ -35,7 +35,7 @@
 }
 
 .hero-title {
-  @apply text-5xl lg:text-6xl font-bold;
+  @apply text-4xl lg:text-5xl font-bold;
   color: var(--color-text);
   letter-spacing: -0.02em;
   line-height: 1.1;
@@ -49,21 +49,8 @@
 }
 
 .hero-card {
-  @apply flex-shrink-0 w-full lg:w-96 h-auto lg:h-[500px];
-  @apply p-12 flex items-center justify-center;
-  
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  
-  border-radius: var(--border-radius-lg);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-}
-
-.card-placeholder {
-  @apply text-2xl font-semibold text-center;
-  color: var(--color-text);
+  @apply flex-shrink-0 w-full lg:w-96;
+  @apply flex items-center;
 }
 
 @media (min-width: 1024px) {

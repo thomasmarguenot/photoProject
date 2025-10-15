@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 
 import ppImage from '@/assets/home/pp.jpeg';
 
+import { TechStackCard } from './TechStackCard';
 import './HeroSection.css';
 
 export function HeroSection() {
@@ -36,7 +37,7 @@ export function HeroSection() {
         </div>
 
         <div className="hero-card">
-          <div className="card-placeholder">Carte stylisée</div>
+          <TechStackCard />
         </div>
       </div>
     </motion.section>
