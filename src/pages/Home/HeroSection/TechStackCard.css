@@ -1,38 +1,42 @@
 @reference "../../../index.css";
 
 .tech-stack-card {
-  @apply p-8 rounded-[var(--radius-xl)];
-  background: var(--glass-bg-strong);
-  backdrop-filter: blur(var(--glass-blur-strong));
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow-lg);
+  @apply rounded-[var(--radius-md)];
+  @apply border;
+  background: var(--color-surface);
+  border-color: var(--color-primary);
 }
 
 .tech-stack-title {
-  @apply text-xl font-semibold mb-6 text-center;
+  @apply text-xl font-semibold text-center;
+  @apply p-6 pb-4;
+  @apply relative flex flex-col items-center;
   font-family: var(--font-heading);
   color: var(--color-text-primary);
 }
 
+.tech-stack-title::after {
+  @apply absolute bottom-0 h-px;
+  @apply content-[''];
+  width: 70%;
+  background: var(--color-primary);
+}
+
 .tech-grid {
-  @apply grid grid-cols-3 gap-4;
+  @apply grid grid-cols-3 gap-4 p-6;
 }
 
 .tech-item {
-  @apply relative rounded-[var(--radius-lg)] p-6;
+  @apply relative rounded-[var(--radius-sm)] p-6;
   @apply flex items-center justify-center;
   @apply transition-all cursor-pointer;
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-sm);
+  background: var(--color-surface);
   aspect-ratio: 1;
 }
 
 .tech-item:hover {
   @apply -translate-y-1;
-  box-shadow: var(--shadow-md);
-  border-color: var(--color-primary-subtle);
+  @apply bg-[var(--color-primary-subtle)];
 }
 
 .tech-icon {
