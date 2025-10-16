@@ -2,9 +2,10 @@
 
 .tech-stack-card {
   @apply rounded-[var(--radius-md)];
-  @apply border;
-  background: var(--color-surface);
-  border-color: var(--color-primary);
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(var(--glass-blur-strong));
+  border: 1.5px solid var(--glass-border);
+  box-shadow: var(--shadow-xl);
 }
 
 .tech-stack-title {
@@ -27,26 +28,30 @@
 }
 
 .tech-item {
-  @apply relative rounded-[var(--radius-sm)] p-6;
+  @apply relative p-6;
   @apply flex items-center justify-center;
   @apply transition-all cursor-pointer;
-  background: var(--color-surface);
+  background: transparent;
+  border: none;
   aspect-ratio: 1;
 }
 
 .tech-item:hover {
   @apply -translate-y-1;
-  @apply bg-[var(--color-primary-subtle)];
 }
 
 .tech-icon {
   @apply w-12 h-12 object-contain;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .tech-more {
-  @apply bg-gradient-to-br;
+  @apply rounded-[var(--radius-sm)];
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   border-color: var(--color-primary);
+  overflow: hidden;
 }
 
 .tech-more:hover {
