@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import type { HeaderProps } from './Header.types';
 import './Header.css';
@@ -19,21 +19,21 @@ export function Header({ title = 'とーます・まるぐの' }: HeaderProps) {
           </Link>
         </div>
         <nav className="header-nav">
-          <Link to="/" className="header-link">
+          <NavLink to="/" className="header-link" end>
             Home
-          </Link>
-          <Link to="/gallery" className="header-link">
+          </NavLink>
+          <NavLink to="/gallery" className="header-link">
             Gallery
-          </Link>
-          <Link to="/about" className="header-link">
+          </NavLink>
+          <NavLink to="/about" className="header-link">
             About
-          </Link>
-          <Link to="/charte" className="header-link">
+          </NavLink>
+          <NavLink to="/charte" className="header-link">
             Charte
-          </Link>
-          <Link to="/contact" className="header-link">
+          </NavLink>
+          <NavLink to="/contact" className="header-link">
             Contact
-          </Link>
+          </NavLink>
         </nav>
       </div>
     </header>
