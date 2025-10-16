@@ -16,7 +16,29 @@ export function HeroSection() {
       <div className="hero-content">
         <div className="hero-left">
           <div className="hero-photo">
-            <img src={ppImage} alt="Thomas Marguenot" className="photo-image" />
+            <div className="photo-container">
+              <img
+                src={ppImage}
+                alt="Thomas Marguenot"
+                className="photo-image"
+              />
+              <div className="circular-text">
+                <svg viewBox="0 0 280 280" className="circular-text-svg">
+                  <defs>
+                    <path
+                      id="circlePath"
+                      d="M 140, 140 m -125, 0 a 125,125 0 1,1 250,0 a 125,125 0 1,1 -250,0"
+                    />
+                  </defs>
+                  <text className="circular-text-path">
+                    <textPath href="#circlePath" startOffset="0%">
+                      À LA RECHERCHE D&apos;UNE MISSION SUR PARIS • DEVELOPPEUR
+                      JS FULL STACK •
+                    </textPath>
+                  </text>
+                </svg>
+              </div>
+            </div>
           </div>
 
           <div className="hero-intro">
