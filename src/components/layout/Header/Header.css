@@ -102,9 +102,10 @@ body.lightbox-open .header {
 }
 
 .header-link {
-  @apply relative tracking-[-0.01em] transition-all;
+  @apply relative tracking-[-0.01em] transition-all inline-flex items-center;
   @apply text-[var(--header-link-size)] font-[var(--header-link-weight)];
   @apply text-[var(--color-text-primary)];
+  @apply px-0 py-0;
 }
 
 .header-link:hover {
@@ -124,13 +125,17 @@ body.lightbox-open .header {
   transform: scaleX(1);
 }
 
-/* Active link styling */
 .header-link.active {
-  @apply text-[var(--color-text-primary)];
+  @apply text-[var(--color-primary)];
+  background: var(--color-primary-subtle);
+  @apply px-4 py-2;
+  border-radius: var(--radius-full);
+  box-shadow: 0 2px 8px rgba(39, 125, 212, 0.08);
 }
 
 .header-link.active::after {
-  transform: scaleX(1);
+  transform: scaleX(0) !important;
+  opacity: 0;
 }
 
 @media (min-width: 1024px) {
