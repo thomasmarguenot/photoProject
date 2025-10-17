@@ -11,8 +11,20 @@ export const ANIMATION = {
 
 export const ROUTES = {
   HOME: '/',
+  GALLERY: '/gallery',
   ABOUT: '/about',
+  CHARTE: '/charte',
   CONTACT: '/contact',
   PRIVACY: '/privacy',
   TERMS: '/terms',
 } as const;
+
+// Canonical page order to infer navigation direction for global page transitions
+// Update this array if you change route structure. Keep paths as defined in ROUTES
+export const PAGE_ORDER = [
+  ROUTES.HOME,
+  ROUTES.GALLERY,
+  ROUTES.ABOUT,
+  ROUTES.CHARTE,
+  ROUTES.CONTACT,
+] as const;

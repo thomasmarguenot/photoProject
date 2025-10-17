@@ -6,6 +6,7 @@
 
 .layout-main {
   @apply flex-1 w-full;
+  position: relative;
 }
 
 /* Container for standard pages (not gallery) */

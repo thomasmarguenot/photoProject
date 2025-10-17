@@ -1,0 +1,11 @@
+@reference "../../../index.css";
+
+/* Overlay placed inside main (Layout.main) so header remains above it */
+.page-transition-overlay {
+  position: absolute;
+  inset: 0; /* stretch to full area of containing block */
+  z-index: 40; /* lower than header (header --header-z-index: 100) */
+  background: var(--color-primary);
+  pointer-events: none;
+  will-change: transform;
+}

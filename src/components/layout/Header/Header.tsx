@@ -1,5 +1,7 @@
-import { useEffect, useRef } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { useEffect, useRef, MouseEvent } from 'react';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+
+import { usePageTransition } from '@/components/layout/PageTransition/PageTransition';
 
 import type { HeaderProps } from './Header.types';
 import './Header.css';
@@ -23,6 +25,8 @@ export function Header({ title = 'とーます・まるぐの' }: HeaderProps) {
   const linkRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
   const indicatorRef = useRef<HTMLDivElement | null>(null);
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const { runTransition, getDirectionBetween } = usePageTransition();
 
   const updateIndicator = () => {
     const activeItem = NAV_ITEMS.find((i) => i.to === pathname) || NAV_ITEMS[0];
@@ -93,21 +97,44 @@ export function Header({ title = 'とーます・まるぐの' }: HeaderProps) {
               indicatorRef.current = r;
             }}
           />
-          {NAV_ITEMS.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.end}
-              className={({ isActive }) =>
-                `header-link${isActive ? ' active' : ''}`
+          {NAV_ITEMS.map((item) => {
+            const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
+              // allow ctrl/cmd/meta/shift/open in new tab
+              if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1)
+                return;
+
+              e.preventDefault();
+
+              // if clicking the active route, do nothing
+              if (item.to === pathname) return;
+
+              const doNavigate = () => navigate(item.to);
+
+              if (runTransition && getDirectionBetween) {
+                const dir = getDirectionBetween(pathname, item.to);
+                runTransition(dir, doNavigate);
+              } else {
+                doNavigate();
               }
-              ref={(el: HTMLAnchorElement | null) => {
-                linkRefs.current[item.to] = el;
-              }}
-            >
-              {item.label}
-            </NavLink>
-          ))}
+            };
+
+            return (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.end}
+                className={({ isActive }) =>
+                  `header-link${isActive ? ' active' : ''}`
+                }
+                ref={(el: HTMLAnchorElement | null) => {
+                  linkRefs.current[item.to] = el;
+                }}
+                onClick={(e) => handleClick(e)}
+              >
+                {item.label}
+              </NavLink>
+            );
+          })}
         </nav>
       </div>
     </header>
