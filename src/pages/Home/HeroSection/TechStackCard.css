@@ -12,7 +12,7 @@
   @apply text-xl font-semibold text-center;
   @apply p-6 pb-4;
   @apply relative flex flex-col items-center;
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   color: var(--color-text-primary);
 }
 
