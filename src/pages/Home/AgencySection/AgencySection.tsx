@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 
 import './AgencySection.css';
+import belleEpoqueLogo from '@/assets/logo-belle-epoque.png';
 
 export function AgencySection() {
   return (
@@ -18,7 +19,12 @@ export function AgencySection() {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            <span className="agency-logo-text">BE</span>
+            <img
+              src={belleEpoqueLogo}
+              alt="Belle Époque Logo"
+              className="agency-logo-img"
+              loading="lazy"
+            />
           </motion.div>
 
           <div className="agency-text">
