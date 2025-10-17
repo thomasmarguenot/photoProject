@@ -25,3 +25,4 @@ src/assets/pictures/
 *.njsproj
 *.sln
 *.sw?
+.vercel
