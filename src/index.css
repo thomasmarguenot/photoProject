@@ -1,3 +1,8 @@
+/* Global selection color for the site (must be before imports) */
+::selection {
+  background: #277DD4;
+  color: #fff;
+}
 @import 'tailwindcss';
 
 @theme {
