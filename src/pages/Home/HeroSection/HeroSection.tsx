@@ -61,14 +61,14 @@ export function HeroSection() {
             >
               Je construis des sites web.
             </motion.h1>
-            <p className="hero-description">
+            <p className="hero-description hero-description--black">
               Développeur full-stack passionné, je crée des expériences
               digitales modernes et performantes. Spécialisé dans les
               technologies React et Node.js, j&apos;accompagne mes clients dans
               leur transformation digitale en concevant des solutions sur-mesure
               qui allient esthétique et fonctionnalité.
             </p>
-            <p className="hero-description">
+            <p className="hero-description hero-description--black">
               De la conception à la mise en production, je m&apos;assure que
               chaque projet reflète l&apos;identité de la marque tout en offrant
               une expérience utilisateur exceptionnelle.

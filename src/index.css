@@ -14,13 +14,12 @@
 }
 
 :root {
-  /* Typography System - Liquid Glass Design */
-  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
   
   font-family: var(--font-body);
   line-height: 1.6;
-  font-weight: 400;
+  font-weight: 500;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
