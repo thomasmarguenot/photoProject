@@ -29,7 +29,7 @@
   @apply text-5xl font-bold mb-16 text-center;
   letter-spacing: -0.02em;
   /* background: linear-gradient(90deg, #1B1B1B 0%, #fffde7 40%, #fffde7 60%, #1B1B1B 100%); */
-  background: linear-gradient(120deg, #fffde7, #fcedc6, #fffde7, #fffde7);
+  background: linear-gradient(120deg, #fffde7, #fff7e2, #fffde7, #fffde7);
   background-size: 400% 400%;
   animation: clientsGradientMove 16s ease-in-out infinite;
   background-clip: text;

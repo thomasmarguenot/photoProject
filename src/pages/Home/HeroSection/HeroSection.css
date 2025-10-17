@@ -65,9 +65,12 @@
 
 .hero-title {
   @apply text-4xl lg:text-5xl font-bold;
+  font-family: 'Inter Tight', sans-serif;
+  font-variation-settings: "wght" 900;
   color: var(--color-text);
   letter-spacing: -0.02em;
   line-height: 1.1;
+  transition: font-variation-settings var(--animation-duration) var(--animation-easing), font-style var(--animation-duration) var(--animation-easing);
 }
 
 .hero-description {

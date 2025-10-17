@@ -42,7 +42,25 @@ export function HeroSection() {
           </div>
 
           <div className="hero-intro">
-            <h1 className="hero-title">Je construis des sites web.</h1>
+            {/* Animate font weight using Framer Motion and variable font */}
+            <motion.h1
+              className="hero-title"
+              initial={{
+                fontVariationSettings: '"wght" 400',
+                fontStyle: 'normal',
+              }}
+              animate={{
+                fontVariationSettings: '"wght" 900',
+                fontStyle: 'normal',
+              }}
+              whileHover={{
+                fontVariationSettings: '"wght" 100',
+                fontStyle: 'normal',
+              }}
+              transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+            >
+              Je construis des sites web.
+            </motion.h1>
             <p className="hero-description">
               Développeur full-stack passionné, je crée des expériences
               digitales modernes et performantes. Spécialisé dans les
