@@ -27,48 +27,62 @@ export function Header({ title = 'とーます・まるぐの' }: HeaderProps) {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { runTransition, getDirectionBetween } = usePageTransition();
-
-  const updateIndicator = () => {
-    const activeItem = NAV_ITEMS.find((i) => i.to === pathname) || NAV_ITEMS[0];
-    const el = linkRefs.current[activeItem.to];
-    const navEl = navRef.current;
-    const indicatorEl = indicatorRef.current;
-    if (!el || !navEl || !indicatorEl) return;
-
-    const navRect = navEl.getBoundingClientRect();
-    const elRect = el.getBoundingClientRect();
-
-    // read horizontal padding from CSS variable (fallback to 16px)
-    const paddingX = parseFloat(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--header-indicator-padding'
-      ) || '16'
-    );
-
-    // compute left and width including padding so the single pill translates between items
-    const left = elRect.left - navRect.left + navEl.scrollLeft - paddingX;
-    const width = elRect.width + paddingX * 2;
-
-    // set height to match element's height plus vertical padding (from CSS variable)
-    const verticalPad = parseFloat(
-      getComputedStyle(document.documentElement).getPropertyValue(
-        '--header-indicator-vertical-padding'
-      ) || '6'
-    );
-    const height = elRect.height + verticalPad + 8; // add small extra for comfortable sizing
-
-    // Apply transform/width/height to indicator for smooth translate animation
-    indicatorEl.style.width = `${width}px`;
-    indicatorEl.style.height = `${height}px`;
-    indicatorEl.style.transform = `translateX(${left}px) translateY(-50%)`;
-  };
+  const initialPositioned = useRef<boolean>(false);
 
   useEffect(() => {
+    const updateIndicator = () => {
+      const activeItem =
+        NAV_ITEMS.find((i) => i.to === pathname) || NAV_ITEMS[0];
+      const el = linkRefs.current[activeItem.to];
+      const navEl = navRef.current;
+      const indicatorEl = indicatorRef.current;
+      if (!navEl || !indicatorEl) return;
+      if (!el) {
+        indicatorEl.style.opacity = '0';
+        return;
+      }
+      const navRect = navEl.getBoundingClientRect();
+      const elRect = el.getBoundingClientRect();
+
+      const paddingX = parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue(
+          '--header-indicator-padding'
+        ) || '16'
+      );
+
+      const left = elRect.left - navRect.left + navEl.scrollLeft - paddingX;
+      const width = elRect.width + paddingX * 2;
+
+      const verticalPad = parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue(
+          '--header-indicator-vertical-padding'
+        ) || '6'
+      );
+      const height = elRect.height + verticalPad + 8;
+
+      indicatorEl.style.width = `${width}px`;
+      indicatorEl.style.height = `${height}px`;
+
+      if (!initialPositioned.current) {
+        indicatorEl.style.transition = 'none';
+        indicatorEl.style.transform = `translateX(${left}px) translateY(-50%) scaleX(1)`;
+        indicatorEl.style.opacity = '1';
+        void indicatorEl.offsetWidth;
+        requestAnimationFrame(() => {
+          indicatorEl.style.transition = '';
+        });
+        initialPositioned.current = true;
+        return;
+      }
+
+      indicatorEl.style.transform = `translateX(${left}px) translateY(-50%) scaleX(1)`;
+      indicatorEl.style.opacity = '1';
+    };
+
     updateIndicator();
     const onResize = () => updateIndicator();
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   return (
@@ -99,17 +113,11 @@ export function Header({ title = 'とーます・まるぐの' }: HeaderProps) {
           />
           {NAV_ITEMS.map((item) => {
             const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
-              // allow ctrl/cmd/meta/shift/open in new tab
               if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1)
                 return;
-
               e.preventDefault();
-
-              // if clicking the active route, do nothing
               if (item.to === pathname) return;
-
               const doNavigate = () => navigate(item.to);
-
               if (runTransition && getDirectionBetween) {
                 const dir = getDirectionBetween(pathname, item.to);
                 runTransition(dir, doNavigate);
