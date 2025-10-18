@@ -8,7 +8,7 @@
 @theme {
   /* Header dimensions */
   --width-header: 80%;
-  --width-header-max: 1600px;
+  --width-header-max: 1400px;
   --radius-header: 16px;
   --spacing-header-top: 2rem;
   --z-header: 100;
@@ -155,7 +155,7 @@
   
   /* Footer specific */
   --footer-width: 80%;
-  --footer-max-width: 1600px;
+  --footer-max-width: 1400px;
   --footer-radius: 16px;
   --footer-bottom: 2rem;
   --footer-bg: rgba(255, 255, 255, 0.7);
@@ -170,7 +170,7 @@
   --gallery-gap: 80px;
   
   /* Page content (for all pages except gallery) */
-  --page-max-width: 1600px;
+  --page-max-width: 1400px;
 
   /* ClientsSection Gradient Colors */
   --clients-gradient-1: #fac130;
