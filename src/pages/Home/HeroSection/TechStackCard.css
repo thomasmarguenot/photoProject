@@ -13,9 +13,9 @@
 }
 
 .tech-tooltip {
-  @apply absolute left-1/2 bottom-full rounded-[var(--radius-sm)] text-xs font-semibold bg-[var(--color-primary)] text-white shadow-lg;
+  @apply absolute left-1/2 bottom-full px-3 py-1 rounded-[var(--radius-md)] text-xs font-semibold bg-[var(--color-primary)] text-white shadow-lg;
   transform: translateX(-50%) translateY(0) scale(0.95);
-  margin-bottom: 0;
+  margin-bottom: -5px;
   white-space: nowrap;
   pointer-events: none;
   z-index: 30;
