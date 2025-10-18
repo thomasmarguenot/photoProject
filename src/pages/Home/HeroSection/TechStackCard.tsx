@@ -64,6 +64,9 @@ export function TechStackCard({
   const visibleTechs = technologies.slice(0, 5);
   const hiddenTechs = technologies.slice(5);
 
+  const showFirstHiddenInGrid =
+    expanded && revealedCount > 0 && hiddenTechs.length > 0;
+
   useEffect(() => {
     if (!expanded || revealedCount === hiddenTechs.length) return;
     if (revealedCount === 0) {
@@ -93,6 +96,24 @@ export function TechStackCard({
               <img src={tech.icon} alt={tech.name} className="tech-icon" />
             </motion.div>
           ))}
+          {showFirstHiddenInGrid && (
+            <motion.div
+              key={hiddenTechs[0].name}
+              className="tech-item"
+              title={hiddenTechs[0].name}
+              initial={{ opacity: 0, scale: 0.7 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.7 }}
+              transition={{ duration: 0.3 }}
+              whileHover={{ scale: 1.6 }}
+            >
+              <img
+                src={hiddenTechs[0].icon}
+                alt={hiddenTechs[0].name}
+                className="tech-icon"
+              />
+            </motion.div>
+          )}
           {!expanded && hiddenTechs.length > 0 && (
             <button
               type="button"
@@ -119,7 +140,7 @@ export function TechStackCard({
         <div className="tech-grid">
           <AnimatePresence>
             {expanded &&
-              hiddenTechs.slice(0, revealedCount).map((tech, i) => (
+              hiddenTechs.slice(1, revealedCount).map((tech, i) => (
                 <motion.div
                   key={tech.name}
                   className="tech-item"
