@@ -3,10 +3,11 @@
 .tech-stack-card {
   display: flex;
   flex-direction: row;
+  @apply p-2
 }
 
 .tech-stack-card-initial-elements {
-  width: 320px;
+  width: 300px;
   flex-shrink: 0;
 }
 
@@ -14,6 +15,7 @@
   width: 0;
   min-width: 0;
   transition: width 0.3s;
+  margin-top: 56px;
 }
 
 .tech-stack-card-more-elements {
@@ -31,7 +33,7 @@
 
 .tech-stack-title {
   @apply text-xl font-semibold text-center;
-  @apply p-6 pb-4;
+  @apply p-4 pb-3;
   @apply relative flex flex-col items-center;
   font-family: var(--font-body);
   color: var(--color-text-primary);
@@ -45,7 +47,7 @@
 }
 
 .tech-grid {
-  @apply grid grid-cols-3 gap-4 p-2;
+  @apply grid grid-cols-3 gap-4;
 }
 
 .tech-item {
