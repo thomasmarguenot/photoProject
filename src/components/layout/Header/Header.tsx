@@ -1,5 +1,5 @@
 import { useEffect, useRef, MouseEvent } from 'react';
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 import { usePageTransition } from '@/components/layout/PageTransition/PageTransition';
 
@@ -75,7 +75,7 @@ export function Header({ title = 'とーます・まるぐの' }: HeaderProps) {
     <header className="header">
       <div className="header-container">
         <div className="header-logo">
-          <Link to="/" className="header-title-wrapper">
+          <div className="header-title-wrapper" aria-hidden="false">
             <span className="header-title header-title-base">{title}</span>
             <span
               className="header-title header-title-overlay"
@@ -83,7 +83,7 @@ export function Header({ title = 'とーます・まるぐの' }: HeaderProps) {
             >
               {title}
             </span>
-          </Link>
+          </div>
         </div>
         <nav
           className="header-nav"
