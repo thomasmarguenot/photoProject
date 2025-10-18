@@ -1,11 +1,46 @@
 @reference "../../../index.css";
 
+
+
 .clients-section {
   @apply w-full flex items-center justify-center py-12;
-  background-color: var(--color-clients);
   position: relative;
   font-family: var(--font-heading);
   color: #fff;
+  overflow: hidden;
+}
+
+.clients-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 0;
+  background: var(--color-clients);
+  will-change: width;
+}
+.clients-bg {
+  position: absolute;
+  left: 0;
+  top: auto;
+  bottom: 0;
+  width: 100%;
+  height: 0%;
+  z-index: 0;
+  background: var(--color-clients);
+  will-change: height;
+  transform-origin: bottom;
+}
+
+.clients-container {
+  @apply w-full h-full flex flex-col items-center justify-center;
+  position: relative;
+  z-index: 1;
+}
+.clients-container {
+  @apply w-full h-full flex flex-col items-center justify-center;
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes clientsGradientMove {
@@ -24,11 +59,78 @@
   @apply w-full h-full flex flex-col items-center justify-center;
 }
 
+
+
+.clients-title-mask-wrapper {
+  position: relative;
+  width: 100%;
+  height: 70px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clients-title-bg-black {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  z-index: 1;
+}
+
+.clients-title-bg-white {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: #fff;
+  z-index: 2;
+}
+
+.clients-title-transparent {
+  @apply text-5xl font-bold text-center;
+  letter-spacing: -0.02em;
+  background: none;
+  margin: 0;
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
 .clients-title {
   @apply text-5xl font-bold text-center;
   letter-spacing: -0.02em;
-  color: #fff;
   background: none;
+  margin: 0;
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+}
+
+.clients-title-black {
+  color: #111;
+  position: relative;
+  z-index: 2;
+}
+
+.clients-title-white {
+  color: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  pointer-events: none;
 }
 
 .clients-scroll-wrapper {

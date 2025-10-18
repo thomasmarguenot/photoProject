@@ -54,8 +54,21 @@ export function ClientsSection({
 
   return (
     <section className="clients-section">
-      <div className="clients-container">
-        <h2 className="clients-title">Ils m&apos;ont fait confiance</h2>
+      <motion.div
+        className="clients-bg"
+        initial={{ height: '0%' }}
+        animate={{ height: '100%' }}
+        transition={{ duration: 1.2, ease: 'easeInOut' }}
+      />
+      <motion.div
+        className="clients-container"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.1, duration: 0.7, ease: 'easeOut' }}
+      >
+        <div className="clients-title-wrapper">
+          <h2 className="clients-title">Ils m&apos;ont fait confiance</h2>
+        </div>
         <div className="clients-scroll-wrapper">
           <motion.div
             className="clients-scroll-row"
@@ -63,7 +76,7 @@ export function ClientsSection({
             transition={{
               repeat: Infinity,
               repeatType: 'loop',
-              duration: 50,
+              duration: 80,
               ease: 'linear',
             }}
           >
@@ -83,7 +96,7 @@ export function ClientsSection({
             ))}
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
