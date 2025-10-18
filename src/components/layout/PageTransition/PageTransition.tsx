@@ -7,6 +7,7 @@ import {
   useState,
 } from 'react';
 import type { ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 
 import { ANIMATION, PAGE_ORDER } from '@/utils/constants';
 import './PageTransition.css';
@@ -92,17 +93,19 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
     >
       {children}
 
-      {/* Only render the overlay while animating to avoid stray motion when idle */}
-      {shouldRenderOverlay && (
-        <motion.div
-          className="page-transition-overlay"
-          initial={dirState === 'ltr' ? 'offLeft' : 'offRight'}
-          animate="cover"
-          variants={overlayVariants}
-          transition={{ duration, ease: ANIMATION.EASING }}
-          onAnimationComplete={onAnimationComplete}
-        />
-      )}
+      {shouldRenderOverlay &&
+        typeof document !== 'undefined' &&
+        createPortal(
+          <motion.div
+            className="page-transition-overlay"
+            initial={dirState === 'ltr' ? 'offLeft' : 'offRight'}
+            animate="cover"
+            variants={overlayVariants}
+            transition={{ duration, ease: ANIMATION.EASING }}
+            onAnimationComplete={onAnimationComplete}
+          />,
+          document.body
+        )}
     </PageTransitionContext.Provider>
   );
 }
