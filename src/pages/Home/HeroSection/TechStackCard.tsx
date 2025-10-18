@@ -83,80 +83,99 @@ export function TechStackCard({
 
   return (
     <div className="tech-stack-card">
-      <div className="tech-stack-card-initial-elements">
-        <h3 className="tech-stack-title">J&apos;aime travailler avec</h3>
-        <div className="tech-grid p-0">
-          {visibleTechs.map((tech) => (
-            <motion.div
-              key={tech.name}
-              className="tech-item"
-              title={tech.name}
-              whileHover={{ scale: 1.6 }}
-            >
-              <img src={tech.icon} alt={tech.name} className="tech-icon" />
-            </motion.div>
-          ))}
-          {showFirstHiddenInGrid && (
-            <motion.div
-              key={hiddenTechs[0].name}
-              className="tech-item"
-              title={hiddenTechs[0].name}
-              initial={{ opacity: 0, scale: 0.7 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.7 }}
-              transition={{ duration: 0.3 }}
-              whileHover={{ scale: 1.6 }}
-            >
-              <img
-                src={hiddenTechs[0].icon}
-                alt={hiddenTechs[0].name}
-                className="tech-icon"
-              />
-            </motion.div>
-          )}
-          {!expanded && hiddenTechs.length > 0 && (
+      <h3 className="tech-stack-title">J&apos;aime travailler avec</h3>
+      <div className="tech-stack-elements-container">
+        <div className="tech-stack-card-initial-elements">
+          <div className="tech-grid p-0">
+            {visibleTechs.map((tech) => (
+              <motion.div
+                key={tech.name}
+                className="tech-item"
+                title={tech.name}
+                whileHover={{ scale: 1.6 }}
+              >
+                <img src={tech.icon} alt={tech.name} className="tech-icon" />
+              </motion.div>
+            ))}
+            {showFirstHiddenInGrid && (
+              <motion.div
+                key={hiddenTechs[0].name}
+                className="tech-item"
+                title={hiddenTechs[0].name}
+                initial={{ opacity: 0, scale: 0.7 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.7 }}
+                transition={{ duration: 0.3 }}
+                whileHover={{ scale: 1.6 }}
+              >
+                <img
+                  src={hiddenTechs[0].icon}
+                  alt={hiddenTechs[0].name}
+                  className="tech-icon"
+                />
+              </motion.div>
+            )}
+            {!expanded && hiddenTechs.length > 0 && (
+              <button
+                type="button"
+                className="tech-more"
+                aria-label="Voir plus de technologies"
+                tabIndex={-1}
+                onClick={() => setExpanded(true)}
+              >
+                <span className="more-icon">+{hiddenTechs.length}</span>
+              </button>
+            )}
+          </div>
+          {expanded && (
             <button
               type="button"
-              className="tech-item tech-more"
-              aria-label="Voir plus de technologies"
-              tabIndex={-1}
-              onClick={() => setExpanded(true)}
+              className="tech-close"
+              aria-label="Fermer les technologies"
+              onClick={() => {
+                setExpanded(false);
+                setRevealedCount(0);
+              }}
             >
-              <span className="more-icon">+{hiddenTechs.length}</span>
+              <span className="tech-close-icon">×</span>
             </button>
           )}
         </div>
+        <motion.div
+          className={
+            expanded
+              ? 'tech-stack-card-more-elements'
+              : 'tech-stack-card-more-elements pointer-events-none'
+          }
+          animate={hasAnimated ? { width: expanded ? 300 : 0 } : false}
+          initial={false}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
+          <div className="tech-grid">
+            <AnimatePresence>
+              {expanded &&
+                hiddenTechs.slice(1, revealedCount).map((tech, i) => (
+                  <motion.div
+                    key={tech.name}
+                    className="tech-item"
+                    initial={{ opacity: 0, scale: 0.7 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.7 }}
+                    transition={{ duration: 0.3, delay: i * 0.08 }}
+                    title={tech.name}
+                    whileHover={{ scale: 1.6 }}
+                  >
+                    <img
+                      src={tech.icon}
+                      alt={tech.name}
+                      className="tech-icon"
+                    />
+                  </motion.div>
+                ))}
+            </AnimatePresence>
+          </div>
+        </motion.div>
       </div>
-      <motion.div
-        className={
-          expanded
-            ? 'tech-stack-card-more-elements'
-            : 'tech-stack-card-more-elements pointer-events-none'
-        }
-        animate={hasAnimated ? { width: expanded ? 300 : 0 } : false}
-        initial={false}
-        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-      >
-        <div className="tech-grid">
-          <AnimatePresence>
-            {expanded &&
-              hiddenTechs.slice(1, revealedCount).map((tech, i) => (
-                <motion.div
-                  key={tech.name}
-                  className="tech-item"
-                  initial={{ opacity: 0, scale: 0.7 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.7 }}
-                  transition={{ duration: 0.3, delay: i * 0.08 }}
-                  title={tech.name}
-                  whileHover={{ scale: 1.6 }}
-                >
-                  <img src={tech.icon} alt={tech.name} className="tech-icon" />
-                </motion.div>
-              ))}
-          </AnimatePresence>
-        </div>
-      </motion.div>
     </div>
   );
 }
