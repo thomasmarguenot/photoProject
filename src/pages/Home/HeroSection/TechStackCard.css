@@ -1,6 +1,27 @@
 @reference "../../../index.css";
 
 .tech-stack-card {
+  display: flex;
+  flex-direction: row;
+}
+
+.tech-stack-card-initial-elements {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+.tech-stack-card-more-elements {
+  width: 0;
+  min-width: 0;
+  transition: width 0.3s;
+}
+
+.tech-stack-card-more-elements {
+  width: 0;
+  display: inline-block;
+}
+
+.tech-stack-card {
   @apply rounded-[var(--radius-md)];
   background: rgba(255,255,255,0.6);
   backdrop-filter: blur(var(--glass-blur-strong));
@@ -24,7 +45,7 @@
 }
 
 .tech-grid {
-  @apply grid grid-cols-3 gap-4 p-6;
+  @apply grid grid-cols-3 gap-4 p-2;
 }
 
 .tech-item {
