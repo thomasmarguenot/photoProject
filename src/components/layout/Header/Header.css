@@ -24,11 +24,11 @@ body.lightbox-open .header {
 }
 
 .header-container {
-  @apply px-6 py-5 flex items-center justify-between;
+  @apply px-6 py-5 flex items-center;
 }
 
 .header-logo {
-  @apply flex items-center;
+  @apply flex items-center min-w-[220px] lg:min-w-[240px];
 }
 
 @media (max-width: 1023px) {
@@ -103,13 +103,17 @@ body.lightbox-open .header {
 /* Hide nav on mobile, flex on desktop */
 
 .header-nav {
-  @apply gap-8;
+  @apply gap-2 items-center;
   display: none;
   position: relative;
-  align-items: center;
 }
 
 @media (min-width: 1024px) {
+  .header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
   .header {
     top: var(--header-top);
     width: var(--header-width);
@@ -120,6 +124,10 @@ body.lightbox-open .header {
   }
   .header-nav {
     display: flex;
+    justify-content: space-between;
+    flex: 1 1 0%;
+    min-width: 0;
+    margin-left: 5rem;
   }
 }
 
