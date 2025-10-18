@@ -1,13 +1,21 @@
 @reference "../../../index.css";
 
 .header {
-  @apply mx-auto sticky top-[var(--header-top)] z-[var(--header-z-index)];
-  @apply w-[var(--header-width)] max-w-[var(--header-max-width)];
+  @apply mx-auto sticky z-[var(--header-z-index)];
+  @apply w-full max-w-[var(--header-max-width)];
   @apply rounded-[var(--header-radius)] border-b border-[var(--header-border)];
   @apply bg-[var(--header-bg)] backdrop-blur-[var(--header-blur)];
   @apply transition-all ease-in-out;
   transition-duration: var(--animation-duration);
   transition-timing-function: var(--animation-easing);
+}
+
+body.menu-overlay-open .header {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  border-radius: 0 !important;
 }
 
 body.lightbox-open .header {
@@ -21,6 +29,19 @@ body.lightbox-open .header {
 
 .header-logo {
   @apply flex items-center;
+}
+
+@media (max-width: 1023px) {
+  .header-logo {
+    height: 1.5rem;
+    min-width: 0;
+    padding: 0;
+  }
+  .header-logo .header-title {
+    font-size: 1.3rem;
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .header-title-wrapper {
@@ -78,9 +99,28 @@ body.lightbox-open .header {
   100% { opacity: 1; background-position: 100% 0; }
 }
 
+
+/* Hide nav on mobile, flex on desktop */
+
 .header-nav {
-  @apply flex gap-8;
+  @apply gap-8;
+  display: none;
   position: relative;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .header {
+    top: var(--header-top);
+    width: var(--header-width);
+    max-width: var(--header-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: var(--header-radius);
+  }
+  .header-nav {
+    display: flex;
+  }
 }
 
 .header-link {
@@ -99,7 +139,8 @@ body.lightbox-open .header {
 .header-nav-indicator {
   position: absolute;
   top: 50%;
-  transform: translateX(0) translateY(-50%);
+  left: 0;
+  transform: translateY(-50%);
   --header-indicator-padding: 16px;
   --header-indicator-vertical-padding: 6px;
   height: calc(1.75rem + 8px + var(--header-indicator-vertical-padding));
