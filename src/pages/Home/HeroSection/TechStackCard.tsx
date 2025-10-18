@@ -1,10 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactNode } from 'react';
 
-import type { Technology, TechStackCardProps } from './TechStackCard.types';
-import './TechStackCard.css';
-
-const defaultTechnologies: Technology[] = [
+import type { TechStackCardProps } from './TechStackCard.types';
+const defaultTechnologies = [
   {
     name: 'React',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
@@ -54,6 +52,27 @@ const defaultTechnologies: Technology[] = [
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/storybook/storybook-original.svg',
   },
 ];
+import './TechStackCard.css';
+
+function TechTooltip({
+  label,
+  children,
+}: {
+  label: string;
+  children: ReactNode;
+}) {
+  // Tooltip is always rendered, but only visible on hover/focus via CSS
+  return (
+    <div
+      className="tech-tooltip-wrapper"
+      tabIndex={-1}
+      style={{ position: 'relative', display: 'inline-block' }}
+    >
+      {children}
+      <div className="tech-tooltip">{label}</div>
+    </div>
+  );
+}
 
 export function TechStackCard({
   technologies = defaultTechnologies,
@@ -88,32 +107,29 @@ export function TechStackCard({
         <div className="tech-stack-card-initial-elements">
           <div className="tech-grid p-0">
             {visibleTechs.map((tech) => (
-              <motion.div
-                key={tech.name}
-                className="tech-item"
-                title={tech.name}
-                whileHover={{ scale: 1.6 }}
-              >
-                <img src={tech.icon} alt={tech.name} className="tech-icon" />
-              </motion.div>
+              <TechTooltip key={tech.name} label={tech.name}>
+                <motion.div className="tech-item" whileHover={{ scale: 1.6 }}>
+                  <img src={tech.icon} alt={tech.name} className="tech-icon" />
+                </motion.div>
+              </TechTooltip>
             ))}
             {showFirstHiddenInGrid && (
-              <motion.div
-                key={hiddenTechs[0].name}
-                className="tech-item"
-                title={hiddenTechs[0].name}
-                initial={{ opacity: 0, scale: 0.7 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.7 }}
-                transition={{ duration: 0.3 }}
-                whileHover={{ scale: 1.6 }}
-              >
-                <img
-                  src={hiddenTechs[0].icon}
-                  alt={hiddenTechs[0].name}
-                  className="tech-icon"
-                />
-              </motion.div>
+              <TechTooltip label={hiddenTechs[0].name}>
+                <motion.div
+                  className="tech-item"
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.7 }}
+                  transition={{ duration: 0.3 }}
+                  whileHover={{ scale: 1.6 }}
+                >
+                  <img
+                    src={hiddenTechs[0].icon}
+                    alt={hiddenTechs[0].name}
+                    className="tech-icon"
+                  />
+                </motion.div>
+              </TechTooltip>
             )}
             {!expanded && hiddenTechs.length > 0 && (
               <button
@@ -155,22 +171,22 @@ export function TechStackCard({
             <AnimatePresence>
               {expanded &&
                 hiddenTechs.slice(1, revealedCount).map((tech, i) => (
-                  <motion.div
-                    key={tech.name}
-                    className="tech-item"
-                    initial={{ opacity: 0, scale: 0.7 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.7 }}
-                    transition={{ duration: 0.3, delay: i * 0.08 }}
-                    title={tech.name}
-                    whileHover={{ scale: 1.6 }}
-                  >
-                    <img
-                      src={tech.icon}
-                      alt={tech.name}
-                      className="tech-icon"
-                    />
-                  </motion.div>
+                  <TechTooltip key={tech.name} label={tech.name}>
+                    <motion.div
+                      className="tech-item"
+                      initial={{ opacity: 0, scale: 0.7 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.7 }}
+                      transition={{ duration: 0.3, delay: i * 0.08 }}
+                      whileHover={{ scale: 1.6 }}
+                    >
+                      <img
+                        src={tech.icon}
+                        alt={tech.name}
+                        className="tech-icon"
+                      />
+                    </motion.div>
+                  </TechTooltip>
                 ))}
             </AnimatePresence>
           </div>
