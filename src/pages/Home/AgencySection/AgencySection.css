@@ -45,7 +45,8 @@
 }
 
 .agency-tagline {
-  @apply text-xl font-semibold mb-6;
+  @apply text-base font-semibold mb-6;
+  font-size: 1.2rem;
   color: var(--color-accent);
   letter-spacing: 0.1em;
 }
@@ -78,19 +79,30 @@
   line-height: 1.6;
 }
 
+
 .agency-link {
-  @apply inline-block px-8 py-4 text-lg font-semibold rounded-xl;
-  @apply transition-all duration-300 no-underline;
-  background: rgba(255, 255, 255, 0.2);
-  color: var(--color-text);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  @apply inline-block px-4 py-2 text-base font-semibold rounded-full no-underline;
+  @apply transition-all duration-300;
+  background: var(--glass-bg-subtle);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 16px rgba(31, 38, 135, 0.08);
+  position: relative;
+  overflow: hidden;
 }
 
 .agency-link:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  background: var(--glass-bg);
+  border-color: var(--glass-border);
+}
+
+.agency-link .agency-link-arrow {
+  display: inline-block;
+  transition: transform 0.3s var(--animation-easing);
+}
+
+.agency-link:hover .agency-link-arrow {
+  transform: translateX(6px);
 }
 
 @media (min-width: 1024px) {

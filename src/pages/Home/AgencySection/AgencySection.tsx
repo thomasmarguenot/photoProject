@@ -30,7 +30,7 @@ export function AgencySection() {
           <div className="agency-text">
             <h2 className="agency-title">Agence Belle Époque</h2>
             <p className="agency-tagline">
-              CRÉATEURS DE BELLES HISTOIRES DIGITALES
+              FONDATEUR ASSOCIÉ DE L&apos;AGENCE BELLE ÉPOQUE
             </p>
             <p className="agency-description">
               Chez Belle Époque, nous produisons des identités visuelles, des
@@ -72,7 +72,8 @@ export function AgencySection() {
               rel="noopener noreferrer"
               className="agency-link"
             >
-              Découvrir l&apos;agence →
+              Découvrir l&apos;agence{' '}
+              <span className="agency-link-arrow">→</span>
             </a>
           </div>
         </div>

@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 
 import canalImage from '@/assets/projects/canal.jpg';
-import lorealImage from '@/assets/projects/loreal.webp';
 import quotatisImage from '@/assets/projects/quotatis.jpg';
-import woodAndMaryImage from '@/assets/projects/wood-and-mary.jpg';
+import rolex from '@/assets/projects/rolex.webp';
+import tabacInfoService from '@/assets/projects/tabac-info-service.webp';
 
 import type { ProjectsSectionProps } from './ProjectsSection.types';
 import './ProjectsSection.css';
@@ -13,33 +13,33 @@ const defaultProjects = [
     id: '1',
     title: 'Canal Plus',
     description:
-      'Refonte complète de la plateforme de streaming avec une architecture moderne React et une expérience utilisateur repensée.',
+      "Développements divers sur le site MyCanal. Création de nouvelles fonctionnalités: cards recommandation, section TVod: possibilité d'acheter des films à l'unité, etc.",
     image: canalImage,
-    technologies: ['React', 'TypeScript', 'Node.js'],
+    technologies: ['React', 'Redux', 'Redux-Saga'],
   },
   {
-    id: '2',
-    title: "L'Oréal Digital",
+    id: '4',
+    title: 'Rolex',
     description:
-      "Création d'une plateforme e-commerce innovante avec personnalisation avancée et intégration d'IA pour recommandations produits.",
-    image: lorealImage,
-    technologies: ['Next.js', 'Tailwind', 'AI'],
+      'Optimisation de la map monde interactive des boutiques Rolex avec Three.js pour une expérience utilisateur immersive.',
+    image: rolex,
+    technologies: ['Three.js', 'React'],
   },
   {
     id: '3',
     title: 'Quotatis',
     description:
-      'Plateforme de mise en relation entre particuliers et professionnels du bâtiment avec système de devis intelligent.',
+      "Lead front de l’entreprise Quotatis. Création de l'application mobile sur React-Native, backoffice pour la relation client avec Material-UI.",
     image: quotatisImage,
-    technologies: ['React', 'WebSocket', 'AWS'],
+    technologies: ['React', 'React-Native', 'Redux', 'Auth0'],
   },
   {
-    id: '4',
-    title: 'Wood and Mary',
+    id: '2',
+    title: 'Tabac Info Service',
     description:
-      'Site e-commerce haut de gamme avec configurateur 3D interactif et système de réservation sur-mesure.',
-    image: woodAndMaryImage,
-    technologies: ['Three.js', 'React', 'Stripe'],
+      "Développements sur l'application mobile Tabac Info Service (TIS) de l'Institut National du Cancer. Ajout de fonctionnalités pour aider les utilisateurs dans leur sevrage tabagique.",
+    image: tabacInfoService,
+    technologies: ['React-Native'],
   },
 ];
 
