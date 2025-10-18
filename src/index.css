@@ -173,7 +173,8 @@
   --page-max-width: 1400px;
 
   /* ClientsSection Gradient Colors */
-  --clients-gradient-1: #fac130;
+  --color-clients: #fac130;
+  --clients-gradient-1: var(--color-clients);
   --clients-gradient-2: #fac339;
   --clients-gradient-3: #fbbf24;
   --clients-gradient-4: #fbbf24;
