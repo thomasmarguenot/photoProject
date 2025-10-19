@@ -22,19 +22,12 @@
 }
 
 .project-card {
-  @apply flex flex-col gap-0 transition-all duration-500;
+  @apply flex flex-col gap-0;
   @apply overflow-hidden rounded-[var(--border-radius-lg)];
-  
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-  
   cursor: default;
-}
-
-.project-card:hover {
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-  transform: translateY(-4px);
 }
 
 .project-image {
@@ -45,11 +38,6 @@
 
 .project-image img {
   @apply w-full h-full object-cover;
-  transition: transform 0.5s ease;
-}
-
-.project-card:hover .project-image img {
-  transform: scale(1.05);
 }
 
 .project-content {

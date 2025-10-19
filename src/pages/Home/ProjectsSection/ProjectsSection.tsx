@@ -47,27 +47,27 @@ export function ProjectsSection({
   projects = defaultProjects,
 }: ProjectsSectionProps) {
   return (
-    <motion.section
-      className="projects-section"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="projects-container">
-        <h2 className="projects-title">Derniers projets</h2>
+    <section className="projects-section">
+      <motion.div
+        className="projects-container"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+      >
+        <motion.h2
+          className="projects-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.6 }}
+        >
+          Derniers projets
+        </motion.h2>
 
         <div className="projects-grid">
-          {projects.map((project, index) => (
-            <motion.article
-              key={project.id}
-              className="project-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -4 }}
-            >
+          {projects.map((project) => (
+            <article key={project.id} className="project-card">
               <div className="project-image">
                 <img src={project.image} alt={project.title} loading="lazy" />
               </div>
@@ -84,10 +84,10 @@ export function ProjectsSection({
                   </div>
                 )}
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
-      </div>
-    </motion.section>
+      </motion.div>
+    </section>
   );
 }
