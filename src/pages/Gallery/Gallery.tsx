@@ -1,4 +1,7 @@
+import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+
+import { ANIMATION } from '@/utils/constants';
 
 import { GalleryGrid } from './GalleryGrid/GalleryGrid';
 import { useGalleryImages } from './useGalleryImages';
@@ -31,7 +34,6 @@ export function Gallery() {
   const handleImageClick = (index: number) => {
     setSelectedImage(index);
   };
-
   const handleCloseLightbox = () => {
     setShouldExpand(false);
     document.body.classList.remove('lightbox-open');
@@ -45,22 +47,43 @@ export function Gallery() {
   if (isLoading || images.length === 0) {
     return (
       <div className="gallery">
-        <div className="gallery-container">
+        <motion.div
+          className="gallery-container"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: ANIMATION.DURATION,
+            ease: ANIMATION.EASING_SMOOTH,
+          }}
+        >
           <div className="gallery-empty">
             <p>
               {isLoading
-                ? 'Loading images...'
+                ? '...'
                 : 'No images found. Add images to src/assets/pictures/'}
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     );
   }
 
   return (
-    <div className="gallery">
-      <div className="gallery-container">
+    <motion.div
+      className="gallery"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.7, ease: ANIMATION.EASING_SMOOTH }}
+    >
+      <motion.div
+        className="gallery-container"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: ANIMATION.DURATION,
+          ease: ANIMATION.EASING_SMOOTH,
+        }}
+      >
         <GalleryGrid
           images={images}
           onImageClick={handleImageClick}
@@ -68,7 +91,7 @@ export function Gallery() {
           isLightboxOpen={isLightboxOpen}
           shouldExpand={shouldExpand}
         />
-      </div>
+      </motion.div>
 
       {shouldExpand && (
         <button
@@ -79,7 +102,7 @@ export function Gallery() {
           ×
         </button>
       )}
-    </div>
+    </motion.div>
   );
 }
 

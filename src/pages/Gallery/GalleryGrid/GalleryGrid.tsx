@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
+import { useGalleryGridColumns } from './useGalleryGridColumns';
+import './GalleryGrid.css';
 import {
   ANIMATION_DURATION,
   ANIMATION_EASING,
   containerVariants,
-  itemVariants,
 } from '../galleryAnimations';
 import type { GalleryGridProps } from './GalleryGrid.types';
 
@@ -18,6 +19,7 @@ export function GalleryGrid({
 }: GalleryGridProps) {
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [centerOffset, setCenterOffset] = useState({ x: 0, y: 0 });
+  const columns = useGalleryGridColumns();
 
   useEffect(() => {
     if (
@@ -39,6 +41,7 @@ export function GalleryGrid({
       });
     }
   }, [selectedIndex, shouldExpand]);
+  // For grid, row-major order is just the original array
 
   return (
     <motion.div
@@ -47,30 +50,31 @@ export function GalleryGrid({
       initial="hidden"
       animate="visible"
     >
-      {images.map((image, index) => {
-        const isSelected = index === selectedIndex;
+      {images.map((image, i) => {
+        const isSelected = i === selectedIndex;
         const shouldHide = isLightboxOpen && !isSelected;
         const offset =
           isSelected && shouldExpand ? centerOffset : { x: 0, y: 0 };
-
         // Calculate appropriate scale based on image orientation
-        // Portrait: height > width (use smaller scale to fit screen)
-        // Landscape: width > height (use larger scale)
         const isPortrait = (image.height || 800) > (image.width || 1200);
         const expandScale = isPortrait ? 1.8 : 2.4;
 
+        // Row/col for true row-by-row animation
+        const row = Math.floor(i / columns);
+        const col = i % columns;
+        const delay = 0.1 + (row * columns + col) * 0.01;
+
         return (
           <motion.div
-            key={`${image.src}-${index}`}
-            ref={(el) => {
-              itemRefs.current[index] = el;
+            key={`${image.src}-${i}`}
+            ref={(el: HTMLDivElement | null) => {
+              itemRefs.current[i] = el;
             }}
-            className={`gallery-item ${isSelected && shouldExpand ? 'expanded-item' : ''}`}
-            variants={itemVariants}
-            initial="visible"
+            className={`gallery-item${isSelected && shouldExpand ? ' expanded-item' : ''}`}
+            initial={{ opacity: 0, y: 30 }}
             animate={
               shouldHide
-                ? 'hidden'
+                ? { opacity: 0, y: 30 }
                 : isSelected && shouldExpand
                   ? {
                       opacity: 1,
@@ -79,12 +83,13 @@ export function GalleryGrid({
                       y: offset.y,
                       zIndex: 150,
                     }
-                  : 'visible'
+                  : { opacity: 1, y: 0 }
             }
-            onClick={() => !isLightboxOpen && onImageClick(index)}
+            onClick={() => !isLightboxOpen && onImageClick(i)}
             transition={{
               duration: ANIMATION_DURATION,
               ease: ANIMATION_EASING,
+              delay,
             }}
             style={{
               pointerEvents: shouldHide ? 'none' : 'auto',
@@ -97,8 +102,8 @@ export function GalleryGrid({
               src={image.src}
               alt={image.alt}
               className="gallery-image"
-              loading={index < 6 ? 'eager' : 'lazy'}
-              fetchPriority={index === 0 ? 'high' : 'auto'}
+              loading={i < 6 ? 'eager' : 'lazy'}
+              fetchPriority={i === 0 ? 'high' : 'auto'}
               width={image.width || 1200}
               height={image.height || 800}
               decoding="async"
