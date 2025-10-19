@@ -42,6 +42,9 @@ body.lightbox-open .header {
     padding: 0;
     margin: 0;
   }
+  .header {
+    @apply rounded-none;
+  }
 }
 
 .header-title-wrapper {
