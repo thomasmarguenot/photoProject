@@ -11,7 +11,7 @@ export function About() {
 
         <main className="about-content" role="main">
           <section className="about-block">
-            <h2 className="about-heading">FORMATION</h2>
+            <h2 className="about-heading">Formation</h2>
             <ul className="about-list">
               <li>
                 <strong>2011 - 2013</strong>
@@ -39,7 +39,7 @@ export function About() {
           </section>
 
           <section className="about-block">
-            <h2 className="about-heading">COMPÉTENCES</h2>
+            <h2 className="about-heading">Compétences</h2>
 
             <div className="skills-grid">
               <div>
@@ -79,8 +79,22 @@ export function About() {
           <section className="about-block about-passion">
             <h2 className="about-heading">Côté Passion</h2>
             <p>
-              J&apos;aime le Japon, faire du sport, le cinéma, la photographie,
-              les voyages et surtout mon métier — créer des sites web.
+              À côté du code et des pixels, je suis un éternel
+              explorateur&nbsp;: le Japon m&apos;inspire par son équilibre
+              délicat, le sport m&apos;apporte de la discipline et de
+              l&apos;énergie, et le cinéma nourrit mon imaginaire visuel. La
+              photographie me permet de capturer des moments et des ambiances
+              &mdash; des micro-récits qui repartent ensuite dans mes projets
+              web.
+            </p>
+
+            <p>
+              Voyager reste ma façon préférée d&apos;apprendre&nbsp;: chaque
+              paysage, rencontre ou ville m&apos;offre des idées et des
+              perspectives que j&apos;aime transposer dans mes créations. En
+              somme, ces passions ne sont pas des hobbies isolés, mais autant de
+              sources d&apos;inspiration qui alimentent mon travail au
+              quotidien.
             </p>
           </section>
         </main>
