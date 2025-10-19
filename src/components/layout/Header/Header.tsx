@@ -15,9 +15,9 @@ type NavItem = {
 };
 
 const NAV_ITEMS: NavItem[] = [
-  { to: '/', label: 'Home', end: true },
-  { to: '/gallery', label: 'Gallery' },
-  { to: '/about', label: 'About' },
+  { to: '/', label: 'Accueil', end: true },
+  { to: '/gallery', label: 'Gallerie' },
+  { to: '/about', label: 'À propos' },
   { to: '/contact', label: 'Contact' },
 ];
 
