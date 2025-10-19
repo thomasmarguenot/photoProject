@@ -125,11 +125,46 @@
 }
 
 @media (max-width: 1024px) {
+  .about {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    margin-block-start: 0 !important;
+    top: 0 !important;
+    position: relative;
+  }
+
   .about-inner {
     grid-template-columns: 1fr;
     gap: 2rem;
     height: auto;
     padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-content {
+    order: 1;
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .about-photo {
+    order: 2;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .about-photo img {
+    width: 160px;
+    max-width: 60%;
+    height: auto;
+    transform: none !important;
+    opacity: 1 !important;
+    animation: none !important;
+    box-shadow: none;
+    margin: 0.5rem auto 0 auto;
   }
 
   .about-photo img {
