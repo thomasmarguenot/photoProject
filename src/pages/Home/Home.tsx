@@ -7,8 +7,10 @@ import './Home.css';
 export function Home() {
   return (
     <div className="home">
-      <HeroSection />
-      <ClientsSection />
+      <div className="home-hero-clients">
+        <HeroSection />
+        <ClientsSection />
+      </div>
       <ProjectsSection />
       <AgencySection />
     </div>

@@ -109,7 +109,7 @@
 }
 
 .clients-title {
-  @apply text-5xl font-bold text-center;
+  @apply text-4xl font-bold text-center;
   letter-spacing: -0.02em;
   background: none;
   margin: 0;
@@ -150,7 +150,6 @@
   -webkit-backdrop-filter: blur(var(--glass-blur));
   border-radius: var(--border-radius-md);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   cursor: default;
   min-width: 200px;
   min-height: 140px;
@@ -159,7 +158,6 @@
 }
 
 .client-card:hover {
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
   border-color: rgba(255, 255, 255, 0.5);
   background: rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
@@ -185,5 +183,28 @@
 @media (min-width: 1024px) {
   .clients-container {
     @apply px-12;
+  }
+}
+
+@media (min-width: 1024px) {
+  .clients-scroll-wrapper {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .clients-scroll-row {
+    gap: 2rem;
+  }
+
+  .client-card {
+    padding: 0.75rem 1.25rem;
+    min-height: 110px;
+    min-width: 160px;
+  }
+
+  .client-logo {
+    width: 180px;
+    height: 70px;
+    object-fit: contain;
   }
 }

@@ -50,7 +50,7 @@ const defaultClients = [
 export function ClientsSection({
   clients = defaultClients,
 }: ClientsSectionProps) {
-  const scrollingClients = [...clients, ...clients];
+  const scrollingClients = [...clients, ...clients, ...clients];
 
   return (
     <section className="clients-section">

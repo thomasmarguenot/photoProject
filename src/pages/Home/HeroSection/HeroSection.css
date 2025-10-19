@@ -95,3 +95,24 @@
     @apply px-12;
   }
 }
+
+@media (min-width: 1024px) {
+  .hero-section {
+    padding-top: 4rem;
+  }
+
+  .hero-photo {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .photo-image {
+    border-width: 2px;
+    transition: transform 0.35s var(--animation-easing);
+  }
+
+  .hero-intro {
+    max-width: 680px;
+    gap: 0.75rem;
+  }
+}

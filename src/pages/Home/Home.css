@@ -4,3 +4,32 @@
   @apply w-full;
   min-height: calc(100vh - 200px);
 }
+
+/* Group hero + clients so they can share available viewport height on desktop */
+.home-hero-clients {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .home-hero-clients {
+    height: calc(100vh - var(--header-height, 80px));
+    min-height: calc(100vh - var(--header-height, 80px));
+    overflow: hidden;
+  }
+
+  /* 65% / 35% split */
+  .home-hero-clients > .hero-section {
+    flex: 0 0 65%;
+    height: 65%;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .home-hero-clients > .clients-section {
+    flex: 0 0 35%;
+    height: 35%;
+    min-height: 0;
+    overflow: auto;
+  }
+}
