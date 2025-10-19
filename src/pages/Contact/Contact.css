@@ -1,0 +1,125 @@
+@reference "../../index.css";
+
+.contact {
+  @apply w-full mt-10;
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--spacing-md) 0 2rem 0;
+}
+
+.contact-inner {
+  @apply mx-auto w-full px-6;
+  max-width: var(--page-max-width);
+}
+
+.contact-content {
+  color: var(--color-text-primary);
+  animation: fadeInRight 700ms var(--animation-easing) 200ms both;
+}
+
+.contact-block {
+  @apply mb-8;
+}
+
+.contact-heading {
+  @apply text-xl font-semibold mb-4;
+  font-family: var(--font-heading);
+  color: var(--color-text-primary);
+}
+
+.contact-description {
+  @apply mb-6 text-base;
+  font-size: var(--text-lg, 1.125rem);
+  color: var(--color-text-primary);
+}
+
+.contact-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-description {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.05rem;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+  width: min(720px, 100%);
+}
+
+.contact-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-label {
+  color: var(--color-text-primary);
+  font-weight: 900;
+  font-size: 1.25rem;
+}
+
+.contact-link {
+  color: var(--color-primary);
+  text-decoration: inherit;
+  position: relative;
+  font-size: 1.25rem;
+  padding-bottom: 12px;
+}
+
+@media (max-width: 480px) {
+  .contact-link::after {
+    transform: translateY(8px);
+  }
+}
+
+.contact-stamp {
+  position: fixed;
+  left: 24px;
+  bottom: 20px;
+  font-weight: 900;
+  color: rgba(10,10,10,0.06);
+  font-family: var(--font-heading);
+  font-size: clamp(96px, 18vw, 220px);
+  line-height: 0.85;
+  pointer-events: none;
+  letter-spacing: -0.02em;
+  transform: translateY(40px);
+  opacity: 0;
+  animation: slideUpFade 900ms var(--animation-easing) 900ms both;
+}
+
+@keyframes fadeInRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.contact-title {
+  @apply text-4xl lg:text-5xl font-bold mb-4 mt-4;
+  font-family: 'Inter Tight', sans-serif;
+  font-variation-settings: "wght" 900;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+@keyframes slideUpFade {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

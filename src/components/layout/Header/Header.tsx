@@ -18,7 +18,6 @@ const NAV_ITEMS: NavItem[] = [
   { to: '/', label: 'Home', end: true },
   { to: '/gallery', label: 'Gallery' },
   { to: '/about', label: 'About' },
-  { to: '/charte', label: 'Charte' },
   { to: '/contact', label: 'Contact' },
 ];
 

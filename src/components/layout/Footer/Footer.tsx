@@ -1,30 +1,17 @@
-import { Link } from 'react-router-dom';
-
 import type { FooterProps } from './Footer.types';
 import './Footer.css';
 
 export function Footer({
   year = new Date().getFullYear(),
-  companyName = 'PhotoProject',
+  companyName = 'Thomas Marguenot - Agence Belle Époque',
 }: FooterProps) {
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-content">
           <p className="footer-text">
-            © {year} {companyName}. All rights reserved.
+            © {year} {companyName}.
           </p>
-          <div className="footer-links">
-            <Link to="/privacy" className="footer-link">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="footer-link">
-              Terms of Service
-            </Link>
-            <Link to="/contact" className="footer-link">
-              Contact
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

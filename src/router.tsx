@@ -8,6 +8,7 @@ const Home = lazy(() => import('@/pages/Home/Home'));
 const About = lazy(() => import('@/pages/About/About'));
 const Gallery = lazy(() => import('@/pages/Gallery/Gallery'));
 const Charte = lazy(() => import('@/pages/Charte/Charte'));
+const Contact = lazy(() => import('@/pages/Contact/Contact'));
 const NotFound = lazy(() => import('@/pages/NotFound/NotFound'));
 
 export const router = createBrowserRouter([
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: 'charte',
         element: <Charte />,
+      },
+      {
+        path: 'contact',
+        element: <Contact />,
       },
       {
         path: '*',
