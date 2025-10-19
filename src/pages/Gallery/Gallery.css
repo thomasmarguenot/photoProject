@@ -6,7 +6,7 @@
 }
 
 .gallery-container {
-  @apply w-full px-20;
+  @apply w-full px-4;
 }
 
 .gallery-header {
@@ -247,5 +247,23 @@
   
   .gallery-title {
     @apply text-7xl;
+  }
+}
+
+/* Mobile adjustments: reduce top/bottom padding and disable hover/click zoom */
+@media (max-width: 750px) {
+  .gallery {
+    /* Less vertical padding on mobile so content starts higher */
+    @apply py-6;
+  }
+
+  /* Disable image hover zoom on mobile to avoid accidental zooming and layout shifts */
+  .gallery-item:hover:not(.expanded-item) .gallery-image {
+    transform: none;
+  }
+
+  /* Ensure expanded-item has no scale effect on mobile */
+  .gallery-item.expanded-item {
+    transform: none !important;
   }
 }

@@ -55,14 +55,13 @@ export function GalleryGrid({
         const shouldHide = isLightboxOpen && !isSelected;
         const offset =
           isSelected && shouldExpand ? centerOffset : { x: 0, y: 0 };
-        // Calculate appropriate scale based on image orientation
-        const isPortrait = (image.height || 800) > (image.width || 1200);
-        const expandScale = isPortrait ? 1.8 : 2.4;
+        const isMobile = columns === 1;
 
-        // Row/col for true row-by-row animation
         const row = Math.floor(i / columns);
         const col = i % columns;
         const delay = 0.1 + (row * columns + col) * 0.01;
+        const isPortrait = (image.height || 800) > (image.width || 1200);
+        const expandScale = isMobile ? 1 : isPortrait ? 1.8 : 2.4;
 
         return (
           <motion.div
@@ -85,7 +84,11 @@ export function GalleryGrid({
                     }
                   : { opacity: 1, y: 0 }
             }
-            onClick={() => !isLightboxOpen && onImageClick(i)}
+            onClick={() => {
+              if (!isLightboxOpen && !isMobile) {
+                onImageClick(i);
+              }
+            }}
             transition={{
               duration: ANIMATION_DURATION,
               ease: ANIMATION_EASING,
@@ -93,7 +96,6 @@ export function GalleryGrid({
             }}
             style={{
               pointerEvents: shouldHide ? 'none' : 'auto',
-              // Force hardware acceleration on Safari
               WebkitTransform: 'translateZ(0)',
               willChange: isSelected && shouldExpand ? 'transform' : 'auto',
             }}
