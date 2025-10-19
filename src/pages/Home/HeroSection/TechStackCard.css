@@ -228,3 +228,9 @@
     @apply grid-cols-2;
   }
 }
+
+@media (max-width: 1023px) {
+  .tech-more {
+    pointer-events: none;
+  }
+}
