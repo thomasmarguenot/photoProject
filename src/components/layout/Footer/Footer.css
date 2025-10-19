@@ -49,3 +49,13 @@
     @apply px-12;
   }
 }
+
+@media (max-width: 1024px) {
+  .footer-text {
+    @apply text-xs;
+  }
+
+  .footer-link {
+    @apply text-xs;
+  }
+}

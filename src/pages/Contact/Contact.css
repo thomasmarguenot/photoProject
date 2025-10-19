@@ -123,3 +123,10 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 1024px) {
+  .contact {
+    @apply mt-2;
+    min-height: auto;
+  }
+}
