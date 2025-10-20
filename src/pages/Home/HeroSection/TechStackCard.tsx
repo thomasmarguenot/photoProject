@@ -109,7 +109,13 @@ export function TechStackCard({
             {visibleTechs.map((tech) => (
               <TechTooltip key={tech.name} label={tech.name}>
                 <motion.div className="tech-item" whileHover={{ scale: 1.6 }}>
-                  <img src={tech.icon} alt={tech.name} className="tech-icon" />
+                  <img
+                    src={tech.icon}
+                    alt={tech.name}
+                    className="tech-icon"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </motion.div>
               </TechTooltip>
             ))}
@@ -127,6 +133,8 @@ export function TechStackCard({
                     src={hiddenTechs[0].icon}
                     alt={hiddenTechs[0].name}
                     className="tech-icon"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </motion.div>
               </TechTooltip>
@@ -184,6 +192,8 @@ export function TechStackCard({
                         src={tech.icon}
                         alt={tech.name}
                         className="tech-icon"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </motion.div>
                   </TechTooltip>
@@ -195,3 +205,5 @@ export function TechStackCard({
     </div>
   );
 }
+
+export default TechStackCard;

@@ -6,7 +6,7 @@ export function About() {
     <div className="about">
       <div className="about-inner">
         <aside className="about-photo" aria-hidden>
-          <img src={photo} alt="Portrait" />
+          <img src={photo} alt="Portrait" loading="lazy" decoding="async" />
         </aside>
 
         <main className="about-content" role="main">

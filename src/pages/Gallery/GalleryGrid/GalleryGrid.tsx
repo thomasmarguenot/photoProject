@@ -43,6 +43,12 @@ export function GalleryGrid({
   }, [selectedIndex, shouldExpand]);
   // For grid, row-major order is just the original array
 
+  const [loadedMap, setLoadedMap] = useState<Record<number, boolean>>({});
+
+  const markLoaded = (index: number) => {
+    setLoadedMap((m) => ({ ...m, [index]: true }));
+  };
+
   return (
     <motion.div
       className="gallery-grid"
@@ -82,7 +88,10 @@ export function GalleryGrid({
                       y: offset.y,
                       zIndex: 150,
                     }
-                  : { opacity: 1, y: 0 }
+                  : {
+                      opacity: 1,
+                      y: 0,
+                    }
             }
             onClick={() => {
               if (!isLightboxOpen && !isMobile) {
@@ -103,12 +112,13 @@ export function GalleryGrid({
             <img
               src={image.src}
               alt={image.alt}
-              className="gallery-image"
+              className={`gallery-image ${loadedMap[i] ? 'is-loaded' : 'is-loading'}`}
               loading={i < 6 ? 'eager' : 'lazy'}
               fetchPriority={i === 0 ? 'high' : 'auto'}
               width={image.width || 1200}
               height={image.height || 800}
               decoding="async"
+              onLoad={() => markLoaded(i)}
             />
           </motion.div>
         );

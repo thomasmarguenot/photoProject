@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
+import { lazy, Suspense } from 'react';
 
 import ppImage from '@/assets/home/pp.jpeg';
-
-import { TechStackCard } from './TechStackCard';
+const TechStackCard = lazy(() => import('./TechStackCard'));
 import './HeroSection.css';
 
 export function HeroSection() {
@@ -21,6 +21,8 @@ export function HeroSection() {
                 src={ppImage}
                 alt="Thomas Marguenot"
                 className="photo-image"
+                fetchPriority="high"
+                decoding="async"
               />
               <div className="circular-text">
                 <svg viewBox="0 0 280 280" className="circular-text-svg">
@@ -77,7 +79,9 @@ export function HeroSection() {
         </div>
 
         <div className="hero-card">
-          <TechStackCard />
+          <Suspense fallback={null}>
+            <TechStackCard />
+          </Suspense>
         </div>
       </div>
     </motion.section>

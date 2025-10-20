@@ -39,6 +39,20 @@
   @apply w-full h-auto block object-cover;
 }
 
+.gallery-image.is-loading {
+  filter: blur(20px) saturate(0.9);
+  transform: scale(1.03);
+  transition: filter 400ms ease, transform 400ms ease, opacity 300ms ease;
+  opacity: 0.85;
+}
+
+.gallery-image.is-loaded {
+  filter: none;
+  transform: none;
+  transition: filter 400ms ease, transform 400ms ease, opacity 300ms ease;
+  opacity: 1;
+}
+
 .expanded-item {
   @apply z-50;
 }

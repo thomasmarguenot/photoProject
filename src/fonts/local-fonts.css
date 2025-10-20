@@ -1,0 +1,22 @@
+/* Local fonts fallback and font-display swap to reduce FOIT and third-party blocking */
+@font-face {
+  font-family: 'Inter Tight Local';
+  src: url('/fonts/InterTight-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quicksand Local';
+  src: url('/fonts/Quicksand-Regular.woff2') format('woff2');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Use local fonts if available, otherwise remote Google/Fontshare will still load as fallback */
+:root {
+  --font-heading: 'Inter Tight Local', 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Quicksand Local', 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+}
