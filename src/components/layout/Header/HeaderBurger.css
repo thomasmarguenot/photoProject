@@ -16,7 +16,7 @@
 }
 
 .header-burger-bar {
-  @apply block w-6 h-[3px] my-[3px] rounded bg-[var(--color-primary)] transition-all;
+  @apply block w-6 h-[2px] my-[3px] rounded bg-[var(--color-primary)] transition-all;
 }
 
 .header-burger.open .header-burger-bar:nth-child(1) {

@@ -97,7 +97,7 @@
   letter-spacing: -0.02em;
   transform: translateY(40px);
   opacity: 0;
-  animation: slideUpFade 900ms var(--animation-easing) 900ms both;
+  animation: slideUpFade 900ms var(--animation-easing) 600ms both;
 }
 
 @keyframes fadeInRight {
