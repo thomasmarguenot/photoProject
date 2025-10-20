@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
@@ -19,6 +20,7 @@ export function Layout() {
           </main>
           <Footer />
         </PageTransitionProvider>
+        <Analytics />
       </div>
     </Suspense>
   );
