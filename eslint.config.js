@@ -30,13 +30,18 @@ export default [
       react: {
         version: 'detect',
       },
+      // Configure resolvers: TypeScript (for aliases) + Node (for extensions like .webp)
       'import/resolver': {
         typescript: {
           alwaysTryTypes: true,
           project: './tsconfig.json',
         },
+        node: {
+          extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.webp', '.png', '.jpg', '.jpeg', '.svg'],
+        },
       },
-      'import/ignore': ['\\.(css|scss|sass|less)$'],
+      // Ignore style and image files for import resolution checks
+      'import/ignore': ['\\.(css|scss|sass|less|png|jpg|jpeg|svg|webp)$'],
     },
     plugins: {
       '@typescript-eslint': tseslint,
@@ -61,12 +66,15 @@ export default [
         { argsIgnorePattern: '^_' },
       ],
       'prettier/prettier': 'error',
+
+      // Prevent false positives for asset imports handled by TS declarations
       'import/no-unresolved': [
         'error',
         {
-          ignore: ['\\.css$', '\\.scss$', '\\.sass$', '\\.less$'],
+          ignore: ['\\.css$', '\\.(scss|sass|less)$', '\\.(png|jpg|jpeg|svg|webp)$'],
         },
       ],
+
       'import/order': [
         'error',
         {
@@ -112,3 +120,4 @@ export default [
     },
   },
 ];
+

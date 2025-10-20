@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
-import canalImage from '@/assets/projects/canal.jpg';
-import quotatisImage from '@/assets/projects/quotatis.jpg';
+import canalImage from '@/assets/projects/canal.webp';
+import quotatisImage from '@/assets/projects/quotatis.webp';
 import rolex from '@/assets/projects/rolex.webp';
 import tabacInfoService from '@/assets/projects/tabac-info-service.webp';
 

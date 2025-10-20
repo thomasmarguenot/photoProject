@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { lazy, Suspense } from 'react';
 
-import ppImage from '@/assets/home/pp.jpeg';
+import ppImage from '@/assets/home/pp.webp';
 const TechStackCard = lazy(() => import('./TechStackCard'));
 import './HeroSection.css';
 

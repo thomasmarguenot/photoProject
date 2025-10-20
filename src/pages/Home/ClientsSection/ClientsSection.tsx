@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
 
-import canalLogo from '@/assets/logo/canal.png';
-import konbibiLogo from '@/assets/logo/Konbibi.png';
-import leroyMerlinLogo from '@/assets/logo/Leroy-Merlin.png';
-import lorealLogo from '@/assets/logo/LOreal-logo-1536x864.png';
-import petitBateauLogo from '@/assets/logo/Petit-bateau.png';
-import peugeotLogo from '@/assets/logo/Peugeot-logo.png';
-import rolexLogo from '@/assets/logo/Rolex-logo.png';
-import tf1Logo from '@/assets/logo/TF1.png';
+import canalLogo from '@/assets/logo/canal.webp';
+import konbibiLogo from '@/assets/logo/Konbibi.webp';
+import leroyMerlinLogo from '@/assets/logo/Leroy-Merlin.webp';
+import lorealLogo from '@/assets/logo/LOreal-logo-1536x864.webp';
+import petitBateauLogo from '@/assets/logo/Petit-bateau.webp';
+import peugeotLogo from '@/assets/logo/Peugeot-logo.webp';
+import rolexLogo from '@/assets/logo/Rolex-logo.webp';
+import tf1Logo from '@/assets/logo/TF1.webp';
 
 import type { ClientsSectionProps } from './ClientsSection.types';
 import './ClientsSection.css';

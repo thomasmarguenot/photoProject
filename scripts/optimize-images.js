@@ -21,7 +21,7 @@ import sharp from 'sharp';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const PICTURES_DIR = join(__dirname, '../src/assets/pictures');
+const PICTURES_DIR = join(__dirname, '../src/assets/about');
 const MAX_WIDTH = 2000;
 const QUALITY = 85;
 

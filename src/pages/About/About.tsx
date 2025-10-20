@@ -1,5 +1,5 @@
 import './About.css';
-import photo from '@/assets/about/thomas-marguenot.png';
+import photo from '@/assets/about/thomas-marguenot.webp';
 
 export function About() {
   return (
