@@ -101,7 +101,12 @@ export function TechStackCard({
   }, [expanded, revealedCount, hiddenTechs.length]);
 
   return (
-    <div className="tech-stack-card">
+    <motion.div
+      className="tech-stack-card"
+      initial={false}
+      animate={{ x: expanded ? 25 : 0 }}
+      transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+    >
       <h3 className="tech-stack-title">J&apos;aime travailler avec</h3>
       <div className="tech-stack-elements-container">
         <div className="tech-stack-card-initial-elements">
@@ -202,7 +207,7 @@ export function TechStackCard({
           </div>
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
