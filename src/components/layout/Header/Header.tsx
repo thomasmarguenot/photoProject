@@ -21,7 +21,10 @@ const NAV_ITEMS: NavItem[] = [
   { to: '/contact', label: 'Contact' },
 ];
 
-export function Header({ title = 'とーます・まるぐの' }: HeaderProps) {
+export function Header({
+  title = 'とーます・まるぐの',
+  romanTitle = 'Thomas Marguenot',
+}: HeaderProps) {
   const navRef = useRef<HTMLElement | null>(null);
   const linkRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
   const indicatorRef = useRef<HTMLDivElement | null>(null);
@@ -30,6 +33,8 @@ export function Header({ title = 'とーます・まるぐの' }: HeaderProps) {
   const { runTransition, getDirectionBetween } = usePageTransition();
   const initialPositioned = useRef<boolean>(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [hoveringTitle, setHoveringTitle] = useState(false);
+  const [titleAnimationFinished, setTitleAnimationFinished] = useState(false);
 
   useEffect(() => {
     if (mobileOpen) {
@@ -104,11 +109,26 @@ export function Header({ title = 'とーます・まるぐの' }: HeaderProps) {
       <div className="header-container flex items-center justify-between w-full">
         {/* Logo left */}
         <div className="header-logo flex-shrink-0">
-          <div className="header-title-wrapper" aria-hidden="false">
-            <span className="header-title header-title-base">{title}</span>
+          <div
+            className="header-title-wrapper"
+            aria-hidden="false"
+            onMouseEnter={() => {
+              if (!titleAnimationFinished) return;
+              setHoveringTitle(true);
+            }}
+            onMouseLeave={() => setHoveringTitle(false)}
+          >
+            <span className="header-title header-title-base">
+              {hoveringTitle ? romanTitle : title}
+            </span>
             <span
               className="header-title header-title-overlay"
               aria-hidden="true"
+              style={{
+                opacity: hoveringTitle ? 0 : 1,
+                pointerEvents: hoveringTitle ? 'none' : undefined,
+              }}
+              onAnimationEnd={() => setTitleAnimationFinished(true)}
             >
               {title}
             </span>
