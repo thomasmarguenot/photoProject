@@ -208,3 +208,38 @@
     object-fit: contain;
   }
 }
+
+@media (max-width: 1023px) {
+  .clients-scroll-wrapper {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .clients-scroll-row {
+    gap: 1rem;
+  }
+
+  .client-card {
+    padding: 0.5rem 0.75rem;
+    min-height: 80px;
+    min-width: 120px;
+  }
+
+  .client-logo {
+    width: 120px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 479px) {
+  .client-card {
+    padding: 0.5rem 0.5rem;
+    min-height: 64px;
+    min-width: 100px;
+  }
+
+  .client-logo {
+    width: 96px;
+    height: 40px;
+  }
+}

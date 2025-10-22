@@ -2,7 +2,6 @@
 
 .home {
   @apply w-full;
-  min-height: calc(100vh - 200px);
 }
 
 /* Group hero + clients so they can share available viewport height on desktop */
@@ -13,22 +12,21 @@
 
 @media (min-width: 1024px) {
   .home-hero-clients {
-    height: calc(100vh - var(--header-height, 80px));
     min-height: calc(100vh - var(--header-height, 80px));
-    overflow: hidden;
   }
 
-  /* 65% / 35% split */
+  .home {
+    min-height: calc(100vh - var(--header-height, 80px));
+  }
+
   .home-hero-clients > .hero-section {
-    flex: 0 0 65%;
-    height: 65%;
+    flex: 1 1 65%;
     min-height: 0;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .home-hero-clients > .clients-section {
-    flex: 0 0 35%;
-    height: 35%;
+    flex: 0 1 35%;
     min-height: 0;
     overflow: auto;
   }
