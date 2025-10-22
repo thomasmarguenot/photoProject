@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useRef, useState, MouseEvent } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
-import { usePageTransition } from '@/components/layout/PageTransition/PageTransition';
+import { usePageTransition } from '@/components/layout/PageTransition/PageTransition.context';
 
 import type { HeaderProps } from './Header.types';
 import './Header.css';

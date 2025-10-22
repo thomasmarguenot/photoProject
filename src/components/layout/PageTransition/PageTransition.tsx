@@ -1,39 +1,13 @@
 import { motion } from 'framer-motion';
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useRef,
-  useState,
-} from 'react';
+import { useCallback, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
 import { ANIMATION, PAGE_ORDER } from '@/utils/constants';
 import './PageTransition.css';
 
-type Direction = 'ltr' | 'rtl';
-
-type PageTransitionContextValue = {
-  runTransition: (dir: Direction, onNavigate: () => void) => void;
-  getDirectionBetween: (from: string, to: string) => Direction;
-};
-
-const PageTransitionContext = createContext<PageTransitionContextValue | null>(
-  null
-);
-
-export function usePageTransition() {
-  const ctx = useContext(PageTransitionContext);
-  if (!ctx) {
-    // Provide safe noop defaults so components can render outside provider (tests, storybook)
-    return {
-      runTransition: (_dir: Direction, onNavigate: () => void) => onNavigate(),
-      getDirectionBetween: (_from: string, _to: string) => 'ltr' as Direction,
-    } as PageTransitionContextValue;
-  }
-  return ctx;
-}
+import type { Direction } from './PageTransition.context';
+import { PageTransitionContext } from './PageTransition.context';
 
 export function PageTransitionProvider({ children }: { children: ReactNode }) {
   const [animState, setAnimState] = useState<0 | 1>(0); // 0 idle, 1 cover
