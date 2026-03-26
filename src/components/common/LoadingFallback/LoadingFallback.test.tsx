@@ -7,14 +7,8 @@ describe('LoadingFallback', () => {
   it('should render loading spinner', () => {
     render(<LoadingFallback />);
 
-    const spinner = screen.getByRole('status', { hidden: true });
+    const spinner = screen.getByRole('status');
     expect(spinner).toBeInTheDocument();
-  });
-
-  it('should display loading text', () => {
-    render(<LoadingFallback />);
-
-    expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 
   it('should have correct CSS classes', () => {
@@ -23,10 +17,7 @@ describe('LoadingFallback', () => {
     const loadingDiv = container.firstChild;
     expect(loadingDiv).toHaveClass('loading-fallback');
 
-    const spinner = container.querySelector('.loading-spinner');
-    expect(spinner).toBeInTheDocument();
-
-    const text = container.querySelector('.loading-text');
-    expect(text).toBeInTheDocument();
+    const cube = container.querySelector('.loading-cube');
+    expect(cube).toBeInTheDocument();
   });
 });

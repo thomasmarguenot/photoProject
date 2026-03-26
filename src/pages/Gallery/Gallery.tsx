@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-import { ANIMATION } from '@/utils/constants';
+import { useBodyOverflow } from '@/hooks/useBodyOverflow';
+import { ANIMATION, MOTION, TRANSITION } from '@/utils/constants';
 
 import { GalleryGrid } from './GalleryGrid/GalleryGrid';
 import { useGalleryImages } from './useGalleryImages';
@@ -13,20 +14,18 @@ export function Gallery() {
   const [shouldExpand, setShouldExpand] = useState(false);
   const isLightboxOpen = selectedImage !== null;
 
-  // Gérer l'animation et le header
+  useBodyOverflow(isLightboxOpen);
+
   useEffect(() => {
     if (isLightboxOpen) {
       document.body.classList.add('lightbox-open');
-      // Désactiver le scroll
-      document.body.style.overflow = 'hidden';
-      // Attendre que les images disparaissent (0.5s) avant d'agrandir
+      // Wait for grid items to fade out before expanding selected image
       const timer = setTimeout(() => {
         setShouldExpand(true);
       }, 500);
       return () => {
         clearTimeout(timer);
         document.body.classList.remove('lightbox-open');
-        document.body.style.overflow = '';
       };
     }
   }, [isLightboxOpen]);
@@ -37,11 +36,10 @@ export function Gallery() {
   const handleCloseLightbox = () => {
     setShouldExpand(false);
     document.body.classList.remove('lightbox-open');
-    document.body.style.overflow = '';
-    // Attendre la fin de l'animation de réduction avant de réinitialiser
+    // Wait for shrink animation before resetting selection
     setTimeout(() => {
       setSelectedImage(null);
-    }, 600);
+    }, ANIMATION.DURATION * 1000);
   };
 
   if (isLoading || images.length === 0) {
@@ -49,12 +47,8 @@ export function Gallery() {
       <div className="gallery">
         <motion.div
           className="gallery-container"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: ANIMATION.DURATION,
-            ease: ANIMATION.EASING_SMOOTH,
-          }}
+          {...MOTION.FADE_UP}
+          transition={TRANSITION.SMOOTH}
         >
           <div className="gallery-empty">
             <p>
@@ -71,18 +65,16 @@ export function Gallery() {
   return (
     <motion.div
       className="gallery"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.7, ease: ANIMATION.EASING_SMOOTH }}
+      {...MOTION.FADE_IN}
+      transition={{
+        duration: ANIMATION.DURATION_SLOW,
+        ease: ANIMATION.EASING_SMOOTH,
+      }}
     >
       <motion.div
         className="gallery-container"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: ANIMATION.DURATION,
-          ease: ANIMATION.EASING_SMOOTH,
-        }}
+        {...MOTION.FADE_UP}
+        transition={TRANSITION.SMOOTH}
       >
         <GalleryGrid
           images={images}

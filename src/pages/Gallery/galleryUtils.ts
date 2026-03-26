@@ -27,7 +27,7 @@ export function mixImages(
   landscapeImages: ImageModule[],
   portraitImages: ImageModule[]
 ): ImageModule[] {
-  // Shuffle arrays pour un meilleur mélange
+  // Shuffle arrays for better mixing
   const shuffledLandscape = [...landscapeImages].sort(
     () => Math.random() - 0.5
   );
@@ -42,23 +42,23 @@ export function mixImages(
     landscapeIndex < shuffledLandscape.length &&
     portraitIndex < shuffledPortrait.length
   ) {
-    // Ajouter 2 images landscape si disponibles
+    // Add up to 2 landscape images if available
     for (let i = 0; i < 2 && landscapeIndex < shuffledLandscape.length; i++) {
       mixedImages.push(shuffledLandscape[landscapeIndex++]);
     }
 
-    // Ajouter 1 image portrait si disponible
+    // Add 1 portrait image if available
     if (portraitIndex < shuffledPortrait.length) {
       mixedImages.push(shuffledPortrait[portraitIndex++]);
     }
   }
 
-  // Ajouter les images landscape restantes (s'il y en a)
+  // Append remaining landscape images
   while (landscapeIndex < shuffledLandscape.length) {
     mixedImages.push(shuffledLandscape[landscapeIndex++]);
   }
 
-  // Ajouter les images portrait restantes UNE PAR UNE (pas toutes d'un coup)
+  // Append remaining portrait images one by one
   while (portraitIndex < shuffledPortrait.length) {
     mixedImages.push(shuffledPortrait[portraitIndex++]);
   }

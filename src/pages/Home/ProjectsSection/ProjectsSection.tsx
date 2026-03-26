@@ -4,6 +4,7 @@ import canalImage from '@/assets/projects/canal.webp';
 import quotatisImage from '@/assets/projects/quotatis.webp';
 import rolex from '@/assets/projects/rolex.webp';
 import tabacInfoService from '@/assets/projects/tabac-info-service.webp';
+import { MOTION, TRANSITION } from '@/utils/constants';
 
 import type { ProjectsSectionProps } from './ProjectsSection.types';
 import './ProjectsSection.css';
@@ -50,17 +51,18 @@ export function ProjectsSection({
     <section className="projects-section">
       <motion.div
         className="projects-container"
+        {...MOTION.FADE_UP}
         initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        whileInView={MOTION.FADE_UP.animate}
         viewport={{ once: true }}
-        transition={{ duration: 0.7, delay: 0.2 }}
+        transition={{ ...TRANSITION.SLOW, delay: 0.2 }}
       >
         <motion.h2
           className="projects-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.6 }}
+          transition={{ ...TRANSITION.SLOW, delay: 0.6 }}
         >
           Derniers projets
         </motion.h2>

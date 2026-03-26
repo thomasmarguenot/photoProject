@@ -1,4 +1,7 @@
 import { motion } from 'framer-motion';
+
+import { MOTION, TRANSITION } from '@/utils/constants';
+
 import './Contact.css';
 
 export function Contact() {
@@ -9,19 +12,8 @@ export function Contact() {
           <section className="contact-block contact-center">
             <motion.h1
               className="contact-title"
-              initial={{
-                fontVariationSettings: '"wght" 400',
-                fontStyle: 'normal',
-              }}
-              animate={{
-                fontVariationSettings: '"wght" 900',
-                fontStyle: 'normal',
-              }}
-              whileHover={{
-                fontVariationSettings: '"wght" 100',
-                fontStyle: 'normal',
-              }}
-              transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+              {...MOTION.FONT_WEIGHT}
+              transition={TRANSITION.FONT_MORPH}
             >
               travaillons ensemble.
             </motion.h1>

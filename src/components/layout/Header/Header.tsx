@@ -3,22 +3,18 @@ import { useEffect, useRef, useState, MouseEvent } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 import { usePageTransition } from '@/components/layout/PageTransition/PageTransition.context';
+import { useBodyOverflow } from '@/hooks/useBodyOverflow';
+import { ANIMATION, ROUTES } from '@/utils/constants';
 
-import type { HeaderProps } from './Header.types';
+import type { HeaderProps, NavItem } from './Header.types';
 import './Header.css';
 import './HeaderBurger.css';
 
-type NavItem = {
-  to: string;
-  label: string;
-  end?: boolean;
-};
-
 const NAV_ITEMS: NavItem[] = [
-  { to: '/', label: 'Accueil', end: true },
-  { to: '/gallery', label: 'Gallerie' },
-  { to: '/about', label: 'À propos' },
-  { to: '/contact', label: 'Contact' },
+  { to: ROUTES.HOME, label: 'Accueil', end: true },
+  { to: ROUTES.GALLERY, label: 'Gallerie' },
+  { to: ROUTES.ABOUT, label: 'À propos' },
+  { to: ROUTES.CONTACT, label: 'Contact' },
 ];
 
 export function Header({
@@ -36,16 +32,7 @@ export function Header({
   const [hoveringTitle, setHoveringTitle] = useState(false);
   const [titleAnimationFinished, setTitleAnimationFinished] = useState(false);
 
-  useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [mobileOpen]);
+  useBodyOverflow(mobileOpen);
 
   useEffect(() => {
     if (window.innerWidth < 1024) return;
@@ -202,7 +189,7 @@ export function Header({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
+              transition={{ duration: ANIMATION.DURATION_FAST }}
             >
               <motion.nav
                 className="header-mobile-nav"
@@ -225,11 +212,7 @@ export function Header({
                         opacity: 1,
                         scale: 1,
                         y: 0,
-                        transition: {
-                          type: 'spring',
-                          stiffness: 300,
-                          damping: 24,
-                        },
+                        transition: ANIMATION.SPRING,
                       },
                     }}
                   >

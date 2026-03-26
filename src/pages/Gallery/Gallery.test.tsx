@@ -3,43 +3,13 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 import { Gallery } from './Gallery';
 
-// Mock import.meta.glob to return empty object
-vi.mock('/@fs', () => ({}));
+vi.mock('./useGalleryImages', () => ({
+  useGalleryImages: () => ({ images: [], isLoading: false }),
+}));
 
 describe('Gallery', () => {
   beforeEach(() => {
     vi.clearAllMocks();
-  });
-
-  it('should render gallery title', async () => {
-    const { unmount } = render(<Gallery />);
-
-    expect(
-      screen.getByRole('heading', { name: /photo gallery/i })
-    ).toBeInTheDocument();
-
-    // Wait for any async operations and cleanup
-    await waitFor(() => {
-      expect(screen.getByRole('heading')).toBeInTheDocument();
-    });
-
-    unmount();
-  });
-
-  it('should render gallery subtitle', async () => {
-    const { unmount } = render(<Gallery />);
-
-    expect(
-      screen.getByText(/a modern masonry layout showcasing/i)
-    ).toBeInTheDocument();
-
-    await waitFor(() => {
-      expect(
-        screen.getByText(/a modern masonry layout showcasing/i)
-      ).toBeInTheDocument();
-    });
-
-    unmount();
   });
 
   it('should show empty state when no images are found', async () => {
@@ -61,9 +31,6 @@ describe('Gallery', () => {
 
     const gallery = container.querySelector('.gallery');
     expect(gallery).toBeInTheDocument();
-
-    const header = container.querySelector('.gallery-header');
-    expect(header).toBeInTheDocument();
 
     await waitFor(() => {
       const empty = container.querySelector('.gallery-empty');

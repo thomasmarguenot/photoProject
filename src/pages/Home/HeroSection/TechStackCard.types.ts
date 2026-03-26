@@ -1,7 +1,4 @@
-export interface Technology {
-  name: string;
-  icon: string;
-}
+import type { Technology } from '../Home.types';
 
 export interface TechStackCardProps {
   technologies?: Technology[];

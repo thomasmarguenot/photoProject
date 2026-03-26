@@ -1,23 +1,25 @@
 import { motion } from 'framer-motion';
 
-import './AgencySection.css';
 import belleEpoqueLogo from '@/assets/logo-belle-epoque.png';
+import { MOTION, TRANSITION } from '@/utils/constants';
+
+import './AgencySection.css';
 
 export function AgencySection() {
   return (
     <motion.section
       className="agency-section"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      {...MOTION.FADE_UP}
+      whileInView={MOTION.FADE_UP.animate}
       viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+      transition={TRANSITION.DEFAULT}
     >
       <div className="agency-container">
         <div className="agency-content">
           <motion.div
             className="agency-logo"
             whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
+            transition={TRANSITION.FAST}
           >
             <img
               src={belleEpoqueLogo}

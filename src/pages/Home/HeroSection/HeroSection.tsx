@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { lazy, Suspense } from 'react';
 
 import ppImage from '@/assets/home/pp.webp';
+import { MOTION, TRANSITION } from '@/utils/constants';
 const TechStackCard = lazy(() => import('./TechStackCard'));
 import './HeroSection.css';
 
@@ -9,9 +10,8 @@ export function HeroSection() {
   return (
     <motion.section
       className="hero-section"
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+      {...MOTION.FADE_UP}
+      transition={TRANSITION.DEFAULT}
     >
       <div className="hero-content">
         <div className="hero-left">
@@ -47,19 +47,8 @@ export function HeroSection() {
             {/* Animate font weight using Framer Motion and variable font */}
             <motion.h1
               className="hero-title"
-              initial={{
-                fontVariationSettings: '"wght" 400',
-                fontStyle: 'normal',
-              }}
-              animate={{
-                fontVariationSettings: '"wght" 900',
-                fontStyle: 'normal',
-              }}
-              whileHover={{
-                fontVariationSettings: '"wght" 100',
-                fontStyle: 'normal',
-              }}
-              transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+              {...MOTION.FONT_WEIGHT}
+              transition={TRANSITION.FONT_MORPH}
             >
               Je construis des sites web.
             </motion.h1>

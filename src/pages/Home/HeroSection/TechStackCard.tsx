@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, ReactNode } from 'react';
 
+import { ANIMATION, TRANSITION } from '@/utils/constants';
+
 import type { TechStackCardProps } from './TechStackCard.types';
 const defaultTechnologies = [
   {
@@ -61,7 +63,6 @@ function TechTooltip({
   label: string;
   children: ReactNode;
 }) {
-  // Tooltip is always rendered, but only visible on hover/focus via CSS
   return (
     <div
       className="tech-tooltip-wrapper"
@@ -105,7 +106,7 @@ export function TechStackCard({
       className="tech-stack-card"
       initial={false}
       animate={{ x: expanded ? 25 : 0 }}
-      transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: ANIMATION.DURATION_FAST, ease: ANIMATION.EASING }}
     >
       <h3 className="tech-stack-title">J&apos;aime travailler avec</h3>
       <div className="tech-stack-elements-container">
@@ -131,7 +132,7 @@ export function TechStackCard({
                   initial={{ opacity: 0, scale: 0.7 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.7 }}
-                  transition={{ duration: 0.3 }}
+                  transition={TRANSITION.FAST}
                   whileHover={{ scale: 1.6 }}
                 >
                   <img
@@ -178,7 +179,7 @@ export function TechStackCard({
           }
           animate={hasAnimated ? { width: expanded ? 300 : 0 } : false}
           initial={false}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: ANIMATION.DURATION, ease: ANIMATION.EASING }}
         >
           <div className="tech-grid">
             <AnimatePresence>
@@ -190,7 +191,10 @@ export function TechStackCard({
                       initial={{ opacity: 0, scale: 0.7 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.7 }}
-                      transition={{ duration: 0.3, delay: i * 0.08 }}
+                      transition={{
+                        duration: ANIMATION.DURATION_FAST,
+                        delay: i * 0.08,
+                      }}
                       whileHover={{ scale: 1.6 }}
                     >
                       <img

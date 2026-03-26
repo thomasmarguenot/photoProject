@@ -8,6 +8,7 @@ import petitBateauLogo from '@/assets/logo/Petit-bateau.webp';
 import peugeotLogo from '@/assets/logo/Peugeot-logo.webp';
 import rolexLogo from '@/assets/logo/Rolex-logo.webp';
 import tf1Logo from '@/assets/logo/TF1.webp';
+import { ANIMATION, MOTION } from '@/utils/constants';
 
 import type { ClientsSectionProps } from './ClientsSection.types';
 import './ClientsSection.css';
@@ -62,9 +63,12 @@ export function ClientsSection({
       />
       <motion.div
         className="clients-container"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.1, duration: 0.7, ease: 'easeOut' }}
+        {...MOTION.FADE_UP}
+        transition={{
+          delay: 1.1,
+          duration: ANIMATION.DURATION_SLOW,
+          ease: 'easeOut',
+        }}
       >
         <div className="clients-title-wrapper">
           <h2 className="clients-title">Ils m&apos;ont fait confiance</h2>
