@@ -18,8 +18,8 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 export function Header({
-  title = 'とーます・まるぐの',
-  romanTitle = 'Thomas Marguenot',
+  title = 'Thomas Marguenot',
+  romanTitle = 'とーます・まるぐの',
 }: HeaderProps) {
   const navRef = useRef<HTMLElement | null>(null);
   const linkRefs = useRef<Record<string, HTMLAnchorElement | null>>({});

@@ -1,20 +1,18 @@
 @reference "../../../index.css";
 
 .hero-section {
-  @apply py-20 w-full;
+  @apply w-full flex items-center;
+  min-height: 80vh;
+  padding-block: 5rem;
 }
 
 .hero-content {
-  @apply flex flex-col lg:flex-row mx-auto w-full px-6;
+  @apply flex flex-col lg:flex-row items-center gap-12 mx-auto w-full px-6;
   max-width: var(--page-max-width);
 }
 
-.hero-left {
-  @apply flex-1 flex flex-col gap-8;
-}
-
 .hero-photo {
-  @apply flex-shrink-0 w-36 h-36 md:w-44 md:h-44;
+  @apply flex-shrink-0 w-44 h-44 md:w-52 md:h-52;
 }
 
 .photo-container {
@@ -61,16 +59,15 @@
 
 .hero-intro {
   @apply flex flex-col gap-6;
-  max-width: 785px;
 }
 
 .hero-title {
-  @apply text-4xl lg:text-5xl font-bold;
+  @apply text-5xl md:text-6xl lg:text-7xl font-bold;
   font-family: 'Inter Tight', sans-serif;
   font-variation-settings: "wght" 900;
   color: var(--color-text);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
   transition: font-variation-settings var(--animation-duration) var(--animation-easing), font-style var(--animation-duration) var(--animation-easing);
 }
 
@@ -85,25 +82,18 @@
   color: #111;
 }
 
-.hero-card {
-  @apply flex-shrink-0 flex items-center;
-  width: auto;
-}
-
 @media (min-width: 1024px) {
   .hero-content {
-    @apply px-12;
+    @apply px-12 gap-16;
   }
-}
 
-@media (min-width: 1024px) {
   .hero-section {
-    padding-top: 4rem;
+    padding-block: 4rem;
   }
 
   .hero-photo {
-    width: 10rem;
-    height: 10rem;
+    width: 12rem;
+    height: 12rem;
   }
 
   .photo-image {
@@ -112,44 +102,17 @@
   }
 
   .hero-intro {
-    max-width: 680px;
-    gap: 0.75rem;
+    gap: 1rem;
   }
 }
 
 @media (max-width: 1023px) {
   .hero-section {
+    min-height: 60vh;
     @apply py-12;
   }
 
-  .hero-card {
-    @apply w-full;
-    display: unset;
-  }
-}
-
-/* Short-tall breakpoint: when width is <=1024 and height is limited (e.g. 1024x600)
-   stack the hero content so the tech card moves below the intro and is centered. */
-@media (max-width: 1024px) and (max-height: 600px) {
   .hero-content {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1rem;
-  }
-
-  .hero-left {
-    width: 100%;
-  }
-
-  .hero-card {
-    width: 100%;
-    display: flex;
-    justify-content: center; /* center the tech card */
-    margin-top: 0.75rem;
-  }
-
-  /* ensure hero-intro doesn't shrink too small when stacked */
-  .hero-intro {
-    max-width: 100%;
+    @apply items-start;
   }
 }

@@ -145,7 +145,7 @@
   --header-top: 2rem;
   --header-height: 73px;
   --header-z-index: 100;
-  --header-bg: rgba(255, 255, 255, 0.7);
+  --header-bg: rgba(255, 255, 255, 0.4);
   --header-border: rgba(255, 255, 255, 0.3);
   --header-blur: 20px;
   --header-link-size: 15px;
