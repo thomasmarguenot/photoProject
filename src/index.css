@@ -20,7 +20,7 @@
 
 :root {
   --font-heading: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   
   font-family: var(--font-body);
   line-height: 1.6;
@@ -67,7 +67,7 @@
   --color-primary-subtle: rgba(39, 125, 212, 0.1);
   
   /* Light Mode Colors */
-  --color-background: #F5F7FA;
+  --color-background: #F5F5F7;
   --color-surface: #FFFFFF;
   --color-surface-elevated: #FFFFFF;
   --color-text-primary: #1A1D29;
@@ -173,12 +173,8 @@
   /* Page content (for all pages except gallery) */
   --page-max-width: 1400px;
 
-  /* ClientsSection Gradient Colors */
-  --color-clients: #fac130;
-  --clients-gradient-1: var(--color-clients);
-  --clients-gradient-2: #fac339;
-  --clients-gradient-3: #fbbf24;
-  --clients-gradient-4: #fbbf24;
+  /* ClientsSection Colors */
+  --color-clients: #1C1C1E;
 }
 
 *,
@@ -192,26 +188,10 @@ body {
   min-width: 320px;
   min-height: 100vh;
   width: 100%;
-  /* Animated gradient background */
-  background: linear-gradient(120deg, #E3F2FD, #F5F7FA, #E8EAF6, #277DD4);
-  background-size: 400% 400%;
-  animation: gradientMove 16s ease-in-out infinite;
-  background-attachment: fixed;
+  background: #FFFFFF;
   color: var(--color-text-primary);
   font-family: var(--font-body);
   line-height: 1.6;
-}
-
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 #root {
