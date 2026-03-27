@@ -12,7 +12,8 @@
 }
 
 .projects-label {
-  @apply text-4xl font-bold text-center;
+  @apply text-4xl font-bold;
+  font-family: var(--font-heading);
   letter-spacing: -0.02em;
   color: #2c3e50;
   margin-bottom: 64px;
@@ -26,7 +27,6 @@
 .project-row {
   display: grid;
   grid-template-columns: 55% 45%;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
   overflow: hidden;
   margin-bottom: 48px;
 }
@@ -73,7 +73,7 @@
 
 .project-number {
   font-size: 1.125rem;
-  font-weight: 500;
+  font-weight: 800;
   letter-spacing: 0.1em;
   color: #86868b;
   margin-bottom: 20px;
