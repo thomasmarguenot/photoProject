@@ -57,7 +57,7 @@ export function ProjectsSection({
           viewport={{ once: true }}
           transition={{ ...TRANSITION.SLOW, delay: 0.1 }}
         >
-          Selected work
+          Projets récents
         </motion.p>
 
         <div className="projects-list">
