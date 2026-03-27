@@ -4,7 +4,7 @@ import canalImage from '@/assets/projects/canal.webp';
 import quotatisImage from '@/assets/projects/quotatis.webp';
 import rolex from '@/assets/projects/rolex.webp';
 import tabacInfoService from '@/assets/projects/tabac-info-service.webp';
-import { MOTION, TRANSITION } from '@/utils/constants';
+import { TRANSITION } from '@/utils/constants';
 
 import type { ProjectsSectionProps } from './ProjectsSection.types';
 import './ProjectsSection.css';
@@ -30,7 +30,7 @@ const defaultProjects = [
     id: '3',
     title: 'Quotatis',
     description:
-      "Lead front de l’entreprise Quotatis. Création de l'application mobile sur React-Native, backoffice pour la relation client avec Material-UI.",
+      "Lead front de l'entreprise Quotatis. Création de l'application mobile sur React-Native, backoffice pour la relation client avec Material-UI.",
     image: quotatisImage,
     technologies: ['React', 'React-Native', 'Redux', 'Auth0'],
   },
@@ -49,31 +49,35 @@ export function ProjectsSection({
 }: ProjectsSectionProps) {
   return (
     <section className="projects-section">
-      <motion.div
-        className="projects-container"
-        {...MOTION.FADE_UP}
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={MOTION.FADE_UP.animate}
-        viewport={{ once: true }}
-        transition={{ ...TRANSITION.SLOW, delay: 0.2 }}
-      >
-        <motion.h2
-          className="projects-title"
-          initial={{ opacity: 0, y: 20 }}
+      <div className="projects-container">
+        <motion.p
+          className="projects-label"
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ ...TRANSITION.SLOW, delay: 0.6 }}
+          transition={{ ...TRANSITION.SLOW, delay: 0.1 }}
         >
-          Derniers projets
-        </motion.h2>
+          Selected work
+        </motion.p>
 
-        <div className="projects-grid">
-          {projects.map((project) => (
-            <article key={project.id} className="project-card">
-              <div className="project-image">
+        <div className="projects-list">
+          {projects.map((project, index) => (
+            <motion.article
+              key={project.id}
+              className={`project-row${index % 2 === 1 ? ' project-row--reverse' : ''}`}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ ...TRANSITION.SLOW, delay: 0.1 }}
+            >
+              <div className="project-image-wrap">
                 <img src={project.image} alt={project.title} loading="lazy" />
               </div>
-              <div className="project-content">
+
+              <div className="project-info">
+                <span className="project-number">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
                 <h3 className="project-name">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
                 {project.technologies && (
@@ -86,10 +90,10 @@ export function ProjectsSection({
                   </div>
                 )}
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
