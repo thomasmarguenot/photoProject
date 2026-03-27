@@ -15,25 +15,35 @@ export function AgencySection() {
       transition={TRANSITION.DEFAULT}
     >
       <div className="agency-container">
-        <div className="agency-content">
-          <motion.div
-            className="agency-logo"
-            whileHover={{ scale: 1.05 }}
-            transition={TRANSITION.FAST}
-          >
-            <img
-              src={belleEpoqueLogo}
-              alt="Belle Époque Logo"
-              className="agency-logo-img"
-              loading="lazy"
-            />
-          </motion.div>
+        <p className="agency-section-label">L&apos;agence</p>
 
+        <div className="agency-content">
+          {/* Colonne gauche */}
+          <div className="agency-left">
+            <div className="agency-logo">
+              <img
+                src={belleEpoqueLogo}
+                alt="Belle Époque Logo"
+                className="agency-logo-img"
+                loading="lazy"
+              />
+            </div>
+
+            <a
+              href="https://agence-belle-epoque.fr/fr/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="agency-link"
+            >
+              Découvrir l&apos;agence{' '}
+              <span className="agency-link-arrow">→</span>
+            </a>
+          </div>
+
+          {/* Colonne droite */}
           <div className="agency-text">
+            <p className="agency-tagline">Fondateur associé</p>
             <h2 className="agency-title">Agence Belle Époque</h2>
-            <p className="agency-tagline">
-              FONDATEUR ASSOCIÉ DE L&apos;AGENCE BELLE ÉPOQUE
-            </p>
             <p className="agency-description">
               Chez Belle Époque, nous produisons des identités visuelles, des
               contenus digitaux, de l&apos;édition et de la publicité porteuse
@@ -49,34 +59,22 @@ export function AgencySection() {
               <div className="service-item">
                 <h3 className="service-title">Site Web & App</h3>
                 <p className="service-detail">
-                  Expérience Utilisateur • Webdesign • Développement • Mobile •
-                  E-Commerce
+                  UX · Webdesign · Développement · Mobile · E-Commerce
                 </p>
               </div>
               <div className="service-item">
                 <h3 className="service-title">Création graphique</h3>
                 <p className="service-detail">
-                  Identités visuelles • Contenus digitaux • Créativité •
-                  Simplicité
+                  Identités visuelles · Contenus digitaux · Créativité
                 </p>
               </div>
               <div className="service-item">
                 <h3 className="service-title">Identité de marque</h3>
                 <p className="service-detail">
-                  Wording • Stratégie de communication • Publicité • Édition
+                  Wording · Stratégie · Publicité · Édition
                 </p>
               </div>
             </div>
-
-            <a
-              href="https://agence-belle-epoque.fr/fr/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="agency-link"
-            >
-              Découvrir l&apos;agence{' '}
-              <span className="agency-link-arrow">→</span>
-            </a>
           </div>
         </div>
       </div>
