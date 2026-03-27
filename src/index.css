@@ -20,7 +20,7 @@
 
 :root {
   --font-heading: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
   
   font-family: var(--font-body);
   line-height: 1.6;
