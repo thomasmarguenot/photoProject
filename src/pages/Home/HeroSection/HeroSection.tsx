@@ -32,8 +32,8 @@ export function HeroSection() {
                 </defs>
                 <text className="circular-text-path">
                   <textPath href="#circlePath" startOffset="0%">
-                    À LA RECHERCHE D&apos;UNE MISSION SUR PARIS • DEVELOPPEUR JS
-                    FULL STACK •
+                    À LA RECHERCHE D&apos;UNE MISSION SUR PARIS •
+                    DÉVELOPPEUR JS FULL STACK •
                   </textPath>
                 </text>
               </svg>
@@ -50,11 +50,11 @@ export function HeroSection() {
             Je construis des sites web.
           </motion.h1>
           <p className="hero-description hero-description--black">
-            Développeur full-stack passionné, je crée des expériences digitales
-            modernes et performantes. Spécialisé dans les technologies React et
-            Node.js, j&apos;accompagne mes clients dans leur transformation
-            digitale en concevant des solutions sur-mesure qui allient
-            esthétique et fonctionnalité.
+            Développeur JS Full-Stack avec plus de 15 ans d&apos;expérience, je
+            crée des expériences digitales modernes et performantes. Spécialisé
+            React et Node.js, j&apos;accompagne agences et entreprises dans la
+            conception de solutions sur-mesure qui allient esthétique et
+            fonctionnalité.
           </p>
           <p className="hero-description hero-description--black">
             De la conception à la mise en production, je m&apos;assure que

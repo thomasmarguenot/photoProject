@@ -14,7 +14,7 @@ const defaultProjects = [
     id: '1',
     title: 'Canal Plus',
     description:
-      "Développements divers sur le site MyCanal. Création de nouvelles fonctionnalités: cards recommandation, section TVod: possibilité d'acheter des films à l'unité, etc.",
+      "Développement de nouvelles fonctionnalités sur MyCanal : cards de recommandation personnalisée, section TVoD avec achat de films à l'unité. Travail en équipe produit agile avec cycles de delivery courts.",
     image: canalImage,
     technologies: ['React', 'Redux', 'Redux-Saga'],
   },
@@ -30,7 +30,7 @@ const defaultProjects = [
     id: '3',
     title: 'Quotatis',
     description:
-      "Lead front de l'entreprise Quotatis. Création de l'application mobile sur React-Native, backoffice pour la relation client avec Material-UI.",
+      "Lead Frontend chez Quotatis. Conception et développement de l'application mobile React Native et du backoffice relation client (Material-UI). Référent technique front de l'équipe.",
     image: quotatisImage,
     technologies: ['React', 'React-Native', 'Redux', 'Auth0'],
   },

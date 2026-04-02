@@ -12,7 +12,7 @@ import './HeaderBurger.css';
 
 const NAV_ITEMS: NavItem[] = [
   { to: ROUTES.HOME, label: 'Accueil', end: true },
-  { to: ROUTES.GALLERY, label: 'Gallerie' },
+  { to: ROUTES.GALLERY, label: 'Galerie' },
   { to: ROUTES.ABOUT, label: 'À propos' },
   { to: ROUTES.CONTACT, label: 'Contact' },
 ];

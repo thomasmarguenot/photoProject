@@ -19,12 +19,11 @@ export function Contact() {
             </motion.h1>
 
             <p className="contact-description contact-description--black">
-              Je suis ouvert aux collaborations, aux missions et aux échanges
-              autour de la passion du développement. Que ce soit pour un projet
-              d&apos;agence, une mission courte ou simplement pour discuter
-              technique et inspiration, n&apos;hésitez pas à me contacter. Je
-              réponds habituellement rapidement et j&apos;aime échanger sur des
-              idées, prototypes ou de simples retours d&apos;expérience.
+              Disponible pour des missions freelance sur Paris (remote
+              possible), je recherche des projets frontend ambitieux en React.
+              Que ce soit pour renforcer une équipe, piloter un développement
+              ou démarrer une collaboration en agence, contactez-moi
+              directement. Je réponds rapidement.
             </p>
 
             <div className="contact-list">

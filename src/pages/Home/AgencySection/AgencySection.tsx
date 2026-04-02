@@ -45,7 +45,8 @@ export function AgencySection() {
             <p className="agency-tagline">Fondateur associé</p>
             <h2 className="agency-title">Agence Belle Époque</h2>
             <p className="agency-description">
-              Chez Belle Époque, nous produisons des identités visuelles, des
+              En parallèle de mes missions développement, j&apos;ai co-fondé
+              Belle Époque. Nous produisons des identités visuelles, des
               contenus digitaux, de l&apos;édition et de la publicité porteuse
               de sens, de créativité et de simplicité.
             </p>
