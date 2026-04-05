@@ -48,7 +48,7 @@ export function ProjectsSection({
   projects = defaultProjects,
 }: ProjectsSectionProps) {
   return (
-    <section className="projects-section">
+    <section id="projects" className="projects-section">
       <div className="projects-container">
         <motion.p
           className="projects-label"

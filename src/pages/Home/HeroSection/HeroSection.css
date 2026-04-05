@@ -2,8 +2,10 @@
 
 .hero-section {
   @apply w-full flex items-center;
+  position: relative;
   min-height: 80vh;
   padding-block: 5rem;
+  padding-bottom: 6rem;
 }
 
 .hero-content {
@@ -106,6 +108,29 @@
     gap: 1rem;
   }
 }
+
+.hero-scroll-arrow {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+}
+
+.hero-scroll-arrow__circle {
+  stroke-dasharray: 188.5;
+  stroke-dashoffset: 188.5;
+  transition: stroke-dashoffset 0.65s ease;
+}
+
+.hero-scroll-arrow:hover .hero-scroll-arrow__circle {
+  stroke-dashoffset: 0;
+}
+
 
 @media (max-width: 1023px) {
   .hero-section {

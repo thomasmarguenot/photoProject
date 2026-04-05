@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import ppImage from '@/assets/home/pp.webp';
 import { MOTION, TRANSITION } from '@/utils/constants';
 
+import { ScrollArrow } from './ScrollArrow';
 import './HeroSection.css';
 
 export function HeroSection() {
@@ -32,8 +33,8 @@ export function HeroSection() {
                 </defs>
                 <text className="circular-text-path">
                   <textPath href="#circlePath" startOffset="0%">
-                    À LA RECHERCHE D&apos;UNE MISSION SUR PARIS •
-                    DÉVELOPPEUR JS FULL STACK •
+                    À LA RECHERCHE D&apos;UNE MISSION SUR PARIS • DÉVELOPPEUR JS
+                    FULL STACK •
                   </textPath>
                 </text>
               </svg>
@@ -63,6 +64,24 @@ export function HeroSection() {
           </p>
         </div>
       </div>
+      <motion.button
+        className="hero-scroll-arrow"
+        onClick={() =>
+          document
+            .getElementById('projects')
+            ?.scrollIntoView({ behavior: 'smooth' })
+        }
+        aria-label="Voir les projets récents"
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 1.4,
+          duration: 0.6,
+          ease: [0.25, 0.46, 0.45, 0.94],
+        }}
+      >
+        <ScrollArrow />
+      </motion.button>
     </motion.section>
   );
 }
