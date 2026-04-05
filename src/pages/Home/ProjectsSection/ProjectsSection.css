@@ -3,7 +3,7 @@
 .projects-section {
   @apply w-full;
   background: #F5F1E8;
-  padding: 120px 0 80px;
+  padding: 100px 0 80px;
 }
 
 .projects-container {
@@ -28,7 +28,7 @@
   display: grid;
   grid-template-columns: 55% 45%;
   overflow: hidden;
-  margin-bottom: 48px;
+  margin-bottom: var(--spacing-3xl);
 }
 
 .project-row--reverse {
@@ -48,12 +48,14 @@
   overflow: hidden;
   position: relative;
   height: 420px;
+  border-radius: var(--border-radius-md);
 }
 
 .project-image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: inherit;
   transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: block;
 }
