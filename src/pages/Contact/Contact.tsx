@@ -21,9 +21,9 @@ export function Contact() {
             <p className="contact-description contact-description--black">
               Disponible pour des missions freelance sur Paris (remote
               possible), je recherche des projets frontend ambitieux en React.
-              Que ce soit pour renforcer une équipe, piloter un développement
-              ou démarrer une collaboration en agence, contactez-moi
-              directement. Je réponds rapidement.
+              Que ce soit pour renforcer une équipe, piloter un développement ou
+              démarrer une collaboration en agence, contactez-moi directement.
+              Je réponds rapidement.
             </p>
 
             <div className="contact-list">
