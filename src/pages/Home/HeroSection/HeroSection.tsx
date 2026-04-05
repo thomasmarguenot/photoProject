@@ -32,8 +32,8 @@ export function HeroSection() {
                 </defs>
                 <text className="circular-text-path">
                   <textPath href="#circlePath" startOffset="0%">
-                    À LA RECHERCHE D&apos;UNE MISSION SUR PARIS •
-                    DÉVELOPPEUR JS FULL STACK •
+                    À LA RECHERCHE D&apos;UNE MISSION SUR PARIS • DÉVELOPPEUR JS
+                    FULL STACK •
                   </textPath>
                 </text>
               </svg>
