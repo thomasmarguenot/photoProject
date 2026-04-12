@@ -1,13 +1,24 @@
-
 @reference "../../../index.css";
 
 .footer {
-  @apply w-full transition-all duration-300 ease-in-out;
+  @apply w-full;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-bg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   background: #1d1d1f;
+  will-change: height;
 }
 
 .footer-container {
   @apply px-6 py-5;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-content {
@@ -16,32 +27,7 @@
 
 .footer-text {
   @apply text-sm tracking-[-0.01em] text-right;
-  color: #86868b;
-}
-
-.footer-links {
-  @apply flex gap-8;
-}
-
-.footer-link {
-  @apply tracking-[-0.01em] transition-all relative;
-  @apply text-[var(--footer-link-size)] font-[var(--footer-link-weight)];
-  color: #86868b;
-}
-
-.footer-link:hover {
-  color: #ffffff;
-}
-
-.footer-link::after {
-  @apply content-[''] absolute -bottom-1 left-0 right-0 h-0.5;
-  @apply scale-x-0 transition-transform duration-300;
-  background: #ffffff;
-  transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.footer-link:hover::after {
-  @apply scale-x-100;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 @media (min-width: 1024px) {
@@ -52,10 +38,6 @@
 
 @media (max-width: 1024px) {
   .footer-text {
-    @apply text-xs;
-  }
-
-  .footer-link {
     @apply text-xs;
   }
 }

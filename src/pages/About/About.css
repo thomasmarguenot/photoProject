@@ -92,7 +92,7 @@
   left: 24px;
   bottom: 20px;
   font-weight: 900;
-  color: rgba(10,10,10,0.06);
+  color: rgba(10, 10, 10, 0.06);
   font-family: var(--font-heading);
   font-size: clamp(96px, 18vw, 220px);
   line-height: 0.85;
@@ -180,4 +180,3 @@
     bottom: 12px;
   }
 }
-

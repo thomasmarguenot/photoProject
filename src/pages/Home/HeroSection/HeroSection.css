@@ -66,11 +66,13 @@
 .hero-title {
   @apply text-5xl md:text-6xl lg:text-7xl font-bold;
   font-family: 'Inter Tight', sans-serif;
-  font-variation-settings: "wght" 900;
+  font-variation-settings: 'wght' 900;
   color: var(--color-text);
   letter-spacing: -0.03em;
   line-height: 1.05;
-  transition: font-variation-settings var(--animation-duration) var(--animation-easing), font-style var(--animation-duration) var(--animation-easing);
+  transition:
+    font-variation-settings var(--animation-duration) var(--animation-easing),
+    font-style var(--animation-duration) var(--animation-easing);
   cursor: pointer;
 }
 
@@ -130,7 +132,6 @@
 .hero-scroll-arrow:hover .hero-scroll-arrow__circle {
   stroke-dashoffset: 0;
 }
-
 
 @media (max-width: 1023px) {
   .hero-section {

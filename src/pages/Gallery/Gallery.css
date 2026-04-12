@@ -46,7 +46,7 @@
     column-count: 3;
     column-gap: 1.5rem;
   }
-  
+
   .gallery-item {
     /* Prevent items from breaking across columns */
     break-inside: avoid;
@@ -62,7 +62,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
-  
+
   @supports not (grid-template-rows: masonry) {
     .gallery-grid {
       column-count: 2;
@@ -75,13 +75,13 @@
     grid-template-columns: 1fr;
     gap: 0.75rem;
   }
-  
+
   @supports not (grid-template-rows: masonry) {
     .gallery-grid {
       column-count: 1;
       column-gap: 0.75rem;
     }
-    
+
     .gallery-item {
       margin-bottom: 0.75rem;
     }
@@ -91,22 +91,22 @@
 /* Liquid Glass Item - effet frosted glass */
 .gallery-item {
   @apply relative overflow-hidden;
-  
+
   /* Liquid Glass effet - désactivé pour le lightbox */
   background: var(--glass-bg);
-  
+
   border-radius: 8px;
   border: none;
   box-shadow: var(--glass-shadow);
-  
+
   cursor: pointer;
-  
+
   /* Smooth transitions uniquement pour border et shadow */
-  transition: 
+  transition:
     box-shadow 0.3s ease,
     background 0.3s ease,
     border-radius 0.3s ease;
-  
+
   /* Safari optimization: hardware acceleration */
   -webkit-transform: translateZ(0);
   -webkit-backface-visibility: hidden;
@@ -174,17 +174,17 @@
   max-width: 85vw;
   border-radius: var(--border-radius-lg);
   overflow: hidden;
-  
+
   /* Liquid glass effect */
   background: var(--glass-bg-dark);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
-  
+
   border: 1px solid var(--glass-border);
-  box-shadow: 
+  box-shadow:
     0 20px 60px rgba(0, 0, 0, 0.3),
     0 0 1px rgba(255, 255, 255, 0.5) inset;
-  
+
   padding: var(--spacing-sm);
 }
 
@@ -210,18 +210,18 @@
   right: 32px;
   top: 32px;
   z-index: 200;
-  
+
   width: 40px;
   height: 40px;
-  
+
   background: transparent;
   border: none;
-  
+
   color: #000;
   font-size: 40px;
   font-weight: 300;
   line-height: 1;
-  
+
   transition: opacity 0.2s ease;
 }
 
@@ -244,7 +244,7 @@
   .gallery-container {
     @apply px-12;
   }
-  
+
   .gallery-title {
     @apply text-7xl;
   }

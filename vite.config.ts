@@ -4,14 +4,13 @@ import { fileURLToPath } from 'url';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
-import mkcert from 'vite-plugin-mkcert';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), mkcert(), tailwindcss()],
+  plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
@@ -27,7 +26,7 @@ export default defineConfig({
     },
   },
   server: {
-    host: 'photoproject.local',
+    host: 'localhost',
     port: 5173,
     strictPort: true,
   },

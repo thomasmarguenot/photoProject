@@ -1,47 +1,53 @@
 import { motion } from 'framer-motion';
 
 import belleEpoqueLogo from '@/assets/logo-belle-epoque.png';
-import { MOTION, TRANSITION } from '@/utils/constants';
+import {
+  EASE_DEFAULT,
+  fadeUpVariants,
+  staggerContainerVariants,
+} from '@/utils/animations';
+import { ANIMATION } from '@/utils/constants';
 
 import './AgencySection.css';
 
 export function AgencySection() {
   return (
-    <motion.section
-      className="agency-section"
-      {...MOTION.FADE_UP}
-      whileInView={MOTION.FADE_UP.animate}
-      viewport={{ once: true }}
-      transition={TRANSITION.DEFAULT}
-    >
+    <section className="agency-section">
       <div className="agency-container">
-        <p className="agency-section-label">L&apos;agence</p>
-
-        <div className="agency-content">
-          {/* Colonne gauche */}
-          <div className="agency-left">
-            <div className="agency-logo">
-              <img
-                src={belleEpoqueLogo}
-                alt="Belle Époque Logo"
-                className="agency-logo-img"
-                loading="lazy"
-              />
+        <motion.div
+          className="agency-content"
+          variants={staggerContainerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <motion.div className="agency-left" variants={fadeUpVariants}>
+            <p className="agency-section-label">L&apos;agence</p>
+            <div className="agency-left-row">
+              <div className="agency-logo">
+                <img
+                  src={belleEpoqueLogo}
+                  alt="Belle Époque Logo"
+                  className="agency-logo-img"
+                  loading="lazy"
+                />
+              </div>
+              <a
+                href="https://agence-belle-epoque.fr/fr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="agency-link"
+                aria-label="Découvrir l'agence Belle Époque (nouvel onglet)"
+              >
+                Découvrir l&apos;agence{' '}
+                <span className="agency-link-arrow" aria-hidden="true">
+                  →
+                </span>
+              </a>
             </div>
+          </motion.div>
 
-            <a
-              href="https://agence-belle-epoque.fr/fr/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="agency-link"
-            >
-              Découvrir l&apos;agence{' '}
-              <span className="agency-link-arrow">→</span>
-            </a>
-          </div>
-
-          {/* Colonne droite */}
-          <div className="agency-text">
+          <motion.div className="agency-text" variants={fadeUpVariants}>
             <p className="agency-tagline">Fondateur associé</p>
             <h2 className="agency-title">Agence Belle Époque</h2>
             <p className="agency-description">
@@ -57,18 +63,56 @@ export function AgencySection() {
             </p>
 
             <div className="agency-services">
+              <div className="agency-services-line-wrapper">
+                <motion.span
+                  className="agency-services-line"
+                  initial={{ width: '0%' }}
+                  whileInView={{ width: '100%' }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: ANIMATION.DURATION_SLOW,
+                    ease: EASE_DEFAULT,
+                    delay: 0.6,
+                  }}
+                />
+              </div>
+
               <div className="service-item">
                 <h3 className="service-title">Site Web & App</h3>
                 <p className="service-detail">
                   UX · Webdesign · Développement · Mobile · E-Commerce
                 </p>
+                <motion.span
+                  className="service-divider"
+                  initial={{ height: '0%' }}
+                  whileInView={{ height: '100%' }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: ANIMATION.DURATION,
+                    ease: EASE_DEFAULT,
+                    delay: 0.85,
+                  }}
+                />
               </div>
+
               <div className="service-item">
                 <h3 className="service-title">Création graphique</h3>
                 <p className="service-detail">
                   Identités visuelles · Contenus digitaux · Créativité
                 </p>
+                <motion.span
+                  className="service-divider"
+                  initial={{ height: '0%' }}
+                  whileInView={{ height: '100%' }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: ANIMATION.DURATION,
+                    ease: EASE_DEFAULT,
+                    delay: 1.2,
+                  }}
+                />
               </div>
+
               <div className="service-item">
                 <h3 className="service-title">Identité de marque</h3>
                 <p className="service-detail">
@@ -76,9 +120,9 @@ export function AgencySection() {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 }

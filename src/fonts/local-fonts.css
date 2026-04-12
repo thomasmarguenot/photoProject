@@ -17,6 +17,10 @@
 
 /* Use local fonts if available, otherwise remote Google/Fontshare will still load as fallback */
 :root {
-  --font-heading: 'Inter Tight Local', 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Quicksand Local', 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading:
+    'Inter Tight Local', 'Inter Tight', -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  --font-body:
+    'Quicksand Local', 'Quicksand', -apple-system, BlinkMacSystemFont,
+    sans-serif;
 }

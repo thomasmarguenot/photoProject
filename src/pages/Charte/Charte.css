@@ -19,7 +19,11 @@
   font-size: var(--text-h1);
   font-weight: var(--text-h1-weight);
   line-height: var(--text-h1-line);
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-dark) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -258,7 +262,11 @@
 
 .radius-demo {
   @apply h-24 w-24 mx-auto mb-3;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-light) 100%
+  );
 }
 
 .radius-label {

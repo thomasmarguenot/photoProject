@@ -76,13 +76,15 @@ body.lightbox-open .header {
 .header-title-base {
   @apply block;
   background-position: 0% 0;
-  animation: header-title-reveal-forward var(--header-title-animation-duration) ease-in-out forwards;
+  animation: header-title-reveal-forward var(--header-title-animation-duration)
+    ease-in-out forwards;
 }
 
 .header-title-overlay {
   @apply absolute top-0 left-0;
   background-position: 0% 0;
-  animation: header-title-reveal-backward var(--header-title-animation-duration) ease-in-out forwards;
+  animation: header-title-reveal-backward var(--header-title-animation-duration)
+    ease-in-out forwards;
 }
 
 .header-title-wrapper:hover .header-title-base,
@@ -91,18 +93,35 @@ body.lightbox-open .header {
 }
 
 @keyframes header-title-reveal-forward {
-  0% { background-position: 100% 0; }
-  50% { background-position: 0% 0; }
-  100% { background-position: 0% 0; }
+  0% {
+    background-position: 100% 0;
+  }
+  50% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
 }
 
 @keyframes header-title-reveal-backward {
-  0% { opacity: 0; background-position: 0% 0; }
-  50% { opacity: 0; background-position: 0% 0; }
-  51% { opacity: 1; background-position: 0% 0; }
-  100% { opacity: 1; background-position: 100% 0; }
+  0% {
+    opacity: 0;
+    background-position: 0% 0;
+  }
+  50% {
+    opacity: 0;
+    background-position: 0% 0;
+  }
+  51% {
+    opacity: 1;
+    background-position: 0% 0;
+  }
+  100% {
+    opacity: 1;
+    background-position: 100% 0;
+  }
 }
-
 
 /* Hide nav on mobile, flex on desktop */
 
@@ -159,7 +178,8 @@ body.lightbox-open .header {
   width: 0px;
   background: var(--color-primary-subtle);
   border-radius: var(--radius-full);
-  transition: transform var(--animation-duration) var(--animation-easing),
+  transition:
+    transform var(--animation-duration) var(--animation-easing),
     width var(--animation-duration) var(--animation-easing),
     height var(--animation-duration) var(--animation-easing);
   z-index: 0;
@@ -170,5 +190,7 @@ body.lightbox-open .header {
 }
 
 @media (min-width: 1024px) {
-  .header-container { @apply px-12; }
+  .header-container {
+    @apply px-12;
+  }
 }

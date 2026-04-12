@@ -1,6 +1,6 @@
 /* Global selection color for the site (must be before imports) */
 ::selection {
-  background: #277DD4;
+  background: #277dd4;
   color: #fff;
 }
 @import 'tailwindcss';
@@ -16,7 +16,7 @@
   --radius-header: 16px;
   --spacing-header-top: 2rem;
   --z-header: 100;
-  
+
   /* Header colors */
   --color-header-bg: rgb(255 255 255 / 0.5);
   --color-header-border: rgb(0 0 0 / 0.06);
@@ -25,7 +25,7 @@
 :root {
   --font-heading: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
-  
+
   font-family: var(--font-body);
   line-height: 1.6;
   font-weight: 500;
@@ -36,56 +36,56 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* Typography Scale */
-  --text-h1: 4.5rem;        /* 72px */
+  --text-h1: 4.5rem; /* 72px */
   --text-h1-weight: 800;
   --text-h1-line: 1.1;
-  
-  --text-h2: 3.5rem;        /* 56px */
+
+  --text-h2: 3.5rem; /* 56px */
   --text-h2-weight: 700;
   --text-h2-line: 1.15;
-  
-  --text-h3: 2.5rem;        /* 40px */
+
+  --text-h3: 2.5rem; /* 40px */
   --text-h3-weight: 600;
   --text-h3-line: 1.2;
-  
-  --text-h4: 2rem;          /* 32px */
+
+  --text-h4: 2rem; /* 32px */
   --text-h4-weight: 600;
   --text-h4-line: 1.3;
-  
-  --text-h5: 1.5rem;        /* 24px */
+
+  --text-h5: 1.5rem; /* 24px */
   --text-h5-weight: 500;
   --text-h5-line: 1.4;
-  
-  --text-h6: 1.25rem;       /* 20px */
+
+  --text-h6: 1.25rem; /* 20px */
   --text-h6-weight: 500;
   --text-h6-line: 1.5;
-  
-  --text-body-large: 1.125rem;  /* 18px */
-  --text-body: 1rem;            /* 16px */
-  --text-small: 0.875rem;       /* 14px */
+
+  --text-body-large: 1.125rem; /* 18px */
+  --text-body: 1rem; /* 16px */
+  --text-small: 0.875rem; /* 14px */
 
   /* Color Palette - Primary Blue #277DD4 */
-  --color-primary: #277DD4;
-  --color-primary-light: #4A9FE8;
-  --color-primary-dark: #1A5BA8;
+  --color-primary: #277dd4;
+  --color-primary-light: #4a9fe8;
+  --color-primary-dark: #1a5ba8;
   --color-primary-subtle: rgba(39, 125, 212, 0.1);
-  
+
   /* Light Mode Colors */
-  --color-background: #F5F5F7;
-  --color-surface: #FFFFFF;
-  --color-surface-elevated: #FFFFFF;
-  --color-text-primary: #1A1D29;
-  --color-text-secondary: #6B7280;
-  --color-text-tertiary: #9CA3AF;
+  --color-background: #f5f5f7;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #ffffff;
+  --color-text-primary: #1a1d29;
+  --color-text-secondary: #6b7280;
+  --color-text-tertiary: #9ca3af;
   --color-border: rgba(0, 0, 0, 0.08);
   --color-border-light: rgba(0, 0, 0, 0.04);
   --color-divider: rgba(0, 0, 0, 0.06);
-  
+
   /* Semantic Colors */
-  --color-success: #10B981;
-  --color-warning: #F59E0B;
-  --color-error: #EF4444;
-  --color-info: #3B82F6;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
 
   /* Liquid Glass Design System */
   --glass-bg: rgba(255, 255, 255, 0.7);
@@ -97,13 +97,13 @@
   --glass-shadow-hover: 0 12px 40px rgba(31, 38, 135, 0.25);
   --glass-blur: 20px;
   --glass-blur-strong: 40px;
-  
+
   /* Shadows - Elevation System */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
   --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.16);
-  
+
   /* Animation */
   --animation-duration: 0.6s;
   --animation-duration-fast: 0.3s;
@@ -111,26 +111,26 @@
   --animation-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --animation-easing-smooth: cubic-bezier(0.32, 0.72, 0, 1);
   --animation-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  
+
   /* Spacing Scale */
-  --spacing-xs: 0.5rem;     /* 8px */
-  --spacing-sm: 0.75rem;    /* 12px */
-  --spacing-md: 1rem;       /* 16px */
-  --spacing-lg: 1.5rem;     /* 24px */
-  --spacing-xl: 2rem;       /* 32px */
-  --spacing-2xl: 3rem;      /* 48px */
-  --spacing-3xl: 4rem;      /* 64px */
-  --spacing-4xl: 6rem;      /* 96px */
-  
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-sm: 0.75rem; /* 12px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 3rem; /* 48px */
+  --spacing-3xl: 4rem; /* 64px */
+  --spacing-4xl: 6rem; /* 96px */
+
   /* Border Radius Scale */
-  --radius-xs: 0.25rem;     /* 4px */
-  --radius-sm: 0.5rem;      /* 8px */
-  --radius-md: 0.75rem;     /* 12px */
-  --radius-lg: 1rem;        /* 16px */
-  --radius-xl: 1.5rem;      /* 24px */
-  --radius-2xl: 2rem;       /* 32px */
+  --radius-xs: 0.25rem; /* 4px */
+  --radius-sm: 0.5rem; /* 8px */
+  --radius-md: 0.75rem; /* 12px */
+  --radius-lg: 1rem; /* 16px */
+  --radius-xl: 1.5rem; /* 24px */
+  --radius-2xl: 2rem; /* 32px */
   --radius-full: 9999px;
-  
+
   /* Component Specific - Legacy support */
   --border-radius-sm: 16px;
   --border-radius-md: 24px;
@@ -140,8 +140,7 @@
   --spacing-md: 24px;
   --spacing-lg: 32px;
   --spacing-xl: 48px;
-  
-  
+
   /* Header specific */
   --header-width: 80%;
   --header-max-width: 800px;
@@ -154,10 +153,10 @@
   --header-blur: 20px;
   --header-link-size: 15px;
   --header-link-weight: 600;
-  
+
   /* Header title animation */
   --header-title-animation-duration: 2.5s;
-  
+
   /* Footer specific */
   --footer-width: 80%;
   --footer-max-width: 1400px;
@@ -169,11 +168,11 @@
   --footer-text-size: 15px;
   --footer-link-size: 15px;
   --footer-link-weight: 600;
-  
+
   /* Gallery specific */
   --gallery-padding: 80px;
   --gallery-gap: 80px;
-  
+
   /* Page content (for all pages except gallery) */
   --page-max-width: 1400px;
 
@@ -192,7 +191,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   width: 100%;
-  background: #FFFFFF;
+  background: #ffffff;
   color: var(--color-text-primary);
   font-family: var(--font-body);
   line-height: 1.6;
@@ -204,7 +203,12 @@ body {
 }
 
 /* Typography Classes */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   margin: 0;
 }
@@ -248,12 +252,11 @@ h6 {
 /* Responsive Typography */
 @media (max-width: 768px) {
   :root {
-    --text-h1: 3rem;        /* 48px */
-    --text-h2: 2.5rem;      /* 40px */
-    --text-h3: 2rem;        /* 32px */
-    --text-h4: 1.5rem;      /* 24px */
-    --text-h5: 1.25rem;     /* 20px */
-    --text-h6: 1.125rem;    /* 18px */
+    --text-h1: 3rem; /* 48px */
+    --text-h2: 2.5rem; /* 40px */
+    --text-h3: 2rem; /* 32px */
+    --text-h4: 1.5rem; /* 24px */
+    --text-h5: 1.25rem; /* 20px */
+    --text-h6: 1.125rem; /* 18px */
   }
 }
-

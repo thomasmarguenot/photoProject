@@ -4,7 +4,7 @@ import { ANIMATION } from './constants';
 
 type BezierEasing = [number, number, number, number];
 
-const EASE_DEFAULT = [...ANIMATION.EASING] as BezierEasing;
+export const EASE_DEFAULT = [...ANIMATION.EASING] as BezierEasing;
 const EASE_REVEAL = [...ANIMATION.EASING_REVEAL] as BezierEasing;
 
 /** Reveals an element via clip-path (left→right), border-radius preserved */
