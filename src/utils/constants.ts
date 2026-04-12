@@ -16,6 +16,10 @@ export const ANIMATION = {
   EASING: [0.25, 0.46, 0.45, 0.94] as const,
   /** Smooth Apple-style easing */
   EASING_SMOOTH: [0.32, 0.72, 0, 1] as const,
+  /** Dramatic reveal easing — slow start, hard stop */
+  EASING_REVEAL: [0.76, 0, 0.24, 1] as const,
+  /** Duration for width/clip reveal animations */
+  DURATION_REVEAL: 1.5,
   /** Spring config for staggered reveals */
   SPRING: { type: 'spring' as const, stiffness: 300, damping: 24 },
 } as const;

@@ -2,7 +2,7 @@
 
 .projects-section {
   @apply w-full;
-  background: #F5F1E8;
+  background: #f5f1e8;
   padding: 100px 0 80px;
 }
 
@@ -12,22 +12,20 @@
 }
 
 .projects-label {
-  @apply text-4xl font-bold;
-  font-family: var(--font-heading);
+  @apply text-4xl font-bold font-heading;
   letter-spacing: -0.02em;
   color: #2c3e50;
   margin-bottom: 64px;
 }
 
 .projects-list {
-  display: flex;
-  flex-direction: column;
+  @apply flex flex-col;
 }
 
+/* Grid layout — custom column ratios not available in Tailwind */
 .project-row {
   display: grid;
   grid-template-columns: 55% 45%;
-  overflow: hidden;
   margin-bottom: var(--spacing-3xl);
 }
 
@@ -35,7 +33,7 @@
   grid-template-columns: 45% 55%;
 }
 
-.project-row--reverse .project-image-wrap {
+.project-row--reverse .project-image-cell {
   order: 2;
 }
 
@@ -43,76 +41,30 @@
   order: 1;
 }
 
-/* Image */
-.project-image-wrap {
-  overflow: hidden;
-  position: relative;
+/* clip-path animation (Framer Motion) promotes the inner div to its own GPU
+   compositing layer. Without `round` in the inset() values, that GPU layer
+   clips to a rectangle, bypassing overflow: hidden + border-radius here.
+   The fix lives in imageRevealVariants (inset … round 24px). */
+.project-image-cell {
   height: 420px;
+  background: #f5f1e8;
   border-radius: var(--border-radius-md);
+  overflow: hidden;
+  transform: translateZ(0);
 }
 
-.project-image-wrap img {
-  width: 100%;
-  height: 100%;
+.project-image-reveal {
+  @apply w-full h-full;
+}
+
+.project-image {
+  @apply w-full h-full block;
   object-fit: cover;
-  border-radius: inherit;
   transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  display: block;
 }
 
-.project-row:hover .project-image-wrap img {
-  transform: scale(1.04);
-}
-
-/* Info */
-.project-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 64px 56px;
-  gap: 0;
-}
-
-.project-number {
-  font-size: 1.125rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: #86868b;
-  margin-bottom: 20px;
-}
-
-.project-name {
-  font-size: 2.25rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: #1d1d1f;
-  line-height: 1.1;
-  margin-bottom: 16px;
-}
-
-.project-description {
-  font-size: 0.9375rem;
-  color: #6e6e73;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
-  margin-bottom: 32px;
-}
-
-.project-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.project-tech-tag {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #1d1d1f;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 100px;
-  padding: 5px 14px;
-  background: transparent;
-  letter-spacing: 0.01em;
+.project-row:hover .project-image {
+  transform: scale(1.02);
 }
 
 /* Responsive */
@@ -133,17 +85,17 @@
     min-height: unset;
   }
 
-  .project-image-wrap {
+  .project-image-cell {
     height: 260px !important;
     order: 0 !important;
   }
 
-  .project-info {
-    order: 1 !important;
-    padding: 32px 24px;
+  .project-image {
+    object-fit: contain;
   }
 
-  .project-name {
-    font-size: 1.75rem;
+  .project-info {
+    order: 1 !important;
+    @apply px-6 py-8;
   }
 }

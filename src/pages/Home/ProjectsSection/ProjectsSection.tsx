@@ -6,6 +6,7 @@ import rolex from '@/assets/projects/rolex.webp';
 import tabacInfoService from '@/assets/projects/tabac-info-service.webp';
 import { TRANSITION } from '@/utils/constants';
 
+import { ProjectCard } from './ProjectCard';
 import type { ProjectsSectionProps } from './ProjectsSection.types';
 import './ProjectsSection.css';
 
@@ -62,35 +63,7 @@ export function ProjectsSection({
 
         <div className="projects-list">
           {projects.map((project, index) => (
-            <motion.article
-              key={project.id}
-              className={`project-row${index % 2 === 1 ? ' project-row--reverse' : ''}`}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ ...TRANSITION.SLOW, delay: 0.1 }}
-            >
-              <div className="project-image-wrap">
-                <img src={project.image} alt={project.title} loading="lazy" />
-              </div>
-
-              <div className="project-info">
-                <span className="project-number">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="project-name">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
-                {project.technologies && (
-                  <div className="project-tech">
-                    {project.technologies.map((tech) => (
-                      <span key={tech} className="project-tech-tag">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </motion.article>
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
       </div>

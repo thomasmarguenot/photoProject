@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "deny": [
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(nc *)",
+      "Bash(ncat *)",
+      "Bash(ssh *)",
+      "Bash(rm *)",
+      "Bash(sudo *)",
+      "Bash(su *)",
+      "Bash(chmod *)",
+      "Bash(chown *)",
+      "Bash(python -c *)",
+      "Bash(node -e *)",
+      "Read(*.env)",
+      "Write(*.env)",
+      "Read(~/.ssh/*)",
+      "Write(~/.ssh/*)",
+      "Read(~/.aws/*)",
+      "Read(~/.kube/*)",
+      "Read(*.pem)",
+      "Read(*.key)"
+    ],
+    "defaultMode": "bypassPermissions"
+  }
+}

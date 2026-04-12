@@ -6,6 +6,10 @@
 @import 'tailwindcss';
 
 @theme {
+  /* Typography */
+  --font-heading: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+
   /* Header dimensions */
   --width-header: 80%;
   --width-header-max: 1400px;
