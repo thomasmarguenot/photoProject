@@ -20,6 +20,19 @@ export const imageRevealVariants: Variants = {
   },
 };
 
+/** Reveals an element via clip-path (right→left), border-radius preserved */
+export const imageRevealVariantsRight: Variants = {
+  hidden: { clipPath: 'inset(0 0 0 100% round 24px)' },
+  visible: {
+    clipPath: 'inset(0 0 0 0% round 24px)',
+    transition: {
+      duration: ANIMATION.DURATION_REVEAL,
+      ease: EASE_REVEAL,
+      delay: 0.4,
+    },
+  },
+};
+
 /** Fades an element up into position */
 export const fadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 18 },

@@ -22,7 +22,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true, margin: '-200px' }}
       variants={staggerContainerVariants}
     >
-      <ProjectImageReveal src={project.image} alt={project.title} />
+      <ProjectImageReveal
+        src={project.image}
+        alt={project.title}
+        direction={isReverse ? 'right' : 'left'}
+      />
       <ProjectCardInfo project={project} index={index} />
     </motion.article>
   );

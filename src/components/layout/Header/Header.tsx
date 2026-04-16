@@ -92,7 +92,16 @@ export function Header({
   }, [pathname]);
 
   return (
-    <header className="header">
+    <motion.header
+      className="header"
+      initial={{ opacity: 0, y: -30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        delay: 1,
+        duration: ANIMATION.DURATION_FAST,
+        ease: ANIMATION.EASING,
+      }}
+    >
       <div className="header-container flex items-center justify-between w-full">
         {/* Logo left */}
         <div className="header-logo flex-shrink-0">
@@ -244,6 +253,6 @@ export function Header({
           )}
         </AnimatePresence>
       </div>
-    </header>
+    </motion.header>
   );
 }
