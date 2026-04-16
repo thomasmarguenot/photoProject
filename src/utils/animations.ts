@@ -33,7 +33,7 @@ export const imageRevealVariantsRight: Variants = {
   },
 };
 
-/** Fades an element up into position */
+/** Fades an element up into position (18px) */
 export const fadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 18 },
   visible: {
@@ -41,6 +41,32 @@ export const fadeUpVariants: Variants = {
     y: 0,
     transition: {
       duration: ANIMATION.DURATION_SLOW,
+      ease: EASE_DEFAULT,
+    },
+  },
+};
+
+/** Fades an element up into position (30px) - for text content */
+export const fadeUpVariants30: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: ANIMATION.DURATION,
+      ease: EASE_DEFAULT,
+      delay: 0.3,
+    },
+  },
+};
+
+/** Fades an element (opacity only) - for project numbers */
+export const fadeOpacityVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.6,
       ease: EASE_DEFAULT,
     },
   },

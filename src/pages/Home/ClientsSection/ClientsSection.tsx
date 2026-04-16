@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 
+import { AnimatedHeading } from '@/components/common/TextAnimations';
 import canalLogo from '@/assets/logo/canal.webp';
 import konbibiLogo from '@/assets/logo/Konbibi.webp';
 import leroyMerlinLogo from '@/assets/logo/Leroy-Merlin.webp';
@@ -71,7 +72,9 @@ export function ClientsSection({
         }}
       >
         <div className="clients-title-wrapper">
-          <h2 className="clients-title">Ils m&apos;ont fait confiance</h2>
+          <AnimatedHeading as="h2" className="clients-title">
+            Ils m&apos;ont fait confiance
+          </AnimatedHeading>
         </div>
         <div className="clients-scroll-wrapper">
           <motion.div

@@ -1,10 +1,8 @@
-import { motion } from 'framer-motion';
-
+import { AnimatedHeading } from '@/components/common/TextAnimations';
 import canalImage from '@/assets/projects/canal.webp';
 import quotatisImage from '@/assets/projects/quotatis.webp';
 import rolex from '@/assets/projects/rolex.webp';
 import tabacInfoService from '@/assets/projects/tabac-info-service.webp';
-import { TRANSITION } from '@/utils/constants';
 
 import { ProjectCard } from './ProjectCard';
 import type { ProjectsSectionProps } from './ProjectsSection.types';
@@ -51,15 +49,9 @@ export function ProjectsSection({
   return (
     <section id="projects" className="projects-section">
       <div className="projects-container">
-        <motion.p
-          className="projects-label"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ ...TRANSITION.SLOW, delay: 0.1 }}
-        >
+        <AnimatedHeading as="h2" className="projects-label">
           Projets récents
-        </motion.p>
+        </AnimatedHeading>
 
         <div className="projects-list">
           {projects.map((project, index) => (

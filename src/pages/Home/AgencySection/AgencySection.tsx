@@ -1,9 +1,14 @@
 import { motion } from 'framer-motion';
 
+import {
+  AnimatedHeading,
+  AnimatedText,
+} from '@/components/common/TextAnimations';
 import belleEpoqueLogo from '@/assets/logo-belle-epoque.png';
 import {
   EASE_DEFAULT,
   fadeUpVariants,
+  fadeUpVariants30,
   staggerContainerVariants,
 } from '@/utils/animations';
 import { ANIMATION } from '@/utils/constants';
@@ -22,7 +27,9 @@ export function AgencySection() {
           viewport={{ once: true }}
         >
           <motion.div className="agency-left" variants={fadeUpVariants}>
-            <p className="agency-section-label">L&apos;agence</p>
+            <AnimatedHeading as="p" className="agency-section-label">
+              L&apos;agence
+            </AnimatedHeading>
             <div className="agency-left-row">
               <div className="agency-logo">
                 <img
@@ -32,35 +39,49 @@ export function AgencySection() {
                   loading="lazy"
                 />
               </div>
-              <a
-                href="https://agence-belle-epoque.fr/fr/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="agency-link"
-                aria-label="Découvrir l'agence Belle Époque (nouvel onglet)"
-              >
-                Découvrir l&apos;agence{' '}
-                <span className="agency-link-arrow" aria-hidden="true">
-                  →
-                </span>
-              </a>
+              <AnimatedText className="agency-link" variants={fadeUpVariants30}>
+                <a
+                  href="https://agence-belle-epoque.fr/fr/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Découvrir l'agence Belle Époque (nouvel onglet)"
+                >
+                  Découvrir l&apos;agence{' '}
+                  <span className="agency-link-arrow" aria-hidden="true">
+                    →
+                  </span>
+                </a>
+              </AnimatedText>
             </div>
           </motion.div>
 
           <motion.div className="agency-text" variants={fadeUpVariants}>
-            <p className="agency-tagline">Fondateur associé</p>
-            <h2 className="agency-title">Agence Belle Époque</h2>
-            <p className="agency-description">
+            <AnimatedText
+              className="agency-tagline"
+              variants={fadeUpVariants30}
+            >
+              Fondateur associé
+            </AnimatedText>
+            <AnimatedHeading as="h2" className="agency-title">
+              Agence Belle Époque
+            </AnimatedHeading>
+            <AnimatedText
+              className="agency-description"
+              variants={fadeUpVariants30}
+            >
               En parallèle de mes missions développement, j&apos;ai co-fondé
               Belle Époque. Nous produisons des identités visuelles, des
               contenus digitaux, de l&apos;édition et de la publicité porteuse
               de sens, de créativité et de simplicité.
-            </p>
-            <p className="agency-description">
+            </AnimatedText>
+            <AnimatedText
+              className="agency-description"
+              variants={fadeUpVariants30}
+            >
               Nous accompagnons votre transformation digitale en nous imprégnant
               de vos problématiques et en mettant nos connaissances et notre
               expertise à votre service pour vous apporter une réponse éclairée.
-            </p>
+            </AnimatedText>
 
             <div className="agency-services">
               <div className="agency-services-line-wrapper">
@@ -78,10 +99,15 @@ export function AgencySection() {
               </div>
 
               <div className="service-item">
-                <h3 className="service-title">Site Web & App</h3>
-                <p className="service-detail">
+                <AnimatedHeading as="h3" className="service-title">
+                  Site Web & App
+                </AnimatedHeading>
+                <AnimatedText
+                  className="service-detail"
+                  variants={fadeUpVariants30}
+                >
                   UX · Webdesign · Développement · Mobile · E-Commerce
-                </p>
+                </AnimatedText>
                 <motion.span
                   className="service-divider"
                   initial={{ height: '0%' }}
@@ -96,10 +122,15 @@ export function AgencySection() {
               </div>
 
               <div className="service-item">
-                <h3 className="service-title">Création graphique</h3>
-                <p className="service-detail">
+                <AnimatedHeading as="h3" className="service-title">
+                  Création graphique
+                </AnimatedHeading>
+                <AnimatedText
+                  className="service-detail"
+                  variants={fadeUpVariants30}
+                >
                   Identités visuelles · Contenus digitaux · Créativité
-                </p>
+                </AnimatedText>
                 <motion.span
                   className="service-divider"
                   initial={{ height: '0%' }}
@@ -114,10 +145,15 @@ export function AgencySection() {
               </div>
 
               <div className="service-item">
-                <h3 className="service-title">Identité de marque</h3>
-                <p className="service-detail">
+                <AnimatedHeading as="h3" className="service-title">
+                  Identité de marque
+                </AnimatedHeading>
+                <AnimatedText
+                  className="service-detail"
+                  variants={fadeUpVariants30}
+                >
                   Wording · Stratégie · Publicité · Édition
-                </p>
+                </AnimatedText>
               </div>
             </div>
           </motion.div>

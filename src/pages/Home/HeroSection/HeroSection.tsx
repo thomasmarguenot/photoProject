@@ -1,5 +1,9 @@
 import { motion } from 'framer-motion';
 
+import {
+  AnimatedHeading,
+  AnimatedText,
+} from '@/components/common/TextAnimations';
 import ppImage from '@/assets/home/pp.webp';
 import { MOTION, TRANSITION } from '@/utils/constants';
 
@@ -43,25 +47,21 @@ export function HeroSection() {
         </div>
 
         <div className="hero-intro">
-          <motion.h1
-            className="hero-title"
-            {...MOTION.FONT_WEIGHT}
-            transition={TRANSITION.FONT_MORPH}
-          >
+          <AnimatedHeading as="h1" className="hero-title">
             Je construis des sites web.
-          </motion.h1>
-          <p className="hero-description hero-description--black">
+          </AnimatedHeading>
+          <AnimatedText className="hero-description hero-description--black">
             Développeur JS Full-Stack avec plus de 15 ans d&apos;expérience, je
             crée des expériences digitales modernes et performantes. Spécialisé
             React et Node.js, j&apos;accompagne agences et entreprises dans la
             conception de solutions sur-mesure qui allient esthétique et
             fonctionnalité.
-          </p>
-          <p className="hero-description hero-description--black">
+          </AnimatedText>
+          <AnimatedText className="hero-description hero-description--black">
             De la conception à la mise en production, je m&apos;assure que
-            chaque projet reflète l&apos;identité de la marque tout en offrant
+            chaque projet reflète l&apos;identity de la marque tout en offrant
             une expérience utilisateur exceptionnelle.
-          </p>
+          </AnimatedText>
         </div>
       </div>
       <motion.button

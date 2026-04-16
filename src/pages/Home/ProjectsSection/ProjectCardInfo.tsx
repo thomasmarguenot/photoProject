@@ -1,6 +1,10 @@
 import { motion } from 'framer-motion';
 
-import { fadeUpVariants } from '@/utils/animations';
+import {
+  AnimatedHeading,
+  AnimatedText,
+} from '@/components/common/TextAnimations';
+import { fadeOpacityVariants, fadeUpVariants30 } from '@/utils/animations';
 
 import type { Project } from '../Home.types';
 import './ProjectCardInfo.css';
@@ -13,20 +17,20 @@ interface ProjectCardInfoProps {
 export function ProjectCardInfo({ project, index }: ProjectCardInfoProps) {
   return (
     <div className="project-info">
-      <motion.span className="project-number" variants={fadeUpVariants}>
+      <AnimatedText className="project-number" variants={fadeOpacityVariants}>
         {String(index + 1).padStart(2, '0')}
-      </motion.span>
+      </AnimatedText>
 
-      <motion.h3 className="project-name" variants={fadeUpVariants}>
+      <AnimatedHeading as="h3" className="project-name">
         {project.title}
-      </motion.h3>
+      </AnimatedHeading>
 
-      <motion.p className="project-description" variants={fadeUpVariants}>
+      <AnimatedText className="project-description" variants={fadeUpVariants30}>
         {project.description}
-      </motion.p>
+      </AnimatedText>
 
       {project.technologies && (
-        <motion.div className="project-tech" variants={fadeUpVariants}>
+        <motion.div className="project-tech" variants={fadeUpVariants30}>
           {project.technologies.map((tech) => (
             <span key={tech} className="project-tech-tag">
               {tech}
