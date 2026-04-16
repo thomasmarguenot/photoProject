@@ -1,65 +1,91 @@
-# Standards de développement — PhotoProject
+# PhotoProject — Development Standards
 
 Ces règles s'appliquent à chaque modification du codebase, sans exception.
 
+## Setup
+
+- **Package manager**: `pnpm` only
+- **Dev server**: `https://photoproject.local:5173` (HTTPS, mkcert)
+- **Start session**: `mulch prime`
+
+## Verification (before any commit)
+
+```
+pnpm typecheck   # 0 errors
+pnpm lint        # 0 warnings
+pnpm format      # formatted
+```
+
+## Git Hooks
+
+- **pre-commit**: `pnpm lint:fix`
+- **commit-msg**: conventional commits (`feat:`, `fix:`, etc.)
+
+## Styling
+
+- Tailwind via `@apply` in `.css` files co-located with components
+- `className` = semantic names only (no Tailwind utilities)
+- `@reference` in CSS uses relative path (`../../../index.css`)
+- CSS variables in `:root` of `src/index.css`; `@theme` block for Tailwind tokens
+
 ## TypeScript
 
-- Mode strict activé (`tsconfig.json`), zéro `any` toléré
-- Toujours typer les variants Framer Motion avec `Variants` de `framer-motion`
-- Les tableaux d'easing doivent être castés : `[...ANIMATION.EASING] as [number, number, number, number]`
-- `pnpm typecheck` doit passer à 0 erreur avant tout commit
+- Strict mode, zero `any`
+- Types: `ComponentName.types.ts` next to `ComponentName.tsx`
+- No `index.ts` barrel files — import from component file directly
+- Path aliases: always `@/` prefix (e.g., `@/components/Button/Button`)
 
-## ESLint & Prettier
+## Framer Motion
 
-- `pnpm lint` doit passer à 0 warning
-- `pnpm format` avant tout commit
-- Les hooks Husky + commitlint sont actifs — respecter le format `type(scope): message`
+- Variants: `src/utils/animations.ts`
+- Constants: `src/utils/constants.ts` (`ANIMATION`, `TRANSITION`, `MOTION`)
+- Easing cast: `[...ANIMATION.EASING] as [number, number, number, number]`
+- Use `staggerContainerVariants` + `variants` (not `custom` props)
 
-## Styling : Tailwind via @apply
+## Components
 
-- Toutes les classes Tailwind s'écrivent dans les fichiers `.css` via `@apply`, **jamais en inline** dans `className`
-- `className` ne doit contenir que des noms de classes sémantiques (ex : `className="project-info"`)
-- Exception unique : les classes **conditionnelles dynamiques** (ex : `className={isReverse ? 'project-row--reverse' : 'project-row'}`)
-- N'écrire du CSS pur (sans `@apply`) **uniquement** quand :
-  - Tailwind ne peut pas exprimer la règle (ex : `grid-template-columns: 55% 45%`)
-  - Pseudo-sélecteurs complexes ou animations `@keyframes`
-  - Référence à des CSS custom properties via `var(--...)`
-- Les fonts `font-heading` et `font-body` sont enregistrées dans `@theme` (index.css) et disponibles comme classes via `@apply`
+- Named exports only (no `export default` except lazy pages)
+- Pages: lazy-loaded via `React.lazy`, must `export default`
+- Pages > 150 lines: split into orchestrator + utils + animations + hook
+- Routes defined in both `src/router.tsx` and `src/utils/constants.ts` (`ROUTES`, `PAGE_ORDER`)
 
-## Animations Framer Motion
+## Import Order
 
-- Tous les variants et transitions sont définis dans `src/utils/animations.ts`
-- Ne jamais hardcoder des valeurs d'easing ou de durée inline — utiliser les constantes
-- Les easings vivent dans `ANIMATION` (`src/utils/constants.ts`)
-- Les presets de transition vivent dans `TRANSITION` (`src/utils/constants.ts`)
-- Les variants Framer Motion vivent dans `src/utils/animations.ts`
-- Utiliser `staggerContainerVariants` + `variants` sur les enfants plutôt que des `custom` props
-
-## Architecture : Atomic Design
-
-```
-src/
-├── components/
-│   ├── atoms/       # Éléments primitifs (Button, Badge, Icon…)
-│   ├── molecules/   # Compositions d'atomes (ProjectCard, TechTag…)
-│   └── organisms/   # Sections complexes (ProjectsSection, HeroSection…)
-├── pages/           # Assemblages de pages uniquement, zéro logique métier
-└── utils/           # constants.ts, animations.ts, helpers
+```typescript
+// 1. External packages
+import { useState } from 'react';
+// 2. Internal @/ aliases
+import { useGalleryImages } from '@/hooks/useGalleryImages';
+// 3. Relative (same folder only)
+import type { Props } from './Component.types';
+// 4. Styles last
+import './Component.css';
 ```
 
-## Règles de composants
-
-- Un composant par fichier
-- Co-localiser les types dans `.types.ts` au même niveau
-- Co-localiser le CSS (si nécessaire) dans le `.css` du même nom
-- Exports nommés uniquement, pas de `export default` sauf pour les pages (`React.lazy`)
-- Pas de styles inline sauf pour des valeurs dynamiques impossibles à exprimer en Tailwind
-- Découper dès qu'un composant dépasse ~80 lignes ou a plusieurs responsabilités
-
-## Vérification avant chaque changement
+## Scripts
 
 ```bash
-pnpm typecheck   # 0 erreur
-pnpm lint        # 0 warning
-pnpm format      # formaté
+pnpm dev              # Dev server
+pnpm build            # Build for production
+pnpm optimize-images  # Compress images to WebP
+pnpm test             # Vitest watch mode
+pnpm test:ui          # Vitest UI
+```
+
+## References
+
+- Architecture & path aliases: `docs/STRUCTURE.md`
+- Tailwind conventions: `docs/TAILWIND.md`
+- Router & lazy loading: `docs/ROUTER.md`
+- ESLint, Prettier, Husky: `docs/CODE_QUALITY.md`
+- Image optimization: `docs/IMAGE_OPTIMIZATION.md`
+- Path aliases: `docs/ALIASES.md`
+
+## Mulch (Expertise)
+
+```bash
+mulch prime           # Load project context at session start
+mulch learn           # Discover insights worth recording
+mulch record <domain> --type <type> --description "..."  # Record insight
+mulch sync            # Commit changes
 ```
