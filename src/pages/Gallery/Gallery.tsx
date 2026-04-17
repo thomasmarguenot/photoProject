@@ -37,15 +37,31 @@ export function Gallery() {
     setSelectedIndex(null);
   };
 
+  const handlePrev = () => {
+    setSelectedIndex((prev) =>
+      prev !== null
+        ? (prev - 1 + filteredImages.length) % filteredImages.length
+        : null
+    );
+  };
+
+  const handleNext = () => {
+    setSelectedIndex((prev) =>
+      prev !== null ? (prev + 1) % filteredImages.length : null
+    );
+  };
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedIndex === null) return;
       if (e.key === 'Escape') handleClose();
+      if (e.key === 'ArrowLeft') handlePrev();
+      if (e.key === 'ArrowRight') handleNext();
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedIndex]);
+  }, [selectedIndex, filteredImages.length]);
 
   if (isLoading || images.length === 0) {
     return (
@@ -156,6 +172,26 @@ export function Gallery() {
               aria-label="Close"
             >
               ×
+            </button>
+            <button
+              className="gallery-nav gallery-nav--prev"
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePrev();
+              }}
+              aria-label="Previous photo"
+            >
+              ‹
+            </button>
+            <button
+              className="gallery-nav gallery-nav--next"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleNext();
+              }}
+              aria-label="Next photo"
+            >
+              ›
             </button>
           </div>
         )}
