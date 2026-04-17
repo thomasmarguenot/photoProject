@@ -5,9 +5,12 @@
   @apply w-full max-w-[var(--header-max-width)];
   @apply rounded-[var(--header-radius)] border-b border-[var(--header-border)];
   @apply bg-[var(--header-bg)] backdrop-blur-[var(--header-blur)];
-  @apply transition-all ease-in-out;
+  /* Explicit transitions — never transition backdrop-filter (causes Safari blink) */
+  transition-property: width, max-width, margin, border-radius, background-color;
   transition-duration: var(--animation-duration);
   transition-timing-function: var(--animation-easing);
+  /* Stable stacking context prevents Safari from destroying the blur composite layer */
+  isolation: isolate;
 }
 
 body.menu-overlay-open .header {
