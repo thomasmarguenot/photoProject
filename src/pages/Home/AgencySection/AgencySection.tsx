@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 
+import belleEpoqueLogo from '@/assets/logo-belle-epoque.png';
 import {
   AnimatedHeading,
   AnimatedText,
 } from '@/components/common/TextAnimations';
-import belleEpoqueLogo from '@/assets/logo-belle-epoque.png';
 import {
   EASE_DEFAULT,
   fadeUpVariants,

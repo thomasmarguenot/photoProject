@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 
-import { AnimatedHeading } from '@/components/common/TextAnimations';
 import canalLogo from '@/assets/logo/canal.webp';
 import konbibiLogo from '@/assets/logo/Konbibi.webp';
 import leroyMerlinLogo from '@/assets/logo/Leroy-Merlin.webp';
@@ -9,6 +8,7 @@ import petitBateauLogo from '@/assets/logo/Petit-bateau.webp';
 import peugeotLogo from '@/assets/logo/Peugeot-logo.webp';
 import rolexLogo from '@/assets/logo/Rolex-logo.webp';
 import tf1Logo from '@/assets/logo/TF1.webp';
+import { AnimatedHeading } from '@/components/common/TextAnimations';
 import { ANIMATION, MOTION } from '@/utils/constants';
 
 import type { ClientsSectionProps } from './ClientsSection.types';

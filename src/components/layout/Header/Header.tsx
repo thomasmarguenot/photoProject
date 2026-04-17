@@ -20,6 +20,7 @@ const NAV_ITEMS: NavItem[] = [
 export function Header({
   title = 'Thomas Marguenot',
   romanTitle = 'とーます・まるぐの',
+  hidden = false,
 }: HeaderProps) {
   const navRef = useRef<HTMLElement | null>(null);
   const linkRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
@@ -95,9 +96,12 @@ export function Header({
     <motion.header
       className="header"
       initial={{ opacity: 0, y: -30 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={{
+        opacity: hidden ? 0 : 1,
+        y: hidden ? -100 : 0,
+      }}
       transition={{
-        delay: 1,
+        delay: hidden ? 0 : 1,
         duration: ANIMATION.DURATION_FAST,
         ease: ANIMATION.EASING,
       }}

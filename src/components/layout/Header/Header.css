@@ -19,8 +19,7 @@ body.menu-overlay-open .header {
 }
 
 body.lightbox-open .header {
-  @apply -translate-y-full opacity-0 pointer-events-none;
-  transform: translateY(-150%);
+  /* Handled by Framer Motion in Header component */
 }
 
 .header-container {

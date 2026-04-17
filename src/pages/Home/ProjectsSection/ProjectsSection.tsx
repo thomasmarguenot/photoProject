@@ -1,8 +1,8 @@
-import { AnimatedHeading } from '@/components/common/TextAnimations';
 import canalImage from '@/assets/projects/canal.webp';
 import quotatisImage from '@/assets/projects/quotatis.webp';
 import rolex from '@/assets/projects/rolex.webp';
 import tabacInfoService from '@/assets/projects/tabac-info-service.webp';
+import { AnimatedHeading } from '@/components/common/TextAnimations';
 
 import { ProjectCard } from './ProjectCard';
 import type { ProjectsSectionProps } from './ProjectsSection.types';

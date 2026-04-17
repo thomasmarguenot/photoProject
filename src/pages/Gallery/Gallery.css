@@ -1,269 +1,96 @@
 @reference "../../index.css";
 
 .gallery {
-  @apply min-h-screen py-16 w-full;
+  min-height: 100vh;
+  padding: 4rem 0;
+  width: 100%;
   background: var(--color-bg);
 }
 
 .gallery-container {
-  @apply w-full px-4;
+  width: 100%;
+  padding: 0 1rem;
 }
 
-.gallery-header {
-  @apply mb-16 text-center;
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 5rem;
+  background: var(--color-bg);
 }
 
-.gallery-title {
-  @apply mb-6 text-6xl font-semibold tracking-tight;
-  letter-spacing: -0.02em;
+.gallery-lightbox-frame {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-lightbox-image {
+  display: block;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.gallery-lightbox-location {
+  position: absolute;
+  left: -1.5rem;
+  bottom: 0;
+  transform: rotate(-90deg);
+  transform-origin: left bottom;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
   color: var(--color-text);
-}
-
-.gallery-subtitle {
-  @apply text-xl font-normal;
-  color: var(--color-text-secondary);
+  pointer-events: none;
 }
 
 .gallery-empty {
-  @apply flex min-h-[400px] items-center justify-center text-xl;
+  display: flex;
+  min-height: 400px;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
   color: var(--color-text-secondary);
 }
 
-/* CSS Grid Masonry Layout - Native implementation */
-.gallery-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-template-rows: masonry;
-  align-items: start;
-}
-
-/* Fallback using CSS columns for browsers without masonry support */
-@supports not (grid-template-rows: masonry) {
-  .gallery-grid {
-    /* CSS columns create natural masonry effect */
-    display: block;
-    column-count: 3;
-    column-gap: 1.5rem;
-  }
-
-  .gallery-item {
-    /* Prevent items from breaking across columns */
-    break-inside: avoid;
-    margin-bottom: 1.5rem;
-    display: inline-block;
-    width: 100%;
-  }
-}
-
-/* Responsive breakpoints for grid columns */
-@media (max-width: 900px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-
-  @supports not (grid-template-rows: masonry) {
-    .gallery-grid {
-      column-count: 2;
-    }
-  }
-}
-
-@media (max-width: 750px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-
-  @supports not (grid-template-rows: masonry) {
-    .gallery-grid {
-      column-count: 1;
-      column-gap: 0.75rem;
-    }
-
-    .gallery-item {
-      margin-bottom: 0.75rem;
-    }
-  }
-}
-
-/* Liquid Glass Item - effet frosted glass */
-.gallery-item {
-  @apply relative overflow-hidden;
-
-  /* Liquid Glass effet - désactivé pour le lightbox */
-  background: var(--glass-bg);
-
-  border-radius: 8px;
-  border: none;
-  box-shadow: var(--glass-shadow);
-
-  cursor: pointer;
-
-  /* Smooth transitions uniquement pour border et shadow */
-  transition:
-    box-shadow 0.3s ease,
-    background 0.3s ease,
-    border-radius 0.3s ease;
-
-  /* Safari optimization: hardware acceleration */
-  -webkit-transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-}
-
-/* Hover effects - simple elevation sans changement de taille */
-.gallery-item:hover:not(.expanded-item) {
-  box-shadow: var(--glass-shadow-hover);
-  background: var(--glass-bg-dark);
-}
-
-/* Active state */
-.gallery-item:active:not(.expanded-item) {
-  box-shadow: var(--glass-shadow);
-}
-
-/* Image styling - clean and simple */
-.gallery-image {
-  @apply w-full object-cover;
-  display: block;
-  transition: transform 0.4s ease-out;
-  border-radius: 8px;
-  /* Explicit height: auto to maintain aspect ratio with width/height attributes */
-  height: auto !important;
-  /* Safari optimization: use will-change for smoother transforms */
-  will-change: transform;
-  /* Prevent blur during transform on Safari */
-  -webkit-backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-  backface-visibility: hidden;
-  transform: translateZ(0);
-}
-
-/* Zoom interne de l'image au hover - sauf si expanded */
-.gallery-item:hover:not(.expanded-item) .gallery-image {
-  transform: scale(1.08);
-}
-
-/* Radius réduit quand l'image est agrandie */
-.gallery-item.expanded-item {
-  border-radius: 4px;
-}
-
-.gallery-item.expanded-item .gallery-image {
-  border-radius: 4px;
-}
-
-/* Lightbox overlay - Fond sombre sans blur */
-.lightbox-overlay {
-  @apply fixed inset-0 flex items-center justify-center;
-  background: rgba(0, 0, 0, 0.85);
-  z-index: 100;
-}
-
-.lightbox-content {
-  @apply relative flex h-full w-full items-center justify-center p-8;
-}
-
-/* Lightbox image container - liquid glass card */
-.lightbox-image-wrapper {
-  position: relative;
-  max-height: 85vh;
-  max-width: 85vw;
-  border-radius: var(--border-radius-lg);
-  overflow: hidden;
-
-  /* Liquid glass effect */
-  background: var(--glass-bg-dark);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-
-  border: 1px solid var(--glass-border);
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.3),
-    0 0 1px rgba(255, 255, 255, 0.5) inset;
-
-  padding: var(--spacing-sm);
-}
-
-.lightbox-image {
-  @apply block;
-  max-height: calc(85vh - 32px);
-  max-width: calc(85vw - 32px);
-  object-fit: contain;
-  border-radius: var(--border-radius-md);
-}
-
-/* Adjust dimensions for portrait images in lightbox */
-.lightbox-image.portrait {
-  max-width: 60vw;
-  max-height: 85vh;
-}
-
-/* Close button - simple et minimaliste */
-.lightbox-close {
-  @apply absolute cursor-pointer;
-  @apply flex items-center justify-center;
+.gallery-close {
   position: fixed;
-  right: 32px;
-  top: 32px;
+  right: 24px;
+  top: 24px;
   z-index: 200;
-
-  width: 40px;
-  height: 40px;
-
+  width: 48px;
+  height: 48px;
   background: transparent;
   border: none;
-
-  color: #000;
+  cursor: pointer;
+  color: var(--color-text);
   font-size: 40px;
   font-weight: 300;
   line-height: 1;
-
   transition: opacity 0.2s ease;
 }
 
-.lightbox-close:hover {
+.gallery-close:hover {
   opacity: 0.6;
 }
 
-.lightbox-close:active {
-  opacity: 0.4;
-}
-
-/* Responsive adjustments */
-@media (min-width: 640px) {
-  .gallery-container {
-    @apply px-8;
-  }
-}
-
-@media (min-width: 1024px) {
-  .gallery-container {
-    @apply px-12;
-  }
-
-  .gallery-title {
-    @apply text-7xl;
-  }
-}
-
-/* Mobile adjustments: reduce top/bottom padding and disable hover/click zoom */
 @media (max-width: 750px) {
   .gallery {
-    /* Less vertical padding on mobile so content starts higher */
-    @apply py-6;
-  }
-
-  /* Disable image hover zoom on mobile to avoid accidental zooming and layout shifts */
-  .gallery-item:hover:not(.expanded-item) .gallery-image {
-    transform: none;
-  }
-
-  /* Ensure expanded-item has no scale effect on mobile */
-  .gallery-item.expanded-item {
-    transform: none !important;
+    padding: 1.5rem 0;
   }
 }

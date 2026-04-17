@@ -1,0 +1,39 @@
+@reference "../../index.css";
+
+.gallery-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.gallery-filter-btn {
+  position: relative;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.gallery-filter-btn:hover {
+  color: var(--color-text-primary);
+}
+
+.gallery-filter-btn.active {
+  color: var(--color-text-primary);
+}
+
+.gallery-filter-underline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--color-primary);
+}

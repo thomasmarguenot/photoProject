@@ -1,128 +1,118 @@
-import { motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { motion, type HTMLMotionProps } from 'framer-motion';
+import { useMemo, useState } from 'react';
+import { MasonryPhotoAlbum } from 'react-photo-album';
 
-import { useGalleryGridColumns } from './useGalleryGridColumns';
-import './GalleryGrid.css';
-import {
-  ANIMATION_DURATION,
-  ANIMATION_EASING,
-  containerVariants,
-} from '../galleryAnimations';
 import type { GalleryGridProps } from './GalleryGrid.types';
+import 'react-photo-album/masonry.css';
+import './GalleryGrid.css';
+
+type PhotoEntry = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  gridIndex: number;
+};
+
+type GalleryPhotoProps = {
+  imgProps: HTMLMotionProps<'img'>;
+  layoutId: string;
+  aspectRatio: number;
+};
+
+function GalleryPhoto({ imgProps, layoutId, aspectRatio }: GalleryPhotoProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const handleRef = (el: HTMLImageElement | null) => {
+    if (el?.complete && el.naturalWidth > 0) {
+      setIsLoaded(true);
+    }
+  };
+
+  return (
+    <div
+      className="gallery-photo-wrapper"
+      style={{ aspectRatio: `${aspectRatio}` }}
+    >
+      <div
+        className={`gallery-placeholder-skeleton ${
+          isLoaded ? 'gallery-placeholder-skeleton--hidden' : ''
+        }`}
+        aria-hidden
+      />
+      <motion.img
+        {...imgProps}
+        ref={handleRef}
+        layoutId={layoutId}
+        loading="lazy"
+        decoding="async"
+        onLoad={() => setIsLoaded(true)}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isLoaded ? 1 : 0 }}
+        transition={{
+          opacity: { duration: 2, ease: [0.22, 1, 0.36, 1] },
+        }}
+        className={`${imgProps.className ?? ''} gallery-image`}
+      />
+    </div>
+  );
+}
 
 export function GalleryGrid({
   images,
   onImageClick,
   selectedIndex,
   isLightboxOpen,
-  shouldExpand,
 }: GalleryGridProps) {
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [centerOffset, setCenterOffset] = useState({ x: 0, y: 0 });
-  const columns = useGalleryGridColumns();
-
-  useEffect(() => {
-    if (
-      selectedIndex !== null &&
-      shouldExpand &&
-      itemRefs.current[selectedIndex]
-    ) {
-      const element = itemRefs.current[selectedIndex];
-      const rect = element.getBoundingClientRect();
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
-
-      const currentCenterX = rect.left + rect.width / 2;
-      const currentCenterY = rect.top + rect.height / 2;
-
-      setCenterOffset({
-        x: centerX - currentCenterX,
-        y: centerY - currentCenterY,
-      });
-    }
-  }, [selectedIndex, shouldExpand]);
-  // For grid, row-major order is just the original array
-
-  const [loadedMap, setLoadedMap] = useState<Record<number, boolean>>({});
-
-  const markLoaded = (index: number) => {
-    setLoadedMap((m) => ({ ...m, [index]: true }));
-  };
+  const photos: PhotoEntry[] = useMemo(
+    () =>
+      images.map((img, idx) => ({
+        src: img.src,
+        alt: img.alt,
+        width: img.width ?? 1200,
+        height: img.height ?? 800,
+        gridIndex: idx,
+      })),
+    [images]
+  );
 
   return (
-    <motion.div
-      className="gallery-grid"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
+    <div
+      className={`gallery-grid-wrapper ${
+        isLightboxOpen ? 'gallery-grid-wrapper--dimmed' : ''
+      }`}
     >
-      {images.map((image, i) => {
-        const isSelected = i === selectedIndex;
-        const shouldHide = isLightboxOpen && !isSelected;
-        const offset =
-          isSelected && shouldExpand ? centerOffset : { x: 0, y: 0 };
-        const isMobile = columns === 1;
-
-        const row = Math.floor(i / columns);
-        const col = i % columns;
-        const delay = 0.1 + (row * columns + col) * 0.01;
-        const isPortrait = (image.height || 800) > (image.width || 1200);
-        const expandScale = isMobile ? 1 : isPortrait ? 1.8 : 2.4;
-
-        return (
-          <motion.div
-            key={`${image.src}-${i}`}
-            ref={(el: HTMLDivElement | null) => {
-              itemRefs.current[i] = el;
-            }}
-            className={`gallery-item${isSelected && shouldExpand ? ' expanded-item' : ''}`}
-            initial={{ opacity: 0, y: 30 }}
-            animate={
-              shouldHide
-                ? { opacity: 0, y: 30 }
-                : isSelected && shouldExpand
-                  ? {
-                      opacity: 1,
-                      scale: expandScale,
-                      x: offset.x,
-                      y: offset.y,
-                      zIndex: 150,
-                    }
-                  : {
-                      opacity: 1,
-                      y: 0,
-                    }
+      <MasonryPhotoAlbum
+        photos={photos}
+        columns={(width) =>
+          width < 600 ? 1 : width < 900 ? 2 : width < 1200 ? 3 : 4
+        }
+        spacing={24}
+        padding={0}
+        onClick={({ index }) => {
+          if (!isLightboxOpen) onImageClick(index);
+        }}
+        render={{
+          image: (imgProps, { photo, index }) => {
+            const isSelected = index === selectedIndex;
+            if (isSelected) {
+              return (
+                <div
+                  className="react-photo-album--image gallery-placeholder"
+                  aria-hidden
+                />
+              );
             }
-            onClick={() => {
-              if (!isLightboxOpen && !isMobile) {
-                onImageClick(i);
-              }
-            }}
-            transition={{
-              duration: ANIMATION_DURATION,
-              ease: ANIMATION_EASING,
-              delay,
-            }}
-            style={{
-              pointerEvents: shouldHide ? 'none' : 'auto',
-              WebkitTransform: 'translateZ(0)',
-              willChange: isSelected && shouldExpand ? 'transform' : 'auto',
-            }}
-          >
-            <img
-              src={image.src}
-              alt={image.alt}
-              className={`gallery-image ${loadedMap[i] ? 'is-loaded' : 'is-loading'}`}
-              loading={i < 6 ? 'eager' : 'lazy'}
-              fetchPriority={i === 0 ? 'high' : 'auto'}
-              width={image.width || 1200}
-              height={image.height || 800}
-              decoding="async"
-              onLoad={() => markLoaded(i)}
-            />
-          </motion.div>
-        );
-      })}
-    </motion.div>
+            return (
+              <GalleryPhoto
+                imgProps={imgProps as unknown as HTMLMotionProps<'img'>}
+                layoutId={`gallery-img-${photo.src}`}
+                aspectRatio={photo.width / photo.height}
+              />
+            );
+          },
+        }}
+      />
+    </div>
   );
 }

@@ -1,8 +1,14 @@
 import { useState, useEffect } from 'react';
 
-import type { ImageData } from './Gallery.types';
+import type { ImageData, Location } from './Gallery.types';
 
-// Load real image dimensions
+const LOCATION_MAP: Record<string, string> = {
+  japon: 'Japon',
+  marseille: 'Marseille',
+  paris: 'Paris',
+  vietnam: 'Vietnam',
+};
+
 function loadImageDimensions(
   src: string
 ): Promise<{ width: number; height: number }> {
@@ -12,21 +18,27 @@ function loadImageDimensions(
       resolve({ width: img.naturalWidth, height: img.naturalHeight });
     };
     img.onerror = () => {
-      // Fallback to default landscape dimensions if loading fails
       resolve({ width: 1200, height: 800 });
     };
     img.src = src;
   });
 }
 
+function getLocationFromFilename(filename: string): string {
+  const baseName = filename.split('/').pop()?.replace('.webp', '') || '';
+  // Handle both "japon_001" and "japon_p_001" formats
+  const prefix = baseName.replace(/_p_\d+$/, '').split('_')[0];
+  return LOCATION_MAP[prefix] || 'Japon';
+}
+
 export function useGalleryImages() {
   const [images, setImages] = useState<ImageData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [locations, setLocations] = useState<Location[]>([]);
 
   useEffect(() => {
-    // Use eager mode to load all images in parallel instead of sequentially
     const imageModules = import.meta.glob<{ default: string }>(
-      '@/assets/pictures/**/*.webp',
+      '@/assets/pictures/*.webp',
       { eager: true }
     );
 
@@ -35,15 +47,14 @@ export function useGalleryImages() {
 
       const imagePromises = Object.entries(imageModules).map(
         async ([path, module]) => {
-          const fileName = path.split('/').pop()?.split('.')[0] || 'image';
-          const src = module.default;
-
-          // Load real dimensions
-          const dimensions = await loadImageDimensions(src);
+          const fileName = path.split('/').pop() || 'image';
+          const location = getLocationFromFilename(fileName);
+          const dimensions = await loadImageDimensions(module.default);
 
           return {
-            src,
-            alt: fileName.replace(/[-_]/g, ' '),
+            src: module.default,
+            alt: fileName.replace(/[-_]/g, ' ').replace('.webp', ''),
+            location,
             width: dimensions.width,
             height: dimensions.height,
           };
@@ -51,12 +62,26 @@ export function useGalleryImages() {
       );
 
       const loadedImages = await Promise.all(imagePromises);
-      setImages(loadedImages);
+
+      const uniqueImages = loadedImages.filter(
+        (img, index, self) => index === self.findIndex((i) => i.src === img.src)
+      );
+
+      const uniqueLocations = [
+        ...new Set(uniqueImages.map((img) => img.location)),
+      ];
+      const orderedLocations: Location[] = [
+        'Tous' as Location,
+        ...(uniqueLocations.sort() as Location[]),
+      ];
+
+      setImages(uniqueImages);
+      setLocations(orderedLocations);
       setIsLoading(false);
     };
 
     loadImages();
   }, []);
 
-  return { images, isLoading };
+  return { images, isLoading, locations };
 }

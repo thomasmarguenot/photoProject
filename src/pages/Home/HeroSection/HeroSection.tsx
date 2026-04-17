@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 
+import ppImage from '@/assets/home/pp.webp';
 import {
   AnimatedHeading,
   AnimatedText,
 } from '@/components/common/TextAnimations';
-import ppImage from '@/assets/home/pp.webp';
 import { MOTION, TRANSITION } from '@/utils/constants';
 
 import { ScrollArrow } from './ScrollArrow';

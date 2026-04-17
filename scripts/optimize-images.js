@@ -2,13 +2,13 @@
 
 /**
  * Script to optimize existing images in src/assets/pictures/
- * 
+ *
  * This script will:
  * - Resize images to max 2000px width (keeping aspect ratio)
  * - Compress images with 85% quality (imperceptible loss)
  * - Convert to WebP format (30-50% smaller)
  * - Keep original files as backup (.original extension)
- * 
+ *
  * Usage: node scripts/optimize-images.js
  */
 
@@ -21,12 +21,21 @@ import sharp from 'sharp';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const PICTURES_DIR = join(__dirname, '../src/assets/about');
+const PICTURES_DIR = join(__dirname, '../src/assets/pictures');
 const MAX_WIDTH = 2000;
-const QUALITY = 85;
+const QUALITY = 100;
 
 // Supported image extensions
-const SUPPORTED_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG'];
+const SUPPORTED_EXTENSIONS = [
+  '.jpg',
+  '.jpeg',
+  '.png',
+  '.webp',
+  '.JPG',
+  '.JPEG',
+  '.PNG',
+  '.WEBP',
+];
 
 /**
  * Get file size in MB
@@ -62,9 +71,11 @@ async function optimizeImage(filePath) {
     await rename(filePath, backupPath);
     console.log(`   ✅ Backup created: ${basename(backupPath)}`);
 
-    // Resize if needed and optimize
+    // Resize if needed and optimize. .rotate() bakes EXIF orientation into the
+    // pixel data and strips the orientation tag — without it, Safari displays
+    // portraits as landscape when the WebP encoder drops the EXIF marker.
     const shouldResize = metadata.width > MAX_WIDTH;
-    let optimizedImage = sharp(backupPath);
+    let optimizedImage = sharp(backupPath).rotate();
 
     if (shouldResize) {
       optimizedImage = optimizedImage.resize(MAX_WIDTH, null, {
@@ -81,7 +92,10 @@ async function optimizeImage(filePath) {
     if (isJpeg) {
       optimizedImage = optimizedImage.jpeg({ quality: QUALITY, mozjpeg: true });
     } else if (isPng) {
-      optimizedImage = optimizedImage.png({ quality: QUALITY, compressionLevel: 9 });
+      optimizedImage = optimizedImage.png({
+        quality: QUALITY,
+        compressionLevel: 9,
+      });
     }
 
     // Save optimized image
@@ -97,6 +111,7 @@ async function optimizeImage(filePath) {
     // Also create WebP version for modern browsers
     const webpPath = join(dir, `${base}.webp`);
     await sharp(backupPath)
+      .rotate()
       .resize(shouldResize ? MAX_WIDTH : null, null, {
         withoutEnlargement: true,
         fit: 'inside',
@@ -106,7 +121,9 @@ async function optimizeImage(filePath) {
 
     const webpSize = await getFileSizeMB(webpPath);
     const webpReduction = ((1 - webpSize / originalSize) * 100).toFixed(1);
-    console.log(`   🚀 WebP created: ${webpSize} MB (${webpReduction}% reduction)`);
+    console.log(
+      `   🚀 WebP created: ${webpSize} MB (${webpReduction}% reduction)`
+    );
 
     return {
       file: basename(filePath),
@@ -117,7 +134,10 @@ async function optimizeImage(filePath) {
       webpReduction: parseFloat(webpReduction),
     };
   } catch (error) {
-    console.error(`   ❌ Error processing ${basename(filePath)}:`, error.message);
+    console.error(
+      `   ❌ Error processing ${basename(filePath)}:`,
+      error.message
+    );
     return null;
   }
 }
@@ -137,7 +157,7 @@ async function main() {
   try {
     // Read directory
     const files = await readdir(PICTURES_DIR);
-    const imageFiles = files.filter(file => {
+    const imageFiles = files.filter((file) => {
       const ext = extname(file);
       return SUPPORTED_EXTENSIONS.includes(ext) && !file.includes('.original');
     });
@@ -167,8 +187,10 @@ async function main() {
     const totalOriginal = results.reduce((sum, r) => sum + r.originalSize, 0);
     const totalNew = results.reduce((sum, r) => sum + r.newSize, 0);
     const totalWebP = results.reduce((sum, r) => sum + r.webpSize, 0);
-    const avgReduction = results.reduce((sum, r) => sum + r.reduction, 0) / results.length;
-    const avgWebPReduction = results.reduce((sum, r) => sum + r.webpReduction, 0) / results.length;
+    const avgReduction =
+      results.reduce((sum, r) => sum + r.reduction, 0) / results.length;
+    const avgWebPReduction =
+      results.reduce((sum, r) => sum + r.webpReduction, 0) / results.length;
 
     console.log(`\n✅ Processed: ${results.length} images`);
     console.log(`\n📦 Total original size: ${totalOriginal.toFixed(2)} MB`);
@@ -176,7 +198,9 @@ async function main() {
     console.log(`📦 Total WebP size: ${totalWebP.toFixed(2)} MB`);
     console.log(`\n💾 Average reduction: ${avgReduction.toFixed(1)}%`);
     console.log(`🚀 Average WebP reduction: ${avgWebPReduction.toFixed(1)}%`);
-    console.log(`\n💡 Tip: Use WebP images in production for best performance!`);
+    console.log(
+      `\n💡 Tip: Use WebP images in production for best performance!`
+    );
     console.log('💡 Original files backed up with .original extension');
     console.log('\n' + '═'.repeat(60) + '\n');
   } catch (error) {
