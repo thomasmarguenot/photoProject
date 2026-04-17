@@ -65,22 +65,17 @@ export function Gallery() {
   return (
     <div className="gallery">
       <div className="gallery-container">
-        <AnimatePresence>
-          {selectedIndex === null && (
-            <motion.div
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.25 }}
-            >
-              <GalleryFilter
-                locations={locations}
-                selected={selectedLocation}
-                onSelect={setSelectedLocation}
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <motion.div
+          animate={{ opacity: selectedIndex === null ? 1 : 0 }}
+          transition={{ duration: 0.2 }}
+          style={{ pointerEvents: selectedIndex !== null ? 'none' : 'auto' }}
+        >
+          <GalleryFilter
+            locations={locations}
+            selected={selectedLocation}
+            onSelect={setSelectedLocation}
+          />
+        </motion.div>
 
         <AnimatePresence mode="wait">
           <motion.div

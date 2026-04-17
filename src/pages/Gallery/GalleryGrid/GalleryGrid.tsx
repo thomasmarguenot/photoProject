@@ -1,5 +1,5 @@
 import { motion, type HTMLMotionProps } from 'framer-motion';
-import { useMemo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { MasonryPhotoAlbum } from 'react-photo-album';
 
 import type { GalleryGridProps } from './GalleryGrid.types';
@@ -18,15 +18,30 @@ type GalleryPhotoProps = {
   imgProps: HTMLMotionProps<'img'>;
   layoutId: string;
   aspectRatio: number;
+  src: string;
 };
 
-function GalleryPhoto({ imgProps, layoutId, aspectRatio }: GalleryPhotoProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
+const loadedSrcs = new Set<string>();
+
+function GalleryPhotoImpl({
+  imgProps,
+  layoutId,
+  aspectRatio,
+  src,
+}: GalleryPhotoProps) {
+  const wasAlreadyLoaded = loadedSrcs.has(src);
+  const [isLoaded, setIsLoaded] = useState(wasAlreadyLoaded);
 
   const handleRef = (el: HTMLImageElement | null) => {
     if (el?.complete && el.naturalWidth > 0) {
-      setIsLoaded(true);
+      loadedSrcs.add(src);
+      if (!isLoaded) setIsLoaded(true);
     }
+  };
+
+  const handleLoad = () => {
+    loadedSrcs.add(src);
+    setIsLoaded(true);
   };
 
   return (
@@ -44,19 +59,22 @@ function GalleryPhoto({ imgProps, layoutId, aspectRatio }: GalleryPhotoProps) {
         {...imgProps}
         ref={handleRef}
         layoutId={layoutId}
+        layout={false}
         loading="lazy"
         decoding="async"
-        onLoad={() => setIsLoaded(true)}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isLoaded ? 1 : 0 }}
-        transition={{
-          opacity: { duration: 2, ease: [0.22, 1, 0.36, 1] },
-        }}
-        className={`${imgProps.className ?? ''} gallery-image`}
+        onLoad={handleLoad}
+        className={`${imgProps.className ?? ''} gallery-image ${
+          isLoaded ? 'gallery-image--loaded' : ''
+        }`}
       />
     </div>
   );
 }
+
+const GalleryPhoto = memo(
+  GalleryPhotoImpl,
+  (prev, next) => prev.src === next.src && prev.layoutId === next.layoutId
+);
 
 export function GalleryGrid({
   images,
@@ -108,6 +126,7 @@ export function GalleryGrid({
                 imgProps={imgProps as unknown as HTMLMotionProps<'img'>}
                 layoutId={`gallery-img-${photo.src}`}
                 aspectRatio={photo.width / photo.height}
+                src={photo.src}
               />
             );
           },
