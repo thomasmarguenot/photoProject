@@ -113,9 +113,42 @@ export function Gallery() {
                   ease: [0.22, 1, 0.36, 1],
                 }}
               />
-              <span className="gallery-lightbox-location">
-                {selectedImage.location}
-              </span>
+              <div className="gallery-lightbox-meta">
+                <span className="gallery-lightbox-location">
+                  {selectedImage.location}
+                </span>
+                {selectedImage.exif && (
+                  <>
+                    {(selectedImage.exif.make || selectedImage.exif.model) && (
+                      <span className="gallery-lightbox-exif">
+                        {[selectedImage.exif.make, selectedImage.exif.model]
+                          .filter(Boolean)
+                          .join(' ')}
+                      </span>
+                    )}
+                    {selectedImage.exif.focalLength !== undefined && (
+                      <span className="gallery-lightbox-exif">
+                        {selectedImage.exif.focalLength}mm
+                      </span>
+                    )}
+                    {selectedImage.exif.fNumber !== undefined && (
+                      <span className="gallery-lightbox-exif">
+                        f/{selectedImage.exif.fNumber}
+                      </span>
+                    )}
+                    {selectedImage.exif.exposureTime && (
+                      <span className="gallery-lightbox-exif">
+                        {selectedImage.exif.exposureTime}s
+                      </span>
+                    )}
+                    {selectedImage.exif.iso !== undefined && (
+                      <span className="gallery-lightbox-exif">
+                        ISO {selectedImage.exif.iso}
+                      </span>
+                    )}
+                  </>
+                )}
+              </div>
             </div>
             <button
               className="gallery-close"

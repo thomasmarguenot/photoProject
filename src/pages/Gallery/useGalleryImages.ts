@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import manifest from '@/assets/gallery-manifest.json';
 
-import type { ImageData, Location } from './Gallery.types';
+import type { ImageData, ImageExif, Location } from './Gallery.types';
 
 const LOCATION_MAP: Record<string, string> = {
   japon: 'Japon',
@@ -34,6 +34,7 @@ export function useGalleryImages() {
           entry.location) as ImageData['location'],
         width: entry.width,
         height: entry.height,
+        exif: (entry as { exif?: ImageExif }).exif,
       }));
 
     const uniqueLocations = [...new Set(imgs.map((img) => img.location))];
