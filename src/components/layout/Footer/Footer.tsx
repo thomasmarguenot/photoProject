@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
 
-import { TypewriterText } from '@/components/atoms/TypewriterText/TypewriterText';
-
 import type { FooterProps } from './Footer.types';
 import './Footer.css';
 
@@ -20,9 +18,15 @@ export function Footer({
       />
       <div className="footer-container">
         <div className="footer-content">
-          <p className="footer-text">
-            <TypewriterText text={`© ${year} ${companyName}.`} delay={1200} />
-          </p>
+          <motion.p
+            className="footer-text"
+            initial={{ opacity: 0, x: 120 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, delay: 0.8, ease: 'easeOut' }}
+          >
+            {`© ${year} ${companyName}.`}
+          </motion.p>
         </div>
       </div>
     </footer>
