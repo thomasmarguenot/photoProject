@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useMemo } from 'react';
+
+import manifest from '@/assets/gallery-manifest.json';
 
 import type { ImageData, Location } from './Gallery.types';
 
@@ -9,79 +11,39 @@ const LOCATION_MAP: Record<string, string> = {
   vietnam: 'Vietnam',
 };
 
-function loadImageDimensions(
-  src: string
-): Promise<{ width: number; height: number }> {
-  return new Promise((resolve) => {
-    const img = new Image();
-    img.onload = () => {
-      resolve({ width: img.naturalWidth, height: img.naturalHeight });
-    };
-    img.onerror = () => {
-      resolve({ width: 1200, height: 800 });
-    };
-    img.src = src;
-  });
-}
+const imageModules = import.meta.glob<{ default: string }>(
+  '@/assets/pictures/*.webp',
+  { eager: true }
+);
 
-function getLocationFromFilename(filename: string): string {
-  const baseName = filename.split('/').pop()?.replace('.webp', '') || '';
-  // Handle both "japon_001" and "japon_p_001" formats
-  const prefix = baseName.replace(/_p_\d+$/, '').split('_')[0];
-  return LOCATION_MAP[prefix] || 'Japon';
-}
+const srcByFile: Record<string, string> = Object.fromEntries(
+  Object.entries(imageModules).map(([path, mod]) => [
+    path.split('/').pop() ?? '',
+    mod.default,
+  ])
+);
 
 export function useGalleryImages() {
-  const [images, setImages] = useState<ImageData[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [locations, setLocations] = useState<Location[]>([]);
+  const { images, locations } = useMemo(() => {
+    const imgs: ImageData[] = manifest
+      .filter((entry) => srcByFile[entry.file])
+      .map((entry) => ({
+        src: srcByFile[entry.file],
+        alt: entry.file.replace(/[-_]/g, ' ').replace('.webp', ''),
+        location: (LOCATION_MAP[entry.location.toLowerCase()] ??
+          entry.location) as ImageData['location'],
+        width: entry.width,
+        height: entry.height,
+      }));
 
-  useEffect(() => {
-    const imageModules = import.meta.glob<{ default: string }>(
-      '@/assets/pictures/*.webp',
-      { eager: true }
-    );
+    const uniqueLocations = [...new Set(imgs.map((img) => img.location))];
+    const orderedLocations: Location[] = [
+      'Tous' as Location,
+      ...(uniqueLocations.sort() as Location[]),
+    ];
 
-    const loadImages = async () => {
-      setIsLoading(true);
-
-      const imagePromises = Object.entries(imageModules).map(
-        async ([path, module]) => {
-          const fileName = path.split('/').pop() || 'image';
-          const location = getLocationFromFilename(fileName);
-          const dimensions = await loadImageDimensions(module.default);
-
-          return {
-            src: module.default,
-            alt: fileName.replace(/[-_]/g, ' ').replace('.webp', ''),
-            location,
-            width: dimensions.width,
-            height: dimensions.height,
-          };
-        }
-      );
-
-      const loadedImages = await Promise.all(imagePromises);
-
-      const uniqueImages = loadedImages.filter(
-        (img, index, self) => index === self.findIndex((i) => i.src === img.src)
-      );
-
-      const uniqueLocations = [
-        ...new Set(uniqueImages.map((img) => img.location)),
-      ];
-      const orderedLocations: Location[] = [
-        'Tous' as Location,
-        ...(uniqueLocations.sort() as Location[]),
-      ];
-
-      setImages(uniqueImages);
-      setLocations(orderedLocations);
-      setIsLoading(false);
-    };
-
-    loadImages();
+    return { images: imgs, locations: orderedLocations };
   }, []);
 
-  return { images, isLoading, locations };
+  return { images, isLoading: false, locations };
 }
