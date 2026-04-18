@@ -1,27 +1,60 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 
 import { useHeader } from '@/context/Header.context';
 import { useBodyOverflow } from '@/hooks/useBodyOverflow';
 
-import type { Location } from './Gallery.types';
+import type { ImageData, Location } from './Gallery.types';
 import { GalleryFilter } from './GalleryFilter';
 import { GalleryGrid } from './GalleryGrid/GalleryGrid';
 import { useGalleryImages } from './useGalleryImages';
 import './Gallery.css';
 
+// Isolated component so isLoaded state resets on key change (new src).
+// useLayoutEffect checks img.complete before the browser paints, avoiding
+// the one-frame opacity:0 blink for already-cached images.
+function LightboxImage({
+  image,
+  layoutId,
+}: {
+  image: ImageData;
+  layoutId?: string;
+}) {
+  const imgRef = useRef<HTMLImageElement>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useLayoutEffect(() => {
+    const el = imgRef.current;
+    if (el?.complete && el.naturalWidth > 0) {
+      setIsLoaded(true);
+    }
+  }, []);
+
+  return (
+    <motion.img
+      ref={imgRef}
+      layoutId={layoutId}
+      src={image.src}
+      alt={image.alt}
+      className="gallery-lightbox-image"
+      style={{ opacity: isLoaded ? 1 : 0, transition: 'opacity 0.6s ease' }}
+      onLoad={() => setIsLoaded(true)}
+      transition={{ type: 'tween', duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    />
+  );
+}
+
 export function Gallery() {
   const { images, isLoading, locations } = useGalleryImages();
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<Location>('Tous');
+  const [isNavigating, setIsNavigating] = useState(false);
   const { setHidden } = useHeader();
 
   useBodyOverflow(selectedIndex !== null);
 
   const filteredImages = useMemo(() => {
-    if (selectedLocation === 'Tous') {
-      return images;
-    }
+    if (selectedLocation === 'Tous') return images;
     return images.filter((img) => img.location === selectedLocation);
   }, [images, selectedLocation]);
 
@@ -29,15 +62,31 @@ export function Gallery() {
     setHidden(selectedIndex !== null);
   }, [selectedIndex, setHidden]);
 
+  // Preload prev and next images so navigation feels instant.
+  useEffect(() => {
+    if (selectedIndex === null) return;
+    const preload = (idx: number) => {
+      const src = filteredImages[idx]?.src;
+      if (src) new window.Image().src = src;
+    };
+    preload((selectedIndex + 1) % filteredImages.length);
+    preload(
+      (selectedIndex - 1 + filteredImages.length) % filteredImages.length
+    );
+  }, [selectedIndex, filteredImages]);
+
   const handleImageClick = (index: number) => {
+    setIsNavigating(false);
     setSelectedIndex(index);
   };
 
   const handleClose = () => {
+    setIsNavigating(false);
     setSelectedIndex(null);
   };
 
   const handlePrev = () => {
+    setIsNavigating(true);
     setSelectedIndex((prev) =>
       prev !== null
         ? (prev - 1 + filteredImages.length) % filteredImages.length
@@ -46,6 +95,7 @@ export function Gallery() {
   };
 
   const handleNext = () => {
+    setIsNavigating(true);
     setSelectedIndex((prev) =>
       prev !== null ? (prev + 1) % filteredImages.length : null
     );
@@ -93,22 +143,12 @@ export function Gallery() {
           />
         </motion.div>
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={selectedLocation}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <GalleryGrid
-              images={filteredImages}
-              onImageClick={handleImageClick}
-              selectedIndex={selectedIndex}
-              isLightboxOpen={selectedIndex !== null}
-            />
-          </motion.div>
-        </AnimatePresence>
+        <GalleryGrid
+          images={filteredImages}
+          onImageClick={handleImageClick}
+          selectedIndex={selectedIndex}
+          isLightboxOpen={selectedIndex !== null}
+        />
       </div>
 
       <AnimatePresence>
@@ -118,16 +158,12 @@ export function Gallery() {
               className="gallery-lightbox-frame"
               onClick={(e) => e.stopPropagation()}
             >
-              <motion.img
-                layoutId={`gallery-img-${selectedImage.src}`}
-                src={selectedImage.src}
-                alt={selectedImage.alt}
-                className="gallery-lightbox-image"
-                transition={{
-                  type: 'tween',
-                  duration: 0.45,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
+              <LightboxImage
+                key={selectedImage.src}
+                image={selectedImage}
+                layoutId={
+                  isNavigating ? undefined : `gallery-img-${selectedImage.src}`
+                }
               />
               <div className="gallery-lightbox-meta">
                 <span className="gallery-lightbox-location">
@@ -144,22 +180,22 @@ export function Gallery() {
                     )}
                     {selectedImage.exif.focalLength !== undefined && (
                       <span className="gallery-lightbox-exif">
-                        {selectedImage.exif.focalLength}mm
+                        {`${selectedImage.exif.focalLength}mm`}
                       </span>
                     )}
                     {selectedImage.exif.fNumber !== undefined && (
                       <span className="gallery-lightbox-exif">
-                        f/{selectedImage.exif.fNumber}
+                        {`f/${selectedImage.exif.fNumber}`}
                       </span>
                     )}
                     {selectedImage.exif.exposureTime && (
                       <span className="gallery-lightbox-exif">
-                        {selectedImage.exif.exposureTime}s
+                        {`${selectedImage.exif.exposureTime}s`}
                       </span>
                     )}
                     {selectedImage.exif.iso !== undefined && (
                       <span className="gallery-lightbox-exif">
-                        ISO {selectedImage.exif.iso}
+                        {`ISO ${selectedImage.exif.iso}`}
                       </span>
                     )}
                   </>

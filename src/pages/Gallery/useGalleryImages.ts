@@ -23,19 +23,30 @@ const srcByFile: Record<string, string> = Object.fromEntries(
   ])
 );
 
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 export function useGalleryImages() {
   const { images, locations } = useMemo(() => {
-    const imgs: ImageData[] = manifest
-      .filter((entry) => srcByFile[entry.file])
-      .map((entry) => ({
-        src: srcByFile[entry.file],
-        alt: entry.file.replace(/[-_]/g, ' ').replace('.webp', ''),
-        location: (LOCATION_MAP[entry.location.toLowerCase()] ??
-          entry.location) as ImageData['location'],
-        width: entry.width,
-        height: entry.height,
-        exif: (entry as { exif?: ImageExif }).exif,
-      }));
+    const imgs: ImageData[] = shuffle(
+      manifest
+        .filter((entry) => srcByFile[entry.file])
+        .map((entry) => ({
+          src: srcByFile[entry.file],
+          alt: entry.file.replace(/[-_]/g, ' ').replace('.webp', ''),
+          location: (LOCATION_MAP[entry.location.toLowerCase()] ??
+            entry.location) as ImageData['location'],
+          width: entry.width,
+          height: entry.height,
+          exif: (entry as { exif?: ImageExif }).exif,
+        }))
+    );
 
     const uniqueLocations = [...new Set(imgs.map((img) => img.location))];
     const orderedLocations: Location[] = [

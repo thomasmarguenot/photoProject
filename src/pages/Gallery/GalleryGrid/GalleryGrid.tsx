@@ -1,5 +1,5 @@
 import { motion, type HTMLMotionProps } from 'framer-motion';
-import { memo, useMemo, useState } from 'react';
+import { memo, useEffect, useMemo, useRef, useState } from 'react';
 import { MasonryPhotoAlbum } from 'react-photo-album';
 
 import type { GalleryGridProps } from './GalleryGrid.types';
@@ -30,24 +30,52 @@ function GalleryPhotoImpl({
   src,
 }: GalleryPhotoProps) {
   const wasAlreadyLoaded = loadedSrcs.has(src);
-  const [isLoaded, setIsLoaded] = useState(wasAlreadyLoaded);
+  const [loadedSrc, setLoadedSrc] = useState<string | null>(
+    wasAlreadyLoaded ? src : null
+  );
+  const isLoaded = loadedSrc === src || loadedSrcs.has(src);
+  const [isInView, setIsInView] = useState(wasAlreadyLoaded);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isInView) return;
+    const el = wrapperRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '400px 0px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [isInView]);
 
   const handleRef = (el: HTMLImageElement | null) => {
     if (el?.complete && el.naturalWidth > 0) {
       loadedSrcs.add(src);
-      if (!isLoaded) setIsLoaded(true);
+      if (!isLoaded) setLoadedSrc(src);
     }
   };
 
   const handleLoad = () => {
     loadedSrcs.add(src);
-    setIsLoaded(true);
+    setLoadedSrc(src);
   };
 
+  const { src: propSrc, srcSet, ...restImgProps } = imgProps;
+
   return (
-    <div
+    <motion.div
+      ref={wrapperRef}
       className="gallery-photo-wrapper"
       style={{ aspectRatio: `${aspectRatio}` }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
     >
       <div
         className={`gallery-placeholder-skeleton ${
@@ -55,19 +83,23 @@ function GalleryPhotoImpl({
         }`}
         aria-hidden
       />
-      <motion.img
-        {...imgProps}
-        ref={handleRef}
-        layoutId={layoutId}
-        layout={false}
-        loading="lazy"
-        decoding="async"
-        onLoad={handleLoad}
-        className={`${imgProps.className ?? ''} gallery-image ${
-          isLoaded ? 'gallery-image--loaded' : ''
-        }`}
-      />
-    </div>
+      {isInView && (
+        <motion.img
+          key={src}
+          {...restImgProps}
+          src={propSrc}
+          srcSet={srcSet}
+          ref={handleRef}
+          layoutId={layoutId}
+          layout={false}
+          decoding="async"
+          onLoad={handleLoad}
+          className={`${imgProps.className ?? ''} gallery-image ${
+            isLoaded ? 'gallery-image--loaded' : ''
+          }`}
+        />
+      )}
+    </motion.div>
   );
 }
 
