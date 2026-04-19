@@ -28,20 +28,6 @@
     }
   },
   {
-    "file": "japon_003.webp",
-    "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/800",
-      "fNumber": 5.6,
-      "iso": 160,
-      "focalLength": 23
-    }
-  },
-  {
     "file": "japon_004.webp",
     "location": "Japon",
     "width": 3000,
@@ -53,20 +39,6 @@
       "fNumber": 5.6,
       "iso": 160,
       "focalLength": 26
-    }
-  },
-  {
-    "file": "japon_005.webp",
-    "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/200",
-      "fNumber": 5.6,
-      "iso": 80,
-      "focalLength": 15
     }
   },
   {
@@ -84,20 +56,6 @@
     }
   },
   {
-    "file": "japon_007.webp",
-    "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/100",
-      "fNumber": 5.6,
-      "iso": 1600,
-      "focalLength": 25
-    }
-  },
-  {
     "file": "japon_008.webp",
     "location": "Japon",
     "width": 3000,
@@ -109,34 +67,6 @@
       "fNumber": 5.6,
       "iso": 80,
       "focalLength": 45
-    }
-  },
-  {
-    "file": "japon_009.webp",
-    "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/3500",
-      "fNumber": 6.4,
-      "iso": 320,
-      "focalLength": 15
-    }
-  },
-  {
-    "file": "japon_010.webp",
-    "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/1000",
-      "fNumber": 5.6,
-      "iso": 320,
-      "focalLength": 43
     }
   },
   {
@@ -280,20 +210,6 @@
     }
   },
   {
-    "file": "japon_021.webp",
-    "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/180",
-      "fNumber": 5.6,
-      "iso": 80,
-      "focalLength": 15
-    }
-  },
-  {
     "file": "japon_022.webp",
     "location": "Japon",
     "width": 3000,
@@ -333,34 +249,6 @@
       "fNumber": 6.4,
       "iso": 1250,
       "focalLength": 43
-    }
-  },
-  {
-    "file": "japon_025.webp",
-    "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/400",
-      "fNumber": 5.6,
-      "iso": 125,
-      "focalLength": 22
-    }
-  },
-  {
-    "file": "japon_026.webp",
-    "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/400",
-      "fNumber": 5.6,
-      "iso": 125,
-      "focalLength": 24
     }
   },
   {
@@ -658,35 +546,7 @@
     }
   },
   {
-    "file": "japon_p_001.webp",
-    "location": "Japon",
-    "width": 3000,
-    "height": 4500,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/3200",
-      "fNumber": 5.6,
-      "iso": 1250,
-      "focalLength": 43
-    }
-  },
-  {
     "file": "japon_p_002.webp",
-    "location": "Japon",
-    "width": 3000,
-    "height": 4500,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/1600",
-      "fNumber": 5.6,
-      "iso": 400,
-      "focalLength": 22
-    }
-  },
-  {
-    "file": "japon_p_003.webp",
     "location": "Japon",
     "width": 3000,
     "height": 4500,

@@ -177,7 +177,9 @@ export function Gallery() {
                 }
                 onLoaded={() => setLightboxImageLoaded(true)}
               />
-              <div className={`gallery-lightbox-meta${lightboxImageLoaded ? ' gallery-lightbox-meta--visible' : ''}`}>
+              <div
+                className={`gallery-lightbox-meta${lightboxImageLoaded ? ' gallery-lightbox-meta--visible' : ''}`}
+              >
                 <span className="gallery-lightbox-location">
                   {selectedImage.location}
                 </span>
