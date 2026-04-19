@@ -16,9 +16,11 @@ import './Gallery.css';
 function LightboxImage({
   image,
   layoutId,
+  onLoaded,
 }: {
   image: ImageData;
   layoutId?: string;
+  onLoaded?: () => void;
 }) {
   const imgRef = useRef<HTMLImageElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -27,6 +29,7 @@ function LightboxImage({
     const el = imgRef.current;
     if (el?.complete && el.naturalWidth > 0) {
       setIsLoaded(true);
+      onLoaded?.();
     }
   }, []);
 
@@ -38,7 +41,10 @@ function LightboxImage({
       alt={image.alt}
       className="gallery-lightbox-image"
       style={{ opacity: isLoaded ? 1 : 0, transition: 'opacity 0.6s ease' }}
-      onLoad={() => setIsLoaded(true)}
+      onLoad={() => {
+        setIsLoaded(true);
+        onLoaded?.();
+      }}
       transition={{ type: 'tween', duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     />
   );
@@ -49,6 +55,7 @@ export function Gallery() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<Location>('Tous');
   const [isNavigating, setIsNavigating] = useState(false);
+  const [lightboxImageLoaded, setLightboxImageLoaded] = useState(false);
   const { setHidden } = useHeader();
 
   useBodyOverflow(selectedIndex !== null);
@@ -77,16 +84,19 @@ export function Gallery() {
 
   const handleImageClick = (index: number) => {
     setIsNavigating(false);
+    setLightboxImageLoaded(false);
     setSelectedIndex(index);
   };
 
   const handleClose = () => {
     setIsNavigating(false);
+    setLightboxImageLoaded(false);
     setSelectedIndex(null);
   };
 
   const handlePrev = () => {
     setIsNavigating(true);
+    setLightboxImageLoaded(false);
     setSelectedIndex((prev) =>
       prev !== null
         ? (prev - 1 + filteredImages.length) % filteredImages.length
@@ -96,6 +106,7 @@ export function Gallery() {
 
   const handleNext = () => {
     setIsNavigating(true);
+    setLightboxImageLoaded(false);
     setSelectedIndex((prev) =>
       prev !== null ? (prev + 1) % filteredImages.length : null
     );
@@ -164,8 +175,9 @@ export function Gallery() {
                 layoutId={
                   isNavigating ? undefined : `gallery-img-${selectedImage.src}`
                 }
+                onLoaded={() => setLightboxImageLoaded(true)}
               />
-              <div className="gallery-lightbox-meta">
+              <div className={`gallery-lightbox-meta${lightboxImageLoaded ? ' gallery-lightbox-meta--visible' : ''}`}>
                 <span className="gallery-lightbox-location">
                   {selectedImage.location}
                 </span>

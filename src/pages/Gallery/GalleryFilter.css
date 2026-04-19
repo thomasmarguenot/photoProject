@@ -37,3 +37,25 @@
   border-radius: 1px;
   background: var(--color-primary);
 }
+
+@media (max-width: 750px) {
+  .gallery-filter {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding: 0 1.5rem 0.5rem;
+    margin-bottom: 1.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .gallery-filter::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-filter-btn {
+    flex-shrink: 0;
+    font-size: 0.9rem;
+  }
+}
