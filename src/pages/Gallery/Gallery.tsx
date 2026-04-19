@@ -54,7 +54,6 @@ export function Gallery() {
   const { images, isLoading, locations } = useGalleryImages();
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<Location>('Tous');
-  const [isNavigating, setIsNavigating] = useState(false);
   const [lightboxImageLoaded, setLightboxImageLoaded] = useState(false);
   const { setHidden } = useHeader();
 
@@ -83,19 +82,16 @@ export function Gallery() {
   }, [selectedIndex, filteredImages]);
 
   const handleImageClick = (index: number) => {
-    setIsNavigating(false);
     setLightboxImageLoaded(false);
     setSelectedIndex(index);
   };
 
   const handleClose = () => {
-    setIsNavigating(false);
     setLightboxImageLoaded(false);
     setSelectedIndex(null);
   };
 
   const handlePrev = () => {
-    setIsNavigating(true);
     setLightboxImageLoaded(false);
     setSelectedIndex((prev) =>
       prev !== null
@@ -105,7 +101,6 @@ export function Gallery() {
   };
 
   const handleNext = () => {
-    setIsNavigating(true);
     setLightboxImageLoaded(false);
     setSelectedIndex((prev) =>
       prev !== null ? (prev + 1) % filteredImages.length : null
@@ -172,9 +167,6 @@ export function Gallery() {
               <LightboxImage
                 key={selectedImage.src}
                 image={selectedImage}
-                layoutId={
-                  isNavigating ? undefined : `gallery-img-${selectedImage.src}`
-                }
                 onLoaded={() => setLightboxImageLoaded(true)}
               />
               <div

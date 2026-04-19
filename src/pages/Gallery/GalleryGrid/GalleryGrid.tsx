@@ -1,4 +1,3 @@
-import { motion, type HTMLMotionProps } from 'framer-motion';
 import { memo, useEffect, useMemo, useRef, useState } from 'react';
 import { MasonryPhotoAlbum } from 'react-photo-album';
 
@@ -15,8 +14,7 @@ type PhotoEntry = {
 };
 
 type GalleryPhotoProps = {
-  imgProps: HTMLMotionProps<'img'>;
-  layoutId: string;
+  imgProps: React.ImgHTMLAttributes<HTMLImageElement>;
   aspectRatio: number;
   src: string;
 };
@@ -25,7 +23,6 @@ const loadedSrcs = new Set<string>();
 
 function GalleryPhotoImpl({
   imgProps,
-  layoutId,
   aspectRatio,
   src,
 }: GalleryPhotoProps) {
@@ -69,13 +66,10 @@ function GalleryPhotoImpl({
   const { src: propSrc, srcSet, ...restImgProps } = imgProps;
 
   return (
-    <motion.div
+    <div
       ref={wrapperRef}
       className="gallery-photo-wrapper"
       style={{ aspectRatio: `${aspectRatio}` }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
     >
       <div
         className={`gallery-placeholder-skeleton ${
@@ -84,14 +78,12 @@ function GalleryPhotoImpl({
         aria-hidden
       />
       {isInView && (
-        <motion.img
+        <img
           key={src}
           {...restImgProps}
           src={propSrc}
           srcSet={srcSet}
           ref={handleRef}
-          layoutId={layoutId}
-          layout={false}
           decoding="async"
           onLoad={handleLoad}
           className={`${imgProps.className ?? ''} gallery-image ${
@@ -99,13 +91,13 @@ function GalleryPhotoImpl({
           }`}
         />
       )}
-    </motion.div>
+    </div>
   );
 }
 
 const GalleryPhoto = memo(
   GalleryPhotoImpl,
-  (prev, next) => prev.src === next.src && prev.layoutId === next.layoutId
+  (prev, next) => prev.src === next.src
 );
 
 export function GalleryGrid({
@@ -155,8 +147,7 @@ export function GalleryGrid({
             }
             return (
               <GalleryPhoto
-                imgProps={imgProps as unknown as HTMLMotionProps<'img'>}
-                layoutId={`gallery-img-${photo.src}`}
+                imgProps={imgProps}
                 aspectRatio={photo.width / photo.height}
                 src={photo.src}
               />
