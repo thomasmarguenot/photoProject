@@ -1,4 +1,4 @@
-import { memo, useEffect, useMemo, useRef, useState } from 'react';
+import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
 import { MasonryPhotoAlbum } from 'react-photo-album';
 
 import type { GalleryGridProps } from './GalleryGrid.types';
@@ -21,11 +21,7 @@ type GalleryPhotoProps = {
 
 const loadedSrcs = new Set<string>();
 
-function GalleryPhotoImpl({
-  imgProps,
-  aspectRatio,
-  src,
-}: GalleryPhotoProps) {
+function GalleryPhotoImpl({ imgProps, aspectRatio, src }: GalleryPhotoProps) {
   const wasAlreadyLoaded = loadedSrcs.has(src);
   const [loadedSrc, setLoadedSrc] = useState<string | null>(
     wasAlreadyLoaded ? src : null

@@ -76,7 +76,11 @@
 
 @media (max-width: 768px) {
   .projects-section {
-    padding: 80px 0 60px;
+    padding: 48px 0 40px;
+  }
+
+  .projects-label {
+    margin-bottom: 32px;
   }
 
   .project-row,
@@ -96,6 +100,10 @@
 
   .project-info {
     order: 1 !important;
-    @apply px-6 py-8;
+    @apply px-6 py-6;
+  }
+
+  .project-row {
+    margin-bottom: 0;
   }
 }

@@ -36,8 +36,20 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
+  .footer {
+    background: #1d1d1f;
+  }
+
+  .footer-container {
+    padding: 2rem 1.5rem;
+  }
+
   .footer-text {
-    @apply text-xs;
+    @apply text-xs text-center;
+  }
+
+  .footer-content {
+    justify-content: center;
   }
 }

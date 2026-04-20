@@ -19,7 +19,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       className={`project-row${isReverse ? ' project-row--reverse' : ''}`}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-200px' }}
+      viewport={{ once: true, margin: '-80px' }}
       variants={staggerContainerVariants}
     >
       <ProjectImageReveal

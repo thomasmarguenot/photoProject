@@ -55,7 +55,7 @@ export const fadeUpVariants30: Variants = {
     transition: {
       duration: ANIMATION.DURATION,
       ease: EASE_DEFAULT,
-      delay: 0.3,
+      delay: 0.1,
     },
   },
 };

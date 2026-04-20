@@ -187,6 +187,15 @@
 }
 
 @media (max-width: 1023px) {
+  .clients-section {
+    padding-top: 3rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .clients-title-mask-wrapper {
+    margin-bottom: 1.25rem;
+  }
+
   .clients-scroll-wrapper {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;

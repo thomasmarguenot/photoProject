@@ -20,10 +20,10 @@ export function Footer({
         <div className="footer-content">
           <motion.p
             className="footer-text"
-            initial={{ opacity: 0, x: 120 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ x: 370, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.9, delay: 0.8, ease: 'easeOut' }}
+            transition={{ duration: 0.9, delay: 1.5, ease: 'easeOut' }}
           >
             {`© ${year} ${companyName}.`}
           </motion.p>
