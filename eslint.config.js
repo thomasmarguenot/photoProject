@@ -11,7 +11,7 @@ import importPlugin from 'eslint-plugin-import';
 
 export default [
   {
-    ignores: ['dist', 'node_modules', '.husky', '.claude'],
+    ignores: ['dist/**', 'node_modules/**', '.husky/**', '.claude/**', '.worktrees/**'],
   },
   js.configs.recommended,
   {
@@ -117,6 +117,7 @@ export default [
     rules: {
       'no-console': 'off',
       'no-undef': 'off',
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' }],
     },
   },
 ];

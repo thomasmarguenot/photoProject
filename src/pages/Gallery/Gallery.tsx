@@ -31,6 +31,7 @@ function LightboxImage({
       setIsLoaded(true);
       onLoaded?.();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -110,9 +111,24 @@ export function Gallery() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedIndex === null) return;
-      if (e.key === 'Escape') handleClose();
-      if (e.key === 'ArrowLeft') handlePrev();
-      if (e.key === 'ArrowRight') handleNext();
+      if (e.key === 'Escape') {
+        setLightboxImageLoaded(false);
+        setSelectedIndex(null);
+      }
+      if (e.key === 'ArrowLeft') {
+        setLightboxImageLoaded(false);
+        setSelectedIndex((prev) =>
+          prev !== null
+            ? (prev - 1 + filteredImages.length) % filteredImages.length
+            : null
+        );
+      }
+      if (e.key === 'ArrowRight') {
+        setLightboxImageLoaded(false);
+        setSelectedIndex((prev) =>
+          prev !== null ? (prev + 1) % filteredImages.length : null
+        );
+      }
     };
 
     window.addEventListener('keydown', handleKeyDown);

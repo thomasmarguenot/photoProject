@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components -- context + hook co-location is intentional */
 import { createContext, useContext, useState, type ReactNode } from 'react';
 
 interface HeaderContextValue {

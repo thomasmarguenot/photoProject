@@ -27,7 +27,7 @@ async function processLocation(location) {
   // Process portrait folder if exists
   try {
     await processFolder(portraitPath, prefix, 'p_');
-  } catch (err) {
+  } catch (_err) {
     // Portrait folder doesn't exist
   }
 }
