@@ -1,84 +1,83 @@
-import type { Variants } from 'framer-motion';
+import type { Transition, Variants } from 'framer-motion';
 
 import { ANIMATION } from './constants';
 
 type BezierEasing = [number, number, number, number];
 
 export const EASE_DEFAULT = [...ANIMATION.EASING] as BezierEasing;
-const EASE_REVEAL = [...ANIMATION.EASING_REVEAL] as BezierEasing;
+export const EASE_SMOOTH = [...ANIMATION.EASING_SMOOTH] as BezierEasing;
+export const EASE_REVEAL = [...ANIMATION.EASING_REVEAL] as BezierEasing;
 
-/** Reveals an element via clip-path (left→right), border-radius preserved */
-export const imageRevealVariants: Variants = {
-  hidden: { clipPath: 'inset(0 100% 0 0 round 24px)' },
-  visible: {
-    clipPath: 'inset(0 0% 0 0 round 24px)',
-    transition: {
-      duration: ANIMATION.DURATION_REVEAL,
-      ease: EASE_REVEAL,
-      delay: 0.4,
-    },
-  },
+/** Base transitions derived from constants — use as building blocks */
+export const baseTransition: Transition = {
+  duration: ANIMATION.DURATION,
+  ease: EASE_DEFAULT,
 };
 
-/** Reveals an element via clip-path (right→left), border-radius preserved */
-export const imageRevealVariantsRight: Variants = {
-  hidden: { clipPath: 'inset(0 0 0 100% round 24px)' },
-  visible: {
-    clipPath: 'inset(0 0 0 0% round 24px)',
-    transition: {
-      duration: ANIMATION.DURATION_REVEAL,
-      ease: EASE_REVEAL,
-      delay: 0.4,
-    },
-  },
+export const slowTransition: Transition = {
+  duration: ANIMATION.DURATION_SLOW,
+  ease: EASE_DEFAULT,
 };
 
-/** Fades an element up into position (18px) */
-export const fadeUpVariants: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: ANIMATION.DURATION_SLOW,
-      ease: EASE_DEFAULT,
-    },
-  },
+export const revealTransition: Transition = {
+  duration: ANIMATION.DURATION_REVEAL,
+  ease: EASE_REVEAL,
 };
 
-/** Fades an element up into position (30px) - for text content */
-export const fadeUpVariants30: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: ANIMATION.DURATION,
-      ease: EASE_DEFAULT,
-      delay: 0.1,
+/**
+ * Factory: clip-path reveal. No delay baked in — sequencing is a parent/stagger
+ * concern so the variant stays reusable in any context.
+ */
+export const createClipRevealVariants = (
+  direction: 'left' | 'right' = 'left',
+  radius: number = ANIMATION.REVEAL_RADIUS
+): Variants => {
+  const hidden =
+    direction === 'right'
+      ? { clipPath: `inset(0 0 0 100% round ${radius}px)` }
+      : { clipPath: `inset(0 100% 0 0 round ${radius}px)` };
+
+  return {
+    hidden,
+    visible: {
+      clipPath: `inset(0 0% 0 0% round ${radius}px)`,
+      transition: revealTransition,
     },
-  },
+  };
 };
 
-/** Fades an element (opacity only) - for project numbers */
+/** Factory: fade + translateY. Distance configurable; no built-in delay. */
+export const createFadeUpVariants = (
+  distance: number = ANIMATION.OFFSET.SM,
+  transition: Transition = slowTransition
+): Variants => ({
+  hidden: { opacity: 0, y: distance },
+  visible: { opacity: 1, y: 0, transition },
+});
+
+/** Factory: orchestrating parent — staggers direct motion children. */
+export const createStaggerContainer = (
+  staggerChildren: number = ANIMATION.STAGGER.CHILDREN,
+  delayChildren: number = ANIMATION.STAGGER.DELAY_CHILDREN
+): Variants => ({
+  hidden: {},
+  visible: { transition: { staggerChildren, delayChildren } },
+});
+
+/* ——— Named presets (thin wrappers around the factories) ——— */
+
+export const imageRevealVariants = createClipRevealVariants('left');
+export const imageRevealVariantsRight = createClipRevealVariants('right');
+
+export const fadeUpVariants = createFadeUpVariants(ANIMATION.OFFSET.SM);
+export const fadeUpVariants30 = createFadeUpVariants(
+  ANIMATION.OFFSET.MD,
+  baseTransition
+);
+
 export const fadeOpacityVariants: Variants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.6,
-      ease: EASE_DEFAULT,
-    },
-  },
+  visible: { opacity: 1, transition: baseTransition },
 };
 
-/** Container that staggers its direct motion children */
-export const staggerContainerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.15,
-    },
-  },
-};
+export const staggerContainerVariants = createStaggerContainer();

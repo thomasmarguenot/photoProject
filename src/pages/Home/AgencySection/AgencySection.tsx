@@ -6,6 +6,7 @@ import {
   AnimatedText,
 } from '@/components/common/TextAnimations';
 import {
+  createStaggerContainer,
   EASE_DEFAULT,
   fadeUpVariants,
   fadeUpVariants30,
@@ -14,6 +15,27 @@ import {
 import { ANIMATION } from '@/utils/constants';
 
 import './AgencySection.css';
+
+const servicesContainerVariants = createStaggerContainer(
+  ANIMATION.STAGGER.CHILDREN_WIDE,
+  ANIMATION.DELAY.MD
+);
+
+const horizontalLineVariants = {
+  hidden: { width: '0%' },
+  visible: {
+    width: '100%',
+    transition: { duration: ANIMATION.DURATION_SLOW, ease: EASE_DEFAULT },
+  },
+};
+
+const verticalLineVariants = {
+  hidden: { height: '0%' },
+  visible: {
+    height: '100%',
+    transition: { duration: ANIMATION.DURATION, ease: EASE_DEFAULT },
+  },
+};
 
 export function AgencySection() {
   return (
@@ -83,79 +105,64 @@ export function AgencySection() {
               expertise à votre service pour vous apporter une réponse éclairée.
             </AnimatedText>
 
-            <div className="agency-services">
+            <motion.div
+              className="agency-services"
+              variants={servicesContainerVariants}
+            >
               <div className="agency-services-line-wrapper">
                 <motion.span
                   className="agency-services-line"
-                  initial={{ width: '0%' }}
-                  whileInView={{ width: '100%' }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: ANIMATION.DURATION_SLOW,
-                    ease: EASE_DEFAULT,
-                    delay: 0.6,
-                  }}
+                  variants={horizontalLineVariants}
                 />
               </div>
 
               <div className="service-item">
-                <AnimatedHeading as="h3" className="service-title">
+                <AnimatedHeading as="h3" className="service-title" orchestrated>
                   Site Web & App
                 </AnimatedHeading>
                 <AnimatedText
                   className="service-detail"
                   variants={fadeUpVariants30}
+                  orchestrated
                 >
                   UX · Webdesign · Développement · Mobile · E-Commerce
                 </AnimatedText>
                 <motion.span
                   className="service-divider"
-                  initial={{ height: '0%' }}
-                  whileInView={{ height: '100%' }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: ANIMATION.DURATION,
-                    ease: EASE_DEFAULT,
-                    delay: 0.85,
-                  }}
+                  variants={verticalLineVariants}
                 />
               </div>
 
               <div className="service-item">
-                <AnimatedHeading as="h3" className="service-title">
+                <AnimatedHeading as="h3" className="service-title" orchestrated>
                   Création graphique
                 </AnimatedHeading>
                 <AnimatedText
                   className="service-detail"
                   variants={fadeUpVariants30}
+                  orchestrated
                 >
                   Identités visuelles · Contenus digitaux · Créativité
                 </AnimatedText>
                 <motion.span
                   className="service-divider"
-                  initial={{ height: '0%' }}
-                  whileInView={{ height: '100%' }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: ANIMATION.DURATION,
-                    ease: EASE_DEFAULT,
-                    delay: 1.2,
-                  }}
+                  variants={verticalLineVariants}
                 />
               </div>
 
               <div className="service-item">
-                <AnimatedHeading as="h3" className="service-title">
+                <AnimatedHeading as="h3" className="service-title" orchestrated>
                   Identité de marque
                 </AnimatedHeading>
                 <AnimatedText
                   className="service-detail"
                   variants={fadeUpVariants30}
+                  orchestrated
                 >
                   Wording · Stratégie · Publicité · Édition
                 </AnimatedText>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

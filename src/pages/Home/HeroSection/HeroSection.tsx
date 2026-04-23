@@ -5,20 +5,31 @@ import {
   AnimatedHeading,
   AnimatedText,
 } from '@/components/common/TextAnimations';
-import { MOTION, TRANSITION } from '@/utils/constants';
+import {
+  createFadeUpVariants,
+  createStaggerContainer,
+} from '@/utils/animations';
+import { ANIMATION } from '@/utils/constants';
 
 import { ScrollArrow } from './ScrollArrow';
 import './HeroSection.css';
+
+const heroContainerVariants = createStaggerContainer(
+  ANIMATION.STAGGER.CHILDREN_WIDE,
+  ANIMATION.DELAY.XS
+);
+const heroItemVariants = createFadeUpVariants(ANIMATION.OFFSET.MD);
 
 export function HeroSection() {
   return (
     <motion.section
       className="hero-section"
-      {...MOTION.FADE_UP}
-      transition={TRANSITION.DEFAULT}
+      variants={heroContainerVariants}
+      initial="hidden"
+      animate="visible"
     >
-      <div className="hero-content">
-        <div className="hero-photo">
+      <motion.div className="hero-content" variants={heroContainerVariants}>
+        <motion.div className="hero-photo" variants={heroItemVariants}>
           <div className="photo-container">
             <img
               src={ppImage}
@@ -44,26 +55,32 @@ export function HeroSection() {
               </svg>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="hero-intro">
-          <AnimatedHeading as="h1" className="hero-title">
+        <motion.div className="hero-intro" variants={heroContainerVariants}>
+          <AnimatedHeading as="h1" className="hero-title" orchestrated>
             Je construis des sites web.
           </AnimatedHeading>
-          <AnimatedText className="hero-description hero-description--black">
+          <AnimatedText
+            className="hero-description hero-description--black"
+            orchestrated
+          >
             Développeur JS Full-Stack avec plus de 15 ans d&apos;expérience, je
             crée des expériences digitales modernes et performantes. Spécialisé
             React et Node.js, j&apos;accompagne agences et entreprises dans la
             conception de solutions sur-mesure qui allient esthétique et
             fonctionnalité.
           </AnimatedText>
-          <AnimatedText className="hero-description hero-description--black">
+          <AnimatedText
+            className="hero-description hero-description--black"
+            orchestrated
+          >
             De la conception à la mise en production, je m&apos;assure que
             chaque projet reflète l&apos;identity de la marque tout en offrant
             une expérience utilisateur exceptionnelle.
           </AnimatedText>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       <motion.button
         className="hero-scroll-arrow"
         onClick={() =>
@@ -74,11 +91,7 @@ export function HeroSection() {
         aria-label="Voir les projets récents"
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 1.4,
-          duration: 0.6,
-          ease: [0.25, 0.46, 0.45, 0.94],
-        }}
+        transition={{ delay: ANIMATION.DELAY.AFTER_FIRST_VIEWPORT }}
       >
         <ScrollArrow />
       </motion.button>

@@ -17,15 +17,23 @@ interface ProjectCardInfoProps {
 export function ProjectCardInfo({ project, index }: ProjectCardInfoProps) {
   return (
     <div className="project-info">
-      <AnimatedText className="project-number" variants={fadeOpacityVariants}>
+      <AnimatedText
+        className="project-number"
+        variants={fadeOpacityVariants}
+        orchestrated
+      >
         {String(index + 1).padStart(2, '0')}
       </AnimatedText>
 
-      <AnimatedHeading as="h3" className="project-name">
+      <AnimatedHeading as="h3" className="project-name" orchestrated>
         {project.title}
       </AnimatedHeading>
 
-      <AnimatedText className="project-description" variants={fadeUpVariants30}>
+      <AnimatedText
+        className="project-description"
+        variants={fadeUpVariants30}
+        orchestrated
+      >
         {project.description}
       </AnimatedText>
 

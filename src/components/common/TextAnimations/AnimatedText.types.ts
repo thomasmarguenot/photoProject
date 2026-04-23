@@ -5,4 +5,6 @@ export interface AnimatedTextProps {
   children: ReactNode;
   className?: string;
   variants?: Variants;
+  /** Inherit animation from parent stagger container instead of self-triggering */
+  orchestrated?: boolean;
 }
