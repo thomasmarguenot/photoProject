@@ -6,8 +6,8 @@
   @apply rounded-[var(--header-radius)] border-b border-[var(--header-border)];
   @apply bg-[var(--header-bg)] backdrop-blur-[var(--header-blur)];
   /* Explicit transitions — never transition backdrop-filter (causes Safari blink) */
-  transition-property: width, max-width, margin, border-radius, background-color;
-  transition-duration: var(--animation-duration);
+  transition-property: width, max-width, margin, border-radius, background-color, border-color;
+  transition-duration: 1s;
   transition-timing-function: var(--animation-easing);
   /* Stable stacking context prevents Safari from destroying the blur composite layer */
   isolation: isolate;
@@ -138,6 +138,7 @@ body.lightbox-open .header {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
   }
   .header {
     top: var(--header-top);
@@ -146,13 +147,21 @@ body.lightbox-open .header {
     margin-left: auto;
     margin-right: auto;
     border-radius: var(--header-radius);
+    border-color: transparent;
+    border-width: 1px;
+    border-style: solid;
   }
+
+  .header--scrolled {
+    width: var(--header-width-scrolled);
+    border-color: var(--header-border-scrolled);
+  }
+
   .header-nav {
     display: flex;
-    justify-content: space-between;
-    flex: 1 1 0%;
-    min-width: 0;
-    margin-left: 5rem;
+    justify-content: flex-start;
+    flex: 0 0 auto;
+    gap: 3rem;
   }
 }
 

@@ -32,8 +32,15 @@ export function Header({
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hoveringTitle, setHoveringTitle] = useState(false);
   const [titleAnimationFinished, setTitleAnimationFinished] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useBodyOverflow(mobileOpen);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     if (window.innerWidth < 1024) return;
@@ -94,7 +101,7 @@ export function Header({
 
   return (
     <motion.header
-      className="header"
+      className={`header${scrolled ? ' header--scrolled' : ''}`}
       initial={{ opacity: 0, y: -30 }}
       animate={{
         opacity: hidden ? 0 : 1,
@@ -136,7 +143,7 @@ export function Header({
         </div>
         {/* Desktop nav center (hidden on mobile) */}
         <nav
-          className="header-nav hidden lg:flex lg:flex-1 lg:justify-center"
+          className="header-nav hidden lg:flex"
           ref={(r) => {
             navRef.current = r;
           }}
