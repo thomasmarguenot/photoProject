@@ -34,7 +34,10 @@ const defaultProjects = [
     technologies: ['React', 'React Native', 'Redux', 'Auth0', 'TypeScript'],
     details: [
       { label: 'Rôle', value: 'Tech Lead Front-End' },
-      { label: 'Stack', value: 'React, React Native, Redux, Auth0, Material-UI, TypeScript' },
+      {
+        label: 'Stack',
+        value: 'React, React Native, Redux, Auth0, Material-UI, TypeScript',
+      },
       { label: 'Durée', value: '7 ans' },
       { label: 'Périmètre', value: 'Web, mobile iOS/Android, backoffice' },
     ],
@@ -63,7 +66,10 @@ const defaultProjects = [
     details: [
       { label: 'Rôle', value: 'Développeur React Native' },
       { label: 'Client', value: 'Institut National du Cancer' },
-      { label: 'Stack', value: 'React Native, Reanimated, GraphQL, Push notifications' },
+      {
+        label: 'Stack',
+        value: 'React Native, Reanimated, GraphQL, Push notifications',
+      },
       { label: 'Durée', value: '3 mois' },
     ],
   },
