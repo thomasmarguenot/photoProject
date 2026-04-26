@@ -8,6 +8,11 @@ export interface Client {
   logo?: string;
 }
 
+export interface ProjectDetail {
+  label: string;
+  value: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -15,6 +20,7 @@ export interface Project {
   image: string;
   link?: string;
   technologies?: string[];
+  details?: ProjectDetail[];
 }
 
 export interface AgencyInfo {

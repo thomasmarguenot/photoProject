@@ -4,6 +4,7 @@
   @apply w-full;
   position: relative;
   overflow: hidden;
+  background: #1d1d1f;
 }
 
 .footer-bg {

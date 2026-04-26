@@ -11,60 +11,26 @@
   max-width: var(--page-max-width);
 }
 
+.projects-eyebrow {
+  @apply font-heading font-bold;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
 .projects-label {
-  @apply text-4xl font-bold font-heading;
-  letter-spacing: -0.02em;
-  color: #2c3e50;
-  margin-bottom: 64px;
+  @apply font-heading font-extrabold;
+  font-size: clamp(36px, 4vw, 52px);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: #1d1d1f;
+  margin-bottom: 56px;
 }
 
 .projects-list {
-  @apply flex flex-col;
-}
-
-/* Grid layout — custom column ratios not available in Tailwind */
-.project-row {
-  display: grid;
-  grid-template-columns: 55% 45%;
-  margin-bottom: var(--spacing-3xl);
-}
-
-.project-row--reverse {
-  grid-template-columns: 45% 55%;
-}
-
-.project-row--reverse .project-image-cell {
-  order: 2;
-}
-
-.project-row--reverse .project-info {
-  order: 1;
-}
-
-/* clip-path animation (Framer Motion) promotes the inner div to its own GPU
-   compositing layer. Without `round` in the inset() values, that GPU layer
-   clips to a rectangle, bypassing overflow: hidden + border-radius here.
-   The fix lives in imageRevealVariants (inset … round 24px). */
-.project-image-cell {
-  height: 420px;
-  background: #f5f1e8;
-  border-radius: var(--border-radius-md);
-  overflow: hidden;
-  transform: translateZ(0);
-}
-
-.project-image-reveal {
-  @apply w-full h-full;
-}
-
-.project-image {
-  @apply w-full h-full block;
-  object-fit: cover;
-  transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.project-row:hover .project-image {
-  transform: scale(1.02);
+  @apply flex flex-col w-full;
 }
 
 /* Responsive */
@@ -81,29 +47,5 @@
 
   .projects-label {
     margin-bottom: 32px;
-  }
-
-  .project-row,
-  .project-row--reverse {
-    grid-template-columns: 1fr;
-    min-height: unset;
-  }
-
-  .project-image-cell {
-    height: 260px !important;
-    order: 0 !important;
-  }
-
-  .project-image {
-    object-fit: contain;
-  }
-
-  .project-info {
-    order: 1 !important;
-    @apply px-6 py-6;
-  }
-
-  .project-row {
-    margin-bottom: 0;
   }
 }
