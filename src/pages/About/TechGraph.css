@@ -1,0 +1,147 @@
+@reference "../../index.css";
+
+.tech-graph {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+}
+
+.tech-graph-svg {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: block;
+  font-family: var(--font-heading);
+  cursor: default;
+  overflow: visible;
+}
+
+/* ─── Links (curved paths) ─── */
+
+.tech-link {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.12);
+  stroke-width: 1;
+  transition:
+    stroke 0.3s ease,
+    stroke-width 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.tech-link.is-dim {
+  opacity: 0.1;
+}
+
+.tech-link.is-active {
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 1.5;
+  opacity: 1;
+}
+
+/* ─── Nodes ─── */
+
+.tech-node {
+  cursor: pointer;
+  transition: opacity 0.35s ease;
+}
+
+.tech-node.is-dim {
+  opacity: 0.25;
+}
+
+/* Main circle */
+.tech-node-circle {
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 1;
+  transition:
+    stroke 0.3s ease,
+    fill 0.3s ease,
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.tech-node--frontend .tech-node-circle {
+  fill: #2f6bb0;
+}
+
+.tech-node--mobile .tech-node-circle {
+  fill: #d49715;
+}
+
+.tech-node--backend .tech-node-circle {
+  fill: #7c5cd6;
+}
+
+.tech-node--tooling .tech-node-circle {
+  fill: #5b6470;
+}
+
+.tech-node:hover .tech-node-circle,
+.tech-node.is-hovered .tech-node-circle {
+  stroke: rgba(255, 255, 255, 0.9);
+  stroke-width: 1.5;
+  transform: scale(1.15);
+}
+
+.tech-node:hover.tech-node--frontend .tech-node-circle,
+.tech-node.is-hovered.tech-node--frontend .tech-node-circle {
+  fill: #4a9fe8;
+}
+
+.tech-node:hover.tech-node--mobile .tech-node-circle,
+.tech-node.is-hovered.tech-node--mobile .tech-node-circle {
+  fill: #fac130;
+}
+
+.tech-node:hover.tech-node--backend .tech-node-circle,
+.tech-node.is-hovered.tech-node--backend .tech-node-circle {
+  fill: #a78bfa;
+}
+
+.tech-node:hover.tech-node--tooling .tech-node-circle,
+.tech-node.is-hovered.tech-node--tooling .tech-node-circle {
+  fill: #9ca3af;
+}
+
+/* ─── Labels ─── */
+
+.tech-node-label {
+  font-size: 12px;
+  font-weight: 600;
+  fill: rgba(255, 255, 255, 0.78);
+  pointer-events: none;
+  letter-spacing: 0.02em;
+  user-select: none;
+  transition:
+    fill 0.3s ease,
+    font-weight 0.3s ease;
+}
+
+.tech-node.is-hub .tech-node-label {
+  font-size: 13px;
+  font-weight: 700;
+  fill: rgba(255, 255, 255, 0.95);
+}
+
+.tech-node:hover .tech-node-label,
+.tech-node.is-hovered .tech-node-label {
+  fill: #ffffff;
+  font-weight: 700;
+}
+
+.tech-node.is-dim .tech-node-label {
+  fill: rgba(255, 255, 255, 0.35);
+}
+
+@media (max-width: 640px) {
+  .tech-node-label {
+    font-size: 13px;
+  }
+
+  .tech-node.is-hub .tech-node-label {
+    font-size: 14px;
+  }
+}
