@@ -64,19 +64,19 @@
 }
 
 .tech-node--frontend .tech-node-circle {
-  fill: #2f6bb0;
+  fill: #00ccff;
 }
 
 .tech-node--mobile .tech-node-circle {
-  fill: #d49715;
+  fill: #ffab40;
 }
 
 .tech-node--backend .tech-node-circle {
-  fill: #7c5cd6;
+  fill: #bb86fc;
 }
 
 .tech-node--tooling .tech-node-circle {
-  fill: #5b6470;
+  fill: #03dac6;
 }
 
 .tech-node:hover .tech-node-circle,
@@ -88,22 +88,22 @@
 
 .tech-node:hover.tech-node--frontend .tech-node-circle,
 .tech-node.is-hovered.tech-node--frontend .tech-node-circle {
-  fill: #4a9fe8;
+  fill: #4df5ff;
 }
 
 .tech-node:hover.tech-node--mobile .tech-node-circle,
 .tech-node.is-hovered.tech-node--mobile .tech-node-circle {
-  fill: #fac130;
+  fill: #ffc66d;
 }
 
 .tech-node:hover.tech-node--backend .tech-node-circle,
 .tech-node.is-hovered.tech-node--backend .tech-node-circle {
-  fill: #a78bfa;
+  fill: #d9b8ff;
 }
 
 .tech-node:hover.tech-node--tooling .tech-node-circle,
 .tech-node.is-hovered.tech-node--tooling .tech-node-circle {
-  fill: #9ca3af;
+  fill: #66ebe0;
 }
 
 /* ─── Labels ─── */

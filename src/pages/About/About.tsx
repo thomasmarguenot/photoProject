@@ -73,17 +73,17 @@ export function About() {
 
   const bgColor = useTransform(
     scrollYProgress,
-    [0, 0.28, 0.35],
-    ['#ffffff', '#0d0d0d', '#0d0d0d']
+    [0.12, 0.18],
+    ['#ffffff', '#181818']
   );
   const fgColor = useTransform(
     scrollYProgress,
-    [0, 0.28, 0.35],
-    ['#111111', '#f5f5f7', '#f5f5f7']
+    [0.12, 0.18],
+    ['#111111', '#f5f5f7']
   );
   const borderColor = useTransform(
     scrollYProgress,
-    [0, 0.28],
+    [0.12, 0.18],
     ['rgba(0,0,0,0.1)', 'rgba(255,255,255,0.1)']
   );
 
@@ -99,23 +99,6 @@ export function About() {
         initial="hidden"
         animate="visible"
       >
-        <motion.div className="about-hero-top" variants={sectionStagger}>
-          <AnimatedText className="about-eyebrow" orchestrated>
-            Développeur JS — Paris
-          </AnimatedText>
-          <motion.div
-            className="about-hero-photo"
-            variants={fadeOpacityVariants}
-          >
-            <img
-              src={photo}
-              alt="Portrait de Thomas Marguenot"
-              loading="eager"
-              decoding="async"
-            />
-          </motion.div>
-        </motion.div>
-
         <AnimatedHeading as="h1" className="about-headline" orchestrated>
           Voici mon histoire.
         </AnimatedHeading>
@@ -125,6 +108,15 @@ export function About() {
           Quotatis et Rolex — des produits où la qualité et la performance
           comptent.
         </AnimatedText>
+
+        <motion.div className="about-hero-photo" variants={fadeOpacityVariants}>
+          <img
+            src={photo}
+            alt="Portrait de Thomas Marguenot"
+            loading="eager"
+            decoding="async"
+          />
+        </motion.div>
       </motion.div>
 
       {/* ── Parcours ── */}
@@ -149,15 +141,14 @@ export function About() {
               variants={itemVariants}
               style={{ borderColor }}
             >
-              <span className="about-timeline-index">{exp.index}</span>
-              <div className="about-timeline-content">
+              <div className="about-timeline-left">
+                <p className="about-timeline-role">{exp.role}</p>
                 <div className="about-timeline-meta">
                   <span className="about-timeline-period">{exp.period}</span>
                   <span className="about-timeline-company">{exp.company}</span>
                 </div>
-                <p className="about-timeline-role">{exp.role}</p>
-                <p className="about-timeline-desc">{exp.description}</p>
               </div>
+              <p className="about-timeline-desc">{exp.description}</p>
             </motion.div>
           ))}
         </div>
@@ -230,10 +221,6 @@ export function About() {
           ))}
         </div>
       </motion.section>
-
-      <div className="about-stamp" aria-hidden>
-        about
-      </div>
     </motion.div>
   );
 }

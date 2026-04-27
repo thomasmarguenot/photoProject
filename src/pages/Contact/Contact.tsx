@@ -15,7 +15,7 @@ export function Contact() {
               {...MOTION.FONT_WEIGHT}
               transition={TRANSITION.FONT_MORPH}
             >
-              travaillons ensemble.
+              Travaillons ensemble.
             </motion.h1>
 
             <p className="contact-description contact-description--black">
