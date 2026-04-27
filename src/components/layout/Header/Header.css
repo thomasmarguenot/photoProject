@@ -200,6 +200,40 @@ body.lightbox-open .header {
   @apply text-[var(--color-primary)];
 }
 
+body.about-dark .header {
+  background: rgba(30, 30, 30, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.about-dark .header-link {
+  @apply text-[var(--color-text-primary)];
+  color: rgba(255, 255, 255, 0.7);
+}
+
+body.about-dark .header-link:hover,
+body.about-dark .header-link.active {
+  color: #60a5fa;
+}
+
+body.about-dark .header-nav-indicator {
+  background: rgba(96, 165, 250, 0.15);
+}
+
+body.about-dark .header-title {
+  background-image: linear-gradient(
+    90deg,
+    #f5f5f7 0,
+    #f5f5f7 33.33%,
+    #fde047 40%,
+    #f59e0b 45%,
+    #ec4899 50%,
+    #a78bfa 55%,
+    #60a5fa 60%,
+    transparent 66.67%,
+    transparent
+  );
+}
+
 @media (min-width: 1024px) {
   .header-container {
     @apply px-12;

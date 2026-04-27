@@ -1,4 +1,10 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from 'framer-motion';
+import { useEffect } from 'react';
 
 import photo from '@/assets/about/thomas-marguenot.webp';
 import {
@@ -76,6 +82,12 @@ export function About() {
     [0.149, 0.15],
     ['#ffffff', '#181818']
   );
+
+  useMotionValueEvent(scrollYProgress, 'change', (v) => {
+    document.body.classList.toggle('about-dark', v >= 0.15);
+  });
+
+  useEffect(() => () => document.body.classList.remove('about-dark'), []);
   const fgColor = useTransform(
     scrollYProgress,
     [0.149, 0.15],
