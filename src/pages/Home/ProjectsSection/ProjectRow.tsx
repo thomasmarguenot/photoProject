@@ -19,17 +19,20 @@ interface ProjectRowProps {
 
 const ArrowIcon = ({ isOpen }: { isOpen: boolean }) => (
   <svg
-    width="18"
-    height="20"
-    viewBox="0 0 37 42"
+    width="28"
+    height="28"
+    viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     className="project-row-arrow-svg"
-    style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+    style={{ transform: isOpen ? 'rotate(0deg)' : 'rotate(-45deg)' }}
   >
     <path
-      d="M17.2793 40.8137C18.281 41.764 19.8634 41.7223 20.8137 40.7207L36.2995 24.3977C37.2498 23.3961 37.2082 21.8137 36.2065 20.8634C35.2049 19.9131 33.6225 19.9548 32.6722 20.9564L18.907 35.4657L4.39772 21.7005C3.39606 20.7502 1.8137 20.7918 0.863407 21.7935C-0.0868821 22.7951 -0.0452409 24.3775 0.956415 25.3278L17.2793 40.8137ZM15.5009 1.06577L16.5009 39.0658L21.4991 38.9342L20.4991 0.934233L15.5009 1.06577Z"
-      fill="currentColor"
+      d="M5 12H19M19 12L13 6M19 12L13 18"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -61,7 +64,6 @@ export function ProjectRow({
         aria-expanded={isOpen}
         variants={fadeUpVariants30}
       >
-
         <span className="project-row-num">{num}</span>
 
         <div className="project-row-content">
