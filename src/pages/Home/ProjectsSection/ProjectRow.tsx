@@ -13,7 +13,8 @@ interface ProjectRowProps {
   project: Project;
   index: number;
   isOpen: boolean;
-  onToggle: () => void;
+  onOpen: () => void;
+  onClose: () => void;
 }
 
 const ArrowIcon = ({ isOpen }: { isOpen: boolean }) => (
@@ -37,7 +38,8 @@ export function ProjectRow({
   project,
   index,
   isOpen,
-  onToggle,
+  onOpen,
+  onClose,
 }: ProjectRowProps) {
   const num = String(index + 1).padStart(2, '0');
 
@@ -48,15 +50,17 @@ export function ProjectRow({
       whileInView="visible"
       viewport={{ once: true, margin: '-80px' }}
       variants={staggerContainerVariants}
+      onMouseEnter={onOpen}
+      onMouseLeave={onClose}
     >
+      <span className="project-row-sweep" aria-hidden="true" />
+
       <motion.button
         type="button"
         className="project-row-trigger"
-        onClick={onToggle}
         aria-expanded={isOpen}
         variants={fadeUpVariants30}
       >
-        <span className="project-row-sweep" aria-hidden="true" />
 
         <span className="project-row-num">{num}</span>
 

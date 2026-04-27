@@ -94,9 +94,8 @@ export function ProjectsSection({
               project={project}
               index={index}
               isOpen={openId === project.id}
-              onToggle={() =>
-                setOpenId((prev) => (prev === project.id ? null : project.id))
-              }
+              onOpen={() => setOpenId(project.id)}
+              onClose={() => setOpenId(null)}
             />
           ))}
         </div>
