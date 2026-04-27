@@ -73,17 +73,17 @@ export function About() {
 
   const bgColor = useTransform(
     scrollYProgress,
-    [0.12, 0.18],
+    [0.149, 0.15],
     ['#ffffff', '#181818']
   );
   const fgColor = useTransform(
     scrollYProgress,
-    [0.12, 0.18],
+    [0.149, 0.15],
     ['#111111', '#f5f5f7']
   );
   const borderColor = useTransform(
     scrollYProgress,
-    [0.12, 0.18],
+    [0.149, 0.15],
     ['rgba(0,0,0,0.1)', 'rgba(255,255,255,0.1)']
   );
 

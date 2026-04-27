@@ -63,6 +63,7 @@
   --text-body-large: 1.125rem; /* 18px */
   --text-body: 1rem; /* 16px */
   --text-small: 0.875rem; /* 14px */
+  --text-xsmall: 0.75rem; /* 12px */
 
   /* Color Palette - Primary Blue #277DD4 */
   --color-primary: #277dd4;
