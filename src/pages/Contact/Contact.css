@@ -94,13 +94,13 @@
 
 @media (max-width: 640px) {
   .contact-inner {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: var(--spacing-md) 1rem 2.5rem;
   }
 
   .contact-entry {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: 1rem;
+    padding: 1.5rem 0;
   }
 }
