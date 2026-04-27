@@ -230,23 +230,23 @@
 }
 
 .about-legend-item--frontend::before {
-  background: #00ccff;
-  border-color: #00ccff;
+  background: #7CC3FF;
+  border-color: #7CC3FF;
 }
 
 .about-legend-item--mobile::before {
-  background: #ffab40;
-  border-color: #ffab40;
+  background: #FFB62E;
+  border-color: #FFB62E;
 }
 
 .about-legend-item--backend::before {
-  background: #bb86fc;
-  border-color: #bb86fc;
+  background: #4164FF;
+  border-color: #4164FF;
 }
 
 .about-legend-item--tooling::before {
-  background: #03dac6;
-  border-color: #03dac6;
+  background: #FE6237;
+  border-color: #FE6237;
 }
 
 /* ─── Passions ─── */
