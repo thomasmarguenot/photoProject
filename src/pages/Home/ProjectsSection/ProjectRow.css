@@ -141,7 +141,7 @@
 .project-row:hover .project-row-thumb,
 .project-row--open .project-row-thumb {
   box-shadow: var(--shadow-xl);
-  transform: scale(1.03);
+  transform: scale(1.2);
 }
 
 .project-row-thumb-img {

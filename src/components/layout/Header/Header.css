@@ -80,6 +80,7 @@ body.lightbox-open .header {
   background-position: 0% 0;
   animation: header-title-reveal-forward var(--header-title-animation-duration)
     ease-in-out forwards;
+  animation-delay: 0.8s;
 }
 
 .header-title-overlay {
@@ -87,6 +88,7 @@ body.lightbox-open .header {
   background-position: 0% 0;
   animation: header-title-reveal-backward var(--header-title-animation-duration)
     ease-in-out forwards;
+  animation-delay: 0.8s;
 }
 
 .header-title-wrapper:hover .header-title-base,
