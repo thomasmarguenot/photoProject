@@ -98,6 +98,20 @@ export const MOTION = {
   },
 } as const;
 
+export const TECH_GRAPH_COLORS = {
+  FRONTEND: '#7CC3FF',
+  MOBILE: '#FFB62E',
+  BACKEND: '#4164FF',
+  TOOLING: '#FE6237',
+} as const;
+
+export const TECH_GRAPH_COLORS_HOVER = {
+  FRONTEND: '#B0DDFF',
+  MOBILE: '#FFD470',
+  BACKEND: '#7A9EFF',
+  TOOLING: '#FF8C5F',
+} as const;
+
 export const ROUTES = {
   HOME: '/',
   GALLERY: '/gallery',
