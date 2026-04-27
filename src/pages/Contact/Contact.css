@@ -1,132 +1,106 @@
 @reference "../../index.css";
 
 .contact {
-  @apply w-full mt-10;
-  min-height: 60vh;
+  @apply w-full;
+  position: relative;
+  min-height: 100vh;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: var(--spacing-md) 0 2rem 0;
+  flex-direction: column;
 }
 
 .contact-inner {
-  @apply mx-auto w-full px-6;
-  max-width: var(--page-max-width);
-}
-
-.contact-content {
-  color: var(--color-text-primary);
-  animation: fadeInRight 700ms var(--animation-easing) 200ms both;
-}
-
-.contact-block {
-  @apply mb-8;
-}
-
-.contact-heading {
-  @apply text-xl font-semibold mb-4;
-  font-family: var(--font-heading);
-  color: var(--color-text-primary);
-}
-
-.contact-description {
-  @apply mb-6 text-base;
-  font-size: var(--text-lg, 1.125rem);
-  color: var(--color-text-primary);
-}
-
-.contact-center {
+  width: var(--page-max-width);
+  max-width: 100%;
+  margin: 0 auto;
+  padding: var(--spacing-md) 2rem 4rem;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  justify-content: space-evenly;
+}
+
+.contact-title {
+  @apply text-5xl md:text-6xl lg:text-7xl;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+  margin: 0;
+  cursor: pointer;
+  font-variation-settings: 'wght' 800;
+  transition: font-variation-settings var(--animation-duration) var(--animation-easing);
+}
+
+.contact-title:hover {
+  font-variation-settings: 'wght' 100;
 }
 
 .contact-description {
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 1.05rem;
+  font-size: var(--text-body-large);
+  color: var(--color-text-primary);
+  line-height: 1.65;
+  max-width: 80ch;
+  margin: 0;
 }
+
+/* ─── Liste de contacts ─── */
 
 .contact-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-top: 1.75rem;
-  width: min(720px, 100%);
+  width: 100%;
+  margin-top: 1rem;
+  border-top: 1px solid var(--color-border);
 }
 
 .contact-entry {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
+  gap: 2rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
 }
 
 .contact-label {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
   color: var(--color-text-primary);
-  font-weight: 900;
-  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0;
 }
 
 .contact-link {
+  font-size: var(--text-body-large);
   color: var(--color-primary);
-  text-decoration: inherit;
-  position: relative;
-  font-size: 1.25rem;
-  padding-bottom: 12px;
+  text-decoration: none;
+  line-height: 1.65;
+  padding-top: 0.35rem;
+  transition: opacity 0.2s ease;
+  display: block;
 }
 
-@media (max-width: 480px) {
-  .contact-link::after {
-    transform: translateY(8px);
+.contact-link:hover {
+  opacity: 0.7;
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 640px) {
+  .contact-inner {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
-}
 
-.contact-stamp {
-  position: fixed;
-  left: 24px;
-  bottom: 20px;
-  font-weight: 900;
-  color: rgba(10, 10, 10, 0.06);
-  font-family: var(--font-heading);
-  font-size: clamp(96px, 18vw, 220px);
-  line-height: 0.85;
-  pointer-events: none;
-  letter-spacing: -0.02em;
-  transform: translateY(40px);
-  opacity: 0;
-  animation: slideUpFade 900ms var(--animation-easing) 600ms both;
-}
-
-@keyframes fadeInRight {
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.contact-title {
-  @apply text-4xl lg:text-5xl font-bold mb-4 mt-4;
-  font-family: 'Inter Tight', sans-serif;
-  font-variation-settings: 'wght' 900;
-  color: var(--color-text);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  margin-bottom: 0.75rem;
-}
-
-@keyframes slideUpFade {
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@media (max-width: 1024px) {
-  .contact {
-    @apply mt-2;
-    min-height: auto;
+  .contact-entry {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 }

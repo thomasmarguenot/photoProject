@@ -100,7 +100,7 @@ export function About() {
         animate="visible"
       >
         <AnimatedHeading as="h1" className="about-headline" orchestrated>
-          Voici mon histoire.
+          Mon parcours.
         </AnimatedHeading>
 
         <AnimatedText className="about-lead" orchestrated>
