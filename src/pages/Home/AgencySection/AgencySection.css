@@ -58,11 +58,13 @@
 
 .agency-link-arrow {
   font-size: 1rem;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, color 0.25s ease;
+  color: #1d1d1f;
 }
 
 .agency-link:hover .agency-link-arrow {
   transform: translateX(4px);
+  color: #277dd4;
 }
 
 /* Colonne droite : texte */

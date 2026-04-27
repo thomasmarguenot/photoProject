@@ -16,10 +16,7 @@ import { ANIMATION } from '@/utils/constants';
 
 import './AgencySection.css';
 
-const servicesContainerVariants = createStaggerContainer(
-  ANIMATION.STAGGER.CHILDREN_WIDE,
-  ANIMATION.DELAY.MD
-);
+const servicesContainerVariants = createStaggerContainer(0.15, 0.25);
 
 const horizontalLineVariants = {
   hidden: { width: '0%' },
