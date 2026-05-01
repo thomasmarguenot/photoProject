@@ -85,26 +85,35 @@ function parseExif(exifBuffer) {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const PICTURES_DIR = join(__dirname, '../src/assets/pictures');
-const OUTPUT_FILE = join(__dirname, '../src/assets/gallery-manifest.json');
+  const PICTURES_DIR = join(__dirname, '../public/images');
+  const OUTPUT_FILE = join(__dirname, '../src/assets/gallery-manifest.json');
 
-const LOCATION_MAP = {
-  japon: 'Japon',
-  marseille: 'Marseille',
-  paris: 'Paris',
-  vietnam: 'Vietnam',
-};
+  const LOCATION_MAP = {
+    japon: 'Japon',
+    marseille: 'Marseille',
+    paris: 'Paris',
+    vietnam: 'Vietnam',
+  };
 
-function getLocationFromFilename(filename) {
-  const baseName = basename(filename, '.webp');
-  const prefix = baseName.replace(/_p_\d+$/, '').split('_')[0];
-  return LOCATION_MAP[prefix] || 'Japon';
-}
+  function getLocationFromFilename(filename) {
+    const baseName = basename(filename, '.webp');
+    // Remove variant suffix like -400w, -800w, -1200w
+    const cleanName = baseName.replace(/-\d+w$/, '');
+    const prefix = cleanName.replace(/_p_\d+$/, '').split('_')[0];
+    return LOCATION_MAP[prefix] || 'Japon';
+  }
 
-(async () => {
-  const files = (await readdir(PICTURES_DIR))
-    .filter((f) => f.endsWith('.webp'))
-    .sort();
+  (async () => {
+    const files = (await readdir(PICTURES_DIR))
+      .filter((f) => {
+        if (!f.endsWith('.webp')) return false;
+        // Skip variant files (ending with -400w, -800w, -1200w)
+        if (/-\d+w\.webp$/.test(f)) return false;
+        // Skip original backups
+        if (f.includes('.original')) return false;
+        return true;
+      })
+      .sort();
 
   const manifest = await Promise.all(
     files.map(async (file) => {
@@ -113,12 +122,25 @@ function getLocationFromFilename(filename) {
       const { width, height } = meta;
       const location = getLocationFromFilename(file);
       const exif = parseExif(meta.exif ?? null);
+
+      // Build srcSet variants if they exist
+      const baseName = basename(file, '.webp');
+      const variants = [400, 800, 1200]
+        .filter((w) => w <= (width ?? 1200))
+        .map((w) => ({
+          src: `/images/${baseName}-${w}w.webp`,
+          width: w,
+          height: Math.round(((height ?? 800) / (width ?? 1200)) * w),
+        }));
+
       return {
         file,
+        src: `/images/${file}`,
         location,
         width: width ?? 1200,
         height: height ?? 800,
-        ...(exif && { exif }),
+        exif,
+        variants: variants.length > 0 ? variants : undefined,
       };
     })
   );

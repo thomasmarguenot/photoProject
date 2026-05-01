@@ -1,982 +1,1627 @@
 [
   {
     "file": "japon_001.webp",
+    "src": "/images/japon_001.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/2700",
-      "fNumber": 6.4,
-      "iso": 320,
-      "focalLength": 45
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_001-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_001-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_001-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_002.webp",
+    "src": "/images/japon_002.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/3200",
-      "fNumber": 5.6,
-      "iso": 1250,
-      "focalLength": 43
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_002-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_002-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_002-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_004.webp",
+    "src": "/images/japon_004.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/800",
-      "fNumber": 5.6,
-      "iso": 160,
-      "focalLength": 26
-    }
-  },
-  {
-    "file": "japon_006.webp",
-    "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/320",
-      "fNumber": 5.6,
-      "iso": 160,
-      "focalLength": 15
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_004-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_004-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_004-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_008.webp",
+    "src": "/images/japon_008.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/180",
-      "fNumber": 5.6,
-      "iso": 80,
-      "focalLength": 45
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_008-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_008-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_008-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_011.webp",
+    "src": "/images/japon_011.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/1250",
-      "fNumber": 5.6,
-      "iso": 1600,
-      "focalLength": 43
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_011-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_011-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_011-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_012.webp",
+    "src": "/images/japon_012.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/3200",
-      "fNumber": 5.6,
-      "iso": 1600,
-      "focalLength": 24
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_012-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_012-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_012-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_013.webp",
+    "src": "/images/japon_013.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/3200",
-      "fNumber": 5.6,
-      "iso": 1600,
-      "focalLength": 22
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_013-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_013-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_013-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_014.webp",
+    "src": "/images/japon_014.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/40",
-      "fNumber": 5.6,
-      "iso": 800,
-      "focalLength": 15
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_014-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_014-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_014-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_015.webp",
+    "src": "/images/japon_015.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/160",
-      "fNumber": 5.6,
-      "iso": 800,
-      "focalLength": 17
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_015-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_015-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_015-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_016.webp",
+    "src": "/images/japon_016.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/400",
-      "fNumber": 5.6,
-      "iso": 320,
-      "focalLength": 17
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_016-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_016-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_016-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_017.webp",
+    "src": "/images/japon_017.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/640",
-      "fNumber": 5.6,
-      "iso": 100,
-      "focalLength": 15
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_017-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_017-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_017-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_018.webp",
+    "src": "/images/japon_018.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/400",
-      "fNumber": 5.6,
-      "iso": 160,
-      "focalLength": 31
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_018-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_018-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_018-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_019.webp",
+    "src": "/images/japon_019.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/800",
-      "fNumber": 5.6,
-      "iso": 160,
-      "focalLength": 31
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_019-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_019-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_019-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_020.webp",
+    "src": "/images/japon_020.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/180",
-      "fNumber": 5.6,
-      "iso": 80,
-      "focalLength": 15
-    }
-  },
-  {
-    "file": "japon_022.webp",
-    "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/90",
-      "fNumber": 5.6,
-      "iso": 80,
-      "focalLength": 45
-    }
-  },
-  {
-    "file": "japon_023.webp",
-    "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/280",
-      "fNumber": 5.6,
-      "iso": 160,
-      "focalLength": 36
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_020-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_020-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_020-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_024.webp",
+    "src": "/images/japon_024.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/1300",
-      "fNumber": 6.4,
-      "iso": 1250,
-      "focalLength": 43
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_024-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_024-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_024-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_027.webp",
+    "src": "/images/japon_027.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/640",
-      "fNumber": 5.6,
-      "iso": 1600,
-      "focalLength": 32
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_027-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_027-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_027-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_028.webp",
+    "src": "/images/japon_028.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/1250",
-      "fNumber": 5.6,
-      "iso": 1600,
-      "focalLength": 45
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_028-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_028-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_028-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_029.webp",
+    "src": "/images/japon_029.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/2500",
-      "fNumber": 5.6,
-      "iso": 1600,
-      "focalLength": 45
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_029-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_029-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_029-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_030.webp",
+    "src": "/images/japon_030.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/4000",
-      "fNumber": 5.6,
-      "iso": 1600,
-      "focalLength": 36
-    }
-  },
-  {
-    "file": "japon_031.webp",
-    "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/500",
-      "fNumber": 5.6,
-      "iso": 1600,
-      "focalLength": 24
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_030-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_030-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_030-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_032.webp",
+    "src": "/images/japon_032.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/180",
-      "fNumber": 5.6,
-      "iso": 1000,
-      "focalLength": 19
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_032-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_032-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_032-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_033.webp",
+    "src": "/images/japon_033.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/2500",
-      "fNumber": 5.6,
-      "iso": 250,
-      "focalLength": 16
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_033-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_033-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_033-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_034.webp",
+    "src": "/images/japon_034.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/2000",
-      "fNumber": 5.6,
-      "iso": 400,
-      "focalLength": 24
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_034-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_034-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_034-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_035.webp",
+    "src": "/images/japon_035.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/4000",
-      "fNumber": 5.6,
-      "iso": 400,
-      "focalLength": 26
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_035-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_035-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_035-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_036.webp",
+    "src": "/images/japon_036.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/4000",
-      "fNumber": 5.6,
-      "iso": 400,
-      "focalLength": 15
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_036-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_036-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_036-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_037.webp",
+    "src": "/images/japon_037.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/500",
-      "fNumber": 5.6,
-      "iso": 80,
-      "focalLength": 45
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_037-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_037-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_037-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_038.webp",
+    "src": "/images/japon_038.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/800",
-      "fNumber": 5.6,
-      "iso": 80,
-      "focalLength": 15
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_038-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_038-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_038-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_039.webp",
+    "src": "/images/japon_039.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/640",
-      "fNumber": 5.6,
-      "iso": 80,
-      "focalLength": 31
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_039-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_039-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_039-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_040.webp",
+    "src": "/images/japon_040.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/500",
-      "fNumber": 5.6,
-      "iso": 250,
-      "focalLength": 35
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_040-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_040-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_040-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_041.webp",
+    "src": "/images/japon_041.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/1000",
-      "fNumber": 5.6,
-      "iso": 320,
-      "focalLength": 26
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_041-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_041-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_041-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_042.webp",
+    "src": "/images/japon_042.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/180",
-      "fNumber": 20,
-      "iso": 320,
-      "focalLength": 32
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_042-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_042-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_042-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_043.webp",
+    "src": "/images/japon_043.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/125",
-      "fNumber": 20,
-      "iso": 320,
-      "focalLength": 31
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_043-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_043-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_043-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_044.webp",
+    "src": "/images/japon_044.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/100",
-      "fNumber": 20,
-      "iso": 320,
-      "focalLength": 37
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_044-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_044-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_044-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_045.webp",
+    "src": "/images/japon_045.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/30",
-      "fNumber": 20,
-      "iso": 320,
-      "focalLength": 41
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_045-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_045-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_045-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_046.webp",
+    "src": "/images/japon_046.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/1250",
-      "fNumber": 3.5,
-      "iso": 250,
-      "focalLength": 15
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_046-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/japon_046-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_046-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "japon_047.webp",
+    "src": "/images/japon_047.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 4000,
-    "exif": {
-      "make": "Apple",
-      "model": "iPhone 11",
-      "exposureTime": "1/196",
-      "fNumber": 1.8,
-      "iso": 32,
-      "focalLength": 4
-    }
+    "width": 1800,
+    "height": 2400,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_047-400w.webp",
+        "width": 400,
+        "height": 533
+      },
+      {
+        "src": "/images/japon_047-800w.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/images/japon_047-1200w.webp",
+        "width": 1200,
+        "height": 1600
+      }
+    ]
   },
   {
     "file": "japon_p_002.webp",
+    "src": "/images/japon_p_002.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 4500,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/1600",
-      "fNumber": 5.6,
-      "iso": 400,
-      "focalLength": 22
-    }
+    "width": 1800,
+    "height": 2700,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_p_002-400w.webp",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "src": "/images/japon_p_002-800w.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/japon_p_002-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      }
+    ]
   },
   {
     "file": "japon_p_004.webp",
+    "src": "/images/japon_p_004.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 4500,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/950",
-      "fNumber": 5.6,
-      "iso": 320,
-      "focalLength": 45
-    }
+    "width": 1800,
+    "height": 2700,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_p_004-400w.webp",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "src": "/images/japon_p_004-800w.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/japon_p_004-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      }
+    ]
   },
   {
     "file": "japon_p_005.webp",
+    "src": "/images/japon_p_005.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 4500,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/180",
-      "fNumber": 5.6,
-      "iso": 80,
-      "focalLength": 15
-    }
+    "width": 1800,
+    "height": 2700,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_p_005-400w.webp",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "src": "/images/japon_p_005-800w.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/japon_p_005-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      }
+    ]
   },
   {
     "file": "japon_p_006.webp",
+    "src": "/images/japon_p_006.webp",
     "location": "Japon",
-    "width": 3000,
-    "height": 4500,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/160",
-      "fNumber": 20,
-      "iso": 320,
-      "focalLength": 32
-    }
+    "width": 1800,
+    "height": 2700,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/japon_p_006-400w.webp",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "src": "/images/japon_p_006-800w.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/japon_p_006-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      }
+    ]
   },
   {
     "file": "marseille_001.webp",
+    "src": "/images/marseille_001.webp",
     "location": "Marseille",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/500",
-      "fNumber": 10,
-      "iso": 320,
-      "focalLength": 15
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/marseille_001-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/marseille_001-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/marseille_001-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "marseille_002.webp",
+    "src": "/images/marseille_002.webp",
     "location": "Marseille",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/500",
-      "fNumber": 11,
-      "iso": 320,
-      "focalLength": 15
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/marseille_002-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/marseille_002-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/marseille_002-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "marseille_003.webp",
+    "src": "/images/marseille_003.webp",
     "location": "Marseille",
-    "width": 3000,
-    "height": 2250,
-    "exif": {
-      "make": "Apple",
-      "model": "iPhone 11",
-      "exposureTime": "1/1866",
-      "fNumber": 1.8,
-      "iso": 32,
-      "focalLength": 4
-    }
+    "width": 1800,
+    "height": 1350,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/marseille_003-400w.webp",
+        "width": 400,
+        "height": 300
+      },
+      {
+        "src": "/images/marseille_003-800w.webp",
+        "width": 800,
+        "height": 600
+      },
+      {
+        "src": "/images/marseille_003-1200w.webp",
+        "width": 1200,
+        "height": 900
+      }
+    ]
   },
   {
     "file": "marseille_p_001.webp",
+    "src": "/images/marseille_p_001.webp",
     "location": "Marseille",
-    "width": 3000,
-    "height": 4500,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/640",
-      "fNumber": 10,
-      "iso": 320,
-      "focalLength": 45
-    }
+    "width": 1800,
+    "height": 2700,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/marseille_p_001-400w.webp",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "src": "/images/marseille_p_001-800w.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/marseille_p_001-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      }
+    ]
   },
   {
     "file": "marseille_p_002.webp",
+    "src": "/images/marseille_p_002.webp",
     "location": "Marseille",
-    "width": 3000,
-    "height": 4500,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/1400",
-      "fNumber": 4,
-      "iso": 320,
-      "focalLength": 15
-    }
+    "width": 1800,
+    "height": 2700,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/marseille_p_002-400w.webp",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "src": "/images/marseille_p_002-800w.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/marseille_p_002-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      }
+    ]
   },
   {
     "file": "marseille_p_003.webp",
+    "src": "/images/marseille_p_003.webp",
     "location": "Marseille",
-    "width": 3000,
-    "height": 4000,
-    "exif": {
-      "make": "Apple",
-      "model": "iPhone 11",
-      "exposureTime": "1/6757",
-      "fNumber": 1.8,
-      "iso": 32,
-      "focalLength": 4
-    }
+    "width": 1800,
+    "height": 2400,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/marseille_p_003-400w.webp",
+        "width": 400,
+        "height": 533
+      },
+      {
+        "src": "/images/marseille_p_003-800w.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/images/marseille_p_003-1200w.webp",
+        "width": 1200,
+        "height": 1600
+      }
+    ]
   },
   {
     "file": "marseille_p_004.webp",
+    "src": "/images/marseille_p_004.webp",
     "location": "Marseille",
-    "width": 3000,
-    "height": 4000,
-    "exif": {
-      "make": "Apple",
-      "model": "iPhone 11",
-      "exposureTime": "1/942",
-      "fNumber": 1.8,
-      "iso": 32,
-      "focalLength": 4
-    }
+    "width": 1800,
+    "height": 2400,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/marseille_p_004-400w.webp",
+        "width": 400,
+        "height": 533
+      },
+      {
+        "src": "/images/marseille_p_004-800w.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/images/marseille_p_004-1200w.webp",
+        "width": 1200,
+        "height": 1600
+      }
+    ]
   },
   {
     "file": "paris_001.webp",
+    "src": "/images/paris_001.webp",
     "location": "Paris",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/4000",
-      "fNumber": 22,
-      "iso": 8000,
-      "focalLength": 30
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/paris_001-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/paris_001-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/paris_001-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "paris_002.webp",
+    "src": "/images/paris_002.webp",
     "location": "Paris",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/900",
-      "fNumber": 5.6,
-      "iso": 160,
-      "focalLength": 45
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/paris_002-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/paris_002-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/paris_002-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "paris_p_001.webp",
+    "src": "/images/paris_p_001.webp",
     "location": "Paris",
-    "width": 2080,
-    "height": 3120,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/500",
-      "fNumber": 5.6,
-      "iso": 160,
-      "focalLength": 28
-    }
+    "width": 1800,
+    "height": 2700,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/paris_p_001-400w.webp",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "src": "/images/paris_p_001-800w.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/paris_p_001-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      }
+    ]
   },
   {
     "file": "paris_p_002.webp",
+    "src": "/images/paris_p_002.webp",
     "location": "Paris",
-    "width": 2080,
-    "height": 3120,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/1400",
-      "fNumber": 7.1,
-      "iso": 160,
-      "focalLength": 29
-    }
+    "width": 1800,
+    "height": 2700,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/paris_p_002-400w.webp",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "src": "/images/paris_p_002-800w.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/paris_p_002-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      }
+    ]
   },
   {
     "file": "paris_p_003.webp",
+    "src": "/images/paris_p_003.webp",
     "location": "Paris",
-    "width": 2080,
-    "height": 3120,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/950",
-      "fNumber": 5.6,
-      "iso": 160,
-      "focalLength": 27
-    }
+    "width": 1800,
+    "height": 2700,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/paris_p_003-400w.webp",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "src": "/images/paris_p_003-800w.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/paris_p_003-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      }
+    ]
   },
   {
     "file": "vietnam_001.webp",
+    "src": "/images/vietnam_001.webp",
     "location": "Vietnam",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/3800",
-      "fNumber": 11,
-      "iso": 10000,
-      "focalLength": 15
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/vietnam_001-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/vietnam_001-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/vietnam_001-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "vietnam_002.webp",
+    "src": "/images/vietnam_002.webp",
     "location": "Vietnam",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/1800",
-      "fNumber": 7.1,
-      "iso": 10000,
-      "focalLength": 45
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/vietnam_002-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/vietnam_002-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/vietnam_002-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "vietnam_003.webp",
+    "src": "/images/vietnam_003.webp",
     "location": "Vietnam",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/2200",
-      "fNumber": 9,
-      "iso": 10000,
-      "focalLength": 45
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/vietnam_003-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/vietnam_003-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/vietnam_003-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "vietnam_004.webp",
+    "src": "/images/vietnam_004.webp",
     "location": "Vietnam",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/3200",
-      "fNumber": 16,
-      "iso": 10000,
-      "focalLength": 15
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/vietnam_004-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/vietnam_004-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/vietnam_004-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "vietnam_005.webp",
+    "src": "/images/vietnam_005.webp",
     "location": "Vietnam",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/280",
-      "fNumber": 4,
-      "iso": 320,
-      "focalLength": 16
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/vietnam_005-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/vietnam_005-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/vietnam_005-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "vietnam_006.webp",
+    "src": "/images/vietnam_006.webp",
     "location": "Vietnam",
-    "width": 3000,
-    "height": 2000,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/2400",
-      "fNumber": 9,
-      "iso": 640,
-      "focalLength": 16
-    }
+    "width": 1800,
+    "height": 1200,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/vietnam_006-400w.webp",
+        "width": 400,
+        "height": 267
+      },
+      {
+        "src": "/images/vietnam_006-800w.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/vietnam_006-1200w.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
   },
   {
     "file": "vietnam_p_001.webp",
+    "src": "/images/vietnam_p_001.webp",
     "location": "Vietnam",
-    "width": 2080,
-    "height": 3120,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/3500",
-      "fNumber": 13,
-      "iso": 10000,
-      "focalLength": 15
-    }
+    "width": 1800,
+    "height": 2700,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/vietnam_p_001-400w.webp",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "src": "/images/vietnam_p_001-800w.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/vietnam_p_001-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      }
+    ]
   },
   {
     "file": "vietnam_p_002.webp",
+    "src": "/images/vietnam_p_002.webp",
     "location": "Vietnam",
-    "width": 2080,
-    "height": 3120,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/2900",
-      "fNumber": 10,
-      "iso": 10000,
-      "focalLength": 15
-    }
+    "width": 1800,
+    "height": 2700,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/vietnam_p_002-400w.webp",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "src": "/images/vietnam_p_002-800w.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/vietnam_p_002-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      }
+    ]
   },
   {
     "file": "vietnam_p_003.webp",
+    "src": "/images/vietnam_p_003.webp",
     "location": "Vietnam",
-    "width": 3000,
-    "height": 4500,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/3500",
-      "fNumber": 18,
-      "iso": 10000,
-      "focalLength": 45
-    }
+    "width": 1800,
+    "height": 2700,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/vietnam_p_003-400w.webp",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "src": "/images/vietnam_p_003-800w.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/vietnam_p_003-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      }
+    ]
   },
   {
     "file": "vietnam_p_004.webp",
+    "src": "/images/vietnam_p_004.webp",
     "location": "Vietnam",
-    "width": 3000,
-    "height": 4500,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/2500",
-      "fNumber": 7.1,
-      "iso": 640,
-      "focalLength": 18
-    }
+    "width": 1800,
+    "height": 2700,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/vietnam_p_004-400w.webp",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "src": "/images/vietnam_p_004-800w.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/vietnam_p_004-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      }
+    ]
   },
   {
     "file": "vietnam_p_005.webp",
+    "src": "/images/vietnam_p_005.webp",
     "location": "Vietnam",
-    "width": 3000,
-    "height": 4500,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/2000",
-      "fNumber": 9,
-      "iso": 640,
-      "focalLength": 45
-    }
+    "width": 1800,
+    "height": 2700,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/vietnam_p_005-400w.webp",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "src": "/images/vietnam_p_005-800w.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/vietnam_p_005-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      }
+    ]
   },
   {
     "file": "vietnam_p_006.webp",
+    "src": "/images/vietnam_p_006.webp",
     "location": "Vietnam",
-    "width": 3000,
-    "height": 4500,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/2400",
-      "fNumber": 8,
-      "iso": 640,
-      "focalLength": 16
-    }
+    "width": 1800,
+    "height": 2700,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/vietnam_p_006-400w.webp",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "src": "/images/vietnam_p_006-800w.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/vietnam_p_006-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      }
+    ]
   },
   {
     "file": "vietnam_p_007.webp",
+    "src": "/images/vietnam_p_007.webp",
     "location": "Vietnam",
-    "width": 2080,
-    "height": 3120,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/2700",
-      "fNumber": 9,
-      "iso": 640,
-      "focalLength": 15
-    }
-  },
-  {
-    "file": "vietnam_p_008.webp",
-    "location": "Vietnam",
-    "width": 2080,
-    "height": 3120,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/1600",
-      "fNumber": 6.4,
-      "iso": 640,
-      "focalLength": 15
-    }
+    "width": 1800,
+    "height": 2700,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/vietnam_p_007-400w.webp",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "src": "/images/vietnam_p_007-800w.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/vietnam_p_007-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      }
+    ]
   },
   {
     "file": "vietnam_p_009.webp",
+    "src": "/images/vietnam_p_009.webp",
     "location": "Vietnam",
-    "width": 2080,
-    "height": 3120,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "exposureTime": "1/170",
-      "fNumber": 4,
-      "iso": 320,
-      "focalLength": 15
-    }
+    "width": 1800,
+    "height": 2700,
+    "exif": null,
+    "variants": [
+      {
+        "src": "/images/vietnam_p_009-400w.webp",
+        "width": 400,
+        "height": 600
+      },
+      {
+        "src": "/images/vietnam_p_009-800w.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/vietnam_p_009-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      }
+    ]
   }
 ]

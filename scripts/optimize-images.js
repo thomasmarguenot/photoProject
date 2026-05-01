@@ -22,8 +22,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const PICTURES_DIR = join(__dirname, '../src/assets/pictures');
-const MAX_WIDTH = 2000;
-const QUALITY = 100;
+const MAX_WIDTH = 1800; // Photo gallery: 1800px keeps excellent quality
+const QUALITY = 95; // High quality - barely perceptible compression
 
 // Supported image extensions
 const SUPPORTED_EXTENSIONS = [

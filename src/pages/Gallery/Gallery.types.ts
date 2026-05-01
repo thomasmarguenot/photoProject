@@ -7,6 +7,12 @@ export interface ImageExif {
   iso?: number;
 }
 
+export interface ImageVariant {
+  src: string;
+  width: number;
+  height: number;
+}
+
 export interface ImageData {
   src: string;
   alt: string;
@@ -14,6 +20,7 @@ export interface ImageData {
   width?: number;
   height?: number;
   exif?: ImageExif;
+  variants?: ImageVariant[];
 }
 
 export type ImageFormat = 'portrait' | 'landscape' | 'large';

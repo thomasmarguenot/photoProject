@@ -1,27 +1,26 @@
 import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
-import { MasonryPhotoAlbum } from 'react-photo-album';
+import { MasonryPhotoAlbum, type Photo } from 'react-photo-album';
 
 import type { GalleryGridProps } from './GalleryGrid.types';
+import type { ImageVariant } from '../Gallery.types';
 import 'react-photo-album/masonry.css';
 import './GalleryGrid.css';
-
-type PhotoEntry = {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-  gridIndex: number;
-};
 
 type GalleryPhotoProps = {
   imgProps: React.ImgHTMLAttributes<HTMLImageElement>;
   aspectRatio: number;
   src: string;
+  variants?: ImageVariant[];
 };
 
 const loadedSrcs = new Set<string>();
 
-function GalleryPhotoImpl({ imgProps, aspectRatio, src }: GalleryPhotoProps) {
+function GalleryPhotoImpl({
+  imgProps,
+  aspectRatio,
+  src,
+  variants,
+}: GalleryPhotoProps) {
   const wasAlreadyLoaded = loadedSrcs.has(src);
   const [loadedSrc, setLoadedSrc] = useState<string | null>(
     wasAlreadyLoaded ? src : null
@@ -41,7 +40,7 @@ function GalleryPhotoImpl({ imgProps, aspectRatio, src }: GalleryPhotoProps) {
           observer.disconnect();
         }
       },
-      { rootMargin: '400px 0px' }
+      { rootMargin: '800px 0px' }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -59,7 +58,12 @@ function GalleryPhotoImpl({ imgProps, aspectRatio, src }: GalleryPhotoProps) {
     setLoadedSrc(src);
   };
 
-  const { src: propSrc, srcSet, ...restImgProps } = imgProps;
+  const { src: propSrc, srcSet: propSrcSet, ...restImgProps } = imgProps;
+
+  // Build srcSet from responsive variants
+  const srcSet = variants?.length
+    ? variants.map((v) => `${v.src} ${v.width}w`).join(', ')
+    : propSrcSet;
 
   return (
     <div
@@ -79,8 +83,10 @@ function GalleryPhotoImpl({ imgProps, aspectRatio, src }: GalleryPhotoProps) {
           {...restImgProps}
           src={propSrc}
           srcSet={srcSet}
+          sizes="(max-width: 600px) 600px, (max-width: 1200px) 1200px, 1800px"
           ref={handleRef}
           decoding="async"
+          loading="lazy"
           onLoad={handleLoad}
           className={`${imgProps.className ?? ''} gallery-image ${
             isLoaded ? 'gallery-image--loaded' : ''
@@ -102,17 +108,26 @@ export function GalleryGrid({
   selectedIndex,
   isLightboxOpen,
 }: GalleryGridProps) {
-  const photos: PhotoEntry[] = useMemo(
-    () =>
-      images.map((img, idx) => ({
+  // Build photos array and variants map
+  const { photos, variantsMap } = useMemo(() => {
+    const photos: Photo[] = [];
+    const variantsMap = new Map<string, ImageVariant[]>();
+
+    images.forEach((img) => {
+      photos.push({
         src: img.src,
         alt: img.alt,
         width: img.width ?? 1200,
         height: img.height ?? 800,
-        gridIndex: idx,
-      })),
-    [images]
-  );
+      });
+
+      if (img.variants?.length) {
+        variantsMap.set(img.src, img.variants);
+      }
+    });
+
+    return { photos, variantsMap };
+  }, [images]);
 
   return (
     <div
@@ -146,6 +161,7 @@ export function GalleryGrid({
                 imgProps={imgProps}
                 aspectRatio={photo.width / photo.height}
                 src={photo.src}
+                variants={variantsMap.get(photo.src)}
               />
             );
           },

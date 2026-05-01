@@ -1,27 +1,25 @@
 import { useMemo } from 'react';
 
-import manifest from '@/assets/gallery-manifest.json';
+import manifestJson from '@/assets/gallery-manifest.json';
 
-import type { ImageData, ImageExif, Location } from './Gallery.types';
+import type {
+  ImageData,
+  ImageExif,
+  ImageVariant,
+  Location,
+} from './Gallery.types';
 
-const LOCATION_MAP: Record<string, string> = {
-  japon: 'Japon',
-  marseille: 'Marseille',
-  paris: 'Paris',
-  vietnam: 'Vietnam',
-};
+interface ManifestEntry {
+  file: string;
+  src: string;
+  location: string;
+  width: number;
+  height: number;
+  exif?: ImageExif | null;
+  variants?: { src: string; width: number; height: number }[];
+}
 
-const imageModules = import.meta.glob<{ default: string }>(
-  '@/assets/pictures/*.webp',
-  { eager: true }
-);
-
-const srcByFile: Record<string, string> = Object.fromEntries(
-  Object.entries(imageModules).map(([path, mod]) => [
-    path.split('/').pop() ?? '',
-    mod.default,
-  ])
-);
+const manifest = manifestJson as ManifestEntry[];
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -35,17 +33,19 @@ function shuffle<T>(arr: T[]): T[] {
 export function useGalleryImages() {
   const { images, locations } = useMemo(() => {
     const imgs: ImageData[] = shuffle(
-      manifest
-        .filter((entry) => srcByFile[entry.file])
-        .map((entry) => ({
-          src: srcByFile[entry.file],
-          alt: entry.file.replace(/[-_]/g, ' ').replace('.webp', ''),
-          location: (LOCATION_MAP[entry.location.toLowerCase()] ??
-            entry.location) as ImageData['location'],
-          width: entry.width,
-          height: entry.height,
-          exif: (entry as { exif?: ImageExif }).exif,
-        }))
+      manifest.map((entry) => ({
+        src: entry.src,
+        alt: entry.file.replace(/[-_]/g, ' ').replace('.webp', ''),
+        location: entry.location as ImageData['location'],
+        width: entry.width,
+        height: entry.height,
+        exif: entry.exif || undefined,
+        variants: entry.variants?.map((v) => ({
+          src: v.src,
+          width: v.width,
+          height: v.height,
+        })) as ImageVariant[],
+      }))
     );
 
     const uniqueLocations = [...new Set(imgs.map((img) => img.location))];

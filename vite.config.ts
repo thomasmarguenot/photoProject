@@ -25,6 +25,17 @@ export default defineConfig({
       '@/styles': resolve(__dirname, './src/styles'),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'framer-motion': ['framer-motion'],
+          'd3-force': ['d3-force'],
+          'react-photo-album': ['react-photo-album'],
+        },
+      },
+    },
+  },
   server: {
     host: 'localhost',
     port: 5173,
