@@ -1,0 +1,1 @@
+{"type":"failure","description":"Router lazy() expects default export but components use named exports","resolution":"Use .then(m => m.default) in lazy loading import to handle named exports correctly","classification":"tactical","recorded_at":"2026-05-01T13:23:07.750Z","id":"mx-5ac6c4"}
