@@ -81,3 +81,21 @@ export const fadeOpacityVariants: Variants = {
 };
 
 export const staggerContainerVariants = createStaggerContainer();
+
+export const galleryFilterContainerVariants = createStaggerContainer(0.08, 0.1);
+
+export const galleryFilterItemVariants: Variants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: baseTransition },
+};
+
+export const galleryGridContainerVariants = createStaggerContainer(0.06, 0.05);
+
+export const galleryImageItemVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.94 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: ANIMATION.DURATION, ease: EASE_SMOOTH },
+  },
+};

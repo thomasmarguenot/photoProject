@@ -1,5 +1,10 @@
 import { motion } from 'framer-motion';
 
+import {
+  galleryFilterContainerVariants,
+  galleryFilterItemVariants,
+} from '@/utils/animations';
+
 import type { Location } from './Gallery.types';
 import './GalleryFilter.css';
 
@@ -15,14 +20,20 @@ export function GalleryFilter({
   onSelect,
 }: GalleryFilterProps) {
   return (
-    <div className="gallery-filter">
+    <motion.div
+      className="gallery-filter"
+      variants={galleryFilterContainerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       {locations.map((location) => {
         const isActive = selected === location;
         return (
-          <button
+          <motion.button
             key={location}
             className={`gallery-filter-btn${isActive ? ' active' : ''}`}
             onClick={() => onSelect(location)}
+            variants={galleryFilterItemVariants}
           >
             <span className="gallery-filter-label">{location}</span>
             {isActive && (
@@ -32,9 +43,9 @@ export function GalleryFilter({
                 transition={{ type: 'spring', stiffness: 420, damping: 34 }}
               />
             )}
-          </button>
+          </motion.button>
         );
       })}
-    </div>
+    </motion.div>
   );
 }

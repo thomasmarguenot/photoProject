@@ -1,5 +1,10 @@
-import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import { memo, useEffect, useMemo, useRef, useState } from 'react';
+import type React from 'react';
 import { MasonryPhotoAlbum, type Photo } from 'react-photo-album';
+
+import { galleryImageItemVariants } from '@/utils/animations';
+import { ANIMATION } from '@/utils/constants';
 
 import type { GalleryGridProps } from './GalleryGrid.types';
 import type { ImageVariant } from '../Gallery.types';
@@ -11,6 +16,7 @@ type GalleryPhotoProps = {
   aspectRatio: number;
   src: string;
   variants?: ImageVariant[];
+  index: number;
 };
 
 const loadedSrcs = new Set<string>();
@@ -20,6 +26,7 @@ function GalleryPhotoImpl({
   aspectRatio,
   src,
   variants,
+  index,
 }: GalleryPhotoProps) {
   const wasAlreadyLoaded = loadedSrcs.has(src);
   const [loadedSrc, setLoadedSrc] = useState<string | null>(
@@ -60,16 +67,32 @@ function GalleryPhotoImpl({
 
   const { src: propSrc, srcSet: propSrcSet, ...restImgProps } = imgProps;
 
-  // Build srcSet from responsive variants
   const srcSet = variants?.length
     ? variants.map((v) => `${v.src} ${v.width}w`).join(', ')
     : propSrcSet;
 
+  const delay = Math.min(index * 0.05, 0.5);
+
+  const motionVariants = {
+    hidden: galleryImageItemVariants.hidden,
+    visible: {
+      ...galleryImageItemVariants.visible,
+      transition: {
+        duration: ANIMATION.DURATION,
+        ease: ANIMATION.EASING_SMOOTH,
+        delay,
+      },
+    },
+  };
+
   return (
-    <div
+    <motion.div
       ref={wrapperRef}
       className="gallery-photo-wrapper"
       style={{ aspectRatio: `${aspectRatio}` }}
+      variants={motionVariants}
+      initial="hidden"
+      animate="visible"
     >
       <div
         className={`gallery-placeholder-skeleton ${
@@ -93,7 +116,7 @@ function GalleryPhotoImpl({
           }`}
         />
       )}
-    </div>
+    </motion.div>
   );
 }
 
@@ -108,7 +131,6 @@ export function GalleryGrid({
   selectedIndex,
   isLightboxOpen,
 }: GalleryGridProps) {
-  // Build photos array and variants map
   const { photos, variantsMap } = useMemo(() => {
     const photos: Photo[] = [];
     const variantsMap = new Map<string, ImageVariant[]>();
@@ -162,6 +184,7 @@ export function GalleryGrid({
                 aspectRatio={photo.width / photo.height}
                 src={photo.src}
                 variants={variantsMap.get(photo.src)}
+                index={index}
               />
             );
           },
