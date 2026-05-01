@@ -46,8 +46,13 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
       pendingNavigateRef.current?.();
       pendingNavigateRef.current = null;
 
-      // small delay to allow the new route to mount, then hide overlay
-      setTimeout(() => setAnimState(0), 40);
+      // Wait for the new route to mount and paint, then hide overlay
+      // Use multiple rAF to ensure the browser has painted the new route
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setAnimState(0);
+        });
+      });
     }
   }, [animState]);
 
