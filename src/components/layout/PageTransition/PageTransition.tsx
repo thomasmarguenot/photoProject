@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useCallback, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
+import { flushSync } from 'react-dom';
 
 import { ANIMATION, PAGE_ORDER } from '@/utils/constants';
 import './PageTransition.css';
@@ -20,7 +21,7 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
 
       setDirState(dir);
       pendingNavigateRef.current = onNavigate;
-      setAnimState(1);
+      setAnimState(1); // start overlay animation - Page 1 stays visible
     },
     [animState]
   );
@@ -42,21 +43,22 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
 
   const onAnimationComplete = useCallback(() => {
     if (animState === 1) {
-      // covered: perform navigation then hide the overlay
-      pendingNavigateRef.current?.();
-      pendingNavigateRef.current = null;
-
-      // Wait for the new route to mount and paint, then hide overlay
-      // Use multiple rAF to ensure the browser has painted the new route
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          setAnimState(0);
+      // 1. flushSync mounts Page 2 immediately (hidden by blue overlay)
+      if (pendingNavigateRef.current) {
+        flushSync(() => {
+          pendingNavigateRef.current?.();
         });
-      });
+        pendingNavigateRef.current = null;
+      }
+
+      // 2. Keep blue overlay for 60ms, then hide it → Page 2 shows directly
+      setTimeout(() => {
+        setAnimState(0);
+      }, 60);
     }
   }, [animState]);
 
-  const duration = ANIMATION.DURATION;
+  const duration = ANIMATION.DURATION; // Page 1 visible during overlay animation
 
   const overlayVariants = {
     offLeft: { x: '-100%' },

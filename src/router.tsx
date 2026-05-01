@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { Layout } from '@/components/layout/Layout/Layout';
 
-// Lazy load pages
+// Lazy load pages - components have default exports
 const Home = lazy(() => import('@/pages/Home/Home'));
 const About = lazy(() => import('@/pages/About/About'));
 const Gallery = lazy(() => import('@/pages/Gallery/Gallery'));
