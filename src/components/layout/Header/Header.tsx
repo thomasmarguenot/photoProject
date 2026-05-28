@@ -4,6 +4,7 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 import { usePageTransition } from '@/components/layout/PageTransition/PageTransition.context';
 import { useBodyOverflow } from '@/hooks/useBodyOverflow';
+import { preloadRoute } from '@/pages/lazyPages';
 import { ANIMATION, ROUTES } from '@/utils/constants';
 
 import type { HeaderProps, NavItem } from './Header.types';
@@ -35,7 +36,9 @@ export function Header({
       if (to === pathname) return;
       const doNavigate = () => navigate(to);
       if (runTransition && getDirectionBetween) {
-        runTransition(getDirectionBetween(pathname, to), doNavigate);
+        runTransition(getDirectionBetween(pathname, to), doNavigate, () =>
+          preloadRoute(to)
+        );
       } else {
         doNavigate();
       }
@@ -191,6 +194,8 @@ export function Header({
                 ref={(el: HTMLAnchorElement | null) => {
                   linkRefs.current[item.to] = el;
                 }}
+                onMouseEnter={() => preloadRoute(item.to)}
+                onFocus={() => preloadRoute(item.to)}
                 onClick={(e) => handleClick(e)}
               >
                 {item.label}
@@ -254,6 +259,8 @@ export function Header({
                       className={({ isActive }) =>
                         `header-mobile-link${isActive ? ' active' : ''}`
                       }
+                      onMouseEnter={() => preloadRoute(item.to)}
+                      onFocus={() => preloadRoute(item.to)}
                       onClick={(e) => {
                         e.preventDefault();
                         setMobileOpen(false);

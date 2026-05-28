@@ -14,13 +14,22 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
   const [animState, setAnimState] = useState<0 | 1>(0); // 0 idle, 1 cover
   const [dirState, setDirState] = useState<Direction>('ltr');
   const pendingNavigateRef = useRef<(() => void) | null>(null);
+  const pendingPreloadRef = useRef<Promise<unknown> | null>(null);
 
   const runTransition = useCallback(
-    (dir: Direction, onNavigate: () => void) => {
+    (
+      dir: Direction,
+      onNavigate: () => void,
+      preload?: () => Promise<unknown> | void
+    ) => {
       if (animState !== 0) return; // already animating
 
       setDirState(dir);
       pendingNavigateRef.current = onNavigate;
+      // Kick off the lazy chunk download now, while the overlay covers the
+      // screen. We await it before navigating so Page 2 mounts synchronously
+      // under the overlay instead of suspending (which would tear it down).
+      pendingPreloadRef.current = preload?.() ?? null;
       setAnimState(1); // start overlay animation - Page 1 stays visible
     },
     [animState]
@@ -41,21 +50,33 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
     []
   );
 
-  const onAnimationComplete = useCallback(() => {
-    if (animState === 1) {
-      // 1. flushSync mounts Page 2 immediately (hidden by blue overlay)
-      if (pendingNavigateRef.current) {
-        flushSync(() => {
-          pendingNavigateRef.current?.();
-        });
-        pendingNavigateRef.current = null;
-      }
+  const onAnimationComplete = useCallback(async () => {
+    if (animState !== 1) return;
 
-      // 2. Keep blue overlay for 60ms, then hide it → Page 2 shows directly
-      setTimeout(() => {
-        setAnimState(0);
-      }, 60);
+    // 1. Wait for the target page chunk before navigating. If it fails to load,
+    // fall through to navigate anyway so the route's own Suspense/error path
+    // takes over rather than leaving the overlay stuck.
+    if (pendingPreloadRef.current) {
+      try {
+        await pendingPreloadRef.current;
+      } catch {
+        // ignore — navigate() below re-triggers the import via the lazy route
+      }
+      pendingPreloadRef.current = null;
     }
+
+    // 2. flushSync mounts Page 2 immediately (hidden by blue overlay)
+    if (pendingNavigateRef.current) {
+      flushSync(() => {
+        pendingNavigateRef.current?.();
+      });
+      pendingNavigateRef.current = null;
+    }
+
+    // 3. Keep blue overlay for 60ms, then hide it → Page 2 shows directly
+    setTimeout(() => {
+      setAnimState(0);
+    }, 60);
   }, [animState]);
 
   const duration = ANIMATION.DURATION; // Page 1 visible during overlay animation

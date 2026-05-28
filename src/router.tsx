@@ -1,15 +1,14 @@
-import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 import { Layout } from '@/components/layout/Layout/Layout';
-
-// Lazy load pages - components have default exports
-const Home = lazy(() => import('@/pages/Home/Home'));
-const About = lazy(() => import('@/pages/About/About'));
-const Gallery = lazy(() => import('@/pages/Gallery/Gallery'));
-const Charte = lazy(() => import('@/pages/Charte/Charte'));
-const Contact = lazy(() => import('@/pages/Contact/Contact'));
-const NotFound = lazy(() => import('@/pages/NotFound/NotFound'));
+import {
+  About,
+  Charte,
+  Contact,
+  Gallery,
+  Home,
+  NotFound,
+} from '@/pages/lazyPages';
 
 export const router = createBrowserRouter([
   {
