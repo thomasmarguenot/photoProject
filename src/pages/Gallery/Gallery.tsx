@@ -58,6 +58,9 @@ function Gallery() {
   const [selectedLocation, setSelectedLocation] = useState<Location>('Tous');
   const [lightboxImageLoaded, setLightboxImageLoaded] = useState(false);
   const { setHidden } = useHeader();
+  const lightboxRef = useRef<HTMLDivElement>(null);
+  const lastFocusedRef = useRef<HTMLElement | null>(null);
+  const isLightboxOpen = selectedIndex !== null;
 
   useBodyOverflow(selectedIndex !== null);
 
@@ -69,6 +72,14 @@ function Gallery() {
   useEffect(() => {
     setHidden(selectedIndex !== null);
   }, [selectedIndex, setHidden]);
+
+  // Move focus into the dialog on open and restore it to the trigger on close.
+  useEffect(() => {
+    if (!isLightboxOpen) return;
+    lastFocusedRef.current = document.activeElement as HTMLElement | null;
+    lightboxRef.current?.focus();
+    return () => lastFocusedRef.current?.focus?.();
+  }, [isLightboxOpen]);
 
   // Preload prev and next images so navigation feels instant.
   useEffect(() => {
@@ -130,6 +141,22 @@ function Gallery() {
           prev !== null ? (prev + 1) % filteredImages.length : null
         );
       }
+      if (e.key === 'Tab') {
+        const root = lightboxRef.current;
+        if (!root) return;
+        const focusables = root.querySelectorAll<HTMLElement>('button');
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        const active = document.activeElement;
+        if (e.shiftKey && (active === first || active === root)) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && active === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -179,7 +206,15 @@ function Gallery() {
 
         <AnimatePresence>
           {selectedImage && (
-            <div className="gallery-lightbox" onClick={handleClose}>
+            <div
+              className="gallery-lightbox"
+              onClick={handleClose}
+              ref={lightboxRef}
+              role="dialog"
+              aria-modal="true"
+              aria-label={`Photo : ${selectedImage.location}`}
+              tabIndex={-1}
+            >
               <div
                 className="gallery-lightbox-frame"
                 onClick={(e) => e.stopPropagation()}
