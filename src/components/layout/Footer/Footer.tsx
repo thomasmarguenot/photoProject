@@ -1,11 +1,12 @@
-import React from 'react';
-
 import { useIsMobile } from '@/hooks/useIsMobile';
 
 import type { FooterProps } from './Footer.types';
 import './Footer.css';
 
-export const Footer = (() => {
+export function Footer({
+  year = new Date().getFullYear(),
+  companyName = 'Agence Belle Époque',
+}: FooterProps) {
   const isMobile = useIsMobile();
 
   return (
@@ -15,9 +16,9 @@ export const Footer = (() => {
         <p
           className={`footer-text ${!isMobile ? 'footer-text--animated' : ''}`}
         >
-          © {new Date().getFullYear()} Thomas Marguenot - Agence Belle Époque.
+          © {year} Thomas Marguenot - {companyName}.
         </p>
       </div>
     </footer>
   );
-}) as React.FC<FooterProps>;
+}
