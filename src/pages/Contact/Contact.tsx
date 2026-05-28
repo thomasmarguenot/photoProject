@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 
+import { Seo } from '@/components/common/Seo/Seo';
 import {
   AnimatedHeading,
   AnimatedText,
@@ -43,6 +44,11 @@ const contacts = [
 export function Contact() {
   return (
     <div className="contact">
+      <Seo
+        title="Contact — Thomas Marguenot"
+        description="Disponible pour des missions freelance React à Paris (remote possible). Contactez Thomas Marguenot pour renforcer votre équipe ou démarrer un projet."
+        path="/contact"
+      />
       <motion.div
         className="contact-inner"
         variants={pageStagger}

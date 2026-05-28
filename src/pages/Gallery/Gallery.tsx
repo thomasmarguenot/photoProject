@@ -8,6 +8,7 @@ import {
   useRef,
 } from 'react';
 
+import { Seo } from '@/components/common/Seo/Seo';
 import { useHeader } from '@/context/Header.context';
 import { useBodyOverflow } from '@/hooks/useBodyOverflow';
 import { fadeUpVariants } from '@/utils/animations';
@@ -155,9 +156,18 @@ function Gallery() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedIndex, handleClose, handlePrev, handleNext]);
 
+  const seo = (
+    <Seo
+      title="Galerie — Thomas Marguenot"
+      description="Une sélection de photographies de voyage — Japon, Vietnam, Paris, Marseille. Le regard photographique de Thomas Marguenot, développeur et photographe."
+      path="/gallery"
+    />
+  );
+
   if (isLoading || images.length === 0) {
     return (
       <motion.div initial="hidden" animate="visible" variants={fadeUpVariants}>
+        {seo}
         <div className="gallery">
           <div className="gallery-container">
             <div className="gallery-empty">
@@ -174,6 +184,7 @@ function Gallery() {
 
   return (
     <motion.div initial="hidden" animate="visible" variants={fadeUpVariants}>
+      {seo}
       <div className="gallery">
         <div className="gallery-container">
           <motion.div

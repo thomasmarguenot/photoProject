@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Seo } from '@/components/common/Seo/Seo';
 
 import type {
   ButtonExampleProps,
@@ -9,17 +9,6 @@ import type {
 import './Charte.css';
 
 export function Charte() {
-  // Internal design-system reference: keep it reachable but out of search results.
-  useEffect(() => {
-    const meta = document.createElement('meta');
-    meta.name = 'robots';
-    meta.content = 'noindex';
-    document.head.appendChild(meta);
-    return () => {
-      document.head.removeChild(meta);
-    };
-  }, []);
-
   const colors: ColorCardProps[] = [
     {
       name: 'Primary',
@@ -174,6 +163,7 @@ export function Charte() {
 
   return (
     <div className="charte-page">
+      <Seo title="Charte graphique — Thomas Marguenot" noindex />
       <div className="charte-container">
         {/* Hero Section */}
         <div className="charte-hero">

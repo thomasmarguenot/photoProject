@@ -1,3 +1,5 @@
+export const SITE_URL = 'https://thomasmarguenot.fr';
+
 export const ANIMATION = {
   /** Standard duration for most transitions (0.6s) */
   DURATION: 0.6,

@@ -7,6 +7,7 @@ import {
 import { useEffect } from 'react';
 
 import photo from '@/assets/about/thomas-marguenot.webp';
+import { Seo } from '@/components/common/Seo/Seo';
 import {
   AnimatedHeading,
   AnimatedText,
@@ -104,6 +105,11 @@ export function About() {
       className="about"
       style={{ backgroundColor: bgColor, color: fgColor }}
     >
+      <Seo
+        title="À propos — Thomas Marguenot"
+        description="15 ans de développement web et mobile : MyCanal, Quotatis, Rolex. Parcours, stack technique React / React Native et passions de Thomas Marguenot."
+        path="/about"
+      />
       {/* ── Hero ── */}
       <motion.div
         className="about-hero"

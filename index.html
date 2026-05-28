@@ -40,13 +40,12 @@
       />
     </noscript>
     
-    <title>Thomas Marguenot - Développeur React, React Native sur Paris.</title>
-    <meta
-      name="description"
-      content="Thomas Marguenot — Développeur JS Full-Stack freelance à Paris, spécialisé React et React Native. 15 ans d'expérience (MyCanal, Quotatis, Rolex). Disponible pour vos projets web et mobiles."
-    />
+    <!-- Per-route <title>, description and canonical are rendered by React 19
+         (see src/components/common/Seo). A static <title> is intentionally
+         omitted: a duplicate would win over React's (browsers use the first).
+         Kept here: social/OG defaults, which JS-less scrapers (LinkedIn,
+         Facebook) read straight from the static HTML. -->
     <meta name="theme-color" content="#111111" />
-    <link rel="canonical" href="https://thomasmarguenot.fr/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
