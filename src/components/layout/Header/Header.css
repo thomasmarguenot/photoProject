@@ -26,11 +26,15 @@ body.lightbox-open .header {
 }
 
 .header-container {
-  @apply px-6 py-5 flex items-center;
+  @apply px-6 py-5 flex items-center justify-between w-full;
 }
 
 .header-logo {
-  @apply flex items-center min-w-[220px] lg:min-w-[240px];
+  @apply flex items-center shrink-0 min-w-[220px] lg:min-w-[240px];
+}
+
+.header-burger-wrapper {
+  @apply flex shrink-0;
 }
 
 @media (max-width: 1023px) {
@@ -164,6 +168,10 @@ body.lightbox-open .header {
     justify-content: flex-start;
     flex: 0 0 auto;
     gap: 3rem;
+  }
+
+  .header-burger-wrapper {
+    display: none;
   }
 }
 

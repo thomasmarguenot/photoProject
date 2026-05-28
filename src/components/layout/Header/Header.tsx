@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useRef, useState, MouseEvent } from 'react';
+import { useCallback, useEffect, useRef, useState, MouseEvent } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 import { usePageTransition } from '@/components/layout/PageTransition/PageTransition.context';
@@ -29,6 +29,19 @@ export function Header({
   const navigate = useNavigate();
   const { runTransition, getDirectionBetween } = usePageTransition();
   const initialPositioned = useRef<boolean>(false);
+
+  const navigateWithTransition = useCallback(
+    (to: string) => {
+      if (to === pathname) return;
+      const doNavigate = () => navigate(to);
+      if (runTransition && getDirectionBetween) {
+        runTransition(getDirectionBetween(pathname, to), doNavigate);
+      } else {
+        doNavigate();
+      }
+    },
+    [pathname, navigate, runTransition, getDirectionBetween]
+  );
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hoveringTitle, setHoveringTitle] = useState(false);
   const [titleAnimationFinished, setTitleAnimationFinished] = useState(false);
@@ -119,9 +132,9 @@ export function Header({
         ease: ANIMATION.EASING,
       }}
     >
-      <div className="header-container flex items-center justify-between w-full">
+      <div className="header-container">
         {/* Logo left */}
-        <div className="header-logo flex-shrink-0">
+        <div className="header-logo">
           <div
             className="header-title-wrapper"
             aria-hidden="false"
@@ -149,7 +162,7 @@ export function Header({
         </div>
         {/* Desktop nav center (hidden on mobile) */}
         <nav
-          className="header-nav hidden lg:flex"
+          className="header-nav"
           ref={(r) => {
             navRef.current = r;
           }}
@@ -165,14 +178,7 @@ export function Header({
               if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1)
                 return;
               e.preventDefault();
-              if (item.to === pathname) return;
-              const doNavigate = () => navigate(item.to);
-              if (runTransition && getDirectionBetween) {
-                const dir = getDirectionBetween(pathname, item.to);
-                runTransition(dir, doNavigate);
-              } else {
-                doNavigate();
-              }
+              navigateWithTransition(item.to);
             };
             return (
               <NavLink
@@ -192,7 +198,7 @@ export function Header({
             );
           })}
         </nav>
-        <div className="flex lg:hidden flex-shrink-0">
+        <div className="header-burger-wrapper">
           <button
             className={`header-burger${mobileOpen ? ' open' : ''}`}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
@@ -251,14 +257,7 @@ export function Header({
                       onClick={(e) => {
                         e.preventDefault();
                         setMobileOpen(false);
-                        if (item.to === pathname) return;
-                        const doNavigate = () => navigate(item.to);
-                        if (runTransition && getDirectionBetween) {
-                          const dir = getDirectionBetween(pathname, item.to);
-                          runTransition(dir, doNavigate);
-                        } else {
-                          doNavigate();
-                        }
+                        navigateWithTransition(item.to);
                       }}
                     >
                       {item.label}
