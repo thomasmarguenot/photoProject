@@ -62,6 +62,7 @@ export function ProjectRow({
         type="button"
         className="project-row-trigger"
         aria-expanded={isOpen}
+        onClick={isOpen ? onClose : onOpen}
         variants={fadeUpVariants30}
       >
         <span className="project-row-num">{num}</span>
