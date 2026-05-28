@@ -43,14 +43,20 @@ export function Header({
   }, []);
 
   useEffect(() => {
-    if (window.innerWidth < 1024) return;
     const updateIndicator = () => {
-      const activeItem =
-        NAV_ITEMS.find((i) => i.to === pathname) || NAV_ITEMS[0];
-      const el = linkRefs.current[activeItem.to];
       const navEl = navRef.current;
       const indicatorEl = indicatorRef.current;
       if (!navEl || !indicatorEl) return;
+      // Desktop-only nav: below 1024px the links are display:none, so bail and
+      // reset the snap flag so re-entering desktop positions without sliding.
+      if (window.innerWidth < 1024) {
+        indicatorEl.style.opacity = '0';
+        initialPositioned.current = false;
+        return;
+      }
+      const activeItem =
+        NAV_ITEMS.find((i) => i.to === pathname) || NAV_ITEMS[0];
+      const el = linkRefs.current[activeItem.to];
       if (!el) {
         indicatorEl.style.opacity = '0';
         return;
