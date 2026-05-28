@@ -88,7 +88,8 @@ export function TechGraph() {
     return { nodes, links };
   }, []);
 
-  const [, force] = useState(0);
+  const nodeEls = useRef(new Map<string, SVGGElement>());
+  const linkEls = useRef<(SVGPathElement | null)[]>([]);
   const simRef = useRef<ReturnType<typeof forceSimulation<TechNode>> | null>(
     null
   );
@@ -112,7 +113,23 @@ export function TechGraph() {
       .force('x', forceX(WIDTH / 2).strength(0.07))
       .force('y', forceY(HEIGHT / 2).strength(0.1))
       .alphaDecay(0.025)
-      .on('tick', () => force((n) => n + 1));
+      // Mutate the SVG directly on each tick instead of triggering a React
+      // re-render of every node/link — keeps the simulation cheap.
+      .on('tick', () => {
+        data.nodes.forEach((n) => {
+          const el = nodeEls.current.get(n.id);
+          if (el)
+            el.setAttribute('transform', `translate(${n.x ?? 0}, ${n.y ?? 0})`);
+        });
+        data.links.forEach((l, i) => {
+          const el = linkEls.current[i];
+          if (el)
+            el.setAttribute(
+              'd',
+              buildCurve(l.source as TechNode, l.target as TechNode)
+            );
+        });
+      });
 
     simRef.current = sim;
     return () => {
@@ -158,6 +175,9 @@ export function TechGraph() {
             return (
               <path
                 key={i}
+                ref={(el) => {
+                  linkEls.current[i] = el;
+                }}
                 d={buildCurve(s, t)}
                 className={`tech-link ${dim ? 'is-dim' : ''} ${active ? 'is-active' : ''}`}
               />
@@ -173,6 +193,9 @@ export function TechGraph() {
             return (
               <g
                 key={node.id}
+                ref={(el) => {
+                  if (el) nodeEls.current.set(node.id, el);
+                }}
                 transform={`translate(${node.x ?? 0}, ${node.y ?? 0})`}
                 className={`tech-node tech-node--${node.category} ${dim ? 'is-dim' : ''} ${isHovered ? 'is-hovered' : ''} ${isHub ? 'is-hub' : ''}`}
                 onMouseEnter={() => setHovered(node.id)}
