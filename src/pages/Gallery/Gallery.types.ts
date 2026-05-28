@@ -23,6 +23,4 @@ export interface ImageData {
   variants?: ImageVariant[];
 }
 
-export type ImageFormat = 'portrait' | 'landscape' | 'large';
-
 export type Location = 'Japon' | 'Marseille' | 'Paris' | 'Vietnam' | 'Tous';

@@ -1,8 +1,3 @@
-export const APP_NAME = 'PhotoProject';
-export const APP_VERSION = '0.0.0';
-
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
-
 export const ANIMATION = {
   /** Standard duration for most transitions (0.6s) */
   DURATION: 0.6,
@@ -46,8 +41,6 @@ export const ANIMATION = {
     SM: 18,
     MD: 30,
   },
-  /** Border-radius preserved through clip-path reveals */
-  REVEAL_RADIUS: 24,
   /** Logo marquee loop duration (s) — lower = faster */
   MARQUEE_DURATION: 100,
 } as const;
@@ -69,47 +62,6 @@ export const TRANSITION = {
   },
   /** Spring for staggered list items */
   SPRING: ANIMATION.SPRING,
-} as const;
-
-/** Reusable Framer Motion initial/animate pairs */
-export const MOTION = {
-  FADE_UP: {
-    initial: { opacity: 0, y: 30 },
-    animate: { opacity: 1, y: 0 },
-  },
-  FADE_IN: {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-  },
-  /** Variable-font weight animation (400 → 900, hover → 100) */
-  FONT_WEIGHT: {
-    initial: {
-      fontVariationSettings: '"wght" 400',
-      fontStyle: 'normal' as const,
-    },
-    animate: {
-      fontVariationSettings: '"wght" 900',
-      fontStyle: 'normal' as const,
-    },
-    whileHover: {
-      fontVariationSettings: '"wght" 100',
-      fontStyle: 'normal' as const,
-    },
-  },
-} as const;
-
-export const TECH_GRAPH_COLORS = {
-  FRONTEND: '#7CC3FF',
-  MOBILE: '#FFB62E',
-  BACKEND: '#4164FF',
-  TOOLING: '#FE6237',
-} as const;
-
-export const TECH_GRAPH_COLORS_HOVER = {
-  FRONTEND: '#B0DDFF',
-  MOBILE: '#FFD470',
-  BACKEND: '#7A9EFF',
-  TOOLING: '#FF8C5F',
 } as const;
 
 export const ROUTES = {

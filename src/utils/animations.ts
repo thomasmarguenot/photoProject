@@ -19,33 +19,6 @@ export const slowTransition: Transition = {
   ease: EASE_DEFAULT,
 };
 
-export const revealTransition: Transition = {
-  duration: ANIMATION.DURATION_REVEAL,
-  ease: EASE_REVEAL,
-};
-
-/**
- * Factory: clip-path reveal. No delay baked in — sequencing is a parent/stagger
- * concern so the variant stays reusable in any context.
- */
-export const createClipRevealVariants = (
-  direction: 'left' | 'right' = 'left',
-  radius: number = ANIMATION.REVEAL_RADIUS
-): Variants => {
-  const hidden =
-    direction === 'right'
-      ? { clipPath: `inset(0 0 0 100% round ${radius}px)` }
-      : { clipPath: `inset(0 100% 0 0 round ${radius}px)` };
-
-  return {
-    hidden,
-    visible: {
-      clipPath: `inset(0 0% 0 0% round ${radius}px)`,
-      transition: revealTransition,
-    },
-  };
-};
-
 /** Factory: fade + translateY. Distance configurable; no built-in delay. */
 export const createFadeUpVariants = (
   distance: number = ANIMATION.OFFSET.SM,
@@ -65,9 +38,6 @@ export const createStaggerContainer = (
 });
 
 /* ——— Named presets (thin wrappers around the factories) ——— */
-
-export const imageRevealVariants = createClipRevealVariants('left');
-export const imageRevealVariantsRight = createClipRevealVariants('right');
 
 export const fadeUpVariants = createFadeUpVariants(ANIMATION.OFFSET.SM);
 export const fadeUpVariants30 = createFadeUpVariants(
