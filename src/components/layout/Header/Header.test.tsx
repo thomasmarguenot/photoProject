@@ -13,7 +13,7 @@ describe('Header', () => {
   it('should render with default title', () => {
     renderWithRouter(<Header />);
 
-    const titles = screen.getAllByText('とーます・まるぐの');
+    const titles = screen.getAllByText('Thomas Marguenot');
     expect(titles.length).toBeGreaterThan(0);
   });
 

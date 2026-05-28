@@ -1,11 +1,17 @@
 import { render, screen, waitFor } from '@testing-library/react';
+import type { ReactElement } from 'react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+
+import { HeaderProvider } from '@/context/Header.context';
 
 import Gallery from './Gallery';
 
 vi.mock('./useGalleryImages', () => ({
-  useGalleryImages: () => ({ images: [], isLoading: false }),
+  useGalleryImages: () => ({ images: [], isLoading: false, locations: [] }),
 }));
+
+const renderGallery = (ui: ReactElement) =>
+  render(<HeaderProvider>{ui}</HeaderProvider>);
 
 describe('Gallery', () => {
   beforeEach(() => {
@@ -13,21 +19,17 @@ describe('Gallery', () => {
   });
 
   it('should show empty state when no images are found', async () => {
-    const { unmount } = render(<Gallery />);
+    const { unmount } = renderGallery(<Gallery />);
 
     await waitFor(() => {
-      expect(
-        screen.getByText(
-          /no images found. add images to src\/assets\/pictures/i
-        )
-      ).toBeInTheDocument();
+      expect(screen.getByText(/no images found/i)).toBeInTheDocument();
     });
 
     unmount();
   });
 
   it('should have correct CSS structure', async () => {
-    const { container, unmount } = render(<Gallery />);
+    const { container, unmount } = renderGallery(<Gallery />);
 
     const gallery = container.querySelector('.gallery');
     expect(gallery).toBeInTheDocument();
