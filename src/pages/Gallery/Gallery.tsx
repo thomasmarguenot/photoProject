@@ -1,5 +1,12 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
+import {
+  useCallback,
+  useState,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+} from 'react';
 
 import { useHeader } from '@/context/Header.context';
 import { useBodyOverflow } from '@/hooks/useBodyOverflow';
@@ -99,48 +106,33 @@ function Gallery() {
     setSelectedIndex(index);
   };
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setLightboxImageLoaded(false);
     setSelectedIndex(null);
-  };
+  }, []);
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setLightboxImageLoaded(false);
     setSelectedIndex((prev) =>
       prev !== null
         ? (prev - 1 + filteredImages.length) % filteredImages.length
         : null
     );
-  };
+  }, [filteredImages.length]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setLightboxImageLoaded(false);
     setSelectedIndex((prev) =>
       prev !== null ? (prev + 1) % filteredImages.length : null
     );
-  };
+  }, [filteredImages.length]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedIndex === null) return;
-      if (e.key === 'Escape') {
-        setLightboxImageLoaded(false);
-        setSelectedIndex(null);
-      }
-      if (e.key === 'ArrowLeft') {
-        setLightboxImageLoaded(false);
-        setSelectedIndex((prev) =>
-          prev !== null
-            ? (prev - 1 + filteredImages.length) % filteredImages.length
-            : null
-        );
-      }
-      if (e.key === 'ArrowRight') {
-        setLightboxImageLoaded(false);
-        setSelectedIndex((prev) =>
-          prev !== null ? (prev + 1) % filteredImages.length : null
-        );
-      }
+      if (e.key === 'Escape') handleClose();
+      if (e.key === 'ArrowLeft') handlePrev();
+      if (e.key === 'ArrowRight') handleNext();
       if (e.key === 'Tab') {
         const root = lightboxRef.current;
         if (!root) return;
@@ -161,7 +153,7 @@ function Gallery() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedIndex, filteredImages.length]);
+  }, [selectedIndex, handleClose, handlePrev, handleNext]);
 
   if (isLoading || images.length === 0) {
     return (
