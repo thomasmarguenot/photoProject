@@ -1,17 +1,19 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import {
-  useCallback,
-  useState,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-} from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
+import { useCallback, useState, useEffect, useMemo, useRef } from 'react';
+import { createPortal } from 'react-dom';
 
 import { Seo } from '@/components/common/Seo/Seo';
 import { useHeader } from '@/context/Header.context';
 import { useBodyOverflow } from '@/hooks/useBodyOverflow';
-import { fadeUpVariants } from '@/utils/animations';
+import {
+  fadeUpVariants,
+  galleryFilterSwapVariants,
+  lightboxBackdropVariants,
+  lightboxChromeVariants,
+  lightboxSlideVariants,
+  lightboxSlideVariantsReduced,
+} from '@/utils/animations';
 
 import type { ImageData, Location } from './Gallery.types';
 import { GalleryFilter } from './GalleryFilter';
@@ -19,44 +21,74 @@ import { GalleryGrid } from './GalleryGrid/GalleryGrid';
 import { useGalleryImages } from './useGalleryImages';
 import './Gallery.css';
 
-// Isolated component so isLoaded state resets on key change (new src).
-// useLayoutEffect checks img.complete before the browser paints, avoiding
-// the one-frame opacity:0 blink for already-cached images.
-function LightboxImage({
+// One slide = the photo currently shown + its metadata, sized to the image so
+// the rotated location label hugs it. Keyed by src inside AnimatePresence so
+// prev/next produces a directional slide and open/close a centered zoom.
+function LightboxSlide({
   image,
-  layoutId,
-  onLoaded,
+  direction,
+  variants,
 }: {
   image: ImageData;
-  layoutId?: string;
-  onLoaded?: () => void;
+  direction: number;
+  variants: Variants;
 }) {
-  const imgRef = useRef<HTMLImageElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  useLayoutEffect(() => {
-    const el = imgRef.current;
-    if (el?.complete && el.naturalWidth > 0) {
-      setIsLoaded(true);
-      onLoaded?.();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // Ref callback fires at commit: catch already-cached images (the clicked
+  // photo is almost always in the grid cache) to skip the opacity:0 blink.
+  const handleRef = (el: HTMLImageElement | null) => {
+    if (el?.complete && el.naturalWidth > 0 && !isLoaded) setIsLoaded(true);
+  };
+
+  const { exif } = image;
 
   return (
-    <motion.img
-      ref={imgRef}
-      layoutId={layoutId}
-      src={image.src}
-      alt={image.alt}
-      className="gallery-lightbox-image"
-      style={{ opacity: isLoaded ? 1 : 0, transition: 'opacity 0.6s ease' }}
-      onLoad={() => {
-        setIsLoaded(true);
-        onLoaded?.();
-      }}
-      transition={{ type: 'tween', duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-    />
+    <motion.div
+      className="gallery-lightbox-slide"
+      custom={direction}
+      variants={variants}
+      initial="enter"
+      animate="center"
+      exit="exit"
+    >
+      <div className="gallery-lightbox-figure">
+        <img
+          ref={handleRef}
+          src={image.src}
+          alt={image.alt}
+          className="gallery-lightbox-image"
+          onLoad={() => setIsLoaded(true)}
+          draggable={false}
+        />
+        <div
+          className={`gallery-lightbox-meta${isLoaded ? ' gallery-lightbox-meta--visible' : ''}`}
+        >
+          <span className="gallery-lightbox-location">{image.location}</span>
+          {exif && (
+            <>
+              {(exif.make || exif.model) && (
+                <span className="gallery-lightbox-exif">
+                  {[exif.make, exif.model].filter(Boolean).join(' ')}
+                </span>
+              )}
+              {exif.focalLength !== undefined && (
+                <span className="gallery-lightbox-exif">{`${exif.focalLength}mm`}</span>
+              )}
+              {exif.fNumber !== undefined && (
+                <span className="gallery-lightbox-exif">{`f/${exif.fNumber}`}</span>
+              )}
+              {exif.exposureTime && (
+                <span className="gallery-lightbox-exif">{`${exif.exposureTime}s`}</span>
+              )}
+              {exif.iso !== undefined && (
+                <span className="gallery-lightbox-exif">{`ISO ${exif.iso}`}</span>
+              )}
+            </>
+          )}
+        </div>
+      </div>
+    </motion.div>
   );
 }
 
@@ -64,11 +96,12 @@ function Gallery() {
   const { images, isLoading, locations } = useGalleryImages();
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<Location>('Tous');
-  const [lightboxImageLoaded, setLightboxImageLoaded] = useState(false);
+  const [direction, setDirection] = useState(0);
   const { setHidden } = useHeader();
   const lightboxRef = useRef<HTMLDivElement>(null);
   const lastFocusedRef = useRef<HTMLElement | null>(null);
   const isLightboxOpen = selectedIndex !== null;
+  const prefersReducedMotion = useReducedMotion() ?? false;
 
   useBodyOverflow(selectedIndex !== null);
 
@@ -103,17 +136,17 @@ function Gallery() {
   }, [selectedIndex, filteredImages]);
 
   const handleImageClick = (index: number) => {
-    setLightboxImageLoaded(false);
+    setDirection(0);
     setSelectedIndex(index);
   };
 
   const handleClose = useCallback(() => {
-    setLightboxImageLoaded(false);
+    setDirection(0);
     setSelectedIndex(null);
   }, []);
 
   const handlePrev = useCallback(() => {
-    setLightboxImageLoaded(false);
+    setDirection(-1);
     setSelectedIndex((prev) =>
       prev !== null
         ? (prev - 1 + filteredImages.length) % filteredImages.length
@@ -122,7 +155,7 @@ function Gallery() {
   }, [filteredImages.length]);
 
   const handleNext = useCallback(() => {
-    setLightboxImageLoaded(false);
+    setDirection(1);
     setSelectedIndex((prev) =>
       prev !== null ? (prev + 1) % filteredImages.length : null
     );
@@ -181,6 +214,10 @@ function Gallery() {
 
   const selectedImage =
     selectedIndex !== null ? filteredImages[selectedIndex] : null;
+  const slideDirection = prefersReducedMotion ? 0 : direction;
+  const slideVariants = prefersReducedMotion
+    ? lightboxSlideVariantsReduced
+    : lightboxSlideVariants;
 
   return (
     <motion.div initial="hidden" animate="visible" variants={fadeUpVariants}>
@@ -199,18 +236,35 @@ function Gallery() {
             />
           </motion.div>
 
-          <GalleryGrid
-            images={filteredImages}
-            onImageClick={handleImageClick}
-            selectedIndex={selectedIndex}
-            isLightboxOpen={selectedIndex !== null}
-          />
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={selectedLocation}
+              variants={galleryFilterSwapVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
+              <GalleryGrid
+                images={filteredImages}
+                onImageClick={handleImageClick}
+                isLightboxOpen={selectedIndex !== null}
+                reducedMotion={prefersReducedMotion}
+              />
+            </motion.div>
+          </AnimatePresence>
         </div>
+      </div>
 
+      {createPortal(
         <AnimatePresence>
-          {selectedImage && (
-            <div
+          {selectedImage && selectedIndex !== null && (
+            <motion.div
+              key="lightbox"
               className="gallery-lightbox"
+              variants={lightboxBackdropVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
               onClick={handleClose}
               ref={lightboxRef}
               role="dialog"
@@ -219,63 +273,51 @@ function Gallery() {
               tabIndex={-1}
             >
               <div
-                className="gallery-lightbox-frame"
+                className="gallery-lightbox-stage"
                 onClick={(e) => e.stopPropagation()}
               >
-                <LightboxImage
-                  key={selectedImage.src}
-                  image={selectedImage}
-                  onLoaded={() => setLightboxImageLoaded(true)}
-                />
-                <div
-                  className={`gallery-lightbox-meta${lightboxImageLoaded ? ' gallery-lightbox-meta--visible' : ''}`}
-                >
-                  <span className="gallery-lightbox-location">
-                    {selectedImage.location}
-                  </span>
-                  {selectedImage.exif && (
-                    <>
-                      {(selectedImage.exif.make ||
-                        selectedImage.exif.model) && (
-                        <span className="gallery-lightbox-exif">
-                          {[selectedImage.exif.make, selectedImage.exif.model]
-                            .filter(Boolean)
-                            .join(' ')}
-                        </span>
-                      )}
-                      {selectedImage.exif.focalLength !== undefined && (
-                        <span className="gallery-lightbox-exif">
-                          {`${selectedImage.exif.focalLength}mm`}
-                        </span>
-                      )}
-                      {selectedImage.exif.fNumber !== undefined && (
-                        <span className="gallery-lightbox-exif">
-                          {`f/${selectedImage.exif.fNumber}`}
-                        </span>
-                      )}
-                      {selectedImage.exif.exposureTime && (
-                        <span className="gallery-lightbox-exif">
-                          {`${selectedImage.exif.exposureTime}s`}
-                        </span>
-                      )}
-                      {selectedImage.exif.iso !== undefined && (
-                        <span className="gallery-lightbox-exif">
-                          {`ISO ${selectedImage.exif.iso}`}
-                        </span>
-                      )}
-                    </>
-                  )}
-                </div>
+                <AnimatePresence custom={slideDirection} initial={false}>
+                  <LightboxSlide
+                    key={selectedImage.src}
+                    image={selectedImage}
+                    direction={slideDirection}
+                    variants={slideVariants}
+                  />
+                </AnimatePresence>
               </div>
-              <button
+
+              <motion.span
+                className="gallery-lightbox-counter"
+                variants={lightboxChromeVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                {String(selectedIndex + 1).padStart(2, '0')}
+                <span className="gallery-lightbox-counter-sep">/</span>
+                {String(filteredImages.length).padStart(2, '0')}
+              </motion.span>
+
+              <motion.button
                 className="gallery-close"
-                onClick={handleClose}
+                variants={lightboxChromeVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleClose();
+                }}
                 aria-label="Close"
               >
                 ×
-              </button>
-              <button
+              </motion.button>
+              <motion.button
                 className="gallery-nav gallery-nav--prev"
+                variants={lightboxChromeVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
                 onClick={(e) => {
                   e.stopPropagation();
                   handlePrev();
@@ -283,9 +325,13 @@ function Gallery() {
                 aria-label="Previous photo"
               >
                 ‹
-              </button>
-              <button
+              </motion.button>
+              <motion.button
                 className="gallery-nav gallery-nav--next"
+                variants={lightboxChromeVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
                 onClick={(e) => {
                   e.stopPropagation();
                   handleNext();
@@ -293,11 +339,12 @@ function Gallery() {
                 aria-label="Next photo"
               >
                 ›
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           )}
-        </AnimatePresence>
-      </div>
+        </AnimatePresence>,
+        document.body
+      )}
     </motion.div>
   );
 }

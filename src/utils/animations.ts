@@ -69,3 +69,87 @@ export const galleryImageItemVariants: Variants = {
     transition: { duration: ANIMATION.DURATION, ease: EASE_SMOOTH },
   },
 };
+
+/** Per-item reveal driven by scroll (whileInView). Opacity + scale only —
+ *  vertical motion is owned by the parallax MotionValue on the same element. */
+export const galleryRevealVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.97 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: ANIMATION.DURATION_SLOW, ease: EASE_SMOOTH },
+  },
+};
+
+/** Crossfade for the whole grid when the active filter changes — masks the
+ *  per-item reveal so a category swap reads as one deliberate transition
+ *  instead of a blink. */
+export const galleryFilterSwapVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: ANIMATION.DURATION_FAST, ease: EASE_SMOOTH },
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.15, ease: EASE_SMOOTH },
+  },
+};
+
+/** Lightbox backdrop fade (the blurred layer behind the photo). */
+export const lightboxBackdropVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.4, ease: EASE_DEFAULT } },
+  exit: { opacity: 0, transition: { duration: 0.3, ease: EASE_DEFAULT } },
+};
+
+/** Full-stage slide for the lightbox. `custom` is the direction:
+ *  +1 next, -1 prev → opaque cover-slide (no opacity dip → no blink);
+ *  0 open/close → centered zoom. The incoming slide stays at z-index 2 and
+ *  fully opaque so it always covers the centre — only the outgoing one fades. */
+export const lightboxSlideVariants: Variants = {
+  enter: (direction: number) =>
+    direction === 0
+      ? { opacity: 0, x: 0, scale: 0.92, zIndex: 2 }
+      : { opacity: 1, x: direction * 180, scale: 1, zIndex: 2 },
+  center: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    zIndex: 2,
+    transition: { duration: ANIMATION.DURATION, ease: EASE_SMOOTH },
+  },
+  exit: (direction: number) =>
+    direction === 0
+      ? {
+          opacity: 0,
+          x: 0,
+          scale: 0.96,
+          zIndex: 1,
+          transition: { duration: ANIMATION.DURATION_FAST, ease: EASE_SMOOTH },
+        }
+      : {
+          opacity: 0,
+          x: direction * -90,
+          scale: 1,
+          zIndex: 1,
+          transition: { duration: ANIMATION.DURATION, ease: EASE_SMOOTH },
+        },
+};
+
+/** Reduced-motion lightbox transition: opacity only, no movement. */
+export const lightboxSlideVariantsReduced: Variants = {
+  enter: { opacity: 0 },
+  center: { opacity: 1, transition: { duration: ANIMATION.DURATION_FAST } },
+  exit: { opacity: 0, transition: { duration: 0.15 } },
+};
+
+/** Fade-in for the lightbox chrome (close / nav / counter). */
+export const lightboxChromeVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: ANIMATION.DURATION_FAST, delay: 0.15 },
+  },
+  exit: { opacity: 0, transition: { duration: 0.15 } },
+};

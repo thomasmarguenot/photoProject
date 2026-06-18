@@ -1,23 +1,40 @@
+.gallery-grid-wrapper {
+  position: relative;
+}
+
 .gallery-grid-wrapper--dimmed {
-  opacity: 0;
   pointer-events: none;
+}
+
+.gallery-photo-parallax {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.gallery-photo-drift {
+  width: 100%;
+  height: 100%;
+  will-change: transform;
 }
 
 .gallery-photo-wrapper {
   position: relative;
   display: block;
   width: 100%;
+  height: 100%;
   border-radius: 8px;
   overflow: hidden;
   background: #e5e7eb;
   contain: layout paint;
+  cursor: pointer;
 }
 
 .gallery-placeholder-skeleton {
   position: absolute;
   inset: 0;
   background: #e5e7eb;
-  transition: opacity 0.6s ease 0.1s;
+  transition: opacity 1s ease-in-out;
   pointer-events: none;
   z-index: 1;
 }
@@ -63,11 +80,54 @@
   cursor: pointer;
   z-index: 2;
   opacity: 0;
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+  transform: scale(1);
+  transition:
+    opacity 1s ease-in-out,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .gallery-image--loaded {
   opacity: 1;
+}
+
+.gallery-photo-wrapper:hover .gallery-image--loaded {
+  transform: scale(1.05);
+}
+
+.gallery-photo-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem 1.1rem;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.08) 40%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.gallery-photo-wrapper:hover .gallery-photo-overlay {
+  opacity: 1;
+}
+
+.gallery-photo-location {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #fff;
+  transform: translateY(8px);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gallery-photo-wrapper:hover .gallery-photo-location {
+  transform: translateY(0);
 }
 
 .gallery-placeholder {
@@ -78,5 +138,18 @@
 @media (prefers-reduced-motion: reduce) {
   .gallery-placeholder-skeleton::after {
     animation: none;
+  }
+
+  .gallery-image,
+  .gallery-photo-location {
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-photo-wrapper:hover .gallery-image--loaded {
+    transform: none;
+  }
+
+  .gallery-photo-wrapper:hover .gallery-photo-location {
+    transform: none;
   }
 }
