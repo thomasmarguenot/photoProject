@@ -4,9 +4,9 @@ import { ANIMATION } from './constants';
 
 type BezierEasing = [number, number, number, number];
 
-export const EASE_DEFAULT = [...ANIMATION.EASING] as BezierEasing;
-export const EASE_SMOOTH = [...ANIMATION.EASING_SMOOTH] as BezierEasing;
-export const EASE_REVEAL = [...ANIMATION.EASING_REVEAL] as BezierEasing;
+const EASE_DEFAULT = [...ANIMATION.EASING] as BezierEasing;
+const EASE_SMOOTH = [...ANIMATION.EASING_SMOOTH] as BezierEasing;
+const EASE_REVEAL = [...ANIMATION.EASING_REVEAL] as BezierEasing;
 
 /** Base transitions derived from constants — use as building blocks */
 export const baseTransition: Transition = {
@@ -14,13 +14,13 @@ export const baseTransition: Transition = {
   ease: EASE_DEFAULT,
 };
 
-export const slowTransition: Transition = {
+const slowTransition: Transition = {
   duration: ANIMATION.DURATION_SLOW,
   ease: EASE_DEFAULT,
 };
 
 /** Factory: fade + translateY. Distance configurable; no built-in delay. */
-export const createFadeUpVariants = (
+const createFadeUpVariants = (
   distance: number = ANIMATION.OFFSET.SM,
   transition: Transition = slowTransition
 ): Variants => ({
@@ -29,7 +29,7 @@ export const createFadeUpVariants = (
 });
 
 /** Factory: orchestrating parent — staggers direct motion children. */
-export const createStaggerContainer = (
+const createStaggerContainer = (
   staggerChildren: number = ANIMATION.STAGGER.CHILDREN,
   delayChildren: number = ANIMATION.STAGGER.DELAY_CHILDREN
 ): Variants => ({
@@ -37,13 +37,15 @@ export const createStaggerContainer = (
   visible: { transition: { staggerChildren, delayChildren } },
 });
 
-/* ——— Named presets (thin wrappers around the factories) ——— */
+/* ——— Shared presets ——— */
 
 export const fadeUpVariants = createFadeUpVariants(ANIMATION.OFFSET.SM);
 export const fadeUpVariants30 = createFadeUpVariants(
   ANIMATION.OFFSET.MD,
   baseTransition
 );
+/** Item of a page-level cascade (hero, about, contact). */
+export const pageItemVariants = createFadeUpVariants(ANIMATION.OFFSET.MD);
 
 export const fadeOpacityVariants: Variants = {
   hidden: { opacity: 0 },
@@ -51,6 +53,132 @@ export const fadeOpacityVariants: Variants = {
 };
 
 export const staggerContainerVariants = createStaggerContainer();
+export const pageStaggerVariants = createStaggerContainer(
+  ANIMATION.STAGGER.CHILDREN_WIDE,
+  ANIMATION.DELAY.XS
+);
+export const sectionStaggerVariants = createStaggerContainer(
+  ANIMATION.STAGGER.CHILDREN,
+  ANIMATION.DELAY.SM
+);
+
+/** Variable-font weight morph for headings. */
+export const fontWeightVariants: Variants = {
+  hidden: { fontVariationSettings: '"wght" 400', opacity: 0 },
+  visible: {
+    fontVariationSettings: '"wght" 800',
+    opacity: 1,
+    transition: { duration: ANIMATION.DURATION_FONT_MORPH, ease: EASE_DEFAULT },
+  },
+};
+
+/* ——— Layout ——— */
+
+/** Full-screen wipe between pages. Starts off-screen on the side the user
+ *  navigates from (`offLeft` / `offRight`). */
+export const pageTransitionOverlayVariants: Variants = {
+  offLeft: { x: '-100%' },
+  offRight: { x: '100%' },
+  cover: {
+    x: '0%',
+    transition: { duration: ANIMATION.DURATION, ease: EASE_DEFAULT },
+  },
+};
+
+const headerTransition: Transition = {
+  duration: ANIMATION.DURATION_FAST,
+  ease: EASE_DEFAULT,
+};
+
+/** `hidden` slides the header away (e.g. while the gallery lightbox is open). */
+export const headerVariants: Variants = {
+  enter: { opacity: 0, y: -30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { ...headerTransition, delay: ANIMATION.DELAY.HEADER },
+  },
+  hidden: { opacity: 0, y: -100, transition: headerTransition },
+};
+
+export const mobileMenuOverlayVariants: Variants = {
+  hidden: { opacity: 0, transition: { duration: ANIMATION.DURATION_FAST } },
+  visible: { opacity: 1, transition: { duration: ANIMATION.DURATION_FAST } },
+};
+
+export const mobileMenuNavVariants = createStaggerContainer(
+  ANIMATION.STAGGER.MENU,
+  ANIMATION.DELAY.MENU
+);
+
+export const mobileMenuItemVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.8, y: 40 },
+  visible: { opacity: 1, scale: 1, y: 0, transition: ANIMATION.SPRING },
+};
+
+/* ——— Home ——— */
+
+export const scrollArrowVariants: Variants = {
+  hidden: { opacity: 0, y: 8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { delay: ANIMATION.DELAY.AFTER_FIRST_VIEWPORT },
+  },
+};
+
+// Clients cascade starts only once the Hero cascade has settled,
+// so the first-viewport sequence reads as one continuous flow.
+export const clientsSectionVariants = createStaggerContainer(
+  0,
+  ANIMATION.DELAY.SECTION_AFTER_HERO
+);
+
+// EASE_REVEAL is an s-curve: visually the bg reads as "done" before the
+// animation technically ends. Trim ~15% so content kicks in when the eye expects it.
+export const clientsContentVariants = createStaggerContainer(
+  ANIMATION.STAGGER.CHILDREN_WIDE,
+  ANIMATION.DURATION_REVEAL * 0.85
+);
+
+export const clientsBgVariants: Variants = {
+  hidden: { height: '0%' },
+  visible: {
+    height: '100%',
+    transition: { duration: ANIMATION.DURATION_REVEAL, ease: EASE_REVEAL },
+  },
+};
+
+export const clientsMarqueeAnimation = { x: ['0%', '-50%'] };
+
+export const clientsMarqueeTransition: Transition = {
+  repeat: Infinity,
+  repeatType: 'loop',
+  duration: ANIMATION.MARQUEE_DURATION,
+  ease: 'linear',
+};
+
+export const projectPanelVariants: Variants = {
+  collapsed: { height: 0, opacity: 0, transition: baseTransition },
+  expanded: { height: 'auto', opacity: 1, transition: baseTransition },
+};
+
+export const agencyServicesVariants = createStaggerContainer(
+  ANIMATION.STAGGER.CHILDREN,
+  ANIMATION.DELAY.AGENCY_SERVICES
+);
+
+export const lineGrowXVariants: Variants = {
+  hidden: { width: '0%' },
+  visible: { width: '100%', transition: slowTransition },
+};
+
+export const lineGrowYVariants: Variants = {
+  hidden: { height: '0%' },
+  visible: { height: '100%', transition: baseTransition },
+};
+
+/* ——— Gallery ——— */
 
 export const galleryFilterContainerVariants = createStaggerContainer(0.08, 0.1);
 
@@ -59,26 +187,16 @@ export const galleryFilterItemVariants: Variants = {
   visible: { opacity: 1, y: 0, transition: baseTransition },
 };
 
-export const galleryGridContainerVariants = createStaggerContainer(0.06, 0.05);
-
-export const galleryImageItemVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.94 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: ANIMATION.DURATION, ease: EASE_SMOOTH },
-  },
+export const galleryFilterUnderlineTransition: Transition = {
+  type: 'spring',
+  stiffness: 420,
+  damping: 34,
 };
 
-/** Per-item reveal driven by scroll (whileInView). Opacity + scale only —
- *  vertical motion is owned by the parallax MotionValue on the same element. */
-export const galleryRevealVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.97 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: ANIMATION.DURATION_SLOW, ease: EASE_SMOOTH },
-  },
+/** Fades the filter bar out while the lightbox is open. */
+export const galleryFilterBarVariants: Variants = {
+  visible: { opacity: 1, transition: { duration: 0.2 } },
+  dimmed: { opacity: 0, transition: { duration: 0.2 } },
 };
 
 /** Crossfade for the whole grid when the active filter changes — masks the
@@ -92,7 +210,7 @@ export const galleryFilterSwapVariants: Variants = {
   },
   exit: {
     opacity: 0,
-    transition: { duration: 0.15, ease: EASE_SMOOTH },
+    transition: { duration: ANIMATION.DURATION_XFAST, ease: EASE_SMOOTH },
   },
 };
 
@@ -100,7 +218,10 @@ export const galleryFilterSwapVariants: Variants = {
 export const lightboxBackdropVariants: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { duration: 0.4, ease: EASE_DEFAULT } },
-  exit: { opacity: 0, transition: { duration: 0.3, ease: EASE_DEFAULT } },
+  exit: {
+    opacity: 0,
+    transition: { duration: ANIMATION.DURATION_FAST, ease: EASE_DEFAULT },
+  },
 };
 
 /** Full-stage slide for the lightbox. `custom` is the direction:
@@ -141,7 +262,7 @@ export const lightboxSlideVariants: Variants = {
 export const lightboxSlideVariantsReduced: Variants = {
   enter: { opacity: 0 },
   center: { opacity: 1, transition: { duration: ANIMATION.DURATION_FAST } },
-  exit: { opacity: 0, transition: { duration: 0.15 } },
+  exit: { opacity: 0, transition: { duration: ANIMATION.DURATION_XFAST } },
 };
 
 /** Fade-in for the lightbox chrome (close / nav / counter). */
@@ -151,5 +272,5 @@ export const lightboxChromeVariants: Variants = {
     opacity: 1,
     transition: { duration: ANIMATION.DURATION_FAST, delay: 0.15 },
   },
-  exit: { opacity: 0, transition: { duration: 0.15 } },
+  exit: { opacity: 0, transition: { duration: ANIMATION.DURATION_XFAST } },
 };

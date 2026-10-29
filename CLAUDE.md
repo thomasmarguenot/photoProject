@@ -7,7 +7,7 @@
 
 ## Animations — RÈGLE PRINCIPALE
 - Toutes les variantes dans `src/utils/animations.ts`
-- Constantes dans `src/utils/constants.ts` (`ANIMATION`, `TRANSITION`)
+- Constantes dans `src/utils/constants.ts` (`ANIMATION`) ; transitions de base (`baseTransition`) dans `animations.ts`
 - Toujours utiliser `staggerContainerVariants` + `variants` pour les séquences enchaînées
 - Jamais de `custom` props, jamais de valeurs hardcodées inline
 
