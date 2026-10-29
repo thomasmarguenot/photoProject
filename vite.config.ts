@@ -14,15 +14,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
-      '@/components': resolve(__dirname, './src/components'),
-      '@/features': resolve(__dirname, './src/features'),
-      '@/pages': resolve(__dirname, './src/pages'),
-      '@/hooks': resolve(__dirname, './src/hooks'),
-      '@/services': resolve(__dirname, './src/services'),
-      '@/utils': resolve(__dirname, './src/utils'),
-      '@/types': resolve(__dirname, './src/types'),
-      '@/assets': resolve(__dirname, './src/assets'),
-      '@/styles': resolve(__dirname, './src/styles'),
     },
   },
   build: {
