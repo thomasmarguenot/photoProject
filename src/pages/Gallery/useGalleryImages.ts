@@ -16,7 +16,7 @@ interface ManifestEntry {
   width: number;
   height: number;
   exif?: ImageExif | null;
-  variants?: { src: string; width: number; height: number }[];
+  variants?: ImageVariant[];
 }
 
 const manifest = manifestJson as ManifestEntry[];
@@ -31,31 +31,25 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 export function useGalleryImages() {
-  const { images, locations } = useMemo(() => {
-    const imgs: ImageData[] = shuffle(
+  return useMemo(() => {
+    const images: ImageData[] = shuffle(
       manifest.map((entry) => ({
         src: entry.src,
         alt: entry.file.replace(/[-_]/g, ' ').replace('.webp', ''),
-        location: entry.location as ImageData['location'],
+        location: entry.location,
         width: entry.width,
         height: entry.height,
-        exif: entry.exif || undefined,
-        variants: entry.variants?.map((v) => ({
-          src: v.src,
-          width: v.width,
-          height: v.height,
-        })) as ImageVariant[],
+        exif: entry.exif ?? undefined,
+        variants: entry.variants,
       }))
     );
 
-    const uniqueLocations = [...new Set(imgs.map((img) => img.location))];
-    const orderedLocations: Location[] = [
-      'Tous' as Location,
+    const uniqueLocations = [...new Set(images.map((img) => img.location))];
+    const locations: Location[] = [
+      'Tous',
       ...(uniqueLocations.sort() as Location[]),
     ];
 
-    return { images: imgs, locations: orderedLocations };
+    return { images, locations };
   }, []);
-
-  return { images, isLoading: false, locations };
 }
