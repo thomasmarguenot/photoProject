@@ -97,17 +97,18 @@ const __dirname = dirname(__filename);
 
   function getLocationFromFilename(filename) {
     const baseName = basename(filename, '.webp');
-    // Remove variant suffix like -400w, -800w, -1200w
+    // Remove variant suffix like -600w
     const cleanName = baseName.replace(/-\d+w$/, '');
     const prefix = cleanName.replace(/_p_\d+$/, '').split('_')[0];
     return LOCATION_MAP[prefix] || 'Japon';
   }
 
   (async () => {
-    const files = (await readdir(PICTURES_DIR))
+    const allFiles = await readdir(PICTURES_DIR);
+    const files = allFiles
       .filter((f) => {
         if (!f.endsWith('.webp')) return false;
-        // Skip variant files (ending with -400w, -800w, -1200w)
+        // Skip variant files (ending with -600w, -1200w, ...)
         if (/-\d+w\.webp$/.test(f)) return false;
         // Skip original backups
         if (f.includes('.original')) return false;
@@ -123,10 +124,13 @@ const __dirname = dirname(__filename);
       const location = getLocationFromFilename(file);
       const exif = parseExif(meta.exif ?? null);
 
-      // Build srcSet variants if they exist
+      // Read variants from disk so the srcSet never points to a missing file.
       const baseName = basename(file, '.webp');
-      const variants = [400, 800, 1200]
-        .filter((w) => w <= (width ?? 1200))
+      const variants = allFiles
+        .map((f) => f.match(new RegExp(`^${baseName}-(\\d+)w\\.webp$`)))
+        .filter(Boolean)
+        .map(([, w]) => Number(w))
+        .sort((a, b) => a - b)
         .map((w) => ({
           src: `/images/${baseName}-${w}w.webp`,
           width: w,

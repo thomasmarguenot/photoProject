@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "gallery:images": "node scripts/generate-responsive-images.js",
     "gallery:manifest": "node scripts/generate-gallery-manifest.js",
     "build": "node scripts/generate-gallery-manifest.js && tsc -b && vite build",
     "preview": "vite preview",
