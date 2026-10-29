@@ -1,98 +1,22 @@
 # PhotoProject
 
-Vite + React + TypeScript Project
+Photography portfolio of Thomas Marguenot — Vite + React + TypeScript.
 
 ## 🚀 Technologies
 
-- **React** 19.2.0
-- **TypeScript** 5.9+ (with strict mode)
-- **V## 📝 Notes
-
-**Local HTTPS**: The project uses `vite-plugin-mkcert` to generate trusted local SSL certificates. On first launch, you will need to enter your sudo password to install the certificate in your system keychain.
-
-**Custom Host**: The project is accessible via `https://photoproject.local:5173` instead of `localhost`. The entry has been added to `/etc/hosts`.
-
-**Fixed Port**: The server will always use port 5173 and will never change (`strictPort: true`).
-
-## 🔒 Git Workflow
-
-This project uses **Husky** and **Commitlint** to enforce conventional commits:
-
-### Pre-commit Hook
-- Automatically runs `pnpm run lint:fix` before each commit
-- Ensures code is formatted and linted
-
-### Commit-msg Hook
-- Validates commit messages follow the [Conventional Commits](https://www.conventionalcommits.org/) specification
-- Format: `<type>[optional scope]: <description>`
-
-**Allowed types:**
-- `feat:` - New feature (minor version bump)
-- `fix:` - Bug fix (patch version bump)
-- `docs:` - Documentation changes
-- `style:` - Code style changes
-- `refactor:` - Code refactoring
-- `perf:` - Performance improvements
-- `test:` - Test changes
-- `build:` - Build system changes
-- `ci:` - CI configuration changes
-- `chore:` - Other changes
-- `revert:` - Revert a previous commit
-
-**Examples:**
-```bash
-git commit -m "feat: add user profile page"
-git commit -m "fix: resolve mobile navigation bug"
-git commit -m "docs: update README installation steps"
-git commit -m "feat!: change API response format" # Breaking change
-```
-
-### Semantic Release
-
-The project uses **semantic-release** for automated versioning and changelog generation:
-
-1. Commit your changes following conventional commits format
-2. Push to the `main` branch
-3. Run `pnpm release` to:
-   - Analyze commits and determine version bump
-   - Generate/update `CHANGELOG.md`
-   - Create a new git tag
-   - Update `package.json` version
-
-**Version bumping:**
-- `feat:` commits → minor version (0.X.0)
-- `fix:` commits → patch version (0.0.X)
-- `feat!:` or `BREAKING CHANGE:` → major version (X.0.0).1.9
-- **React Router** 7+ (with lazy loading)
-- **Tailwind CSS** 4.1.14
-- **ESLint** 9.37.0 + **Prettier** 3.6.2
+- **React** 19.2 (document metadata for per-route SEO)
+- **TypeScript** 5.9+ (strict mode)
+- **Vite** 7.1.9 (requires Node.js 22.12+, see `.nvmrc`)
+- **React Router** 7 (lazy-loaded routes)
+- **Tailwind CSS** 4.1.14 (via `@apply` only)
+- **Framer Motion** 12 for animations
+- **react-photo-album** for the gallery grid, **d3-force** for the tech graph
+- **ESLint** 9 + **Prettier** 3
 - **Husky** + **Commitlint** for conventional commits
 - **Semantic Release** for automated versioning
 - **Vitest + React Testing Library** for testing
 - **pnpm** as package manager
-- **Local HTTPS** with self-signed certificates (vite-plugin-mkcert)
-
-## 📦 Installation
-
-```bash
-pnpm install
-```
-
-## 🛠️ Available Scripts
-
-- `pnpm dev` - Start the development server
-- `pnpm build` - Build the project for production
-- `pnpm preview` - Preview the production build
-- `pnpm typecheck` - Check TypeScript types without emitting files
-- `pnpm lint` - Check for linting errors
-- `pnpm lint:fix` - Fix linting errors automatically
-- `pnpm format` - Format all files with Prettier
-- `pnpm format:check` - Check formatting without modifying files
-- `pnpm test` - Run tests in watch mode
-- `pnpm test:ui` - Open Vitest UI
-- `pnpm test:coverage` - Generate test coverage report
-- `pnpm optimize-images` - Optimize images in src/assets/pictures/
-- `pnpm release` - Create a new release with semantic-release
+- **Vercel** for hosting and analytics
 
 ## 🏃 Quick Start
 
@@ -108,187 +32,174 @@ pnpm install
    pnpm dev
    ```
 
-   **Note**: On first launch, the mkcert plugin will ask for your sudo password to install the SSL certificate in your system keychain.
+3. Open **http://localhost:5173** in your browser
 
-3. Open **https://photoproject.local:5173** in your browser
+## 🛠️ Available Scripts
+
+- `pnpm dev` - Start the development server
+- `pnpm build` - Generate the gallery manifest, type-check and build for production
+- `pnpm preview` - Preview the production build
+- `pnpm typecheck` - Check TypeScript types without emitting files
+- `pnpm lint` - Check for linting errors
+- `pnpm lint:fix` - Fix linting errors automatically
+- `pnpm format` - Format `src/` with Prettier
+- `pnpm format:check` - Check formatting without modifying files
+- `pnpm test` - Run tests in watch mode
+- `pnpm test:ui` - Open Vitest UI
+- `pnpm test:coverage` - Generate test coverage report
+- `pnpm gallery:images` - Generate the `-600w`, `-1200w`, `-1800w` variants of `src/assets/pictures/` into `public/images/`
+- `pnpm gallery:manifest` - Regenerate `src/assets/gallery-manifest.json` (dimensions + EXIF) from `public/images/`
+- `pnpm optimize-images` - Resize, compress and convert images in `src/assets/pictures/` to WebP
+- `pnpm rotate-portraits` - Rotate the images in `src/assets/pictures/portrait/`
+- `pnpm release` - Create a new release with semantic-release
 
 ## 📁 Project Structure
 
 ```
 photoProject/
-├── public/          # Static assets
+├── public/              # Static assets (favicons, OG image, robots.txt, sitemap, gallery images)
+├── scripts/             # Node scripts for gallery manifest and image processing
 ├── src/
-│   ├── assets/      # Images, SVG, fonts, etc.
-│   ├── components/  # Reusable UI components
-│   │   ├── common/  # Generic components (Button, Input, etc.)
-│   │   └── layout/  # Layout components (Header, Footer, Layout)
-│   ├── features/    # Feature-based modules
-│   ├── hooks/       # Custom React hooks
-│   ├── pages/       # Page components (one per route)
-│   ├── services/    # API calls and external services
-│   ├── styles/      # Global styles
-│   ├── types/       # Shared TypeScript types
-│   ├── utils/       # Utility functions
-│   ├── App.tsx      # Main App component
-│   ├── main.tsx     # Application entry point
-│   └── index.css    # Global styles + Tailwind CSS
-├── .husky/          # Git hooks
-├── index.html       # HTML template
-├── package.json     # Dependencies and scripts
-├── tsconfig.json    # TypeScript configuration
-├── eslint.config.js # ESLint configuration
-├── prettier.config.cjs # Prettier configuration
-├── docs/            # Documentation folder
-│   ├── ALIASES.md   # Path aliases guide
-│   ├── CODE_QUALITY.md # Code quality tools
-│   ├── ROUTER.md    # React Router documentation
-│   ├── STRUCTURE.md # Project structure guide
-│   └── TAILWIND.md  # Tailwind CSS guide
-└── README.md        # This file
+│   ├── assets/          # Images, logos, fonts, gallery manifest
+│   ├── components/
+│   │   ├── common/      # Generic components (Seo, LoadingFallback, TextAnimations)
+│   │   └── layout/      # Layout, Header, Footer, PageTransition
+│   ├── context/         # React contexts (Header)
+│   ├── hooks/           # Shared custom hooks
+│   ├── pages/           # One folder per route, lazy-loaded via lazyPages.ts
+│   ├── test/            # Vitest setup
+│   ├── utils/
+│   │   ├── animations.ts  # All Framer Motion variants
+│   │   └── constants.ts   # Animation constants, routes, page order
+│   ├── App.tsx
+│   ├── router.tsx       # Route definitions
+│   ├── main.tsx         # Application entry point
+│   └── index.css        # Global styles + Tailwind theme
+├── .husky/              # Git hooks
+├── docs/                # Documentation
+└── CLAUDE.md            # Project conventions
 ```
 
-**See [docs/STRUCTURE.md](./docs/STRUCTURE.md) for detailed conventions and best practices.**
+**See [docs/STRUCTURE.md](./docs/STRUCTURE.md) for detailed conventions.**
 
-## 🖼️ Image Optimization
+## 📐 Conventions
 
-This project includes automatic image optimization for fast loading times:
+The main rules (full list in [CLAUDE.md](./CLAUDE.md)):
 
-- **Automatic**: Images optimized during `pnpm build`
-- **Manual**: Run `pnpm optimize-images` to optimize existing images
-- **Formats**: Auto-converts to WebP/AVIF (50-90% smaller)
-- **Quality**: 85% quality (visually lossless)
+- **Styling**: Tailwind only via `@apply` in CSS files colocated with components. `className` only holds semantic names, never Tailwind utilities.
+- **Animations**: every variant lives in `src/utils/animations.ts`, constants in `src/utils/constants.ts`. No inline values, no `custom` props.
+- **Types**: in a `ComponentName.types.ts` file next to the component.
+- **Pages**: `export default` + `React.lazy`, split once a page exceeds 150 lines.
+- **Imports**: packages → `@/` aliases → relative → styles (enforced by ESLint `import/order`).
 
-**See [docs/IMAGE_OPTIMIZATION.md](./docs/IMAGE_OPTIMIZATION.md) for complete guide.**
+## 🔗 Path Alias
 
-## 🔗 Path Aliases
-
-This project uses TypeScript path aliases to avoid relative imports. Always use absolute imports with the `@` prefix:
+A single alias, `@/*` → `src/*`, configured in `tsconfig.json`, `vite.config.ts` and `vitest.config.ts`:
 
 ```typescript
-// ✅ Good - Use aliases
-import { Button } from '@/components/common/Button';
-import { useAuth } from '@/hooks/useAuth';
-import { formatDate } from '@/utils/formatters';
+// ✅ Good
+import { ROUTES } from '@/utils/constants';
 
-// ❌ Bad - Don't use relative imports
-import { Button } from '../../components/common/Button';
-import { useAuth } from '../hooks/useAuth';
+// ❌ Bad
+import { ROUTES } from '../../utils/constants';
 ```
-
-Available aliases:
-
-- `@/*` → `src/*`
-- `@/components/*` → `src/components/*`
-- `@/features/*` → `src/features/*`
-- `@/pages/*` → `src/pages/*`
-- `@/hooks/*` → `src/hooks/*`
-- `@/services/*` → `src/services/*`
-- `@/utils/*` → `src/utils/*`
-- `@/types/*` → `src/types/*`
-- `@/assets/*` → `src/assets/*`
-- `@/styles/*` → `src/styles/*`
-
-**See [docs/ALIASES.md](./docs/ALIASES.md) for complete documentation.**
 
 ## 🧭 Routing
 
-This project uses React Router with lazy-loaded routes for optimal performance:
+Routes are declared in `src/router.tsx` and lazy-loaded from `src/pages/lazyPages.ts`. Page chunks are preloaded before the page transition runs, to avoid a flash on first navigation.
 
-- **Lazy Loading**: Routes are loaded only when needed
-- **Suspense**: Loading fallback while routes are being loaded
-- **Code Splitting**: Automatic chunk splitting per route
-
-**Routes**:
-
-- `/` - Home page
-- `/about` - About page
+- `/` - Home
+- `/gallery` - Photo gallery with location filters and lightbox
+- `/about` - About
+- `/charte` - Design system showcase (noindex)
+- `/contact` - Contact
 - `*` - 404 Not Found
 
-**See [docs/ROUTER.md](./docs/ROUTER.md) for complete documentation.**
+The direction of the page transition is inferred from `PAGE_ORDER` in `src/utils/constants.ts`.
+
+**See [docs/ROUTER.md](./docs/ROUTER.md) for more details.**
+
+## 🖼️ Images
+
+- Source photos live in `src/assets/pictures/`. `pnpm optimize-images` resizes and converts them to WebP, keeping the source files with an `.original` extension.
+- `pnpm gallery:images` copies them to `public/images/` and generates the `-600w`, `-1200w`, `-1800w` variants served by the gallery. These widths must match the `sizes` attribute in `GalleryGrid.tsx`.
+- `pnpm build` regenerates `gallery-manifest.json` from `public/images/` (dimensions, EXIF data used by the lightbox, and the srcset variants actually present on disk).
+
+Adding a photo: drop it in `src/assets/pictures/`, then run `pnpm optimize-images && pnpm gallery:images && pnpm gallery:manifest`.
+
+**See [docs/IMAGE_OPTIMIZATION.md](./docs/IMAGE_OPTIMIZATION.md) for the complete guide.**
 
 ## 🧪 Testing
 
-This project uses **Vitest** and **React Testing Library** for unit and integration testing.
-
-### Running Tests
+This project uses **Vitest** (jsdom) and **React Testing Library**. Tests are colocated with the code they test (`Header.test.tsx`, `Gallery.test.tsx`, ...), setup lives in `src/test/setup.ts`.
 
 ```bash
 pnpm test              # Run tests in watch mode
-pnpm test --run        # Run tests once
+pnpm vitest run        # Run tests once
 pnpm test:ui           # Open Vitest UI in browser
 pnpm test:coverage     # Generate coverage report
 ```
 
-### Test Structure
+## 🔒 Git Workflow
 
-Tests are colocated with the code they test:
+This project uses **Husky** and **Commitlint** to enforce conventional commits.
 
-```
-src/
-├── components/
-│   └── common/
-│       └── Button/
-│           ├── Button.tsx
-│           ├── Button.test.tsx  # Component test
-│           └── Button.css
-├── hooks/
-│   ├── useWindowSize.ts
-│   └── useWindowSize.test.ts    # Hook test
-└── test/
-    └── setup.ts                 # Test configuration
-```
+### Pre-commit Hook
 
-### Example Tests
+- Runs `pnpm run lint:fix` before each commit
+- Run `pnpm typecheck && pnpm lint` yourself before committing: the hook does not type-check
 
-**Component Test:**
-```tsx
-import { render, screen } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
-import { Button } from './Button';
+### Commit-msg Hook
 
-describe('Button', () => {
-  it('should render with text', () => {
-    render(<Button>Click me</Button>);
-    expect(screen.getByText('Click me')).toBeInTheDocument();
-  });
-});
-```
+- Validates commit messages follow the [Conventional Commits](https://www.conventionalcommits.org/) specification
+- Format: `<type>[optional scope]: <description>`
 
-**Hook Test:**
-```tsx
-import { renderHook, act } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
-import { useCounter } from './useCounter';
+**Allowed types:**
 
-describe('useCounter', () => {
-  it('should increment counter', () => {
-    const { result } = renderHook(() => useCounter());
-    act(() => result.current.increment());
-    expect(result.current.count).toBe(1);
-  });
-});
+- `feat:` - New feature (minor version bump)
+- `fix:` - Bug fix (patch version bump)
+- `docs:` - Documentation changes
+- `style:` - Code style changes
+- `refactor:` - Code refactoring
+- `perf:` - Performance improvements
+- `test:` - Test changes
+- `build:` - Build system changes
+- `ci:` - CI configuration changes
+- `chore:` - Other changes
+- `revert:` - Revert a previous commit
+
+**Examples:**
+
+```bash
+git commit -m "feat(gallery): add location filter"
+git commit -m "fix: resolve mobile navigation bug"
+git commit -m "feat!: change route structure" # Breaking change
 ```
 
-## 📝 Notes
+### Semantic Release
 
-**Local HTTPS**: The project uses `vite-plugin-mkcert` to generate trusted local SSL certificates. On first launch, you will need to enter your sudo password to install the certificate in your system keychain.
+The project uses **semantic-release** for automated versioning and changelog generation:
 
-**Custom Host**: The project is accessible via `https://photoproject.local:5173` instead of `localhost`. The entry has been added to `/etc/hosts`.
+1. Commit your changes following conventional commits format
+2. Push to the `main` branch
+3. Run `pnpm release` to:
+   - Analyze commits and determine version bump
+   - Generate/update `CHANGELOG.md`
+   - Create a new git tag
+   - Update `package.json` version
 
-**Fixed Port**: The server will always use port 5173 and will never change (`strictPort: true`).
+**Version bumping:**
+
+- `feat:` commits → minor version (0.X.0)
+- `fix:` commits → patch version (0.0.X)
+- `feat!:` or `BREAKING CHANGE:` → major version (X.0.0)
 
 ## 📚 Documentation
 
-Complete documentation is available in the `docs/` folder:
-
+- **[CLAUDE.md](./CLAUDE.md)** - Project conventions (styling, animations, types, pages)
 - **[docs/STRUCTURE.md](./docs/STRUCTURE.md)** - Project structure and folder conventions
-- **[docs/ALIASES.md](./docs/ALIASES.md)** - Path aliases configuration and usage
+- **[docs/ALIASES.md](./docs/ALIASES.md)** - Path alias configuration
 - **[docs/ROUTER.md](./docs/ROUTER.md)** - React Router setup and lazy loading
-- **[docs/TAILWIND.md](./docs/TAILWIND.md)** - Tailwind CSS with @apply pattern
-- **[docs/CODE_QUALITY.md](./docs/CODE_QUALITY.md)** - ESLint, Prettier, Husky setup
-
-### GitHub Copilot Instructions
-
-For the best Copilot experience, this project includes a comprehensive instruction file at `.github/copilot-instructions.md`. This ensures that Copilot generates code following the project's conventions and best practices.
-
-**Note on Vite version**: The project uses Vite 7.1.9. Note that Vite 7+ requires Node.js 22.12+.
+- **[docs/TAILWIND.md](./docs/TAILWIND.md)** - Tailwind CSS with the `@apply` pattern
+- **[docs/CODE_QUALITY.md](./docs/CODE_QUALITY.md)** - ESLint, Prettier, Husky, Commitlint
+- **[docs/IMAGE_OPTIMIZATION.md](./docs/IMAGE_OPTIMIZATION.md)** - Image pipeline

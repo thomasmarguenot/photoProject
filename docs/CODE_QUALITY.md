@@ -1,8 +1,14 @@
 # Code Quality Tools
 
-This project uses ESLint, Prettier, Husky, and lint-staged to maintain code quality and consistency.
+This project uses TypeScript (strict), ESLint, Prettier, Husky and Commitlint to maintain code quality and consistency.
 
 ## 🛠️ Tools
+
+### TypeScript
+
+- **Version**: 5.9
+- **Configuration**: `tsconfig.json`
+- **Settings**: `strict`, `noUnusedLocals`, `noUnusedParameters`, `noFallthroughCasesInSwitch`
 
 ### ESLint
 
@@ -14,6 +20,7 @@ This project uses ESLint, Prettier, Husky, and lint-staged to maintain code qual
   - `react` - React linting
   - `react-hooks` - React Hooks linting
   - `react-refresh` - Vite React Refresh linting
+  - `import` - Import resolution and ordering
   - `prettier` - Prettier integration
 
 ### Prettier
@@ -26,27 +33,25 @@ This project uses ESLint, Prettier, Husky, and lint-staged to maintain code qual
   - 2 spaces indentation
   - 80 characters line width
   - Trailing commas (ES5)
+  - LF line endings
 
 ### Husky
 
 - **Version**: 9.1.7
-- **Git hooks**: Pre-commit hook configured
-- **Location**: `.husky/pre-commit`
+- **Git hooks**: `pre-commit` and `commit-msg`
+- **Location**: `.husky/`
 
-### lint-staged
+### Commitlint
 
-- **Version**: 16.2.3
-- **Configuration**: In `package.json`
-- **Actions**:
-  - TypeScript/TSX files: ESLint fix + Prettier format
-  - CSS/JSON/MD files: Prettier format
+- **Configuration**: `commitlint.config.js` (extends `@commitlint/config-conventional`)
+- **Role**: Rejects commit messages that don't follow [Conventional Commits](https://www.conventionalcommits.org/)
 
 ## 📝 Available Scripts
 
 ### Linting
 
 ```bash
-# Check for linting errors
+# Check for linting errors (fails on any warning)
 pnpm lint
 
 # Fix linting errors automatically
@@ -56,7 +61,7 @@ pnpm lint:fix
 ### Formatting
 
 ```bash
-# Format all files
+# Format all files in src/
 pnpm format
 
 # Check formatting without modifying files
@@ -70,91 +75,74 @@ pnpm format:check
 pnpm typecheck
 ```
 
+### Before each commit
+
+```bash
+pnpm typecheck && pnpm lint
+```
+
 ## 🔧 Configuration Files
 
 - **`eslint.config.js`** - ESLint configuration (flat config format)
 - **`prettier.config.cjs`** - Prettier configuration
 - **`.prettierignore`** - Files to ignore for Prettier
 - **`tsconfig.json`** - TypeScript configuration with `strict: true`
+- **`commitlint.config.js`** - Commitlint configuration
+- **`.husky/pre-commit`** - Pre-commit hook
+- **`.husky/commit-msg`** - Commit message hook
 
 ## 🪝 Git Hooks
 
 ### Pre-commit Hook
 
-The pre-commit hook automatically runs lint-staged on staged files before each commit. This ensures that:
+Runs `pnpm run lint:fix` on the whole project before each commit:
 
-1. All TypeScript/TSX files are linted and formatted
-2. All CSS, JSON, and Markdown files are formatted
-3. No linting errors are committed to the repository
+1. Auto-fixable ESLint errors are fixed, including Prettier formatting of `.ts` / `.tsx` files (through `prettier/prettier`)
+2. The commit is blocked if unfixable errors remain
 
-**Location**: `.husky/pre-commit`
+What it does **not** do:
 
-**What it does**:
+- It does not type-check: run `pnpm typecheck` yourself
+- It does not format CSS files: run `pnpm format`
+- Files fixed by the hook are not re-staged automatically: check `git status` after committing
 
-- Runs ESLint with auto-fix on staged `.ts` and `.tsx` files
-- Runs Prettier on staged files
-- Prevents commit if there are linting errors
+### Commit-msg Hook
+
+Runs `commitlint --edit` on the commit message and rejects it if it doesn't match `<type>[optional scope]: <description>`.
 
 ## 🚀 Usage
 
 ### Automatic (on commit)
 
-When you commit your changes, Husky will automatically:
-
-1. Run lint-staged on your staged files
-2. Fix any auto-fixable issues
-3. Prevent the commit if there are unfixable errors
-
 ```bash
 git add .
-git commit -m "Your commit message"
-# Husky will run lint-staged automatically
+git commit -m "fix(header): keep indicator aligned on resize"
+# Husky runs lint:fix, then commitlint on the message
 ```
 
 ### Manual
 
-You can manually run linting and formatting:
-
 ```bash
-# Lint all files
 pnpm lint
-
-# Fix linting issues
 pnpm lint:fix
-
-# Format all files
 pnpm format
-
-# Check formatting
 pnpm format:check
-
-# Type check
 pnpm typecheck
-```
-
-## 📋 Lint-staged Configuration
-
-From `package.json`:
-
-```json
-{
-  "lint-staged": {
-    "*.{ts,tsx}": ["eslint --fix", "prettier --write"],
-    "*.{css,json,md}": ["prettier --write"]
-  }
-}
 ```
 
 ## ⚙️ ESLint Rules
 
 Key rules enabled:
 
-- TypeScript strict type checking
-- React best practices
-- React Hooks rules
-- No unused variables (with `_` prefix exception)
+- TypeScript recommended rules
+- React and React Hooks recommended rules
+- No unused variables (with `_` prefix exception for arguments)
 - Prettier formatting as error
-- React Refresh for Vite
+- React Refresh for Vite (`only-export-components` as warning)
+- `import/no-unresolved` with the TypeScript resolver (understands the `@/` alias)
+- `import/order`: builtin → external → `@/` aliases → relative, separated by blank lines and sorted alphabetically
+
+Scripts in `scripts/` are linted with Node globals and `no-console` disabled.
 
 ## 💡 Tips
 
@@ -164,6 +152,8 @@ Key rules enabled:
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const data: any = {};
 ```
+
+`pnpm lint` uses `--report-unused-disable-directives`: remove the directive once it is no longer needed.
 
 ### Disable Prettier for a block
 
@@ -176,10 +166,10 @@ const matrix = [
 ];
 ```
 
-### Skip pre-commit hook (not recommended)
+### Skip hooks (not recommended)
 
 ```bash
-git commit --no-verify -m "Skip hooks"
+git commit --no-verify -m "chore: skip hooks"
 ```
 
 ## 🔍 IDE Integration
@@ -198,16 +188,7 @@ Add to your `.vscode/settings.json`:
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   }
 }
 ```
-
-## ✅ Verification
-
-To verify everything is working:
-
-1. Create a test file with formatting issues
-2. Stage it: `git add test.ts`
-3. Try to commit: `git commit -m "test"`
-4. Husky should run lint-staged and fix issues automatically
