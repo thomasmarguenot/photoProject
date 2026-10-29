@@ -1,33 +1,25 @@
 import { createContext, useContext } from 'react';
 
+import { PAGE_ORDER } from '@/utils/constants';
+
 export type Direction = 'ltr' | 'rtl';
 
-export type PageTransitionContextValue = {
-  runTransition: (
-    dir: Direction,
-    onNavigate: () => void,
-    preload?: () => Promise<unknown> | void
-  ) => void;
-  getDirectionBetween: (from: string, to: string) => Direction;
-};
+type RunTransition = (
+  dir: Direction,
+  onNavigate: () => void,
+  preload?: () => Promise<unknown> | void
+) => void;
 
-export const PageTransitionContext =
-  createContext<PageTransitionContextValue | null>(null);
+// Outside the provider (tests), navigate immediately without the overlay.
+export const PageTransitionContext = createContext<RunTransition>(
+  (_dir, onNavigate) => onNavigate()
+);
 
-export function usePageTransition() {
-  const ctx = useContext(PageTransitionContext);
-  if (!ctx) {
-    // Provide safe noop defaults so components can render outside provider (tests, storybook)
-    return {
-      runTransition: (
-        _dir: Direction,
-        onNavigate: () => void,
-        _preload?: () => Promise<unknown> | void
-      ) => onNavigate(),
-      getDirectionBetween: (_from: string, _to: string) => 'ltr' as Direction,
-    } as PageTransitionContextValue;
-  }
-  return ctx;
+export const usePageTransition = () => useContext(PageTransitionContext);
+
+export function getPageDirection(from: string, to: string): Direction {
+  const order: readonly string[] = PAGE_ORDER;
+  const fromIndex = order.indexOf(from);
+  const toIndex = order.indexOf(to);
+  return fromIndex >= 0 && toIndex >= 0 && toIndex < fromIndex ? 'rtl' : 'ltr';
 }
-
-export default PageTransitionContext;
