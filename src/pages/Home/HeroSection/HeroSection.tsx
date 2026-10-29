@@ -6,31 +6,20 @@ import {
   AnimatedText,
 } from '@/components/common/TextAnimations';
 import {
-  createFadeUpVariants,
-  createStaggerContainer,
+  pageItemVariants,
+  pageStaggerVariants,
+  scrollArrowVariants,
 } from '@/utils/animations';
-import { ANIMATION } from '@/utils/constants';
 
 import { ScrollArrow } from './ScrollArrow';
 import './HeroSection.css';
 
-const heroContainerVariants = createStaggerContainer(
-  ANIMATION.STAGGER.CHILDREN_WIDE,
-  ANIMATION.DELAY.XS
-);
-const heroItemVariants = createFadeUpVariants(ANIMATION.OFFSET.MD);
-
 export function HeroSection() {
   return (
-    <motion.section
-      className="hero-section"
-      variants={heroContainerVariants}
-      initial="hidden"
-      animate="visible"
-    >
+    <section className="hero-section">
       <motion.div
         className="hero-content"
-        variants={heroContainerVariants}
+        variants={pageStaggerVariants}
         initial="hidden"
         animate="visible"
       >
@@ -39,7 +28,7 @@ export function HeroSection() {
         </AnimatedHeading>
 
         <div className="hero-row">
-          <motion.div className="hero-photo" variants={heroItemVariants}>
+          <motion.div className="hero-photo" variants={pageItemVariants}>
             <div className="photo-container">
               <img
                 src={ppImage}
@@ -67,7 +56,7 @@ export function HeroSection() {
             </div>
           </motion.div>
 
-          <motion.div className="hero-intro" variants={heroContainerVariants}>
+          <motion.div className="hero-intro" variants={pageStaggerVariants}>
             <AnimatedText
               className="hero-description hero-description--black"
               orchestrated
@@ -97,12 +86,12 @@ export function HeroSection() {
             ?.scrollIntoView({ behavior: 'smooth' })
         }
         aria-label="Voir les projets récents"
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: ANIMATION.DELAY.AFTER_FIRST_VIEWPORT }}
+        variants={scrollArrowVariants}
+        initial="hidden"
+        animate="visible"
       >
         <ScrollArrow />
       </motion.button>
-    </motion.section>
+    </section>
   );
 }

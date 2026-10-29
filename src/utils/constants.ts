@@ -7,6 +7,8 @@ export const ANIMATION = {
   DURATION_SLOW: 0.7,
   /** Quick micro-interactions (0.3s) */
   DURATION_FAST: 0.3,
+  /** Exits and dismissals (0.15s) */
+  DURATION_XFAST: 0.15,
   /** Variable-font weight morph duration (0.8s) */
   DURATION_FONT_MORPH: 0.8,
   /** Duration for width/clip reveal animations */
@@ -27,6 +29,12 @@ export const ANIMATION = {
     MD: 0.4,
     LG: 0.6,
     XL: 0.85,
+    /** Header entrance, after the page's first cascade has started */
+    HEADER: 1,
+    /** Mobile menu links start once the overlay has faded in */
+    MENU: 0.15,
+    /** Agency services list, after the section heading */
+    AGENCY_SERVICES: 0.25,
     /** Waits for a preceding section's cascade to finish */
     SECTION_AFTER_HERO: 0.2,
     /** Fires after Hero + Clients cascades have settled */
@@ -36,6 +44,7 @@ export const ANIMATION = {
   STAGGER: {
     CHILDREN: 0.15,
     CHILDREN_WIDE: 0.25,
+    MENU: 0.07,
     DELAY_CHILDREN: 0.3,
   },
   /** Travel distance for fade-up variants (px) */
@@ -47,33 +56,12 @@ export const ANIMATION = {
   MARQUEE_DURATION: 100,
 } as const;
 
-/** Reusable Framer Motion transition presets */
-export const TRANSITION = {
-  /** Default page/section entrance */
-  DEFAULT: { duration: ANIMATION.DURATION, ease: ANIMATION.EASING },
-  /** Smooth entrance for hero/gallery elements */
-  SMOOTH: { duration: ANIMATION.DURATION, ease: ANIMATION.EASING_SMOOTH },
-  /** Slower entrance for whileInView sections */
-  SLOW: { duration: ANIMATION.DURATION_SLOW, ease: ANIMATION.EASING },
-  /** Fast micro-interaction (hover, tooltip, etc.) */
-  FAST: { duration: ANIMATION.DURATION_FAST },
-  /** Variable-font weight morphing */
-  FONT_MORPH: {
-    duration: ANIMATION.DURATION_FONT_MORPH,
-    ease: ANIMATION.EASING_SMOOTH,
-  },
-  /** Spring for staggered list items */
-  SPRING: ANIMATION.SPRING,
-} as const;
-
 export const ROUTES = {
   HOME: '/',
   GALLERY: '/gallery',
   ABOUT: '/about',
   CHARTE: '/charte',
   CONTACT: '/contact',
-  PRIVACY: '/privacy',
-  TERMS: '/terms',
 } as const;
 
 // Canonical page order to infer navigation direction for global page transitions

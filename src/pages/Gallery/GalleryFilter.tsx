@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import {
   galleryFilterContainerVariants,
   galleryFilterItemVariants,
+  galleryFilterUnderlineTransition,
 } from '@/utils/animations';
 
 import type { Location } from './Gallery.types';
@@ -40,7 +41,7 @@ export function GalleryFilter({
               <motion.span
                 layoutId="gallery-filter-underline"
                 className="gallery-filter-underline"
-                transition={{ type: 'spring', stiffness: 420, damping: 34 }}
+                transition={galleryFilterUnderlineTransition}
               />
             )}
           </motion.button>

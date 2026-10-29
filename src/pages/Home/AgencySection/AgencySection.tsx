@@ -6,33 +6,30 @@ import {
   AnimatedText,
 } from '@/components/common/TextAnimations';
 import {
-  createStaggerContainer,
-  EASE_DEFAULT,
+  agencyServicesVariants,
   fadeUpVariants,
   fadeUpVariants30,
+  lineGrowXVariants,
+  lineGrowYVariants,
   staggerContainerVariants,
 } from '@/utils/animations';
-import { ANIMATION } from '@/utils/constants';
 
 import './AgencySection.css';
 
-const servicesContainerVariants = createStaggerContainer(0.15, 0.25);
-
-const horizontalLineVariants = {
-  hidden: { width: '0%' },
-  visible: {
-    width: '100%',
-    transition: { duration: ANIMATION.DURATION_SLOW, ease: EASE_DEFAULT },
+const SERVICES = [
+  {
+    title: 'Site Web & App',
+    detail: 'UX · Webdesign · Développement · Mobile · E-Commerce',
   },
-};
-
-const verticalLineVariants = {
-  hidden: { height: '0%' },
-  visible: {
-    height: '100%',
-    transition: { duration: ANIMATION.DURATION, ease: EASE_DEFAULT },
+  {
+    title: 'Création graphique',
+    detail: 'Identités visuelles · Contenus digitaux · Créativité',
   },
-};
+  {
+    title: 'Identité de marque',
+    detail: 'Wording · Stratégie · Publicité · Édition',
+  },
+];
 
 export function AgencySection() {
   return (
@@ -104,61 +101,39 @@ export function AgencySection() {
 
             <motion.div
               className="agency-services"
-              variants={servicesContainerVariants}
+              variants={agencyServicesVariants}
             >
               <div className="agency-services-line-wrapper">
                 <motion.span
                   className="agency-services-line"
-                  variants={horizontalLineVariants}
+                  variants={lineGrowXVariants}
                 />
               </div>
 
-              <div className="service-item">
-                <AnimatedHeading as="h3" className="service-title" orchestrated>
-                  Site Web & App
-                </AnimatedHeading>
-                <AnimatedText
-                  className="service-detail"
-                  variants={fadeUpVariants30}
-                  orchestrated
-                >
-                  UX · Webdesign · Développement · Mobile · E-Commerce
-                </AnimatedText>
-                <motion.span
-                  className="service-divider"
-                  variants={verticalLineVariants}
-                />
-              </div>
-
-              <div className="service-item">
-                <AnimatedHeading as="h3" className="service-title" orchestrated>
-                  Création graphique
-                </AnimatedHeading>
-                <AnimatedText
-                  className="service-detail"
-                  variants={fadeUpVariants30}
-                  orchestrated
-                >
-                  Identités visuelles · Contenus digitaux · Créativité
-                </AnimatedText>
-                <motion.span
-                  className="service-divider"
-                  variants={verticalLineVariants}
-                />
-              </div>
-
-              <div className="service-item">
-                <AnimatedHeading as="h3" className="service-title" orchestrated>
-                  Identité de marque
-                </AnimatedHeading>
-                <AnimatedText
-                  className="service-detail"
-                  variants={fadeUpVariants30}
-                  orchestrated
-                >
-                  Wording · Stratégie · Publicité · Édition
-                </AnimatedText>
-              </div>
+              {SERVICES.map((service, index) => (
+                <div key={service.title} className="service-item">
+                  <AnimatedHeading
+                    as="h3"
+                    className="service-title"
+                    orchestrated
+                  >
+                    {service.title}
+                  </AnimatedHeading>
+                  <AnimatedText
+                    className="service-detail"
+                    variants={fadeUpVariants30}
+                    orchestrated
+                  >
+                    {service.detail}
+                  </AnimatedText>
+                  {index < SERVICES.length - 1 && (
+                    <motion.span
+                      className="service-divider"
+                      variants={lineGrowYVariants}
+                    />
+                  )}
+                </div>
+              ))}
             </motion.div>
           </motion.div>
         </motion.div>

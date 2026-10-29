@@ -6,11 +6,11 @@ import rolex from '@/assets/projects/rolex.webp';
 import tabacInfoService from '@/assets/projects/tabac-info-service.webp';
 import { AnimatedHeading } from '@/components/common/TextAnimations';
 
+import type { Project } from '../Home.types';
 import { ProjectRow } from './ProjectRow';
-import type { ProjectsSectionProps } from './ProjectsSection.types';
 import './ProjectsSection.css';
 
-const defaultProjects = [
+const PROJECTS: Project[] = [
   {
     id: '1',
     title: 'Canal Plus',
@@ -75,9 +75,7 @@ const defaultProjects = [
   },
 ];
 
-export function ProjectsSection({
-  projects = defaultProjects,
-}: ProjectsSectionProps) {
+export function ProjectsSection() {
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
@@ -88,7 +86,7 @@ export function ProjectsSection({
         </AnimatedHeading>
 
         <div className="projects-list">
-          {projects.map((project, index) => (
+          {PROJECTS.map((project, index) => (
             <ProjectRow
               key={project.id}
               project={project}

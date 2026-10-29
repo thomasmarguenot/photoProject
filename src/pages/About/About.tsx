@@ -13,25 +13,15 @@ import {
   AnimatedText,
 } from '@/components/common/TextAnimations';
 import {
-  createFadeUpVariants,
-  createStaggerContainer,
   fadeOpacityVariants,
+  fadeUpVariants,
+  pageItemVariants,
+  pageStaggerVariants,
+  sectionStaggerVariants,
 } from '@/utils/animations';
-import { ANIMATION } from '@/utils/constants';
 
 import './About.css';
 import TechGraph from './TechGraph';
-
-const pageStagger = createStaggerContainer(
-  ANIMATION.STAGGER.CHILDREN_WIDE,
-  ANIMATION.DELAY.XS
-);
-const sectionStagger = createStaggerContainer(
-  ANIMATION.STAGGER.CHILDREN,
-  ANIMATION.DELAY.SM
-);
-const itemVariants = createFadeUpVariants(ANIMATION.OFFSET.MD);
-const itemVariantsSm = createFadeUpVariants(ANIMATION.OFFSET.SM);
 
 const experiences = [
   {
@@ -113,7 +103,7 @@ export function About() {
       {/* ── Hero ── */}
       <motion.div
         className="about-hero"
-        variants={pageStagger}
+        variants={pageStaggerVariants}
         initial="hidden"
         animate="visible"
       >
@@ -140,13 +130,13 @@ export function About() {
       {/* ── Parcours ── */}
       <motion.section
         className="about-section"
-        variants={sectionStagger}
+        variants={sectionStaggerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-80px' }}
         style={{ borderColor }}
       >
-        <motion.div className="about-section-header" variants={itemVariantsSm}>
+        <motion.div className="about-section-header" variants={fadeUpVariants}>
           <span className="about-section-number">—</span>
           <h2 className="about-section-title">Parcours</h2>
         </motion.div>
@@ -156,7 +146,7 @@ export function About() {
             <motion.div
               key={exp.index}
               className="about-timeline-item"
-              variants={itemVariants}
+              variants={pageItemVariants}
               style={{ borderColor }}
             >
               <div className="about-timeline-left">
@@ -175,18 +165,18 @@ export function About() {
       {/* ── Stack technique ── */}
       <motion.section
         className="about-section about-section--graph"
-        variants={sectionStagger}
+        variants={sectionStaggerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-80px' }}
         style={{ borderColor }}
       >
-        <motion.div className="about-section-header" variants={itemVariantsSm}>
+        <motion.div className="about-section-header" variants={fadeUpVariants}>
           <span className="about-section-number">—</span>
           <h2 className="about-section-title">Stack technique</h2>
         </motion.div>
 
-        <motion.p className="about-section-desc" variants={itemVariantsSm}>
+        <motion.p className="about-section-desc" variants={fadeUpVariants}>
           Un écosystème construit sur 15 ans — chaque techno a sa raison
           d&apos;être, et leurs liens racontent comment je les combine au
           quotidien.
@@ -196,7 +186,7 @@ export function About() {
           <TechGraph />
         </div>
 
-        <motion.div className="about-graph-legend" variants={itemVariantsSm}>
+        <motion.div className="about-graph-legend" variants={fadeUpVariants}>
           <span className="about-legend-item about-legend-item--frontend">
             Frontend
           </span>
@@ -215,13 +205,13 @@ export function About() {
       {/* ── Côté passion ── */}
       <motion.section
         className="about-section about-section--passions"
-        variants={sectionStagger}
+        variants={sectionStaggerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-80px' }}
         style={{ borderColor }}
       >
-        <motion.div className="about-section-header" variants={itemVariantsSm}>
+        <motion.div className="about-section-header" variants={fadeUpVariants}>
           <span className="about-section-number">—</span>
           <h2 className="about-section-title">Côté passion</h2>
         </motion.div>
@@ -231,7 +221,7 @@ export function About() {
             <motion.div
               key={p.label}
               className="about-passion-item"
-              variants={itemVariants}
+              variants={pageItemVariants}
             >
               <p className="about-passion-label">{p.label}</p>
               <p className="about-passion-desc">{p.desc}</p>

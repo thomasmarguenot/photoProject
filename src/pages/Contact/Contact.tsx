@@ -6,22 +6,12 @@ import {
   AnimatedText,
 } from '@/components/common/TextAnimations';
 import {
-  createFadeUpVariants,
-  createStaggerContainer,
+  pageItemVariants,
+  pageStaggerVariants,
+  sectionStaggerVariants,
 } from '@/utils/animations';
-import { ANIMATION } from '@/utils/constants';
 
 import './Contact.css';
-
-const pageStagger = createStaggerContainer(
-  ANIMATION.STAGGER.CHILDREN_WIDE,
-  ANIMATION.DELAY.XS
-);
-const sectionStagger = createStaggerContainer(
-  ANIMATION.STAGGER.CHILDREN,
-  ANIMATION.DELAY.SM
-);
-const itemVariants = createFadeUpVariants(ANIMATION.OFFSET.MD);
 
 const contacts = [
   {
@@ -51,7 +41,7 @@ export function Contact() {
       />
       <motion.div
         className="contact-inner"
-        variants={pageStagger}
+        variants={pageStaggerVariants}
         initial="hidden"
         animate="visible"
       >
@@ -69,30 +59,31 @@ export function Contact() {
 
         <motion.div
           className="contact-list"
-          variants={sectionStagger}
+          variants={sectionStaggerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
         >
-          {contacts.map((c) => (
-            <motion.div
-              key={c.label}
-              className="contact-entry"
-              variants={itemVariants}
-            >
-              <p className="contact-label">{c.label}</p>
-              <a
-                className="contact-link"
-                href={c.href}
-                target={c.href.startsWith('http') ? '_blank' : undefined}
-                rel={
-                  c.href.startsWith('http') ? 'noopener noreferrer' : undefined
-                }
+          {contacts.map((c) => {
+            const isExternal = c.href.startsWith('http');
+            return (
+              <motion.div
+                key={c.label}
+                className="contact-entry"
+                variants={pageItemVariants}
               >
-                {c.display}
-              </a>
-            </motion.div>
-          ))}
+                <p className="contact-label">{c.label}</p>
+                <a
+                  className="contact-link"
+                  href={c.href}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noopener noreferrer' : undefined}
+                >
+                  {c.display}
+                </a>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </motion.div>
     </div>

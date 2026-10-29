@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion';
 
 import {
-  baseTransition,
   fadeUpVariants30,
+  projectPanelVariants,
   staggerContainerVariants,
 } from '@/utils/animations';
 
@@ -101,10 +101,10 @@ export function ProjectRow({
           <motion.div
             key="panel"
             className="project-row-panel"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={baseTransition}
+            variants={projectPanelVariants}
+            initial="collapsed"
+            animate="expanded"
+            exit="collapsed"
           >
             <div className="project-row-panel-inner">
               {project.details?.map((d) => (
