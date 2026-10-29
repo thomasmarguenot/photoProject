@@ -1,6 +1,6 @@
 import type { SimulationLinkDatum, SimulationNodeDatum } from 'd3-force';
 
-export type TechCategory = 'frontend' | 'mobile' | 'backend' | 'tooling';
+type TechCategory = 'frontend' | 'mobile' | 'backend' | 'tooling';
 
 export interface TechNode extends SimulationNodeDatum {
   id: string;
@@ -8,9 +8,8 @@ export interface TechNode extends SimulationNodeDatum {
   size: number;
 }
 
-export type TechLink = SimulationLinkDatum<TechNode>;
-
-export interface TechGraphData {
-  nodes: TechNode[];
-  links: TechLink[];
+// Links are built with resolved node objects, never ids or indices.
+export interface TechLink extends SimulationLinkDatum<TechNode> {
+  source: TechNode;
+  target: TechNode;
 }

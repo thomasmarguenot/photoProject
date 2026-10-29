@@ -82,17 +82,14 @@ export function TechGraph() {
     const nodes: TechNode[] = RAW_NODES.map((n) => ({ ...n }));
     const byId = new Map(nodes.map((n) => [n.id, n]));
     const links: TechLink[] = RAW_LINKS.map((l) => ({
-      source: byId.get(l.source) as TechNode,
-      target: byId.get(l.target) as TechNode,
+      source: byId.get(l.source)!,
+      target: byId.get(l.target)!,
     }));
     return { nodes, links };
   }, []);
 
   const nodeEls = useRef(new Map<string, SVGGElement>());
   const linkEls = useRef<(SVGPathElement | null)[]>([]);
-  const simRef = useRef<ReturnType<typeof forceSimulation<TechNode>> | null>(
-    null
-  );
   const [hovered, setHovered] = useState<string | null>(null);
 
   useEffect(() => {
@@ -123,15 +120,10 @@ export function TechGraph() {
         });
         data.links.forEach((l, i) => {
           const el = linkEls.current[i];
-          if (el)
-            el.setAttribute(
-              'd',
-              buildCurve(l.source as TechNode, l.target as TechNode)
-            );
+          if (el) el.setAttribute('d', buildCurve(l.source, l.target));
         });
       });
 
-    simRef.current = sim;
     return () => {
       sim.stop();
     };
@@ -141,8 +133,8 @@ export function TechGraph() {
     if (!hovered) return new Set<string>();
     const set = new Set<string>([hovered]);
     data.links.forEach((l) => {
-      const s = (l.source as TechNode).id;
-      const t = (l.target as TechNode).id;
+      const s = l.source.id;
+      const t = l.target.id;
       if (s === hovered) set.add(t);
       if (t === hovered) set.add(s);
     });
@@ -165,8 +157,7 @@ export function TechGraph() {
       >
         <g className="tech-graph-links">
           {data.links.map((link, i) => {
-            const s = link.source as TechNode;
-            const t = link.target as TechNode;
+            const { source: s, target: t } = link;
             const dim =
               hovered !== null &&
               !(adjacentIds.has(s.id) && adjacentIds.has(t.id));
@@ -217,5 +208,3 @@ export function TechGraph() {
     </motion.div>
   );
 }
-
-export default TechGraph;
