@@ -1,10 +1,9 @@
 import { motion } from 'framer-motion';
 import { useCallback, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
-import { createPortal } from 'react-dom';
-import { flushSync } from 'react-dom';
+import { createPortal, flushSync } from 'react-dom';
 
-import { ANIMATION, PAGE_ORDER } from '@/utils/constants';
+import { pageTransitionOverlayVariants } from '@/utils/animations';
 import './PageTransition.css';
 
 import type { Direction } from './PageTransition.context';
@@ -33,21 +32,6 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
       setAnimState(1); // start overlay animation - Page 1 stays visible
     },
     [animState]
-  );
-
-  const getDirectionBetween = useCallback(
-    (_from: string, _to: string): Direction => {
-      const order = PAGE_ORDER as readonly string[];
-      const prevIndex = order.indexOf(_from);
-      const nextIndex = order.indexOf(_to);
-
-      if (prevIndex >= 0 && nextIndex >= 0) {
-        return nextIndex >= prevIndex ? 'ltr' : 'rtl';
-      }
-
-      return 'ltr';
-    },
-    []
   );
 
   const onAnimationComplete = useCallback(async () => {
@@ -79,31 +63,17 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
     }, 60);
   }, [animState]);
 
-  const duration = ANIMATION.DURATION; // Page 1 visible during overlay animation
-
-  const overlayVariants = {
-    offLeft: { x: '-100%' },
-    offRight: { x: '100%' },
-    cover: { x: '0%' },
-  } as const;
-
-  const shouldRenderOverlay = animState === 1;
-
   return (
-    <PageTransitionContext.Provider
-      value={{ runTransition, getDirectionBetween }}
-    >
+    <PageTransitionContext.Provider value={runTransition}>
       {children}
 
-      {shouldRenderOverlay &&
-        typeof document !== 'undefined' &&
+      {animState === 1 &&
         createPortal(
           <motion.div
             className="page-transition-overlay"
             initial={dirState === 'ltr' ? 'offLeft' : 'offRight'}
             animate="cover"
-            variants={overlayVariants}
-            transition={{ duration, ease: ANIMATION.EASING }}
+            variants={pageTransitionOverlayVariants}
             onAnimationComplete={onAnimationComplete}
           />,
           document.body
@@ -111,5 +81,3 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
     </PageTransitionContext.Provider>
   );
 }
-
-export default PageTransitionProvider;

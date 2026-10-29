@@ -3,10 +3,16 @@ import type { ReactElement } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { describe, it, expect } from 'vitest';
 
+import { HeaderProvider } from '@/context/Header.context';
+
 import { Header } from './Header';
 
 const renderWithRouter = (ui: ReactElement) => {
-  return render(<BrowserRouter>{ui}</BrowserRouter>);
+  return render(
+    <BrowserRouter>
+      <HeaderProvider>{ui}</HeaderProvider>
+    </BrowserRouter>
+  );
 };
 
 describe('Header', () => {
@@ -14,13 +20,6 @@ describe('Header', () => {
     renderWithRouter(<Header />);
 
     const titles = screen.getAllByText('Thomas Marguenot');
-    expect(titles.length).toBeGreaterThan(0);
-  });
-
-  it('should render with custom title', () => {
-    renderWithRouter(<Header title="Custom Title" />);
-
-    const titles = screen.getAllByText('Custom Title');
     expect(titles.length).toBeGreaterThan(0);
   });
 
