@@ -6,23 +6,12 @@
   @apply rounded-[var(--header-radius)] border-b border-[var(--header-border)];
   @apply bg-[var(--header-bg)] backdrop-blur-[var(--header-blur)];
   /* Explicit transitions — never transition backdrop-filter (causes Safari blink) */
-  transition-property: width, max-width, margin, border-radius, background-color, border-color;
+  transition-property:
+    width, max-width, margin, border-radius, background-color, border-color;
   transition-duration: 1s;
   transition-timing-function: var(--animation-easing);
   /* Stable stacking context prevents Safari from destroying the blur composite layer */
   isolation: isolate;
-}
-
-body.menu-overlay-open .header {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  border-radius: 0 !important;
-}
-
-body.lightbox-open .header {
-  /* Handled by Framer Motion in Header component */
 }
 
 .header-container {
