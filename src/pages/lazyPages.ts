@@ -20,7 +20,7 @@ export const Charte = lazy(importers.charte);
 export const Contact = lazy(importers.contact);
 export const NotFound = lazy(importers.notFound);
 
-export const pagePreloaders: Record<string, () => Promise<unknown>> = {
+const pagePreloaders: Record<string, () => Promise<unknown>> = {
   [ROUTES.HOME]: importers.home,
   [ROUTES.GALLERY]: importers.gallery,
   [ROUTES.ABOUT]: importers.about,

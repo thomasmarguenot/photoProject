@@ -11,15 +11,6 @@
   max-width: var(--page-max-width);
 }
 
-.projects-eyebrow {
-  @apply font-heading font-bold;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  margin-bottom: 12px;
-}
-
 .projects-label {
   @apply font-heading font-extrabold;
   font-size: clamp(36px, 4vw, 52px);
