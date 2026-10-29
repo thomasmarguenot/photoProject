@@ -8,7 +8,10 @@ import type { ImageVariant } from '../Gallery.types';
 import 'react-photo-album/masonry.css';
 import './GalleryGrid.css';
 
-type GalleryPhotoItem = Photo & { location: string };
+type GalleryPhotoItem = Photo & {
+  location: string;
+  variants?: ImageVariant[];
+};
 
 type GalleryPhotoProps = {
   imgProps: React.ImgHTMLAttributes<HTMLImageElement>;
@@ -142,26 +145,20 @@ export function GalleryGrid({
   isLightboxOpen,
   reducedMotion,
 }: GalleryGridProps) {
-  const { photos, variantsMap } = useMemo(() => {
-    const photos: GalleryPhotoItem[] = [];
-    const variantsMap = new Map<string, ImageVariant[]>();
-
-    images.forEach((img) => {
-      photos.push({
-        src: img.src,
-        alt: img.alt,
-        width: img.width ?? 1200,
-        height: img.height ?? 800,
-        location: img.location,
-      });
-
-      if (img.variants?.length) {
-        variantsMap.set(img.src, img.variants);
-      }
-    });
-
-    return { photos, variantsMap };
-  }, [images]);
+  const photos = useMemo(
+    () =>
+      images.map(
+        (img): GalleryPhotoItem => ({
+          src: img.src,
+          alt: img.alt,
+          width: img.width ?? 1200,
+          height: img.height ?? 800,
+          location: img.location,
+          variants: img.variants,
+        })
+      ),
+    [images]
+  );
 
   return (
     <div
@@ -185,8 +182,8 @@ export function GalleryGrid({
               imgProps={imgProps}
               aspectRatio={photo.width / photo.height}
               src={photo.src}
-              location={(photo as GalleryPhotoItem).location}
-              variants={variantsMap.get(photo.src)}
+              location={photo.location}
+              variants={photo.variants}
               index={index}
               reducedMotion={reducedMotion}
             />
