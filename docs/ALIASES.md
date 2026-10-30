@@ -1,19 +1,10 @@
-# Path Aliases Configuration
+# Path Alias
 
-This document explains the path aliases system configured in this project.
-
-## 🎯 Why Path Aliases?
-
-Path aliases eliminate the need for relative imports (like `../../components/Button`) and make imports cleaner and more maintainable.
-
-## ✅ Benefits
-
-- **Cleaner imports**: `@/components/Button` instead of `../../components/Button`
-- **Easier refactoring**: Moving files doesn't break imports
-- **Better IDE support**: Autocomplete works better with absolute paths
-- **Consistent code**: All team members use the same import style
+The project uses a single path alias: **`@/*` → `src/*`**.
 
 ## 🔧 Configuration
+
+The alias is declared in three places, which must stay in sync:
 
 ### TypeScript (`tsconfig.json`)
 
@@ -22,16 +13,7 @@ Path aliases eliminate the need for relative imports (like `../../components/But
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@/components/*": ["src/components/*"],
-      "@/features/*": ["src/features/*"],
-      "@/pages/*": ["src/pages/*"],
-      "@/hooks/*": ["src/hooks/*"],
-      "@/services/*": ["src/services/*"],
-      "@/utils/*": ["src/utils/*"],
-      "@/types/*": ["src/types/*"],
-      "@/assets/*": ["src/assets/*"],
-      "@/styles/*": ["src/styles/*"]
+      "@/*": ["src/*"]
     }
   }
 }
@@ -40,26 +22,22 @@ Path aliases eliminate the need for relative imports (like `../../components/But
 ### Vite (`vite.config.ts`)
 
 ```typescript
-import { resolve } from 'path';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
 export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
-      '@/components': resolve(__dirname, './src/components'),
-      '@/features': resolve(__dirname, './src/features'),
-      '@/pages': resolve(__dirname, './src/pages'),
-      '@/hooks': resolve(__dirname, './src/hooks'),
-      '@/services': resolve(__dirname, './src/services'),
-      '@/utils': resolve(__dirname, './src/utils'),
-      '@/types': resolve(__dirname, './src/types'),
-      '@/assets': resolve(__dirname, './src/assets'),
-      '@/styles': resolve(__dirname, './src/styles'),
+    },
+  },
+});
+```
+
+### Vitest (`vitest.config.ts`)
+
+```typescript
+export default defineConfig({
+  resolve: {
+    alias: {
+      '@': resolve(import.meta.dirname, './src'),
     },
   },
 });
@@ -67,224 +45,56 @@ export default defineConfig({
 
 ### ESLint (`eslint.config.js`)
 
-```javascript
-export default [
-  {
-    settings: {
-      'import/resolver': {
-        typescript: {
-          alwaysTryTypes: true,
-          project: './tsconfig.json',
-        },
-      },
-    },
-    rules: {
-      'import/no-unresolved': 'error',
-      'import/order': [
-        'error',
-        {
-          groups: [
-            'builtin',
-            'external',
-            'internal',
-            ['parent', 'sibling'],
-            'index',
-          ],
-          pathGroups: [
-            {
-              pattern: '@/**',
-              group: 'internal',
-              position: 'before',
-            },
-          ],
-          'newlines-between': 'always',
-          alphabetize: {
-            order: 'asc',
-            caseInsensitive: true,
-          },
-        },
-      ],
-    },
-  },
-];
-```
+`eslint-import-resolver-typescript` reads `tsconfig.json`, so `import/no-unresolved` understands `@/` without extra configuration. `import/order` puts `@/**` imports in their own group, between external packages and relative imports.
 
-## 📦 Required Packages
+## 📖 When to use it
 
-```bash
-pnpm add -D @types/node eslint-import-resolver-typescript eslint-plugin-import
-```
-
-## 📖 Usage Examples
-
-### Components
+- **Across folders**: always use `@/`.
+- **Inside a component or page folder**: use relative imports for siblings and sub-folders (`./GalleryFilter`, `./Lightbox/Lightbox`, `./Gallery.types`).
+- **No barrel files**: import the file itself, e.g. `@/components/common/Seo/Seo`. `TextAnimations/index.ts` is the only barrel in the project.
 
 ```typescript
-// ✅ Good
-import { Button } from '@/components/common/Button';
-import { Header } from '@/components/layout/Header';
+// src/pages/Home/Home.tsx
+import { MotionConfig } from 'framer-motion';
 
-// ❌ Bad
-import { Button } from '../../components/common/Button';
-import { Header } from '../layout/Header';
-```
+import { Seo } from '@/components/common/Seo/Seo';
+import { baseTransition } from '@/utils/animations';
 
-### Hooks
-
-```typescript
-// ✅ Good
-import { useAuth } from '@/hooks/useAuth';
-import { useWindowSize } from '@/hooks/useWindowSize';
-
-// ❌ Bad
-import { useAuth } from '../hooks/useAuth';
-import { useWindowSize } from '../../hooks/useWindowSize';
-```
-
-### Utils & Types
-
-```typescript
-// ✅ Good
-import { formatDate } from '@/utils/formatters';
-import type { User } from '@/types/user';
-
-// ❌ Bad
-import { formatDate } from '../../utils/formatters';
-import type { User } from '../types/user';
-```
-
-### Assets & Styles
-
-```typescript
-// ✅ Good
-import logo from '@/assets/images/logo.png';
-import '@/styles/global.css';
-
-// ❌ Bad
-import logo from '../../assets/images/logo.png';
-import '../styles/global.css';
-```
-
-### Pages & Features
-
-```typescript
-// ✅ Good
-import { Home } from '@/pages/Home';
-import { LoginForm } from '@/features/auth/components/LoginForm';
-
-// ❌ Bad
-import { Home } from '../pages/Home';
-import { LoginForm } from '../../features/auth/components/LoginForm';
+import { AgencySection } from './AgencySection/AgencySection';
+import { HeroSection } from './HeroSection/HeroSection';
+import './Home.css';
 ```
 
 ## 🔍 Import Order
 
-ESLint is configured to enforce a consistent import order:
+Enforced by `import/order` (blank line between groups, alphabetized):
 
-```typescript
-// 1. Built-in Node.js modules
-import { readFile } from 'fs';
+1. Packages (`react`, `framer-motion`, ...)
+2. `@/` aliases
+3. Relative imports
+4. Styles (`./Component.css`)
 
-// 2. External dependencies
-import React from 'react';
-import { useState } from 'react';
+`pnpm lint:fix` reorders imports automatically.
 
-// 3. Internal aliases (@/)
-import { Button } from '@/components/common/Button';
-import { useAuth } from '@/hooks/useAuth';
-import { formatDate } from '@/utils/formatters';
+## ⚠️ CSS: no alias in `@reference`
 
-// 4. Parent/sibling imports
-import { localHelper } from '../utils/helper';
-import { ComponentProps } from './types';
-
-// 5. Index imports
-import './styles.css';
-```
-
-## 🚨 Important Notes
-
-### Local Imports Within Same Folder
-
-Imports within the same folder can still be relative:
-
-```typescript
-// In: src/components/Button/Button.tsx
-import type { ButtonProps } from './types'; // ✅ OK
-import { buttonVariants } from './constants'; // ✅ OK
-```
-
-### CSS Imports
-
-CSS imports should use the same alias pattern:
-
-```typescript
-// ✅ Good - Alias for CSS imports in TS/JS files
-import '@/styles/global.css';
-import '@/components/Button/Button.css';
-
-// ❌ Bad (but works for same folder)
-import './Button.css'; // OK if in same folder
-```
-
-**⚠️ Important CSS Limitation:**
-
-Tailwind CSS v4's `@reference` directive does **NOT support path aliases**. You must use **relative paths** in CSS files:
+Tailwind v4 resolves `@reference` before Vite applies its aliases, so CSS files must use a **relative path** to `src/index.css`:
 
 ```css
-/* ✅ Good - Relative path in @reference */
-@reference "../../index.css";
-
-.button {
-  @apply px-4 py-2 rounded;
-}
+/* src/components/layout/Header/Header.css */
+@reference "../../../index.css";
 ```
 
 ```css
-/* ❌ Bad - Aliases don't work in @reference */
-@reference "@/index.css"; /* This will NOT work */
-
-.button {
-  @apply px-4 py-2 rounded;
-}
+/* ❌ Does not work */
+@reference "@/index.css";
 ```
 
-**Why?** This is a current limitation of Tailwind CSS v4. The `@reference` directive is processed by Tailwind's compiler before Vite's alias resolution happens.
+The depth depends on where the CSS file lives:
 
-### Auto-fix
-
-ESLint can automatically fix import order:
-
-```bash
-pnpm run lint:fix
-```
-
-## 🔄 Migration from Relative Imports
-
-If you have existing code with relative imports, you can:
-
-1. Run `pnpm run lint:fix` to auto-fix import order
-2. Manually replace relative imports with aliases
-3. Use VS Code's "Find and Replace" with regex patterns
-
-Example regex for VS Code:
-
-- Find: `from ['"](\.\./)+components/`
-- Replace: `from '@/components/`
-
-## 🧪 Verification
-
-Test that aliases work:
-
-```bash
-# TypeScript check
-pnpm run typecheck
-
-# ESLint check
-pnpm run lint
-
-# Build check
-pnpm build
-```
-
-All checks should pass without errors.
+| CSS file location                          | `@reference` path      |
+| ------------------------------------------ | ---------------------- |
+| `src/App.css`                              | `./index.css`          |
+| `src/pages/Page/Page.css`                  | `../../index.css`      |
+| `src/components/group/Component/*.css`     | `../../../index.css`   |
+| `src/pages/Page/Section/Section.css`       | `../../../index.css`   |

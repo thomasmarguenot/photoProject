@@ -50,7 +50,7 @@ Photography portfolio of Thomas Marguenot — Vite + React + TypeScript.
 - `pnpm gallery:images` - Generate the `-600w`, `-1200w`, `-1800w` variants of `src/assets/pictures/` into `public/images/`
 - `pnpm gallery:manifest` - Regenerate `src/assets/gallery-manifest.json` (dimensions + EXIF) from `public/images/`
 - `pnpm optimize-images` - Resize, compress and convert images in `src/assets/pictures/` to WebP
-- `pnpm rotate-portraits` - Rotate the images in `src/assets/pictures/portrait/`
+- `pnpm rotate-portraits <dir>` - Rotate every image in a directory by 270° (photos stored sideways)
 - `pnpm release` - Create a new release with semantic-release
 
 ## 📁 Project Structure

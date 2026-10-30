@@ -1,155 +1,69 @@
-# Tailwind CSS Configuration
+# Tailwind CSS
 
-This project uses **Tailwind CSS v4.1.14** with the Vite plugin for optimal integration.
-
-## 📦 Installation
-
-Tailwind CSS v4 is already installed and configured in this project. The following packages have been added:
-
-```bash
-pnpm add -D tailwindcss@4.1.14 @tailwindcss/vite
-```
+The project uses **Tailwind CSS 4.1.14** through the `@tailwindcss/vite` plugin. There is no `tailwind.config.js`: the configuration lives in CSS.
 
 ## ⚙️ Configuration
 
-### 1. Vite Plugin
-
-The `@tailwindcss/vite` plugin has been added in `vite.config.ts`:
+### Vite plugin (`vite.config.ts`)
 
 ```typescript
-import tailwindcss from '@tailwindcss/vite';
-
 export default defineConfig({
-  plugins: [react(), mkcert(), tailwindcss()],
-  // ...
+  plugins: [react(), tailwindcss()],
 });
 ```
 
-### 2. CSS Import
+### Entry stylesheet (`src/index.css`)
 
-In `src/index.css`, the Tailwind v4 import uses the new syntax:
+`src/main.tsx` imports `src/index.css`, which contains:
 
-```css
-@import 'tailwindcss';
-```
+- `@import 'tailwindcss';`
+- `@theme { ... }`: tokens exposed as Tailwind utilities (fonts, header dimensions and colors)
+- `:root { ... }`: CSS variables for the design system (type scale, colors, glass effects, ...)
+- global base styles
 
-**Note**: Tailwind v4 uses `@import` instead of the old `@tailwind base`, `@tailwind components`, `@tailwind utilities` directives.
+Fonts are self-hosted in `src/fonts/local-fonts.css`, loaded by `index.html`.
 
-### 3. Integration in main.tsx
+## 🎨 The rule: `@apply` only
 
-The CSS file is imported in `src/main.tsx`:
-
-```typescript
-import './index.css';
-```
-
-## 🎨 Usage
-
-### Recommended Approach: CSS Classes with @apply
-
-This project uses the `@apply` directive to extract Tailwind classes into separate CSS files. This keeps JSX clean and styles organized.
-
-**In your React component:**
+Tailwind utilities never appear in JSX. Components use semantic class names, and the colocated CSS file maps them to utilities with `@apply`:
 
 ```tsx
-function Button() {
-  return <button className="primary-button">Click me</button>;
-}
+// NotFound.tsx
+<Link to="/" className="not-found-link">
+  Go back home
+</Link>
 ```
 
-**In your CSS file (e.g. App.css):**
-
 ```css
-@reference "./index.css";
-
-.primary-button {
-  @apply px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors;
-}
-```
-
-**Important Notes**:
-
-- You **must** add `@reference` at the top of each CSS file that uses `@apply` to reference Tailwind utilities.
-- ⚠️ **Limitation**: Tailwind CSS v4 does not support path aliases (like `@/`) in `@reference` directives. You must use **relative paths** (e.g., `"./index.css"`, `"../../index.css"`).
-- For TypeScript/JavaScript imports, use path aliases normally (e.g., `import '@/App.css'`).
-
-**Example with nested folders:**
-
-```css
-/* In src/components/Button/Button.css */
+/* NotFound.css */
 @reference "../../index.css";
 
-.button {
-  @apply px-4 py-2 rounded;
+.not-found-link {
+  @apply inline-block px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors;
 }
 ```
 
-### Complete Example
+Why:
 
-**Component (src/components/Card.tsx):**
+- the JSX stays readable;
+- the styles of a component live in one place;
+- class names describe the role of the element, which helps in DevTools and in tests.
 
-```tsx
-export function Card({ title, children }) {
-  return (
-    <div className="card-container">
-      <h2 className="card-title">{title}</h2>
-      <div className="card-content">{children}</div>
-    </div>
-  );
-}
-```
+## 📌 `@reference`
 
-**Styles (src/components/Card.css):**
+Every CSS file that uses `@apply` must start with `@reference` pointing to `src/index.css`, so Tailwind knows the utilities and the `@theme` tokens without emitting them twice.
 
-```css
-@reference "../index.css";
+The path must be **relative**: aliases are not resolved in `@reference`. See the depth table in [ALIASES.md](./ALIASES.md).
 
-.card-container {
-  @apply bg-white rounded-lg shadow-md p-6;
-}
+## 🎯 Tokens
 
-.card-title {
-  @apply text-2xl font-bold text-gray-800 mb-4;
-}
-
-.card-content {
-  @apply text-gray-600;
-}
-```
-
-## 📝 Differences with Tailwind v3
-
-### New Features in Tailwind v4:
-
-1. **Simplified import**: Uses `@import "tailwindcss"` instead of `@tailwind` directives
-2. **CSS Configuration**: Configuration can now be done directly in CSS with `@theme`
-3. **Improved performance**: Faster and lighter
-4. **No tailwind.config.js required**: Base configuration works out-of-the-box
-
-### Custom Configuration (optional)
-
-If you want to customize the theme, add `@theme` rules in your CSS:
-
-```css
-@import 'tailwindcss';
-
-@theme {
-  --color-primary: #3b82f6;
-  --color-secondary: #8b5cf6;
-  --font-display: 'Inter', sans-serif;
-}
-```
+- **Prefer existing tokens** (`var(--color-primary)`, `--text-h2`, ...) over hardcoded values.
+- **New token**:
+  - put it in `@theme` if it must be usable as a Tailwind utility;
+  - otherwise put it in `:root`.
+- `/charte` shows the design system (colors, type scale, buttons, glass, spacing, radii) and is the quickest way to check a token visually.
 
 ## 🔗 Resources
 
-- [Tailwind CSS v4 Documentation](https://tailwindcss.com/docs)
-- [Vite Installation Guide](https://tailwindcss.com/docs/installation/using-vite)
-- [Migration to v4](https://tailwindcss.com/docs/upgrade-guide)
-
-## ✅ Verification
-
-To verify that Tailwind is working correctly:
-
-1. Start the development server: `pnpm dev`
-2. Open https://photoproject.local:5173
-3. Tailwind classes in `App.tsx` should be applied correctly
+- [Tailwind CSS v4 documentation](https://tailwindcss.com/docs)
+- [Functions and directives (`@apply`, `@reference`, `@theme`)](https://tailwindcss.com/docs/functions-and-directives)
