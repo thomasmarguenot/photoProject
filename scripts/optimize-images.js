@@ -157,13 +157,25 @@ async function main() {
   try {
     // Read directory
     const files = await readdir(PICTURES_DIR);
+    // An image is already optimized when a backup exists for its base name:
+    // photo.jpg.original covers both photo.jpg and the derived photo.webp.
+    // Re-processing it would overwrite the backup with a compressed copy.
+    const optimizedBases = new Set(
+      files
+        .filter((file) => file.endsWith('.original'))
+        .map((file) => basename(file, '.original'))
+        .map((file) => basename(file, extname(file)))
+    );
     const imageFiles = files.filter((file) => {
       const ext = extname(file);
-      return SUPPORTED_EXTENSIONS.includes(ext) && !file.includes('.original');
+      return (
+        SUPPORTED_EXTENSIONS.includes(ext) &&
+        !optimizedBases.has(basename(file, ext))
+      );
     });
 
     if (imageFiles.length === 0) {
-      console.log('\n⚠️  No images found to optimize.');
+      console.log('\n✅ No new images to optimize.');
       return;
     }
 
