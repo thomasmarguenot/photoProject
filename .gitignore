@@ -12,8 +12,10 @@ dist
 dist-ssr
 *.local
 
-# Heavy images
-# src/assets/pictures/
+# Heavy images: optimize-images backups and its JPEG output (the gallery
+# only uses the WebP files). Backups committed before this rule stay tracked.
+src/assets/pictures/*.original
+src/assets/pictures/*.jpg
 
 # Editor directories and files
 .vscode/*

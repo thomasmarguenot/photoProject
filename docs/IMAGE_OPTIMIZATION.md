@@ -38,6 +38,8 @@ The location shown in the gallery filter comes from the file name prefix: `japon
 3. Resizes to **1800 px** wide maximum (`MAX_WIDTH`).
 4. Writes the optimized image (JPEG with mozjpeg, PNG) and a `.webp` version, quality **95** (`QUALITY`).
 
+The `.original` backups and the optimized JPEG files are git-ignored: they stay on your machine (the gallery only uses the WebP files). Older backups committed before this rule are still tracked.
+
 Images that already have a backup are skipped: `photo.jpg.original` covers both `photo.jpg` and the derived `photo.webp`. Re-running the script only processes new photos, and never overwrites an original. To re-optimize a photo from its source, delete its optimized files and rename the `.original` back.
 
 ## 2. `pnpm gallery:images`
