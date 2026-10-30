@@ -11,7 +11,7 @@ const __dirname = dirname(__filename);
 const PICTURES_DIR = join(__dirname, '../src/assets/pictures');
 const OUTPUT_DIR = join(__dirname, '../public/images');
 
-// Keep in sync with the `sizes` attribute in GalleryGrid.tsx.
+// Keep in sync with GALLERY_IMAGE_SIZES in src/pages/Gallery/imageSources.ts.
 const WIDTHS = [600, 1200, 1800];
 
 async function generateResponsiveImages() {

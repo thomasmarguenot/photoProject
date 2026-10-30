@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 import type { ImageExif } from '../Gallery.types';
+import { GALLERY_IMAGE_SIZES, toSrcSet } from '../imageSources';
 import type { LightboxSlideProps } from './Lightbox.types';
 
 function formatExif(exif?: ImageExif): string[] {
@@ -43,6 +44,8 @@ export function LightboxSlide({
       <div className="gallery-lightbox-figure">
         <img
           ref={handleRef}
+          srcSet={toSrcSet(image.variants)}
+          sizes={GALLERY_IMAGE_SIZES}
           src={image.src}
           alt={image.alt}
           className="gallery-lightbox-image"

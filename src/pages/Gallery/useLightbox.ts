@@ -4,6 +4,7 @@ import { useHeader } from '@/context/Header.context';
 import { useBodyOverflow } from '@/hooks/useBodyOverflow';
 
 import type { ImageData } from './Gallery.types';
+import { GALLERY_IMAGE_SIZES, toSrcSet } from './imageSources';
 
 export function useLightbox(images: ImageData[]) {
   const [index, setIndex] = useState<number | null>(null);
@@ -33,8 +34,12 @@ export function useLightbox(images: ImageData[]) {
   useEffect(() => {
     if (index === null) return;
     const preload = (i: number) => {
-      const src = images[i]?.src;
-      if (src) new window.Image().src = src;
+      const image = images[i];
+      if (!image) return;
+      const img = new window.Image();
+      img.sizes = GALLERY_IMAGE_SIZES;
+      img.srcset = toSrcSet(image.variants) ?? '';
+      img.src = image.src;
     };
     preload((index + 1) % images.length);
     preload((index - 1 + images.length) % images.length);

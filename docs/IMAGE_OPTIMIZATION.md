@@ -47,7 +47,7 @@ Images that already have a backup are skipped: `photo.jpg.original` covers both 
 - generates `-600w`, `-1200w` and `-1800w` variants in `public/images/` (WebP, quality 80), skipping widths larger than the original;
 - copies the full-size image to `public/images/`.
 
-These widths must stay in sync with the `sizes` attribute in `src/pages/Gallery/GalleryGrid/GalleryGrid.tsx`.
+These widths must stay in sync with `GALLERY_IMAGE_SIZES` in `src/pages/Gallery/imageSources.ts`, used by both the grid and the lightbox.
 
 ## 3. `pnpm gallery:manifest`
 

@@ -5,6 +5,7 @@ import { MasonryPhotoAlbum, type Photo } from 'react-photo-album';
 
 import type { GalleryGridProps } from './GalleryGrid.types';
 import type { ImageVariant } from '../Gallery.types';
+import { GALLERY_IMAGE_SIZES, toSrcSet } from '../imageSources';
 import 'react-photo-album/masonry.css';
 import './GalleryGrid.css';
 
@@ -84,9 +85,7 @@ function GalleryPhotoImpl({
 
   const { src: propSrc, srcSet: propSrcSet, ...restImgProps } = imgProps;
 
-  const srcSet = variants?.length
-    ? variants.map((v) => `${v.src} ${v.width}w`).join(', ')
-    : propSrcSet;
+  const srcSet = toSrcSet(variants) ?? propSrcSet;
 
   // The image fades in over a light-grey placeholder on load (CSS-driven via
   // `.gallery-image` opacity). No entrance reveal — the load fade is the only
@@ -114,7 +113,7 @@ function GalleryPhotoImpl({
               {...restImgProps}
               src={propSrc}
               srcSet={srcSet}
-              sizes="(max-width: 600px) 600px, (max-width: 1200px) 1200px, 1800px"
+              sizes={GALLERY_IMAGE_SIZES}
               ref={handleRef}
               decoding="async"
               loading="lazy"
