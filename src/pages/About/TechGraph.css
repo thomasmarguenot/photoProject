@@ -64,19 +64,19 @@
 }
 
 .tech-node--frontend .tech-node-circle {
-  fill: #7CC3FF;
+  fill: var(--color-tech-frontend);
 }
 
 .tech-node--mobile .tech-node-circle {
-  fill: #FFB62E;
+  fill: var(--color-tech-mobile);
 }
 
 .tech-node--backend .tech-node-circle {
-  fill: #4164FF;
+  fill: var(--color-tech-backend);
 }
 
 .tech-node--tooling .tech-node-circle {
-  fill: #FE6237;
+  fill: var(--color-tech-tooling);
 }
 
 .tech-node:hover .tech-node-circle,
@@ -88,22 +88,22 @@
 
 .tech-node:hover.tech-node--frontend .tech-node-circle,
 .tech-node.is-hovered.tech-node--frontend .tech-node-circle {
-  fill: #B0DDFF;
+  fill: var(--color-tech-frontend-hover);
 }
 
 .tech-node:hover.tech-node--mobile .tech-node-circle,
 .tech-node.is-hovered.tech-node--mobile .tech-node-circle {
-  fill: #FFD470;
+  fill: var(--color-tech-mobile-hover);
 }
 
 .tech-node:hover.tech-node--backend .tech-node-circle,
 .tech-node.is-hovered.tech-node--backend .tech-node-circle {
-  fill: #7A9EFF;
+  fill: var(--color-tech-backend-hover);
 }
 
 .tech-node:hover.tech-node--tooling .tech-node-circle,
 .tech-node.is-hovered.tech-node--tooling .tech-node-circle {
-  fill: #FF8C5F;
+  fill: var(--color-tech-tooling-hover);
 }
 
 /* ─── Labels ─── */
@@ -128,7 +128,7 @@
 
 .tech-node:hover .tech-node-label,
 .tech-node.is-hovered .tech-node-label {
-  fill: #ffffff;
+  fill: var(--color-text-inverse);
   font-weight: 700;
 }
 

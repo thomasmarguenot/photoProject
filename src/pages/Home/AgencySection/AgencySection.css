@@ -2,7 +2,7 @@
 
 .agency-section {
   @apply w-full;
-  background: #ffffff;
+  background: var(--color-surface);
   padding: 100px 0 100px;
 }
 
@@ -16,7 +16,7 @@
   @apply text-4xl font-bold;
   font-family: var(--font-heading);
   letter-spacing: -0.02em;
-  color: #2c3e50;
+  color: var(--color-text-primary);
 }
 
 .agency-content {
@@ -47,7 +47,7 @@
 .agency-link {
   @apply inline-flex items-center gap-2 text-sm font-semibold no-underline;
   font-family: var(--font-heading);
-  color: #1d1d1f;
+  color: var(--color-ink);
   letter-spacing: 0.01em;
   transition: gap 0.25s ease;
 }
@@ -59,12 +59,12 @@
 .agency-link-arrow {
   font-size: 1rem;
   transition: transform 0.25s ease, color 0.25s ease;
-  color: #1d1d1f;
+  color: var(--color-ink);
 }
 
 .agency-link:hover .agency-link-arrow {
   transform: translateX(4px);
-  color: #277dd4;
+  color: var(--color-primary);
 }
 
 /* Colonne droite : texte */
@@ -77,7 +77,7 @@
   font-weight: 700;
   font-family: var(--font-heading);
   letter-spacing: -0.03em;
-  color: #1d1d1f;
+  color: var(--color-ink);
   line-height: 1.1;
   margin-bottom: 24px;
 }
@@ -87,14 +87,14 @@
   font-weight: 700;
   font-family: var(--font-heading);
   letter-spacing: 0.12em;
-  color: #86868b;
+  color: var(--color-ink-muted);
   text-transform: uppercase;
   margin-bottom: 24px;
 }
 
 .agency-description {
   font-size: 1rem;
-  color: #6e6e73;
+  color: var(--color-ink-soft);
   line-height: 1.7;
   letter-spacing: -0.01em;
   margin-bottom: 12px;
@@ -142,7 +142,7 @@
   top: 0;
   right: 0;
   width: 1px;
-  background: rgba(0, 0, 0, 0.08);
+  background: var(--color-border);
   display: block;
 }
 
@@ -151,13 +151,13 @@
   font-weight: 700;
   font-family: var(--font-heading);
   letter-spacing: -0.01em;
-  color: #1d1d1f;
+  color: var(--color-ink);
   margin-bottom: 8px;
 }
 
 .service-detail {
   font-size: 0.8125rem;
-  color: #86868b;
+  color: var(--color-ink-muted);
   line-height: 1.6;
 }
 
@@ -199,7 +199,7 @@
   .service-item {
     padding-right: 0;
     padding-bottom: 24px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .service-item:not(:last-child) {

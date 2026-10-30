@@ -45,7 +45,7 @@
 
 .circular-text-path {
   @apply text-sm font-semibold tracking-[0.2em];
-  fill: #ffffff;
+  fill: var(--color-text-inverse);
   font-family: var(--font-heading);
   text-transform: uppercase;
 }
@@ -88,7 +88,7 @@
 }
 
 .hero-description--black {
-  color: #111;
+  color: var(--color-text-strong);
 }
 
 @media (min-width: 1024px) {
@@ -133,7 +133,12 @@
   display: flex;
 }
 
+.hero-scroll-arrow__icon {
+  stroke: var(--color-text-strong);
+}
+
 .hero-scroll-arrow__circle {
+  stroke: var(--color-placeholder);
   stroke-dasharray: 188.5;
   stroke-dashoffset: 188.5;
   transition: stroke-dashoffset 0.65s ease;

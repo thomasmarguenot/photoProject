@@ -3,7 +3,7 @@
 .footer {
   @apply w-full;
   position: relative;
-  background: #1d1d1f;
+  background: var(--color-ink);
 }
 
 .footer-bg {
@@ -11,7 +11,7 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background: #1d1d1f;
+  background: var(--color-ink);
   will-change: height;
 }
 
@@ -62,7 +62,7 @@
 
 @media (max-width: 1023px) {
   .footer {
-    background: #1d1d1f;
+    background: var(--color-ink);
   }
 
   .footer-container {

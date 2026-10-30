@@ -8,7 +8,17 @@
   padding-bottom: 0;
   overflow: hidden;
   min-height: 100vh;
-  transition: none; /* framer-motion handles the transition */
+  --about-bg: var(--color-surface);
+  --about-fg: var(--color-text-strong);
+  --about-border: var(--about-border-light);
+  background-color: var(--about-bg);
+  color: var(--about-fg);
+}
+
+body.about-dark .about {
+  --about-bg: var(--color-surface-dark);
+  --about-fg: var(--color-background);
+  --about-border: var(--about-border-dark);
 }
 
 /* ─── Hero ─── */
@@ -77,6 +87,7 @@
   max-width: 100%;
   margin: 0 auto;
   padding: 3rem 2rem;
+  border-color: var(--about-border);
 }
 
 .about-section-header {
@@ -126,7 +137,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   padding: 2.5rem 0;
-  border-top: 1px solid;
+  border-top: 1px solid var(--about-border);
   align-items: start;
 }
 
@@ -229,23 +240,23 @@
 }
 
 .about-legend-item--frontend::before {
-  background: #7CC3FF;
-  border-color: #7CC3FF;
+  background: var(--color-tech-frontend);
+  border-color: var(--color-tech-frontend);
 }
 
 .about-legend-item--mobile::before {
-  background: #FFB62E;
-  border-color: #FFB62E;
+  background: var(--color-tech-mobile);
+  border-color: var(--color-tech-mobile);
 }
 
 .about-legend-item--backend::before {
-  background: #4164FF;
-  border-color: #4164FF;
+  background: var(--color-tech-backend);
+  border-color: var(--color-tech-backend);
 }
 
 .about-legend-item--tooling::before {
-  background: #FE6237;
-  border-color: #FE6237;
+  background: var(--color-tech-tooling);
+  border-color: var(--color-tech-tooling);
 }
 
 /* ─── Passions ─── */

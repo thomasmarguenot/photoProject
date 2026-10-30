@@ -49,15 +49,12 @@
 .header-title {
   @apply text-2xl font-semibold tracking-[-0.02em];
   font-family: var(--font-body);
+  --header-title-color: var(--color-text-primary);
   background-image: linear-gradient(
     90deg,
-    var(--color-text-primary) 0,
-    var(--color-text-primary) 33.33%,
-    #fde047 40%,
-    #f59e0b 45%,
-    #ec4899 50%,
-    #a78bfa 55%,
-    #60a5fa 60%,
+    var(--header-title-color) 0,
+    var(--header-title-color) 33.33%,
+    var(--header-title-shimmer),
     transparent 66.67%,
     transparent
   );
@@ -200,37 +197,26 @@
 }
 
 body.about-dark .header {
-  background: rgba(30, 30, 30, 0.6);
-  border-color: rgba(255, 255, 255, 0.08);
+  background: var(--header-dark-bg);
+  border-color: var(--header-dark-border);
 }
 
 body.about-dark .header-link {
   @apply text-[var(--color-text-primary)];
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--header-dark-link);
 }
 
 body.about-dark .header-link:hover,
 body.about-dark .header-link.active {
-  color: #60a5fa;
+  color: var(--header-dark-link-active);
 }
 
 body.about-dark .header-nav-indicator {
-  background: rgba(96, 165, 250, 0.15);
+  background: var(--header-dark-indicator);
 }
 
 body.about-dark .header-title {
-  background-image: linear-gradient(
-    90deg,
-    #f5f5f7 0,
-    #f5f5f7 33.33%,
-    #fde047 40%,
-    #f59e0b 45%,
-    #ec4899 50%,
-    #a78bfa 55%,
-    #60a5fa 60%,
-    transparent 66.67%,
-    transparent
-  );
+  --header-title-color: var(--color-background);
 }
 
 @media (min-width: 1024px) {

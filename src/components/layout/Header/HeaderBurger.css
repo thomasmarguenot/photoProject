@@ -31,7 +31,7 @@
 
 .header-mobile-overlay {
   @apply fixed inset-0 flex flex-col items-center justify-center z-[100] w-screen h-screen;
-  background: #fff !important;
+  background: var(--color-surface) !important;
   opacity: 1 !important;
   margin: 0 !important;
   padding: 0 !important;

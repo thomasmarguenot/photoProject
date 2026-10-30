@@ -20,13 +20,10 @@ import { useAboutTheme } from './useAboutTheme';
 import './About.css';
 
 export function About() {
-  const { bgColor, fgColor, borderColor } = useAboutTheme();
+  useAboutTheme();
 
   return (
-    <motion.div
-      className="about"
-      style={{ backgroundColor: bgColor, color: fgColor }}
-    >
+    <div className="about">
       <Seo
         title="À propos — Thomas Marguenot"
         description="15 ans de développement web et mobile : MyCanal, Quotatis, Rolex. Parcours, stack technique React / React Native et passions de Thomas Marguenot."
@@ -58,14 +55,13 @@ export function About() {
         </motion.div>
       </motion.div>
 
-      <AboutSection title="Parcours" borderColor={borderColor}>
+      <AboutSection title="Parcours">
         <div className="about-timeline">
           {EXPERIENCES.map((exp) => (
             <motion.div
               key={exp.index}
               className="about-timeline-item"
               variants={pageItemVariants}
-              style={{ borderColor }}
             >
               <div className="about-timeline-left">
                 <p className="about-timeline-role">{exp.role}</p>
@@ -80,11 +76,7 @@ export function About() {
         </div>
       </AboutSection>
 
-      <AboutSection
-        title="Stack technique"
-        borderColor={borderColor}
-        className="about-section--graph"
-      >
+      <AboutSection title="Stack technique" className="about-section--graph">
         <motion.p className="about-section-desc" variants={fadeUpVariants}>
           Un écosystème construit sur 15 ans — chaque techno a sa raison
           d&apos;être, et leurs liens racontent comment je les combine au
@@ -107,11 +99,7 @@ export function About() {
         </motion.div>
       </AboutSection>
 
-      <AboutSection
-        title="Côté passion"
-        borderColor={borderColor}
-        className="about-section--passions"
-      >
+      <AboutSection title="Côté passion" className="about-section--passions">
         <div className="about-passions">
           {PASSIONS.map((p) => (
             <motion.div
@@ -125,7 +113,7 @@ export function About() {
           ))}
         </div>
       </AboutSection>
-    </motion.div>
+    </div>
   );
 }
 

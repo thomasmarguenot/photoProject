@@ -20,11 +20,11 @@ export function ColorsSection() {
           <div key={color.name} className="color-card">
             <div
               className="color-preview"
-              style={{ backgroundColor: color.value }}
+              style={{ backgroundColor: `var(${color.token})` }}
             />
             <div className="color-info">
               <div className="color-name">{color.name}</div>
-              <div className="color-value">{color.value}</div>
+              <div className="color-value">{color.token}</div>
               {color.description && (
                 <div className="color-description">{color.description}</div>
               )}

@@ -25,7 +25,7 @@
   height: 100%;
   border-radius: 8px;
   overflow: hidden;
-  background: #e5e7eb;
+  background: var(--color-placeholder);
   contain: layout paint;
   cursor: pointer;
 }
@@ -33,7 +33,7 @@
 .gallery-placeholder-skeleton {
   position: absolute;
   inset: 0;
-  background: #e5e7eb;
+  background: var(--color-placeholder);
   transition: opacity 1s ease-in-out;
   pointer-events: none;
   z-index: 1;
@@ -121,7 +121,7 @@
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--color-text-inverse);
   transform: translateY(8px);
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -131,7 +131,7 @@
 }
 
 .gallery-placeholder {
-  background: #e5e7eb;
+  background: var(--color-placeholder);
   border-radius: 8px;
 }
 

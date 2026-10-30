@@ -6,7 +6,6 @@ import type { AboutSectionProps } from './AboutSection.types';
 
 export function AboutSection({
   title,
-  borderColor,
   className = '',
   children,
 }: AboutSectionProps) {
@@ -17,7 +16,6 @@ export function AboutSection({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-80px' }}
-      style={{ borderColor }}
     >
       <motion.div className="about-section-header" variants={fadeUpVariants}>
         <span className="about-section-number">—</span>

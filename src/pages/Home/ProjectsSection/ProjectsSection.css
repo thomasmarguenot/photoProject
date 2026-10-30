@@ -2,7 +2,7 @@
 
 .projects-section {
   @apply w-full;
-  background: #f5f1e8;
+  background: var(--color-surface-warm);
   padding: 100px 0 80px;
 }
 
@@ -16,7 +16,7 @@
   font-size: clamp(36px, 4vw, 52px);
   letter-spacing: -0.03em;
   line-height: 1;
-  color: #1d1d1f;
+  color: var(--color-ink);
   margin-bottom: 56px;
 }
 

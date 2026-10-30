@@ -10,62 +10,62 @@ import type {
 export const COLORS: ColorToken[] = [
   {
     name: 'Primary',
-    value: '#277DD4',
+    token: '--color-primary',
     description: 'Couleur principale - Actions et éléments interactifs',
   },
   {
     name: 'Primary Light',
-    value: '#4A9FE8',
+    token: '--color-primary-light',
     description: 'Variante claire - Hover et états actifs',
   },
   {
     name: 'Primary Dark',
-    value: '#1A5BA8',
+    token: '--color-primary-dark',
     description: 'Variante foncée - Contraste et profondeur',
   },
   {
     name: 'Primary Subtle',
-    value: 'rgba(39, 125, 212, 0.1)',
+    token: '--color-primary-subtle',
     description: 'Version transparente - Backgrounds subtils',
   },
   {
     name: 'Background',
-    value: '#F5F7FA',
+    token: '--color-background',
     description: 'Arrière-plan principal de la page',
   },
   {
     name: 'Surface',
-    value: '#FFFFFF',
+    token: '--color-surface',
     description: 'Cartes et conteneurs',
   },
   {
     name: 'Text Primary',
-    value: '#1A1D29',
+    token: '--color-text-primary',
     description: 'Texte principal - Titres et contenu important',
   },
   {
     name: 'Text Secondary',
-    value: '#6B7280',
+    token: '--color-text-secondary',
     description: 'Texte secondaire - Descriptions et labels',
   },
   {
     name: 'Text Tertiary',
-    value: '#9CA3AF',
+    token: '--color-text-tertiary',
     description: 'Texte tertiaire - Placeholders et hints',
   },
   {
     name: 'Success',
-    value: '#10B981',
+    token: '--color-success',
     description: 'Messages de succès et validation',
   },
   {
     name: 'Warning',
-    value: '#F59E0B',
+    token: '--color-warning',
     description: 'Avertissements et alertes',
   },
   {
     name: 'Error',
-    value: '#EF4444',
+    token: '--color-error',
     description: 'Erreurs et actions destructives',
   },
 ];

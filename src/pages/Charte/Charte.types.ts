@@ -1,6 +1,6 @@
 export interface ColorToken {
   name: string;
-  value: string;
+  token: `--color-${string}`;
   description?: string;
 }
 

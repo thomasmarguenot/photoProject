@@ -78,7 +78,7 @@
   @apply font-heading font-extrabold leading-[1.05];
   font-size: clamp(28px, 3.2vw, 48px);
   letter-spacing: -0.03em;
-  color: #1d1d1f;
+  color: var(--color-ink);
   transition: color 0.35s var(--animation-easing);
 }
 
@@ -131,7 +131,7 @@
   width: 220px;
   height: 138px;
   border-radius: var(--radius-md);
-  background: #ddd;
+  background: var(--color-placeholder);
   box-shadow: var(--shadow-md);
   transition:
     box-shadow 0.4s var(--animation-easing),
@@ -201,7 +201,7 @@
   @apply font-body font-medium;
   font-size: 15px;
   line-height: 1.4;
-  color: #1d1d1f;
+  color: var(--color-ink);
 }
 
 /* Responsive */
