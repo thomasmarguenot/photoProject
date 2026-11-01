@@ -5,6 +5,7 @@ import {
   AnimatedHeading,
   AnimatedText,
 } from '@/components/common/TextAnimations';
+import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import {
   pageItemVariants,
   pageStaggerVariants,
@@ -31,7 +32,22 @@ const contacts = [
   },
 ];
 
+const CopyIcon = () => (
+  <svg className="contact-copy-icon" viewBox="0 0 24 24" aria-hidden="true">
+    <rect x="9" y="9" width="12" height="12" rx="2" />
+    <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" />
+  </svg>
+);
+
+const CheckIcon = () => (
+  <svg className="contact-copy-icon" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M4 12.5l5 5L20 6.5" />
+  </svg>
+);
+
 export function Contact() {
+  const { copiedText, copy } = useCopyToClipboard();
+
   return (
     <div className="contact">
       <Seo
@@ -66,6 +82,10 @@ export function Contact() {
         >
           {contacts.map((c) => {
             const isExternal = c.href.startsWith('http');
+            const email = c.href.startsWith('mailto:')
+              ? c.href.slice('mailto:'.length)
+              : undefined;
+            const isCopied = email !== undefined && copiedText === email;
             return (
               <motion.div
                 key={c.label}
@@ -73,14 +93,34 @@ export function Contact() {
                 variants={pageItemVariants}
               >
                 <p className="contact-label">{c.label}</p>
-                <a
-                  className="contact-link"
-                  href={c.href}
-                  target={isExternal ? '_blank' : undefined}
-                  rel={isExternal ? 'noopener noreferrer' : undefined}
-                >
-                  {c.display}
-                </a>
+                <div className="contact-actions">
+                  <a
+                    className="contact-link"
+                    href={c.href}
+                    target={isExternal ? '_blank' : undefined}
+                    rel={isExternal ? 'noopener noreferrer' : undefined}
+                  >
+                    {c.display}
+                  </a>
+                  {email && (
+                    <>
+                      <button
+                        type="button"
+                        className={`contact-copy${isCopied ? ' contact-copy--copied' : ''}`}
+                        onClick={() => copy(email)}
+                        aria-label={`Copier l'adresse ${email}`}
+                      >
+                        {isCopied ? <CheckIcon /> : <CopyIcon />}
+                      </button>
+                      <span
+                        className="contact-copy-feedback"
+                        aria-live="polite"
+                      >
+                        {isCopied ? 'Copiée' : ''}
+                      </span>
+                    </>
+                  )}
+                </div>
               </motion.div>
             );
           })}

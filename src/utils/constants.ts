@@ -56,6 +56,13 @@ export const ANIMATION = {
   MARQUEE_DURATION: 100,
 } as const;
 
+export const GESTURE = {
+  /** Horizontal travel (px) past which a pan counts as a swipe */
+  SWIPE_OFFSET: 50,
+  /** Flick speed (px/s) that counts as a swipe even on a short travel */
+  SWIPE_VELOCITY: 500,
+} as const;
+
 export const ROUTES = {
   HOME: '/',
   GALLERY: '/gallery',

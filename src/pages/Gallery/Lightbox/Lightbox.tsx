@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, type PanInfo } from 'framer-motion';
 import type { MouseEvent } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -8,6 +8,7 @@ import {
   lightboxSlideVariants,
   lightboxSlideVariantsReduced,
 } from '@/utils/animations';
+import { GESTURE } from '@/utils/constants';
 
 import type { LightboxProps } from './Lightbox.types';
 import { LightboxSlide } from './LightboxSlide';
@@ -46,6 +47,16 @@ export function Lightbox({
     ? lightboxSlideVariantsReduced
     : lightboxSlideVariants;
 
+  const handlePanEnd = (_: PointerEvent, { offset, velocity }: PanInfo) => {
+    if (Math.abs(offset.x) < Math.abs(offset.y)) return;
+    const isSwipe =
+      Math.abs(offset.x) > GESTURE.SWIPE_OFFSET ||
+      Math.abs(velocity.x) > GESTURE.SWIPE_VELOCITY;
+    if (!isSwipe) return;
+    if (offset.x < 0) onNext();
+    else onPrev();
+  };
+
   return createPortal(
     <AnimatePresence>
       {image && index !== null && (
@@ -63,9 +74,10 @@ export function Lightbox({
           aria-label={`Photo : ${image.location}`}
           tabIndex={-1}
         >
-          <div
+          <motion.div
             className="gallery-lightbox-stage"
             onClick={(e) => e.stopPropagation()}
+            onPanEnd={handlePanEnd}
           >
             <AnimatePresence custom={slideDirection} initial={false}>
               <LightboxSlide
@@ -77,7 +89,7 @@ export function Lightbox({
                 onToggleInfo={onToggleInfo}
               />
             </AnimatePresence>
-          </div>
+          </motion.div>
 
           <motion.span
             className="gallery-lightbox-counter"

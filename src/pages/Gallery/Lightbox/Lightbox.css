@@ -14,6 +14,8 @@
 }
 
 .gallery-lightbox-stage {
+  /* Leaves horizontal pans to the swipe handler, keeps scroll and pinch-zoom. */
+  @apply touch-pan-y touch-pinch-zoom;
   position: relative;
   width: 100%;
   height: 100%;
