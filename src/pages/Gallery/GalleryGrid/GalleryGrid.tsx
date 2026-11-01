@@ -152,7 +152,7 @@ export function GalleryGrid({
           alt: img.alt,
           width: img.width ?? 1200,
           height: img.height ?? 800,
-          location: img.location,
+          location: img.place,
           variants: img.variants,
         })
       ),

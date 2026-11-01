@@ -21,6 +21,7 @@ export interface ImageData {
   src: string;
   alt: string;
   location: string;
+  place: string;
   width?: number;
   height?: number;
   exif?: ImageExif;
@@ -28,9 +29,12 @@ export interface ImageData {
 }
 
 export type Location =
+  | 'Athènes'
   | 'Corée'
   | 'Japon'
   | 'Marseille'
   | 'Paris'
+  | 'Sardaigne'
   | 'Vietnam'
+  | 'Autres'
   | 'Tous';

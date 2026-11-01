@@ -13,6 +13,7 @@ interface ManifestEntry {
   file: string;
   src: string;
   location: string;
+  place: string;
   width: number;
   height: number;
   exif?: ImageExif | null;
@@ -37,6 +38,7 @@ export function useGalleryImages() {
         src: entry.src,
         alt: entry.file.replace(/[-_]/g, ' ').replace('.webp', ''),
         location: entry.location,
+        place: entry.place,
         width: entry.width,
         height: entry.height,
         exif: entry.exif ?? undefined,
@@ -44,10 +46,14 @@ export function useGalleryImages() {
       }))
     );
 
-    const uniqueLocations = [...new Set(images.map((img) => img.location))];
+    const uniqueLocations = [
+      ...new Set(images.map((img) => img.location as Location)),
+    ];
+    const named = uniqueLocations.filter((l) => l !== 'Autres').sort();
     const locations: Location[] = [
       'Tous',
-      ...(uniqueLocations.sort() as Location[]),
+      ...named,
+      ...(uniqueLocations.includes('Autres') ? (['Autres'] as const) : []),
     ];
 
     return { images, locations };

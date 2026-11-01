@@ -28,11 +28,11 @@ function formatFocalLength(focal?: number, focal35?: number) {
     : `${focal} mm`;
 }
 
-export function getPhotoDetails({ location, exif }: ImageData): PhotoDetail[] {
+export function getPhotoDetails({ place, exif }: ImageData): PhotoDetail[] {
   const camera = [exif?.make, exif?.model].filter(Boolean).join(' ');
 
   const details: [string, string | undefined][] = [
-    ['Lieu', location],
+    ['Lieu', place],
     [
       'Date',
       exif?.takenAt

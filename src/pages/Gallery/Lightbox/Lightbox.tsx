@@ -71,7 +71,7 @@ export function Lightbox({
           ref={dialogRef}
           role="dialog"
           aria-modal="true"
-          aria-label={`Photo : ${image.location}`}
+          aria-label={`Photo : ${image.place}`}
           tabIndex={-1}
         >
           <motion.div

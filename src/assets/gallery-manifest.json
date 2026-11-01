@@ -1,8 +1,749 @@
 [
   {
+    "file": "athenes_001.webp",
+    "src": "/images/athenes_001.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 18,
+      "focalLength35": 27,
+      "fNumber": 5.6,
+      "exposureTime": "1/550",
+      "exposureBias": -0.67,
+      "iso": 6400,
+      "takenAt": "2026-05-22"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_001-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/athenes_001-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/athenes_001-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "athenes_002.webp",
+    "src": "/images/athenes_002.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 23,
+      "focalLength35": 34,
+      "fNumber": 8,
+      "exposureTime": "1/1900",
+      "exposureBias": -0.67,
+      "iso": 6400,
+      "takenAt": "2026-05-22"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_002-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/athenes_002-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/athenes_002-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "athenes_003.webp",
+    "src": "/images/athenes_003.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 67,
+      "fNumber": 7.1,
+      "exposureTime": "1/400",
+      "exposureBias": -0.67,
+      "iso": 6400,
+      "takenAt": "2026-05-22"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_003-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/athenes_003-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/athenes_003-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "athenes_004.webp",
+    "src": "/images/athenes_004.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 5.6,
+      "exposureTime": "1/950",
+      "exposureBias": 0.33,
+      "iso": 6400,
+      "takenAt": "2026-05-22"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_004-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/athenes_004-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/athenes_004-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "athenes_005.webp",
+    "src": "/images/athenes_005.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 17,
+      "focalLength35": 25,
+      "fNumber": 16,
+      "exposureTime": "1/3800",
+      "exposureBias": -0.33,
+      "iso": 6400,
+      "takenAt": "2026-05-23"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_005-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/athenes_005-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/athenes_005-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "athenes_006.webp",
+    "src": "/images/athenes_006.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 8,
+      "exposureTime": "1/1900",
+      "exposureBias": -0.33,
+      "iso": 6400,
+      "takenAt": "2026-05-23"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_006-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/athenes_006-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/athenes_006-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "athenes_007.webp",
+    "src": "/images/athenes_007.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 31,
+      "focalLength35": 46,
+      "fNumber": 9,
+      "exposureTime": "1/2700",
+      "exposureBias": -0.33,
+      "iso": 6400,
+      "takenAt": "2026-05-23"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_007-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/athenes_007-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/athenes_007-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "athenes_008.webp",
+    "src": "/images/athenes_008.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 29,
+      "focalLength35": 43,
+      "fNumber": 8,
+      "exposureTime": "1/1800",
+      "exposureBias": -0.33,
+      "iso": 6400,
+      "takenAt": "2026-05-23"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_008-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/athenes_008-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/athenes_008-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "athenes_009.webp",
+    "src": "/images/athenes_009.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 29,
+      "focalLength35": 43,
+      "fNumber": 9,
+      "exposureTime": "1/2500",
+      "exposureBias": -0.33,
+      "iso": 6400,
+      "takenAt": "2026-05-23"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_009-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/athenes_009-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/athenes_009-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "athenes_010.webp",
+    "src": "/images/athenes_010.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 14,
+      "exposureTime": "1/3800",
+      "exposureBias": -2,
+      "iso": 6400,
+      "takenAt": "2026-05-23"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_010-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/athenes_010-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/athenes_010-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "athenes_011.webp",
+    "src": "/images/athenes_011.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 5.6,
+      "exposureTime": "1/160",
+      "exposureBias": -1.67,
+      "iso": 6400,
+      "takenAt": "2026-05-23"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_011-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/athenes_011-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/athenes_011-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "athenes_p_001.webp",
+    "src": "/images/athenes_p_001.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 4,
+      "exposureTime": "1/1300",
+      "exposureBias": 0.33,
+      "iso": 320,
+      "takenAt": "2026-05-22"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_p_001-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/athenes_p_001-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/athenes_p_001-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "athenes_p_002.webp",
+    "src": "/images/athenes_p_002.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 3.5,
+      "exposureTime": "1/100",
+      "exposureBias": 0.33,
+      "iso": 1600,
+      "takenAt": "2026-05-22"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_p_002-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/athenes_p_002-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/athenes_p_002-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "athenes_p_003.webp",
+    "src": "/images/athenes_p_003.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 3.5,
+      "exposureTime": "1/100",
+      "exposureBias": 0.33,
+      "iso": 800,
+      "takenAt": "2026-05-22"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_p_003-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/athenes_p_003-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/athenes_p_003-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "athenes_p_004.webp",
+    "src": "/images/athenes_p_004.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 13,
+      "exposureTime": "1/3200",
+      "exposureBias": 0,
+      "iso": 6400,
+      "takenAt": "2026-05-22"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_p_004-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/athenes_p_004-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/athenes_p_004-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "athenes_p_005.webp",
+    "src": "/images/athenes_p_005.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 19,
+      "focalLength35": 29,
+      "fNumber": 10,
+      "exposureTime": "1/3000",
+      "exposureBias": 0,
+      "iso": 6400,
+      "takenAt": "2026-05-22"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_p_005-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/athenes_p_005-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/athenes_p_005-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "athenes_p_006.webp",
+    "src": "/images/athenes_p_006.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 20,
+      "focalLength35": 30,
+      "fNumber": 8,
+      "exposureTime": "1/2400",
+      "exposureBias": 0,
+      "iso": 6400,
+      "takenAt": "2026-05-22"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_p_006-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/athenes_p_006-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/athenes_p_006-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "athenes_p_007.webp",
+    "src": "/images/athenes_p_007.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 19,
+      "focalLength35": 28,
+      "fNumber": 9,
+      "exposureTime": "1/2700",
+      "exposureBias": -0.33,
+      "iso": 6400,
+      "takenAt": "2026-05-22"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_p_007-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/athenes_p_007-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/athenes_p_007-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "athenes_p_008.webp",
+    "src": "/images/athenes_p_008.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 31,
+      "focalLength35": 46,
+      "fNumber": 8,
+      "exposureTime": "1/2400",
+      "exposureBias": -0.33,
+      "iso": 6400,
+      "takenAt": "2026-05-23"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_p_008-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/athenes_p_008-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/athenes_p_008-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "athenes_p_009.webp",
+    "src": "/images/athenes_p_009.webp",
+    "location": "Athènes",
+    "place": "Athènes",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 11,
+      "exposureTime": "1/3800",
+      "exposureBias": -3,
+      "iso": 6400,
+      "takenAt": "2026-05-23"
+    },
+    "variants": [
+      {
+        "src": "/images/athenes_p_009-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/athenes_p_009-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/athenes_p_009-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
     "file": "coree_001.webp",
     "src": "/images/coree_001.webp",
     "location": "Corée",
+    "place": "Corée",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -39,6 +780,7 @@
     "file": "coree_002.webp",
     "src": "/images/coree_002.webp",
     "location": "Corée",
+    "place": "Corée",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -75,6 +817,7 @@
     "file": "coree_003.webp",
     "src": "/images/coree_003.webp",
     "location": "Corée",
+    "place": "Corée",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -111,6 +854,7 @@
     "file": "coree_004.webp",
     "src": "/images/coree_004.webp",
     "location": "Corée",
+    "place": "Corée",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -147,6 +891,7 @@
     "file": "coree_005.webp",
     "src": "/images/coree_005.webp",
     "location": "Corée",
+    "place": "Corée",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -183,6 +928,7 @@
     "file": "coree_p_001.webp",
     "src": "/images/coree_p_001.webp",
     "location": "Corée",
+    "place": "Corée",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -219,6 +965,7 @@
     "file": "coree_p_002.webp",
     "src": "/images/coree_p_002.webp",
     "location": "Corée",
+    "place": "Corée",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -255,6 +1002,7 @@
     "file": "coree_p_003.webp",
     "src": "/images/coree_p_003.webp",
     "location": "Corée",
+    "place": "Corée",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -291,6 +1039,7 @@
     "file": "coree_p_004.webp",
     "src": "/images/coree_p_004.webp",
     "location": "Corée",
+    "place": "Corée",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -327,6 +1076,7 @@
     "file": "japon_001.webp",
     "src": "/images/japon_001.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -363,6 +1113,7 @@
     "file": "japon_002.webp",
     "src": "/images/japon_002.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -399,6 +1150,7 @@
     "file": "japon_004.webp",
     "src": "/images/japon_004.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -435,6 +1187,7 @@
     "file": "japon_008.webp",
     "src": "/images/japon_008.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -471,6 +1224,7 @@
     "file": "japon_011.webp",
     "src": "/images/japon_011.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -507,6 +1261,7 @@
     "file": "japon_012.webp",
     "src": "/images/japon_012.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -543,6 +1298,7 @@
     "file": "japon_013.webp",
     "src": "/images/japon_013.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -579,6 +1335,7 @@
     "file": "japon_014.webp",
     "src": "/images/japon_014.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -615,6 +1372,7 @@
     "file": "japon_015.webp",
     "src": "/images/japon_015.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -651,6 +1409,7 @@
     "file": "japon_016.webp",
     "src": "/images/japon_016.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -687,6 +1446,7 @@
     "file": "japon_017.webp",
     "src": "/images/japon_017.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -723,6 +1483,7 @@
     "file": "japon_018.webp",
     "src": "/images/japon_018.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -759,6 +1520,7 @@
     "file": "japon_019.webp",
     "src": "/images/japon_019.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -795,6 +1557,7 @@
     "file": "japon_020.webp",
     "src": "/images/japon_020.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -831,6 +1594,7 @@
     "file": "japon_024.webp",
     "src": "/images/japon_024.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -867,6 +1631,7 @@
     "file": "japon_027.webp",
     "src": "/images/japon_027.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -903,6 +1668,7 @@
     "file": "japon_028.webp",
     "src": "/images/japon_028.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -939,6 +1705,7 @@
     "file": "japon_029.webp",
     "src": "/images/japon_029.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -975,6 +1742,7 @@
     "file": "japon_030.webp",
     "src": "/images/japon_030.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1011,6 +1779,7 @@
     "file": "japon_032.webp",
     "src": "/images/japon_032.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1047,6 +1816,7 @@
     "file": "japon_033.webp",
     "src": "/images/japon_033.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1083,6 +1853,7 @@
     "file": "japon_034.webp",
     "src": "/images/japon_034.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1119,6 +1890,7 @@
     "file": "japon_035.webp",
     "src": "/images/japon_035.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1155,6 +1927,7 @@
     "file": "japon_036.webp",
     "src": "/images/japon_036.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1191,6 +1964,7 @@
     "file": "japon_037.webp",
     "src": "/images/japon_037.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1227,6 +2001,7 @@
     "file": "japon_038.webp",
     "src": "/images/japon_038.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1263,6 +2038,7 @@
     "file": "japon_039.webp",
     "src": "/images/japon_039.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1299,6 +2075,7 @@
     "file": "japon_040.webp",
     "src": "/images/japon_040.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1335,6 +2112,7 @@
     "file": "japon_041.webp",
     "src": "/images/japon_041.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1371,6 +2149,7 @@
     "file": "japon_042.webp",
     "src": "/images/japon_042.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1407,6 +2186,7 @@
     "file": "japon_043.webp",
     "src": "/images/japon_043.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1443,6 +2223,7 @@
     "file": "japon_044.webp",
     "src": "/images/japon_044.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1479,6 +2260,7 @@
     "file": "japon_045.webp",
     "src": "/images/japon_045.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1515,6 +2297,7 @@
     "file": "japon_046.webp",
     "src": "/images/japon_046.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1551,6 +2334,7 @@
     "file": "japon_047.webp",
     "src": "/images/japon_047.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2400,
     "exif": {
@@ -1587,6 +2371,7 @@
     "file": "japon_048.webp",
     "src": "/images/japon_048.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1623,6 +2408,7 @@
     "file": "japon_049.webp",
     "src": "/images/japon_049.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1659,6 +2445,7 @@
     "file": "japon_050.webp",
     "src": "/images/japon_050.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1695,6 +2482,7 @@
     "file": "japon_051.webp",
     "src": "/images/japon_051.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1731,6 +2519,7 @@
     "file": "japon_052.webp",
     "src": "/images/japon_052.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1767,6 +2556,7 @@
     "file": "japon_053.webp",
     "src": "/images/japon_053.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1803,6 +2593,7 @@
     "file": "japon_054.webp",
     "src": "/images/japon_054.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1839,6 +2630,7 @@
     "file": "japon_055.webp",
     "src": "/images/japon_055.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1875,6 +2667,7 @@
     "file": "japon_056.webp",
     "src": "/images/japon_056.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1911,6 +2704,7 @@
     "file": "japon_057.webp",
     "src": "/images/japon_057.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1947,6 +2741,7 @@
     "file": "japon_058.webp",
     "src": "/images/japon_058.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -1983,6 +2778,7 @@
     "file": "japon_059.webp",
     "src": "/images/japon_059.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -2019,6 +2815,7 @@
     "file": "japon_060.webp",
     "src": "/images/japon_060.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -2055,6 +2852,7 @@
     "file": "japon_061.webp",
     "src": "/images/japon_061.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -2091,6 +2889,7 @@
     "file": "japon_062.webp",
     "src": "/images/japon_062.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -2127,6 +2926,7 @@
     "file": "japon_063.webp",
     "src": "/images/japon_063.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -2163,6 +2963,7 @@
     "file": "japon_064.webp",
     "src": "/images/japon_064.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -2199,6 +3000,7 @@
     "file": "japon_065.webp",
     "src": "/images/japon_065.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -2235,6 +3037,7 @@
     "file": "japon_066.webp",
     "src": "/images/japon_066.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -2271,6 +3074,7 @@
     "file": "japon_067.webp",
     "src": "/images/japon_067.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -2307,6 +3111,7 @@
     "file": "japon_068.webp",
     "src": "/images/japon_068.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -2343,6 +3148,7 @@
     "file": "japon_069.webp",
     "src": "/images/japon_069.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -2379,6 +3185,7 @@
     "file": "japon_070.webp",
     "src": "/images/japon_070.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -2415,6 +3222,7 @@
     "file": "japon_071.webp",
     "src": "/images/japon_071.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -2451,6 +3259,7 @@
     "file": "japon_072.webp",
     "src": "/images/japon_072.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -2487,6 +3296,7 @@
     "file": "japon_073.webp",
     "src": "/images/japon_073.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -2523,6 +3333,7 @@
     "file": "japon_074.webp",
     "src": "/images/japon_074.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -2559,6 +3370,7 @@
     "file": "japon_075.webp",
     "src": "/images/japon_075.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -2595,6 +3407,7 @@
     "file": "japon_p_002.webp",
     "src": "/images/japon_p_002.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -2631,6 +3444,7 @@
     "file": "japon_p_004.webp",
     "src": "/images/japon_p_004.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -2667,6 +3481,7 @@
     "file": "japon_p_005.webp",
     "src": "/images/japon_p_005.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -2703,6 +3518,7 @@
     "file": "japon_p_006.webp",
     "src": "/images/japon_p_006.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -2739,6 +3555,7 @@
     "file": "japon_p_007.webp",
     "src": "/images/japon_p_007.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -2775,6 +3592,7 @@
     "file": "japon_p_008.webp",
     "src": "/images/japon_p_008.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -2811,6 +3629,7 @@
     "file": "japon_p_009.webp",
     "src": "/images/japon_p_009.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -2847,6 +3666,7 @@
     "file": "japon_p_010.webp",
     "src": "/images/japon_p_010.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -2883,6 +3703,7 @@
     "file": "japon_p_011.webp",
     "src": "/images/japon_p_011.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -2919,6 +3740,7 @@
     "file": "japon_p_012.webp",
     "src": "/images/japon_p_012.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -2955,6 +3777,7 @@
     "file": "japon_p_013.webp",
     "src": "/images/japon_p_013.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -2991,6 +3814,7 @@
     "file": "japon_p_014.webp",
     "src": "/images/japon_p_014.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -3027,6 +3851,7 @@
     "file": "japon_p_015.webp",
     "src": "/images/japon_p_015.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -3063,6 +3888,7 @@
     "file": "japon_p_016.webp",
     "src": "/images/japon_p_016.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -3099,6 +3925,7 @@
     "file": "japon_p_017.webp",
     "src": "/images/japon_p_017.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -3135,6 +3962,7 @@
     "file": "japon_p_018.webp",
     "src": "/images/japon_p_018.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -3171,6 +3999,7 @@
     "file": "japon_p_019.webp",
     "src": "/images/japon_p_019.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -3207,6 +4036,7 @@
     "file": "japon_p_020.webp",
     "src": "/images/japon_p_020.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -3243,6 +4073,7 @@
     "file": "japon_p_021.webp",
     "src": "/images/japon_p_021.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -3279,6 +4110,7 @@
     "file": "japon_p_022.webp",
     "src": "/images/japon_p_022.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -3315,6 +4147,7 @@
     "file": "japon_p_023.webp",
     "src": "/images/japon_p_023.webp",
     "location": "Japon",
+    "place": "Japon",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -3351,6 +4184,7 @@
     "file": "marseille_001.webp",
     "src": "/images/marseille_001.webp",
     "location": "Marseille",
+    "place": "Marseille",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -3387,6 +4221,7 @@
     "file": "marseille_002.webp",
     "src": "/images/marseille_002.webp",
     "location": "Marseille",
+    "place": "Marseille",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -3423,6 +4258,7 @@
     "file": "marseille_003.webp",
     "src": "/images/marseille_003.webp",
     "location": "Marseille",
+    "place": "Marseille",
     "width": 1800,
     "height": 1350,
     "exif": {
@@ -3459,6 +4295,7 @@
     "file": "marseille_p_001.webp",
     "src": "/images/marseille_p_001.webp",
     "location": "Marseille",
+    "place": "Marseille",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -3495,6 +4332,7 @@
     "file": "marseille_p_002.webp",
     "src": "/images/marseille_p_002.webp",
     "location": "Marseille",
+    "place": "Marseille",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -3531,6 +4369,7 @@
     "file": "marseille_p_003.webp",
     "src": "/images/marseille_p_003.webp",
     "location": "Marseille",
+    "place": "Marseille",
     "width": 1800,
     "height": 2400,
     "exif": {
@@ -3567,6 +4406,7 @@
     "file": "marseille_p_004.webp",
     "src": "/images/marseille_p_004.webp",
     "location": "Marseille",
+    "place": "Marseille",
     "width": 1800,
     "height": 2400,
     "exif": {
@@ -3600,9 +4440,565 @@
     ]
   },
   {
+    "file": "normandie_001.webp",
+    "src": "/images/normandie_001.webp",
+    "location": "Autres",
+    "place": "Normandie",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 27,
+      "focalLength35": 41,
+      "fNumber": 7.1,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 1000,
+      "takenAt": "2025-09-28"
+    },
+    "variants": [
+      {
+        "src": "/images/normandie_001-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/normandie_001-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/normandie_001-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "normandie_002.webp",
+    "src": "/images/normandie_002.webp",
+    "location": "Autres",
+    "place": "Normandie",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 19,
+      "focalLength35": 29,
+      "fNumber": 7.1,
+      "exposureTime": "1/2000",
+      "exposureBias": 0,
+      "iso": 1000,
+      "takenAt": "2025-09-28"
+    },
+    "variants": [
+      {
+        "src": "/images/normandie_002-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/normandie_002-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/normandie_002-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "normandie_003.webp",
+    "src": "/images/normandie_003.webp",
+    "location": "Autres",
+    "place": "Normandie",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 7.1,
+      "exposureTime": "1/2000",
+      "exposureBias": 0,
+      "iso": 1000,
+      "takenAt": "2025-09-28"
+    },
+    "variants": [
+      {
+        "src": "/images/normandie_003-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/normandie_003-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/normandie_003-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "normandie_004.webp",
+    "src": "/images/normandie_004.webp",
+    "location": "Autres",
+    "place": "Normandie",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 7.1,
+      "exposureTime": "1/2000",
+      "exposureBias": 0,
+      "iso": 1000,
+      "takenAt": "2025-09-28"
+    },
+    "variants": [
+      {
+        "src": "/images/normandie_004-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/normandie_004-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/normandie_004-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "normandie_005.webp",
+    "src": "/images/normandie_005.webp",
+    "location": "Autres",
+    "place": "Normandie",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 7.1,
+      "exposureTime": "1/2500",
+      "exposureBias": 0,
+      "iso": 1000,
+      "takenAt": "2025-09-28"
+    },
+    "variants": [
+      {
+        "src": "/images/normandie_005-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/normandie_005-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/normandie_005-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "normandie_p_001.webp",
+    "src": "/images/normandie_p_001.webp",
+    "location": "Autres",
+    "place": "Normandie",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 7.1,
+      "exposureTime": "1/1250",
+      "exposureBias": 0,
+      "iso": 1000,
+      "takenAt": "2025-09-28"
+    },
+    "variants": [
+      {
+        "src": "/images/normandie_p_001-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/normandie_p_001-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/normandie_p_001-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "normandie_p_002.webp",
+    "src": "/images/normandie_p_002.webp",
+    "location": "Autres",
+    "place": "Normandie",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 7.1,
+      "exposureTime": "1/1600",
+      "exposureBias": 0,
+      "iso": 1000,
+      "takenAt": "2025-09-28"
+    },
+    "variants": [
+      {
+        "src": "/images/normandie_p_002-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/normandie_p_002-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/normandie_p_002-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "palerme_001.webp",
+    "src": "/images/palerme_001.webp",
+    "location": "Autres",
+    "place": "Palerme",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 18,
+      "focalLength35": 26,
+      "fNumber": 7.1,
+      "exposureTime": "1/1700",
+      "exposureBias": -1.33,
+      "iso": 640,
+      "takenAt": "2026-07-09"
+    },
+    "variants": [
+      {
+        "src": "/images/palerme_001-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/palerme_001-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/palerme_001-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "palerme_002.webp",
+    "src": "/images/palerme_002.webp",
+    "location": "Autres",
+    "place": "Palerme",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 18,
+      "exposureTime": "1/2000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-07-09"
+    },
+    "variants": [
+      {
+        "src": "/images/palerme_002-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/palerme_002-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/palerme_002-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "palerme_003.webp",
+    "src": "/images/palerme_003.webp",
+    "location": "Autres",
+    "place": "Palerme",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 10,
+      "exposureTime": "1/400",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-07-12"
+    },
+    "variants": [
+      {
+        "src": "/images/palerme_003-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/palerme_003-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/palerme_003-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "palerme_004.webp",
+    "src": "/images/palerme_004.webp",
+    "location": "Autres",
+    "place": "Palerme",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 24,
+      "focalLength35": 36,
+      "fNumber": 11,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-07-12"
+    },
+    "variants": [
+      {
+        "src": "/images/palerme_004-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/palerme_004-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/palerme_004-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "palerme_p_001.webp",
+    "src": "/images/palerme_p_001.webp",
+    "location": "Autres",
+    "place": "Palerme",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 16,
+      "focalLength35": 24,
+      "fNumber": 9,
+      "exposureTime": "1/2400",
+      "exposureBias": -1.33,
+      "iso": 640,
+      "takenAt": "2026-07-09"
+    },
+    "variants": [
+      {
+        "src": "/images/palerme_p_001-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/palerme_p_001-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/palerme_p_001-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "palerme_p_002.webp",
+    "src": "/images/palerme_p_002.webp",
+    "location": "Autres",
+    "place": "Palerme",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 16,
+      "focalLength35": 24,
+      "fNumber": 10,
+      "exposureTime": "1/2500",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-07-12"
+    },
+    "variants": [
+      {
+        "src": "/images/palerme_p_002-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/palerme_p_002-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/palerme_p_002-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "palerme_p_003.webp",
+    "src": "/images/palerme_p_003.webp",
+    "location": "Autres",
+    "place": "Palerme",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 20,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-07-12"
+    },
+    "variants": [
+      {
+        "src": "/images/palerme_p_003-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/palerme_p_003-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/palerme_p_003-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "palerme_p_004.webp",
+    "src": "/images/palerme_p_004.webp",
+    "location": "Autres",
+    "place": "Palerme",
+    "width": 1800,
+    "height": 2400,
+    "exif": {
+      "make": "Apple",
+      "model": "iPhone 6s",
+      "lensModel": "iPhone 6s back camera 4.15mm f/2.2",
+      "focalLength": 4,
+      "focalLength35": 29,
+      "fNumber": 2.2,
+      "exposureTime": "1/1972",
+      "exposureBias": 0,
+      "iso": 25,
+      "takenAt": "2018-09-19"
+    },
+    "variants": [
+      {
+        "src": "/images/palerme_p_004-600w.webp",
+        "width": 600,
+        "height": 800
+      },
+      {
+        "src": "/images/palerme_p_004-1200w.webp",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/images/palerme_p_004-1800w.webp",
+        "width": 1800,
+        "height": 2400
+      }
+    ]
+  },
+  {
     "file": "paris_001.webp",
     "src": "/images/paris_001.webp",
     "location": "Paris",
+    "place": "Paris",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -3639,6 +5035,7 @@
     "file": "paris_002.webp",
     "src": "/images/paris_002.webp",
     "location": "Paris",
+    "place": "Paris",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -3675,6 +5072,7 @@
     "file": "paris_p_001.webp",
     "src": "/images/paris_p_001.webp",
     "location": "Paris",
+    "place": "Paris",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -3711,6 +5109,7 @@
     "file": "paris_p_002.webp",
     "src": "/images/paris_p_002.webp",
     "location": "Paris",
+    "place": "Paris",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -3747,6 +5146,7 @@
     "file": "paris_p_003.webp",
     "src": "/images/paris_p_003.webp",
     "location": "Paris",
+    "place": "Paris",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -3780,9 +5180,861 @@
     ]
   },
   {
+    "file": "sardaigne_001.webp",
+    "src": "/images/sardaigne_001.webp",
+    "location": "Sardaigne",
+    "place": "Sardaigne",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 22,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-06-05"
+    },
+    "variants": [
+      {
+        "src": "/images/sardaigne_001-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/sardaigne_001-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/sardaigne_001-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "sardaigne_002.webp",
+    "src": "/images/sardaigne_002.webp",
+    "location": "Sardaigne",
+    "place": "Sardaigne",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 22,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-06-05"
+    },
+    "variants": [
+      {
+        "src": "/images/sardaigne_002-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/sardaigne_002-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/sardaigne_002-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "sardaigne_003.webp",
+    "src": "/images/sardaigne_003.webp",
+    "location": "Sardaigne",
+    "place": "Sardaigne",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 22,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-06-05"
+    },
+    "variants": [
+      {
+        "src": "/images/sardaigne_003-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/sardaigne_003-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/sardaigne_003-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "sardaigne_004.webp",
+    "src": "/images/sardaigne_004.webp",
+    "location": "Sardaigne",
+    "place": "Sardaigne",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 67,
+      "fNumber": 22,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-06-06"
+    },
+    "variants": [
+      {
+        "src": "/images/sardaigne_004-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/sardaigne_004-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/sardaigne_004-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "sardaigne_005.webp",
+    "src": "/images/sardaigne_005.webp",
+    "location": "Sardaigne",
+    "place": "Sardaigne",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 20,
+      "exposureTime": "1/2500",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-06-07"
+    },
+    "variants": [
+      {
+        "src": "/images/sardaigne_005-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/sardaigne_005-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/sardaigne_005-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "sardaigne_006.webp",
+    "src": "/images/sardaigne_006.webp",
+    "location": "Sardaigne",
+    "place": "Sardaigne",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 7.1,
+      "exposureTime": "1/2700",
+      "exposureBias": 0.67,
+      "iso": 640,
+      "takenAt": "2026-06-07"
+    },
+    "variants": [
+      {
+        "src": "/images/sardaigne_006-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/sardaigne_006-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/sardaigne_006-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "sardaigne_007.webp",
+    "src": "/images/sardaigne_007.webp",
+    "location": "Sardaigne",
+    "place": "Sardaigne",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 20,
+      "exposureTime": "1/3200",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-06-07"
+    },
+    "variants": [
+      {
+        "src": "/images/sardaigne_007-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/sardaigne_007-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/sardaigne_007-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "sardaigne_008.webp",
+    "src": "/images/sardaigne_008.webp",
+    "location": "Sardaigne",
+    "place": "Sardaigne",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 22,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-06-07"
+    },
+    "variants": [
+      {
+        "src": "/images/sardaigne_008-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/sardaigne_008-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/sardaigne_008-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "sardaigne_009.webp",
+    "src": "/images/sardaigne_009.webp",
+    "location": "Sardaigne",
+    "place": "Sardaigne",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 22,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-06-08"
+    },
+    "variants": [
+      {
+        "src": "/images/sardaigne_009-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/sardaigne_009-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/sardaigne_009-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "sardaigne_010.webp",
+    "src": "/images/sardaigne_010.webp",
+    "location": "Sardaigne",
+    "place": "Sardaigne",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 20,
+      "focalLength35": 30,
+      "fNumber": 18,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-06-08"
+    },
+    "variants": [
+      {
+        "src": "/images/sardaigne_010-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/sardaigne_010-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/sardaigne_010-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "sardaigne_011.webp",
+    "src": "/images/sardaigne_011.webp",
+    "location": "Sardaigne",
+    "place": "Sardaigne",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 4,
+      "exposureTime": "1/2200",
+      "exposureBias": -0.33,
+      "iso": 320,
+      "takenAt": "2026-06-08"
+    },
+    "variants": [
+      {
+        "src": "/images/sardaigne_011-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/sardaigne_011-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/sardaigne_011-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "sardaigne_p_001.webp",
+    "src": "/images/sardaigne_p_001.webp",
+    "location": "Sardaigne",
+    "place": "Sardaigne",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 25,
+      "focalLength35": 37,
+      "fNumber": 7.1,
+      "exposureTime": "1/2500",
+      "exposureBias": 0.33,
+      "iso": 640,
+      "takenAt": "2026-06-05"
+    },
+    "variants": [
+      {
+        "src": "/images/sardaigne_p_001-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/sardaigne_p_001-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/sardaigne_p_001-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "sardaigne_p_002.webp",
+    "src": "/images/sardaigne_p_002.webp",
+    "location": "Sardaigne",
+    "place": "Sardaigne",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 67,
+      "fNumber": 22,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-06-05"
+    },
+    "variants": [
+      {
+        "src": "/images/sardaigne_p_002-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/sardaigne_p_002-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/sardaigne_p_002-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "sardaigne_p_003.webp",
+    "src": "/images/sardaigne_p_003.webp",
+    "location": "Sardaigne",
+    "place": "Sardaigne",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 31,
+      "focalLength35": 46,
+      "fNumber": 22,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-06-06"
+    },
+    "variants": [
+      {
+        "src": "/images/sardaigne_p_003-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/sardaigne_p_003-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/sardaigne_p_003-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "sardaigne_p_004.webp",
+    "src": "/images/sardaigne_p_004.webp",
+    "location": "Sardaigne",
+    "place": "Sardaigne",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 31,
+      "focalLength35": 46,
+      "fNumber": 22,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-06-06"
+    },
+    "variants": [
+      {
+        "src": "/images/sardaigne_p_004-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/sardaigne_p_004-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/sardaigne_p_004-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "sardaigne_p_005.webp",
+    "src": "/images/sardaigne_p_005.webp",
+    "location": "Sardaigne",
+    "place": "Sardaigne",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 22,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-06-06"
+    },
+    "variants": [
+      {
+        "src": "/images/sardaigne_p_005-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/sardaigne_p_005-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/sardaigne_p_005-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "sardaigne_p_006.webp",
+    "src": "/images/sardaigne_p_006.webp",
+    "location": "Sardaigne",
+    "place": "Sardaigne",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 20,
+      "exposureTime": "1/3200",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-06-07"
+    },
+    "variants": [
+      {
+        "src": "/images/sardaigne_p_006-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/sardaigne_p_006-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/sardaigne_p_006-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "sardaigne_p_007.webp",
+    "src": "/images/sardaigne_p_007.webp",
+    "location": "Sardaigne",
+    "place": "Sardaigne",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 31,
+      "focalLength35": 47,
+      "fNumber": 4.7,
+      "exposureTime": "1/600",
+      "exposureBias": -0.33,
+      "iso": 320,
+      "takenAt": "2026-06-08"
+    },
+    "variants": [
+      {
+        "src": "/images/sardaigne_p_007-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/sardaigne_p_007-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/sardaigne_p_007-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "vienne_001.webp",
+    "src": "/images/vienne_001.webp",
+    "location": "Autres",
+    "place": "Vienne & Bratislava",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 22,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-08-15"
+    },
+    "variants": [
+      {
+        "src": "/images/vienne_001-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/vienne_001-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/vienne_001-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "vienne_002.webp",
+    "src": "/images/vienne_002.webp",
+    "location": "Autres",
+    "place": "Vienne & Bratislava",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 26,
+      "focalLength35": 40,
+      "fNumber": 22,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-08-16"
+    },
+    "variants": [
+      {
+        "src": "/images/vienne_002-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/vienne_002-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/vienne_002-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "vienne_003.webp",
+    "src": "/images/vienne_003.webp",
+    "location": "Autres",
+    "place": "Vienne & Bratislava",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 25,
+      "focalLength35": 37,
+      "fNumber": 22,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-08-17"
+    },
+    "variants": [
+      {
+        "src": "/images/vienne_003-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/vienne_003-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/vienne_003-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
+    "file": "vienne_p_001.webp",
+    "src": "/images/vienne_p_001.webp",
+    "location": "Autres",
+    "place": "Vienne & Bratislava",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 36,
+      "focalLength35": 54,
+      "fNumber": 22,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-08-14"
+    },
+    "variants": [
+      {
+        "src": "/images/vienne_p_001-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/vienne_p_001-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/vienne_p_001-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
+    "file": "vienne_p_002.webp",
+    "src": "/images/vienne_p_002.webp",
+    "location": "Autres",
+    "place": "Vienne & Bratislava",
+    "width": 1800,
+    "height": 2700,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 22,
+      "focalLength35": 33,
+      "fNumber": 22,
+      "exposureTime": "1/3200",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-08-14"
+    },
+    "variants": [
+      {
+        "src": "/images/vienne_p_002-600w.webp",
+        "width": 600,
+        "height": 900
+      },
+      {
+        "src": "/images/vienne_p_002-1200w.webp",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/images/vienne_p_002-1800w.webp",
+        "width": 1800,
+        "height": 2700
+      }
+    ]
+  },
+  {
     "file": "vietnam_001.webp",
     "src": "/images/vietnam_001.webp",
     "location": "Vietnam",
+    "place": "Vietnam",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -3819,6 +6071,7 @@
     "file": "vietnam_002.webp",
     "src": "/images/vietnam_002.webp",
     "location": "Vietnam",
+    "place": "Vietnam",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -3855,6 +6108,7 @@
     "file": "vietnam_003.webp",
     "src": "/images/vietnam_003.webp",
     "location": "Vietnam",
+    "place": "Vietnam",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -3891,6 +6145,7 @@
     "file": "vietnam_004.webp",
     "src": "/images/vietnam_004.webp",
     "location": "Vietnam",
+    "place": "Vietnam",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -3927,6 +6182,7 @@
     "file": "vietnam_005.webp",
     "src": "/images/vietnam_005.webp",
     "location": "Vietnam",
+    "place": "Vietnam",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -3963,6 +6219,7 @@
     "file": "vietnam_006.webp",
     "src": "/images/vietnam_006.webp",
     "location": "Vietnam",
+    "place": "Vietnam",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -3999,6 +6256,7 @@
     "file": "vietnam_p_001.webp",
     "src": "/images/vietnam_p_001.webp",
     "location": "Vietnam",
+    "place": "Vietnam",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -4035,6 +6293,7 @@
     "file": "vietnam_p_002.webp",
     "src": "/images/vietnam_p_002.webp",
     "location": "Vietnam",
+    "place": "Vietnam",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -4071,6 +6330,7 @@
     "file": "vietnam_p_003.webp",
     "src": "/images/vietnam_p_003.webp",
     "location": "Vietnam",
+    "place": "Vietnam",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -4107,6 +6367,7 @@
     "file": "vietnam_p_004.webp",
     "src": "/images/vietnam_p_004.webp",
     "location": "Vietnam",
+    "place": "Vietnam",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -4143,6 +6404,7 @@
     "file": "vietnam_p_005.webp",
     "src": "/images/vietnam_p_005.webp",
     "location": "Vietnam",
+    "place": "Vietnam",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -4179,6 +6441,7 @@
     "file": "vietnam_p_006.webp",
     "src": "/images/vietnam_p_006.webp",
     "location": "Vietnam",
+    "place": "Vietnam",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -4215,6 +6478,7 @@
     "file": "vietnam_p_007.webp",
     "src": "/images/vietnam_p_007.webp",
     "location": "Vietnam",
+    "place": "Vietnam",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -4251,6 +6515,7 @@
     "file": "vietnam_p_009.webp",
     "src": "/images/vietnam_p_009.webp",
     "location": "Vietnam",
+    "place": "Vietnam",
     "width": 1800,
     "height": 2700,
     "exif": {

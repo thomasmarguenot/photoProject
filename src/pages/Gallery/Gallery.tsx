@@ -31,7 +31,7 @@ function Gallery() {
   const seo = (
     <Seo
       title="Galerie — Thomas Marguenot"
-      description="Une sélection de photographies de voyage — Japon, Corée, Vietnam, Paris, Marseille. Le regard photographique de Thomas Marguenot, développeur et photographe."
+      description="Une sélection de photographies de voyage — Japon, Corée, Vietnam, Grèce, Sardaigne, Sicile, Paris, Marseille. Le regard photographique de Thomas Marguenot, développeur et photographe."
       path="/gallery"
     />
   );

@@ -47,7 +47,7 @@ export function LightboxSlide({
         <div
           className={`gallery-lightbox-meta${isLoaded ? ' gallery-lightbox-meta--visible' : ''}`}
         >
-          <span className="gallery-lightbox-location">{image.location}</span>
+          <span className="gallery-lightbox-location">{image.place}</span>
         </div>
         <LightboxInfo
           image={image}

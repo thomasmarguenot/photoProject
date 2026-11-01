@@ -129,19 +129,32 @@ const OUTPUT_FILE = join(__dirname, '../src/assets/gallery-manifest.json');
 const EXIF_CACHE_FILE = join(__dirname, '../src/assets/gallery-exif.json');
 
 const LOCATION_MAP = {
+  athenes: 'Athènes',
   coree: 'Corée',
   japon: 'Japon',
   marseille: 'Marseille',
   paris: 'Paris',
+  sardaigne: 'Sardaigne',
   vietnam: 'Vietnam',
 };
 
-function getLocationFromFilename(filename) {
+// Places with too few photos for their own filter, grouped under "Autres".
+const OTHER_PLACES = {
+  normandie: 'Normandie',
+  palerme: 'Palerme',
+  vienne: 'Vienne & Bratislava',
+};
+
+function getPlaceFromFilename(filename) {
   const baseName = basename(filename, '.webp');
   // Remove variant suffix like -600w
   const cleanName = baseName.replace(/-\d+w$/, '');
   const prefix = cleanName.replace(/_p_\d+$/, '').split('_')[0];
-  return LOCATION_MAP[prefix] || 'Japon';
+  if (OTHER_PLACES[prefix]) {
+    return { location: 'Autres', place: OTHER_PLACES[prefix] };
+  }
+  const location = LOCATION_MAP[prefix] || 'Japon';
+  return { location, place: location };
 }
 
 (async () => {
@@ -176,7 +189,7 @@ function getLocationFromFilename(filename) {
       const filePath = join(PICTURES_DIR, file);
       const meta = await sharp(filePath).metadata();
       const { width, height } = meta;
-      const location = getLocationFromFilename(file);
+      const { location, place } = getPlaceFromFilename(file);
 
       const baseName = basename(file, '.webp');
       const exif =
@@ -198,6 +211,7 @@ function getLocationFromFilename(filename) {
         file,
         src: `/images/${file}`,
         location,
+        place,
         width: width ?? 1200,
         height: height ?? 800,
         exif,
