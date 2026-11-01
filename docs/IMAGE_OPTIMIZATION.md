@@ -27,7 +27,7 @@ pnpm gallery:manifest
 git add src/assets/pictures public/images src/assets/gallery-manifest.json
 ```
 
-The location shown in the gallery filter comes from the file name prefix: `japon_`, `marseille_`, `paris_` or `vietnam_` (default: Japon). To add a location, update `LOCATION_MAP` in `scripts/generate-gallery-manifest.js`.
+The location shown in the gallery filter comes from the file name prefix: `coree_`, `japon_`, `marseille_`, `paris_` or `vietnam_` (default: Japon). To add a location, update `LOCATION_MAP` in `scripts/generate-gallery-manifest.js`.
 
 ## 1. `pnpm optimize-images`
 

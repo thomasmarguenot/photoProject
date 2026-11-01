@@ -89,6 +89,7 @@ const __dirname = dirname(__filename);
   const OUTPUT_FILE = join(__dirname, '../src/assets/gallery-manifest.json');
 
   const LOCATION_MAP = {
+    coree: 'Corée',
     japon: 'Japon',
     marseille: 'Marseille',
     paris: 'Paris',

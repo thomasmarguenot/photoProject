@@ -23,4 +23,10 @@ export interface ImageData {
   variants?: ImageVariant[];
 }
 
-export type Location = 'Japon' | 'Marseille' | 'Paris' | 'Vietnam' | 'Tous';
+export type Location =
+  | 'Corée'
+  | 'Japon'
+  | 'Marseille'
+  | 'Paris'
+  | 'Vietnam'
+  | 'Tous';
