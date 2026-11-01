@@ -189,6 +189,20 @@
   --gallery-padding: 80px;
   --gallery-gap: 80px;
 
+  /* Lightbox photo info — drawn over the photo, so light-on-dark in any theme */
+  --lightbox-info-bg: rgba(0, 0, 0, 0.35);
+  --lightbox-info-bg-hover: rgba(0, 0, 0, 0.5);
+  --lightbox-info-bg-active: rgba(255, 255, 255, 0.9);
+  --lightbox-info-border: rgba(255, 255, 255, 0.14);
+  --lightbox-info-label: rgba(255, 255, 255, 0.6);
+  --lightbox-info-blur: 14px;
+  --lightbox-info-inset: 0.75rem;
+  --lightbox-info-toggle-size: 2rem;
+  --lightbox-info-panel-offset: calc(
+    var(--lightbox-info-inset) * 2 + var(--lightbox-info-toggle-size)
+  );
+  --lightbox-info-panel-max-width: 22rem;
+
   /* Page content (for all pages except gallery) */
   --page-max-width: 1400px;
 

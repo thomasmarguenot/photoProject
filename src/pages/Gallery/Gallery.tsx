@@ -96,6 +96,8 @@ function Gallery() {
         onClose={lightbox.close}
         onPrev={lightbox.prev}
         onNext={lightbox.next}
+        isInfoOpen={lightbox.isInfoOpen}
+        onToggleInfo={lightbox.toggleInfo}
       />
     </motion.div>
   );

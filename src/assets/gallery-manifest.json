@@ -5,7 +5,18 @@
     "location": "Corée",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 43,
+      "focalLength35": 65,
+      "fNumber": 5.6,
+      "exposureTime": "1/100",
+      "exposureBias": -0.67,
+      "iso": 320,
+      "takenAt": "2026-09-09"
+    },
     "variants": [
       {
         "src": "/images/coree_001-600w.webp",
@@ -30,7 +41,18 @@
     "location": "Corée",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 33,
+      "focalLength35": 50,
+      "fNumber": 5.6,
+      "exposureTime": "1/1900",
+      "exposureBias": -0.67,
+      "iso": 320,
+      "takenAt": "2026-09-09"
+    },
     "variants": [
       {
         "src": "/images/coree_002-600w.webp",
@@ -55,7 +77,18 @@
     "location": "Corée",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 8,
+      "exposureTime": "1/2000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-09-09"
+    },
     "variants": [
       {
         "src": "/images/coree_003-600w.webp",
@@ -80,7 +113,18 @@
     "location": "Corée",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 5.6,
+      "exposureTime": "1/140",
+      "exposureBias": 0.67,
+      "iso": 640,
+      "takenAt": "2026-09-10"
+    },
     "variants": [
       {
         "src": "/images/coree_004-600w.webp",
@@ -105,7 +149,18 @@
     "location": "Corée",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 5.6,
+      "exposureTime": "1/110",
+      "exposureBias": 1,
+      "iso": 6400,
+      "takenAt": "2026-09-10"
+    },
     "variants": [
       {
         "src": "/images/coree_005-600w.webp",
@@ -130,7 +185,18 @@
     "location": "Corée",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 11,
+      "exposureTime": "1/3200",
+      "exposureBias": -1.33,
+      "iso": 640,
+      "takenAt": "2026-09-09"
+    },
     "variants": [
       {
         "src": "/images/coree_p_001-600w.webp",
@@ -155,7 +221,18 @@
     "location": "Corée",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 8,
+      "exposureTime": "1/2000",
+      "exposureBias": -1.33,
+      "iso": 640,
+      "takenAt": "2026-09-09"
+    },
     "variants": [
       {
         "src": "/images/coree_p_002-600w.webp",
@@ -180,7 +257,18 @@
     "location": "Corée",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 7.1,
+      "exposureTime": "1/2700",
+      "exposureBias": -1.67,
+      "iso": 320,
+      "takenAt": "2026-09-09"
+    },
     "variants": [
       {
         "src": "/images/coree_p_003-600w.webp",
@@ -205,7 +293,18 @@
     "location": "Corée",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 67,
+      "fNumber": 5.6,
+      "exposureTime": "1/125",
+      "exposureBias": 1,
+      "iso": 250,
+      "takenAt": "2026-09-10"
+    },
     "variants": [
       {
         "src": "/images/coree_p_004-600w.webp",
@@ -230,7 +329,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 67,
+      "fNumber": 6.4,
+      "exposureTime": "1/2700",
+      "exposureBias": -2.33,
+      "iso": 320,
+      "takenAt": "2025-09-02"
+    },
     "variants": [
       {
         "src": "/images/japon_001-600w.webp",
@@ -255,7 +365,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 43,
+      "focalLength35": 65,
+      "fNumber": 5.6,
+      "exposureTime": "1/3200",
+      "exposureBias": 0,
+      "iso": 1250,
+      "takenAt": "2025-09-02"
+    },
     "variants": [
       {
         "src": "/images/japon_002-600w.webp",
@@ -280,7 +401,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 26,
+      "focalLength35": 40,
+      "fNumber": 5.6,
+      "exposureTime": "1/800",
+      "exposureBias": 0,
+      "iso": 160,
+      "takenAt": "2025-09-02"
+    },
     "variants": [
       {
         "src": "/images/japon_004-600w.webp",
@@ -305,7 +437,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 67,
+      "fNumber": 5.6,
+      "exposureTime": "1/180",
+      "exposureBias": 0,
+      "iso": 80,
+      "takenAt": "2025-09-02"
+    },
     "variants": [
       {
         "src": "/images/japon_008-600w.webp",
@@ -330,7 +473,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 43,
+      "focalLength35": 65,
+      "fNumber": 5.6,
+      "exposureTime": "1/1250",
+      "exposureBias": 0,
+      "iso": 1600,
+      "takenAt": "2025-09-02"
+    },
     "variants": [
       {
         "src": "/images/japon_011-600w.webp",
@@ -355,7 +509,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 24,
+      "focalLength35": 36,
+      "fNumber": 5.6,
+      "exposureTime": "1/3200",
+      "exposureBias": 0,
+      "iso": 1600,
+      "takenAt": "2025-09-02"
+    },
     "variants": [
       {
         "src": "/images/japon_012-600w.webp",
@@ -380,7 +545,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 22,
+      "focalLength35": 32,
+      "fNumber": 5.6,
+      "exposureTime": "1/3200",
+      "exposureBias": 0,
+      "iso": 1600,
+      "takenAt": "2025-09-02"
+    },
     "variants": [
       {
         "src": "/images/japon_013-600w.webp",
@@ -405,7 +581,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 5.6,
+      "exposureTime": "1/40",
+      "exposureBias": 0,
+      "iso": 800,
+      "takenAt": "2025-09-02"
+    },
     "variants": [
       {
         "src": "/images/japon_014-600w.webp",
@@ -430,7 +617,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 17,
+      "focalLength35": 25,
+      "fNumber": 5.6,
+      "exposureTime": "1/160",
+      "exposureBias": 0,
+      "iso": 800,
+      "takenAt": "2025-09-02"
+    },
     "variants": [
       {
         "src": "/images/japon_015-600w.webp",
@@ -455,7 +653,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 17,
+      "focalLength35": 25,
+      "fNumber": 5.6,
+      "exposureTime": "1/400",
+      "exposureBias": 0,
+      "iso": 320,
+      "takenAt": "2025-09-02"
+    },
     "variants": [
       {
         "src": "/images/japon_016-600w.webp",
@@ -480,7 +689,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 5.6,
+      "exposureTime": "1/640",
+      "exposureBias": 0,
+      "iso": 100,
+      "takenAt": "2025-09-02"
+    },
     "variants": [
       {
         "src": "/images/japon_017-600w.webp",
@@ -505,7 +725,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 31,
+      "focalLength35": 46,
+      "fNumber": 5.6,
+      "exposureTime": "1/400",
+      "exposureBias": 0,
+      "iso": 160,
+      "takenAt": "2025-09-02"
+    },
     "variants": [
       {
         "src": "/images/japon_018-600w.webp",
@@ -530,7 +761,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 31,
+      "focalLength35": 46,
+      "fNumber": 5.6,
+      "exposureTime": "1/800",
+      "exposureBias": 0,
+      "iso": 160,
+      "takenAt": "2025-09-02"
+    },
     "variants": [
       {
         "src": "/images/japon_019-600w.webp",
@@ -555,7 +797,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 5.6,
+      "exposureTime": "1/180",
+      "exposureBias": 0,
+      "iso": 80,
+      "takenAt": "2025-09-03"
+    },
     "variants": [
       {
         "src": "/images/japon_020-600w.webp",
@@ -580,7 +833,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 43,
+      "focalLength35": 65,
+      "fNumber": 6.4,
+      "exposureTime": "1/1300",
+      "exposureBias": 0.67,
+      "iso": 1250,
+      "takenAt": "2025-09-03"
+    },
     "variants": [
       {
         "src": "/images/japon_024-600w.webp",
@@ -605,7 +869,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 32,
+      "focalLength35": 48,
+      "fNumber": 5.6,
+      "exposureTime": "1/640",
+      "exposureBias": 0,
+      "iso": 1600,
+      "takenAt": "2025-09-03"
+    },
     "variants": [
       {
         "src": "/images/japon_027-600w.webp",
@@ -630,7 +905,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 5.6,
+      "exposureTime": "1/1250",
+      "exposureBias": 0,
+      "iso": 1600,
+      "takenAt": "2025-09-03"
+    },
     "variants": [
       {
         "src": "/images/japon_028-600w.webp",
@@ -655,7 +941,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 5.6,
+      "exposureTime": "1/2500",
+      "exposureBias": 0,
+      "iso": 1600,
+      "takenAt": "2025-09-03"
+    },
     "variants": [
       {
         "src": "/images/japon_029-600w.webp",
@@ -680,7 +977,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 36,
+      "focalLength35": 54,
+      "fNumber": 5.6,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 1600,
+      "takenAt": "2025-09-03"
+    },
     "variants": [
       {
         "src": "/images/japon_030-600w.webp",
@@ -705,7 +1013,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 19,
+      "focalLength35": 29,
+      "fNumber": 5.6,
+      "exposureTime": "1/180",
+      "exposureBias": 0,
+      "iso": 1000,
+      "takenAt": "2025-09-04"
+    },
     "variants": [
       {
         "src": "/images/japon_032-600w.webp",
@@ -730,7 +1049,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 16,
+      "focalLength35": 23,
+      "fNumber": 5.6,
+      "exposureTime": "1/2500",
+      "exposureBias": 0,
+      "iso": 250,
+      "takenAt": "2025-09-04"
+    },
     "variants": [
       {
         "src": "/images/japon_033-600w.webp",
@@ -755,7 +1085,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 24,
+      "focalLength35": 35,
+      "fNumber": 5.6,
+      "exposureTime": "1/2000",
+      "exposureBias": 0,
+      "iso": 400,
+      "takenAt": "2025-09-07"
+    },
     "variants": [
       {
         "src": "/images/japon_034-600w.webp",
@@ -780,7 +1121,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 26,
+      "focalLength35": 38,
+      "fNumber": 5.6,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 400,
+      "takenAt": "2025-09-07"
+    },
     "variants": [
       {
         "src": "/images/japon_035-600w.webp",
@@ -805,7 +1157,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 5.6,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 400,
+      "takenAt": "2025-09-07"
+    },
     "variants": [
       {
         "src": "/images/japon_036-600w.webp",
@@ -830,7 +1193,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 5.6,
+      "exposureTime": "1/500",
+      "exposureBias": 0,
+      "iso": 80,
+      "takenAt": "2025-09-07"
+    },
     "variants": [
       {
         "src": "/images/japon_037-600w.webp",
@@ -855,7 +1229,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 5.6,
+      "exposureTime": "1/800",
+      "exposureBias": 0,
+      "iso": 80,
+      "takenAt": "2025-09-07"
+    },
     "variants": [
       {
         "src": "/images/japon_038-600w.webp",
@@ -880,7 +1265,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 31,
+      "focalLength35": 46,
+      "fNumber": 5.6,
+      "exposureTime": "1/640",
+      "exposureBias": 0,
+      "iso": 80,
+      "takenAt": "2025-09-07"
+    },
     "variants": [
       {
         "src": "/images/japon_039-600w.webp",
@@ -905,7 +1301,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 35,
+      "focalLength35": 53,
+      "fNumber": 5.6,
+      "exposureTime": "1/500",
+      "exposureBias": 0,
+      "iso": 250,
+      "takenAt": "2025-09-07"
+    },
     "variants": [
       {
         "src": "/images/japon_040-600w.webp",
@@ -930,7 +1337,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 26,
+      "focalLength35": 40,
+      "fNumber": 5.6,
+      "exposureTime": "1/1000",
+      "exposureBias": 0,
+      "iso": 320,
+      "takenAt": "2025-09-09"
+    },
     "variants": [
       {
         "src": "/images/japon_041-600w.webp",
@@ -955,7 +1373,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 32,
+      "focalLength35": 48,
+      "fNumber": 20,
+      "exposureTime": "1/180",
+      "exposureBias": 0,
+      "iso": 320,
+      "takenAt": "2025-09-09"
+    },
     "variants": [
       {
         "src": "/images/japon_042-600w.webp",
@@ -980,7 +1409,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 31,
+      "focalLength35": 46,
+      "fNumber": 20,
+      "exposureTime": "1/125",
+      "exposureBias": 0,
+      "iso": 320,
+      "takenAt": "2025-09-09"
+    },
     "variants": [
       {
         "src": "/images/japon_043-600w.webp",
@@ -1005,7 +1445,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 37,
+      "focalLength35": 56,
+      "fNumber": 20,
+      "exposureTime": "1/100",
+      "exposureBias": 0,
+      "iso": 320,
+      "takenAt": "2025-09-09"
+    },
     "variants": [
       {
         "src": "/images/japon_044-600w.webp",
@@ -1030,7 +1481,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 41,
+      "focalLength35": 61,
+      "fNumber": 20,
+      "exposureTime": "1/30",
+      "exposureBias": 0,
+      "iso": 320,
+      "takenAt": "2025-09-09"
+    },
     "variants": [
       {
         "src": "/images/japon_045-600w.webp",
@@ -1055,7 +1517,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 3.5,
+      "exposureTime": "1/1250",
+      "exposureBias": 0,
+      "iso": 250,
+      "takenAt": "2025-09-11"
+    },
     "variants": [
       {
         "src": "/images/japon_046-600w.webp",
@@ -1080,7 +1553,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2400,
-    "exif": null,
+    "exif": {
+      "make": "Apple",
+      "model": "iPhone 11",
+      "lensModel": "iPhone 11 back dual wide camera 4.25mm f/1.8",
+      "focalLength": 4,
+      "focalLength35": 26,
+      "fNumber": 1.8,
+      "exposureTime": "1/196",
+      "exposureBias": 0,
+      "iso": 32,
+      "takenAt": "2025-09-02"
+    },
     "variants": [
       {
         "src": "/images/japon_047-600w.webp",
@@ -1105,7 +1589,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 5.6,
+      "exposureTime": "1/1700",
+      "exposureBias": -0.33,
+      "iso": 320,
+      "takenAt": "2026-09-20"
+    },
     "variants": [
       {
         "src": "/images/japon_048-600w.webp",
@@ -1130,7 +1625,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 31,
+      "focalLength35": 47,
+      "fNumber": 5.6,
+      "exposureTime": "1/1250",
+      "exposureBias": -0.67,
+      "iso": 320,
+      "takenAt": "2026-09-20"
+    },
     "variants": [
       {
         "src": "/images/japon_049-600w.webp",
@@ -1155,7 +1661,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 30,
+      "focalLength35": 44,
+      "fNumber": 4.5,
+      "exposureTime": "1/110",
+      "exposureBias": -0.33,
+      "iso": 320,
+      "takenAt": "2026-09-20"
+    },
     "variants": [
       {
         "src": "/images/japon_050-600w.webp",
@@ -1180,7 +1697,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 3.5,
+      "exposureTime": "1/110",
+      "exposureBias": -0.67,
+      "iso": 320,
+      "takenAt": "2026-09-20"
+    },
     "variants": [
       {
         "src": "/images/japon_051-600w.webp",
@@ -1205,7 +1733,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 26,
+      "focalLength35": 38,
+      "fNumber": 16,
+      "exposureTime": "1/170",
+      "exposureBias": -2.33,
+      "iso": 6400,
+      "takenAt": "2026-09-20"
+    },
     "variants": [
       {
         "src": "/images/japon_052-600w.webp",
@@ -1230,7 +1769,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 27,
+      "focalLength35": 41,
+      "fNumber": 4.4,
+      "exposureTime": "1/75",
+      "exposureBias": 0,
+      "iso": 160,
+      "takenAt": "2026-09-21"
+    },
     "variants": [
       {
         "src": "/images/japon_053-600w.webp",
@@ -1255,7 +1805,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 26,
+      "focalLength35": 38,
+      "fNumber": 11,
+      "exposureTime": "1/3800",
+      "exposureBias": 0.67,
+      "iso": 10000,
+      "takenAt": "2026-09-21"
+    },
     "variants": [
       {
         "src": "/images/japon_054-600w.webp",
@@ -1280,7 +1841,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 29,
+      "focalLength35": 43,
+      "fNumber": 5.6,
+      "exposureTime": "1/640",
+      "exposureBias": -0.67,
+      "iso": 320,
+      "takenAt": "2026-09-21"
+    },
     "variants": [
       {
         "src": "/images/japon_055-600w.webp",
@@ -1305,7 +1877,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 42,
+      "focalLength35": 63,
+      "fNumber": 6.4,
+      "exposureTime": "1/2200",
+      "exposureBias": -0.67,
+      "iso": 320,
+      "takenAt": "2026-09-21"
+    },
     "variants": [
       {
         "src": "/images/japon_056-600w.webp",
@@ -1330,7 +1913,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 28,
+      "focalLength35": 42,
+      "fNumber": 4.5,
+      "exposureTime": "1/2200",
+      "exposureBias": -0.33,
+      "iso": 320,
+      "takenAt": "2026-09-21"
+    },
     "variants": [
       {
         "src": "/images/japon_057-600w.webp",
@@ -1355,7 +1949,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 4,
+      "exposureTime": "1/2400",
+      "exposureBias": -0.33,
+      "iso": 320,
+      "takenAt": "2026-09-21"
+    },
     "variants": [
       {
         "src": "/images/japon_058-600w.webp",
@@ -1380,7 +1985,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 22,
+      "focalLength35": 33,
+      "fNumber": 4.2,
+      "exposureTime": "1/900",
+      "exposureBias": 0.33,
+      "iso": 320,
+      "takenAt": "2026-09-21"
+    },
     "variants": [
       {
         "src": "/images/japon_059-600w.webp",
@@ -1405,7 +2021,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 36,
+      "focalLength35": 54,
+      "fNumber": 5.2,
+      "exposureTime": "1/1100",
+      "exposureBias": 0.33,
+      "iso": 6400,
+      "takenAt": "2026-09-21"
+    },
     "variants": [
       {
         "src": "/images/japon_060-600w.webp",
@@ -1430,7 +2057,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 5.6,
+      "exposureTime": "1/420",
+      "exposureBias": -5,
+      "iso": 6400,
+      "takenAt": "2026-09-21"
+    },
     "variants": [
       {
         "src": "/images/japon_061-600w.webp",
@@ -1455,7 +2093,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 27,
+      "focalLength35": 41,
+      "fNumber": 16,
+      "exposureTime": "1/3200",
+      "exposureBias": -0.33,
+      "iso": 6400,
+      "takenAt": "2026-09-22"
+    },
     "variants": [
       {
         "src": "/images/japon_062-600w.webp",
@@ -1480,7 +2129,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 31,
+      "focalLength35": 47,
+      "fNumber": 5,
+      "exposureTime": "1/2400",
+      "exposureBias": -0.33,
+      "iso": 320,
+      "takenAt": "2026-09-22"
+    },
     "variants": [
       {
         "src": "/images/japon_063-600w.webp",
@@ -1505,7 +2165,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 5.6,
+      "exposureTime": "1/180",
+      "exposureBias": 0.33,
+      "iso": 320,
+      "takenAt": "2026-09-22"
+    },
     "variants": [
       {
         "src": "/images/japon_064-600w.webp",
@@ -1530,7 +2201,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 25,
+      "focalLength35": 37,
+      "fNumber": 4.4,
+      "exposureTime": "1/800",
+      "exposureBias": 0,
+      "iso": 320,
+      "takenAt": "2026-09-22"
+    },
     "variants": [
       {
         "src": "/images/japon_065-600w.webp",
@@ -1555,7 +2237,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 39,
+      "focalLength35": 58,
+      "fNumber": 6.4,
+      "exposureTime": "1/1100",
+      "exposureBias": 0,
+      "iso": 10000,
+      "takenAt": "2026-09-25"
+    },
     "variants": [
       {
         "src": "/images/japon_066-600w.webp",
@@ -1580,7 +2273,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 10,
+      "exposureTime": "1/1000",
+      "exposureBias": -0.33,
+      "iso": 10000,
+      "takenAt": "2026-09-25"
+    },
     "variants": [
       {
         "src": "/images/japon_067-600w.webp",
@@ -1605,7 +2309,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 30,
+      "focalLength35": 44,
+      "fNumber": 20,
+      "exposureTime": "1/125",
+      "exposureBias": 0,
+      "iso": 800,
+      "takenAt": "2026-09-17"
+    },
     "variants": [
       {
         "src": "/images/japon_068-600w.webp",
@@ -1630,7 +2345,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 27,
+      "focalLength35": 41,
+      "fNumber": 4.4,
+      "exposureTime": "1/100",
+      "exposureBias": 0.33,
+      "iso": 2500,
+      "takenAt": "2026-09-17"
+    },
     "variants": [
       {
         "src": "/images/japon_069-600w.webp",
@@ -1655,7 +2381,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 30,
+      "focalLength35": 44,
+      "fNumber": 5,
+      "exposureTime": "1/900",
+      "exposureBias": -0.67,
+      "iso": 320,
+      "takenAt": "2026-09-18"
+    },
     "variants": [
       {
         "src": "/images/japon_070-600w.webp",
@@ -1680,7 +2417,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 26,
+      "focalLength35": 38,
+      "fNumber": 18,
+      "exposureTime": "1/3200",
+      "exposureBias": -1,
+      "iso": 6400,
+      "takenAt": "2026-09-18"
+    },
     "variants": [
       {
         "src": "/images/japon_071-600w.webp",
@@ -1705,7 +2453,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 25,
+      "focalLength35": 37,
+      "fNumber": 5.6,
+      "exposureTime": "1/170",
+      "exposureBias": -0.67,
+      "iso": 6400,
+      "takenAt": "2026-09-18"
+    },
     "variants": [
       {
         "src": "/images/japon_072-600w.webp",
@@ -1730,7 +2489,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 5.6,
+      "exposureTime": "1/13",
+      "exposureBias": -1,
+      "iso": 320,
+      "takenAt": "2026-09-18"
+    },
     "variants": [
       {
         "src": "/images/japon_073-600w.webp",
@@ -1755,7 +2525,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 13,
+      "exposureTime": "1/3500",
+      "exposureBias": 0.33,
+      "iso": 8000,
+      "takenAt": "2026-09-19"
+    },
     "variants": [
       {
         "src": "/images/japon_074-600w.webp",
@@ -1780,7 +2561,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 11,
+      "exposureTime": "1/3800",
+      "exposureBias": -0.67,
+      "iso": 6400,
+      "takenAt": "2026-09-19"
+    },
     "variants": [
       {
         "src": "/images/japon_075-600w.webp",
@@ -1805,7 +2597,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 22,
+      "focalLength35": 32,
+      "fNumber": 5.6,
+      "exposureTime": "1/1600",
+      "exposureBias": 0,
+      "iso": 400,
+      "takenAt": "2025-09-02"
+    },
     "variants": [
       {
         "src": "/images/japon_p_002-600w.webp",
@@ -1830,7 +2633,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 5.6,
+      "exposureTime": "1/950",
+      "exposureBias": -2,
+      "iso": 320,
+      "takenAt": "2025-09-02"
+    },
     "variants": [
       {
         "src": "/images/japon_p_004-600w.webp",
@@ -1855,7 +2669,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 5.6,
+      "exposureTime": "1/180",
+      "exposureBias": 0,
+      "iso": 80,
+      "takenAt": "2025-09-02"
+    },
     "variants": [
       {
         "src": "/images/japon_p_005-600w.webp",
@@ -1880,7 +2705,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 32,
+      "focalLength35": 48,
+      "fNumber": 20,
+      "exposureTime": "1/160",
+      "exposureBias": 0,
+      "iso": 320,
+      "takenAt": "2025-09-09"
+    },
     "variants": [
       {
         "src": "/images/japon_p_006-600w.webp",
@@ -1905,7 +2741,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 5.6,
+      "exposureTime": "1/600",
+      "exposureBias": -0.67,
+      "iso": 6400,
+      "takenAt": "2026-09-19"
+    },
     "variants": [
       {
         "src": "/images/japon_p_007-600w.webp",
@@ -1930,7 +2777,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 3.5,
+      "exposureTime": "1/100",
+      "exposureBias": -1,
+      "iso": 500,
+      "takenAt": "2026-09-20"
+    },
     "variants": [
       {
         "src": "/images/japon_p_008-600w.webp",
@@ -1955,7 +2813,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 28,
+      "focalLength35": 42,
+      "fNumber": 5.6,
+      "exposureTime": "1/2000",
+      "exposureBias": -0.33,
+      "iso": 320,
+      "takenAt": "2026-09-20"
+    },
     "variants": [
       {
         "src": "/images/japon_p_009-600w.webp",
@@ -1980,7 +2849,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 30,
+      "focalLength35": 44,
+      "fNumber": 4.5,
+      "exposureTime": "1/100",
+      "exposureBias": -1,
+      "iso": 500,
+      "takenAt": "2026-09-20"
+    },
     "variants": [
       {
         "src": "/images/japon_p_010-600w.webp",
@@ -2005,7 +2885,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 27,
+      "focalLength35": 41,
+      "fNumber": 8,
+      "exposureTime": "1/2400",
+      "exposureBias": 0,
+      "iso": 10000,
+      "takenAt": "2026-09-21"
+    },
     "variants": [
       {
         "src": "/images/japon_p_011-600w.webp",
@@ -2030,7 +2921,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 11,
+      "exposureTime": "1/3000",
+      "exposureBias": 0.67,
+      "iso": 10000,
+      "takenAt": "2026-09-21"
+    },
     "variants": [
       {
         "src": "/images/japon_p_012-600w.webp",
@@ -2055,7 +2957,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 22,
+      "exposureTime": "1/4000",
+      "exposureBias": -0.67,
+      "iso": 10000,
+      "takenAt": "2026-09-21"
+    },
     "variants": [
       {
         "src": "/images/japon_p_013-600w.webp",
@@ -2080,7 +2993,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 30,
+      "focalLength35": 44,
+      "fNumber": 8,
+      "exposureTime": "1/2000",
+      "exposureBias": 0,
+      "iso": 6400,
+      "takenAt": "2026-09-22"
+    },
     "variants": [
       {
         "src": "/images/japon_p_014-600w.webp",
@@ -2105,7 +3029,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 23,
+      "focalLength35": 34,
+      "fNumber": 16,
+      "exposureTime": "1/3500",
+      "exposureBias": -0.67,
+      "iso": 6400,
+      "takenAt": "2026-09-25"
+    },
     "variants": [
       {
         "src": "/images/japon_p_015-600w.webp",
@@ -2130,7 +3065,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 18,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-09-12"
+    },
     "variants": [
       {
         "src": "/images/japon_p_016-600w.webp",
@@ -2155,7 +3101,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 67,
+      "fNumber": 16,
+      "exposureTime": "1/500",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-09-13"
+    },
     "variants": [
       {
         "src": "/images/japon_p_017-600w.webp",
@@ -2180,7 +3137,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 27,
+      "focalLength35": 41,
+      "fNumber": 22,
+      "exposureTime": "1/2000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-09-14"
+    },
     "variants": [
       {
         "src": "/images/japon_p_018-600w.webp",
@@ -2205,7 +3173,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 31,
+      "focalLength35": 47,
+      "fNumber": 22,
+      "exposureTime": "1/2000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-09-14"
+    },
     "variants": [
       {
         "src": "/images/japon_p_019-600w.webp",
@@ -2230,7 +3209,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 30,
+      "focalLength35": 44,
+      "fNumber": 20,
+      "exposureTime": "1/125",
+      "exposureBias": 0,
+      "iso": 800,
+      "takenAt": "2026-09-17"
+    },
     "variants": [
       {
         "src": "/images/japon_p_020-600w.webp",
@@ -2255,7 +3245,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 8,
+      "exposureTime": "1/1700",
+      "exposureBias": 0.33,
+      "iso": 6400,
+      "takenAt": "2026-09-17"
+    },
     "variants": [
       {
         "src": "/images/japon_p_021-600w.webp",
@@ -2280,7 +3281,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 24,
+      "focalLength35": 36,
+      "fNumber": 5,
+      "exposureTime": "1/70",
+      "exposureBias": -0.67,
+      "iso": 6400,
+      "takenAt": "2026-09-18"
+    },
     "variants": [
       {
         "src": "/images/japon_p_022-600w.webp",
@@ -2305,7 +3317,18 @@
     "location": "Japon",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 7.1,
+      "exposureTime": "1/1600",
+      "exposureBias": -0.67,
+      "iso": 6400,
+      "takenAt": "2026-09-19"
+    },
     "variants": [
       {
         "src": "/images/japon_p_023-600w.webp",
@@ -2330,7 +3353,18 @@
     "location": "Marseille",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 10,
+      "exposureTime": "1/500",
+      "exposureBias": 0,
+      "iso": 320,
+      "takenAt": "2025-10-03"
+    },
     "variants": [
       {
         "src": "/images/marseille_001-600w.webp",
@@ -2355,7 +3389,18 @@
     "location": "Marseille",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 11,
+      "exposureTime": "1/500",
+      "exposureBias": 0,
+      "iso": 320,
+      "takenAt": "2025-10-03"
+    },
     "variants": [
       {
         "src": "/images/marseille_002-600w.webp",
@@ -2380,7 +3425,18 @@
     "location": "Marseille",
     "width": 1800,
     "height": 1350,
-    "exif": null,
+    "exif": {
+      "make": "Apple",
+      "model": "iPhone 11",
+      "lensModel": "iPhone 11 back dual wide camera 4.25mm f/1.8",
+      "focalLength": 4,
+      "focalLength35": 26,
+      "fNumber": 1.8,
+      "exposureTime": "1/1866",
+      "exposureBias": 0,
+      "iso": 32,
+      "takenAt": "2025-10-04"
+    },
     "variants": [
       {
         "src": "/images/marseille_003-600w.webp",
@@ -2405,7 +3461,18 @@
     "location": "Marseille",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 10,
+      "exposureTime": "1/640",
+      "exposureBias": 0,
+      "iso": 320,
+      "takenAt": "2025-10-03"
+    },
     "variants": [
       {
         "src": "/images/marseille_p_001-600w.webp",
@@ -2430,7 +3497,18 @@
     "location": "Marseille",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 4,
+      "exposureTime": "1/1400",
+      "exposureBias": -1,
+      "iso": 320,
+      "takenAt": "2025-10-05"
+    },
     "variants": [
       {
         "src": "/images/marseille_p_002-600w.webp",
@@ -2455,7 +3533,18 @@
     "location": "Marseille",
     "width": 1800,
     "height": 2400,
-    "exif": null,
+    "exif": {
+      "make": "Apple",
+      "model": "iPhone 11",
+      "lensModel": "iPhone 11 back dual wide camera 4.25mm f/1.8",
+      "focalLength": 4,
+      "focalLength35": 26,
+      "fNumber": 1.8,
+      "exposureTime": "1/6757",
+      "exposureBias": 0,
+      "iso": 32,
+      "takenAt": "2025-10-04"
+    },
     "variants": [
       {
         "src": "/images/marseille_p_003-600w.webp",
@@ -2480,7 +3569,18 @@
     "location": "Marseille",
     "width": 1800,
     "height": 2400,
-    "exif": null,
+    "exif": {
+      "make": "Apple",
+      "model": "iPhone 11",
+      "lensModel": "iPhone 11 back dual wide camera 4.25mm f/1.8",
+      "focalLength": 4,
+      "focalLength35": 26,
+      "fNumber": 1.8,
+      "exposureTime": "1/942",
+      "exposureBias": 0,
+      "iso": 32,
+      "takenAt": "2025-10-04"
+    },
     "variants": [
       {
         "src": "/images/marseille_p_004-600w.webp",
@@ -2505,7 +3605,18 @@
     "location": "Paris",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 30,
+      "focalLength35": 44,
+      "fNumber": 22,
+      "exposureTime": "1/4000",
+      "exposureBias": -0.67,
+      "iso": 8000,
+      "takenAt": "2025-10-11"
+    },
     "variants": [
       {
         "src": "/images/paris_001-600w.webp",
@@ -2530,7 +3641,18 @@
     "location": "Paris",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 67,
+      "fNumber": 5.6,
+      "exposureTime": "1/900",
+      "exposureBias": -0.67,
+      "iso": 160,
+      "takenAt": "2025-10-12"
+    },
     "variants": [
       {
         "src": "/images/paris_002-600w.webp",
@@ -2555,7 +3677,18 @@
     "location": "Paris",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 28,
+      "focalLength35": 42,
+      "fNumber": 5.6,
+      "exposureTime": "1/500",
+      "exposureBias": -0.33,
+      "iso": 160,
+      "takenAt": "2025-10-12"
+    },
     "variants": [
       {
         "src": "/images/paris_p_001-600w.webp",
@@ -2580,7 +3713,18 @@
     "location": "Paris",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 29,
+      "focalLength35": 43,
+      "fNumber": 7.1,
+      "exposureTime": "1/1400",
+      "exposureBias": -0.33,
+      "iso": 160,
+      "takenAt": "2025-10-12"
+    },
     "variants": [
       {
         "src": "/images/paris_p_002-600w.webp",
@@ -2605,7 +3749,18 @@
     "location": "Paris",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 27,
+      "focalLength35": 41,
+      "fNumber": 5.6,
+      "exposureTime": "1/950",
+      "exposureBias": -0.67,
+      "iso": 160,
+      "takenAt": "2025-10-12"
+    },
     "variants": [
       {
         "src": "/images/paris_p_003-600w.webp",
@@ -2630,7 +3785,18 @@
     "location": "Vietnam",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 11,
+      "exposureTime": "1/3800",
+      "exposureBias": -1,
+      "iso": 10000,
+      "takenAt": "2026-02-15"
+    },
     "variants": [
       {
         "src": "/images/vietnam_001-600w.webp",
@@ -2655,7 +3821,18 @@
     "location": "Vietnam",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 7.1,
+      "exposureTime": "1/1800",
+      "exposureBias": -0.67,
+      "iso": 10000,
+      "takenAt": "2026-02-15"
+    },
     "variants": [
       {
         "src": "/images/vietnam_002-600w.webp",
@@ -2680,7 +3857,18 @@
     "location": "Vietnam",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 9,
+      "exposureTime": "1/2200",
+      "exposureBias": -0.67,
+      "iso": 10000,
+      "takenAt": "2026-02-15"
+    },
     "variants": [
       {
         "src": "/images/vietnam_003-600w.webp",
@@ -2705,7 +3893,18 @@
     "location": "Vietnam",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 16,
+      "exposureTime": "1/3200",
+      "exposureBias": -1,
+      "iso": 10000,
+      "takenAt": "2026-02-16"
+    },
     "variants": [
       {
         "src": "/images/vietnam_004-600w.webp",
@@ -2730,7 +3929,18 @@
     "location": "Vietnam",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 16,
+      "focalLength35": 23,
+      "fNumber": 4,
+      "exposureTime": "1/280",
+      "exposureBias": -0.67,
+      "iso": 320,
+      "takenAt": "2026-02-19"
+    },
     "variants": [
       {
         "src": "/images/vietnam_005-600w.webp",
@@ -2755,7 +3965,18 @@
     "location": "Vietnam",
     "width": 1800,
     "height": 1200,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 16,
+      "focalLength35": 23,
+      "fNumber": 9,
+      "exposureTime": "1/2400",
+      "exposureBias": -1,
+      "iso": 640,
+      "takenAt": "2026-02-21"
+    },
     "variants": [
       {
         "src": "/images/vietnam_006-600w.webp",
@@ -2780,7 +4001,18 @@
     "location": "Vietnam",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 13,
+      "exposureTime": "1/3500",
+      "exposureBias": -0.33,
+      "iso": 10000,
+      "takenAt": "2026-02-15"
+    },
     "variants": [
       {
         "src": "/images/vietnam_p_001-600w.webp",
@@ -2805,7 +4037,18 @@
     "location": "Vietnam",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 10,
+      "exposureTime": "1/2900",
+      "exposureBias": -1.67,
+      "iso": 10000,
+      "takenAt": "2026-02-15"
+    },
     "variants": [
       {
         "src": "/images/vietnam_p_002-600w.webp",
@@ -2830,7 +4073,18 @@
     "location": "Vietnam",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 18,
+      "exposureTime": "1/3500",
+      "exposureBias": -1,
+      "iso": 10000,
+      "takenAt": "2026-02-16"
+    },
     "variants": [
       {
         "src": "/images/vietnam_p_003-600w.webp",
@@ -2855,7 +4109,18 @@
     "location": "Vietnam",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 18,
+      "focalLength35": 26,
+      "fNumber": 7.1,
+      "exposureTime": "1/2500",
+      "exposureBias": -2.33,
+      "iso": 640,
+      "takenAt": "2026-02-19"
+    },
     "variants": [
       {
         "src": "/images/vietnam_p_004-600w.webp",
@@ -2880,7 +4145,18 @@
     "location": "Vietnam",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 45,
+      "focalLength35": 68,
+      "fNumber": 9,
+      "exposureTime": "1/2000",
+      "exposureBias": -2.33,
+      "iso": 640,
+      "takenAt": "2026-02-19"
+    },
     "variants": [
       {
         "src": "/images/vietnam_p_005-600w.webp",
@@ -2905,7 +4181,18 @@
     "location": "Vietnam",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 16,
+      "focalLength35": 24,
+      "fNumber": 8,
+      "exposureTime": "1/2400",
+      "exposureBias": -1.67,
+      "iso": 640,
+      "takenAt": "2026-02-20"
+    },
     "variants": [
       {
         "src": "/images/vietnam_p_006-600w.webp",
@@ -2930,7 +4217,18 @@
     "location": "Vietnam",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 9,
+      "exposureTime": "1/2700",
+      "exposureBias": -1,
+      "iso": 640,
+      "takenAt": "2026-02-21"
+    },
     "variants": [
       {
         "src": "/images/vietnam_p_007-600w.webp",
@@ -2955,7 +4253,18 @@
     "location": "Vietnam",
     "width": 1800,
     "height": 2700,
-    "exif": null,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 15,
+      "focalLength35": 23,
+      "fNumber": 4,
+      "exposureTime": "1/170",
+      "exposureBias": -0.67,
+      "iso": 320,
+      "takenAt": "2026-02-21"
+    },
     "variants": [
       {
         "src": "/images/vietnam_p_009-600w.webp",

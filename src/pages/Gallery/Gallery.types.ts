@@ -1,10 +1,14 @@
 export interface ImageExif {
   make?: string;
   model?: string;
+  lensModel?: string;
   focalLength?: number;
+  focalLength35?: number;
   fNumber?: number;
   exposureTime?: string;
+  exposureBias?: number;
   iso?: number;
+  takenAt?: string; // YYYY-MM-DD
 }
 
 export interface ImageVariant {

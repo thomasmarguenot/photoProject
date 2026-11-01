@@ -10,6 +10,7 @@ export function useLightbox(images: ImageData[]) {
   const [index, setIndex] = useState<number | null>(null);
   // -1 prev, +1 next, 0 open/close — drives the slide variants.
   const [direction, setDirection] = useState(0);
+  const [isInfoOpen, setIsInfoOpen] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
   const lastFocusedRef = useRef<HTMLElement | null>(null);
   const { setHidden } = useHeader();
@@ -53,7 +54,10 @@ export function useLightbox(images: ImageData[]) {
   const close = useCallback(() => {
     setDirection(0);
     setIndex(null);
+    setIsInfoOpen(false);
   }, []);
+
+  const toggleInfo = useCallback(() => setIsInfoOpen((open) => !open), []);
 
   const prev = useCallback(() => {
     setDirection(-1);
@@ -93,5 +97,16 @@ export function useLightbox(images: ImageData[]) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, close, prev, next]);
 
-  return { index, direction, isOpen, dialogRef, open, close, prev, next };
+  return {
+    index,
+    direction,
+    isOpen,
+    isInfoOpen,
+    dialogRef,
+    open,
+    close,
+    prev,
+    next,
+    toggleInfo,
+  };
 }

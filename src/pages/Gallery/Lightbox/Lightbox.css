@@ -77,12 +77,62 @@
   color: var(--color-text-primary);
 }
 
-.gallery-lightbox-exif {
-  white-space: nowrap;
-  font-size: 0.65rem;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  color: var(--color-text-secondary);
+.gallery-lightbox-info {
+  @apply absolute inset-0 pointer-events-none opacity-0;
+  @apply transition-opacity duration-400 ease-out;
+}
+
+.gallery-lightbox-info--visible {
+  @apply opacity-100;
+}
+
+.gallery-lightbox-info-toggle {
+  @apply absolute flex items-center justify-center cursor-pointer pointer-events-auto;
+  @apply right-[var(--lightbox-info-inset)] bottom-[var(--lightbox-info-inset)];
+  @apply size-[var(--lightbox-info-toggle-size)] rounded-full;
+  @apply border border-[var(--lightbox-info-border)];
+  @apply bg-[var(--lightbox-info-bg)] backdrop-blur-[var(--lightbox-info-blur)];
+  @apply text-[var(--color-text-inverse)] transition-colors duration-200;
+}
+
+.gallery-lightbox-info-toggle:hover {
+  @apply bg-[var(--lightbox-info-bg-hover)];
+}
+
+.gallery-lightbox-info-toggle:focus-visible {
+  @apply outline-2 outline-offset-2 outline-[var(--color-text-inverse)];
+}
+
+.gallery-lightbox-info-toggle--active,
+.gallery-lightbox-info-toggle--active:hover {
+  @apply bg-[var(--lightbox-info-bg-active)] text-[var(--color-ink)];
+}
+
+.gallery-lightbox-info-icon {
+  @apply size-3.5 fill-current;
+}
+
+.gallery-lightbox-info-panel {
+  @apply absolute m-0 pointer-events-auto overflow-y-auto origin-bottom-right;
+  @apply right-[var(--lightbox-info-inset)] bottom-[var(--lightbox-info-panel-offset)];
+  @apply max-h-[calc(100%_-_var(--lightbox-info-panel-offset)_-_var(--lightbox-info-inset))];
+  @apply w-max max-w-[min(var(--lightbox-info-panel-max-width),calc(100%_-_var(--lightbox-info-inset)_*_2))];
+  @apply grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 px-4 py-3;
+  @apply rounded-[var(--radius-md)] border border-[var(--lightbox-info-border)];
+  @apply bg-[var(--lightbox-info-bg)] backdrop-blur-[var(--lightbox-info-blur)];
+}
+
+.gallery-lightbox-info-row {
+  @apply contents;
+}
+
+.gallery-lightbox-info-label {
+  @apply self-baseline text-[0.625rem] font-semibold uppercase tracking-[0.18em];
+  @apply text-[var(--lightbox-info-label)];
+}
+
+.gallery-lightbox-info-value {
+  @apply m-0 self-baseline text-xs text-[var(--color-text-inverse)];
 }
 
 .gallery-lightbox-counter {

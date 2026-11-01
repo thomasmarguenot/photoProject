@@ -265,6 +265,28 @@ export const lightboxSlideVariantsReduced: Variants = {
   exit: { opacity: 0, transition: { duration: ANIMATION.DURATION_XFAST } },
 };
 
+/** Photo info panel, rising from its toggle in the photo's corner. */
+export const lightboxInfoVariants: Variants = {
+  hidden: { opacity: 0, y: 8, scale: 0.98 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: ANIMATION.DURATION_FAST, ease: EASE_SMOOTH },
+  },
+  exit: {
+    opacity: 0,
+    y: 4,
+    transition: { duration: ANIMATION.DURATION_XFAST, ease: EASE_SMOOTH },
+  },
+};
+
+export const lightboxInfoVariantsReduced: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: ANIMATION.DURATION_FAST } },
+  exit: { opacity: 0, transition: { duration: ANIMATION.DURATION_XFAST } },
+};
+
 /** Fade-in for the lightbox chrome (close / nav / counter). */
 export const lightboxChromeVariants: Variants = {
   hidden: { opacity: 0 },

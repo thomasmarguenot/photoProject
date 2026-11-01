@@ -1,28 +1,20 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
-import type { ImageExif } from '../Gallery.types';
 import { GALLERY_IMAGE_SIZES, toSrcSet } from '../imageSources';
 import type { LightboxSlideProps } from './Lightbox.types';
-
-function formatExif(exif?: ImageExif): string[] {
-  if (!exif) return [];
-  return [
-    [exif.make, exif.model].filter(Boolean).join(' '),
-    exif.focalLength !== undefined ? `${exif.focalLength}mm` : '',
-    exif.fNumber !== undefined ? `f/${exif.fNumber}` : '',
-    exif.exposureTime ? `${exif.exposureTime}s` : '',
-    exif.iso !== undefined ? `ISO ${exif.iso}` : '',
-  ].filter(Boolean);
-}
+import { LightboxInfo } from './LightboxInfo';
 
 // One slide = the photo currently shown + its metadata, sized to the image so
-// the rotated location label hugs it. Keyed by src inside AnimatePresence so
-// prev/next produces a directional slide and open/close a centered zoom.
+// the rotated location label and the info panel hug it. Keyed by src inside
+// AnimatePresence so prev/next produces a directional slide and open/close a
+// centered zoom.
 export function LightboxSlide({
   image,
   direction,
   variants,
+  isInfoOpen,
+  onToggleInfo,
 }: LightboxSlideProps) {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -56,12 +48,13 @@ export function LightboxSlide({
           className={`gallery-lightbox-meta${isLoaded ? ' gallery-lightbox-meta--visible' : ''}`}
         >
           <span className="gallery-lightbox-location">{image.location}</span>
-          {formatExif(image.exif).map((value) => (
-            <span key={value} className="gallery-lightbox-exif">
-              {value}
-            </span>
-          ))}
         </div>
+        <LightboxInfo
+          image={image}
+          isOpen={isInfoOpen}
+          isVisible={isLoaded}
+          onToggle={onToggleInfo}
+        />
       </div>
     </motion.div>
   );

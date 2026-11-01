@@ -37,6 +37,8 @@ export function Lightbox({
   onClose,
   onPrev,
   onNext,
+  isInfoOpen,
+  onToggleInfo,
 }: LightboxProps) {
   const image = index !== null ? images[index] : undefined;
   const slideDirection = reducedMotion ? 0 : direction;
@@ -71,6 +73,8 @@ export function Lightbox({
                 image={image}
                 direction={slideDirection}
                 variants={slideVariants}
+                isInfoOpen={isInfoOpen}
+                onToggleInfo={onToggleInfo}
               />
             </AnimatePresence>
           </div>
