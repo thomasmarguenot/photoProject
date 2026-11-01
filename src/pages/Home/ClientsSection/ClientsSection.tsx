@@ -22,7 +22,7 @@ import './ClientsSection.css';
 
 const CLIENTS = [
   {
-    name: 'Canal Plus',
+    name: 'Canal+',
     logo: canalLogo,
   },
   {

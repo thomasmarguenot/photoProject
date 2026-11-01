@@ -18,7 +18,7 @@ export function Charte() {
       <Seo title="Charte graphique — Thomas Marguenot" noindex />
       <div className="charte-container">
         <div className="charte-hero">
-          <h1 className="charte-title">Charte Graphique</h1>
+          <h1 className="charte-title">Charte graphique</h1>
           <p className="charte-subtitle">
             Design System inspiré du Liquid Glass d&apos;Apple - Élégant,
             moderne et fluide

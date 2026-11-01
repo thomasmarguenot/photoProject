@@ -20,9 +20,11 @@ export function useNavIndicator(activePath: string) {
         positioned.current = false;
         return;
       }
+      // Pages outside the nav (charte, 404) have no link to highlight.
       const linkEl = linkRefs.current[activePath];
       if (!linkEl) {
         indicatorEl.style.opacity = '0';
+        positioned.current = false;
         return;
       }
       const navRect = navEl.getBoundingClientRect();

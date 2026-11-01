@@ -12,7 +12,7 @@ import { CharteSection } from './CharteSection';
 export function ColorsSection() {
   return (
     <CharteSection
-      title="Palette de Couleurs"
+      title="Palette de couleurs"
       description="Palette harmonieuse centrée sur le bleu #277DD4, avec des variations pour tous les besoins d'interface."
     >
       <div className="color-grid">
@@ -40,7 +40,7 @@ export function TypographySection() {
   return (
     <CharteSection
       title="Typographie"
-      description="Système typographique utilisant Poppins pour les titres et Space Grotesk pour le corps de texte."
+      description="Système typographique utilisant Inter Tight pour les titres et Quicksand pour le corps de texte."
     >
       <div className="typography-grid">
         {TYPOGRAPHY_EXAMPLES.map(({ label, element: Tag, text, fontSize }) => (
@@ -83,7 +83,7 @@ export function ButtonsSection() {
 export function InputsSection() {
   return (
     <CharteSection
-      title="Champs de Formulaire"
+      title="Champs de formulaire"
       description="Inputs avec effet glass et focus states élégants."
     >
       <div className="input-grid">
@@ -140,7 +140,7 @@ export function SpacingSection() {
 export function RadiusSection() {
   return (
     <CharteSection
-      title="Border Radius"
+      title="Border radius"
       description="Arrondis variés pour créer des interfaces douces et accueillantes."
     >
       <div className="radius-grid">

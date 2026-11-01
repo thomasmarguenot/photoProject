@@ -13,7 +13,7 @@ export const EXPERIENCES = [
     company: 'Quotatis',
     role: 'Lead Developer Front-End',
     description:
-      '7 ans sur un produit de mise en relation artisans/particuliers. App mobile React Native, back-office React, CI/CD Drone, TypeScript, Storybook atomic design, team lead 5 devs.',
+      "7 ans sur un produit de mise en relation artisans/particuliers. App mobile React Native, back-office React, CI/CD Drone, TypeScript, Storybook atomic design, lead d'une équipe de 5 devs.",
   },
   {
     index: '03',
@@ -21,15 +21,15 @@ export const EXPERIENCES = [
     company: 'Canal+ / MyCanal',
     role: 'Développeur React (via Ekino)',
     description:
-      "Développement de fonctionnalités clés sur MyCanal — cards de recommandation, module d'achat TVoD, internationalisation. Haute exigence qualité, CI/CD, tests unitaires.",
+      "Développement de fonctionnalités clés sur MyCanal — cards de recommandation, module d'achat TVoD, internationalisation. Haute exigence de qualité, CI/CD, tests unitaires.",
   },
   {
     index: '04',
     period: '2013 — 2016',
     company: 'Agence Belle Époque',
-    role: 'Co-fondateur & Développeur',
+    role: 'Cofondateur & Développeur',
     description:
-      "Création d'une agence web avec deux associés de promo. Sites sur-mesure, WordPress, formation, recrutement. Premières incursions dans React et Node.js.",
+      "Création d'une agence web avec deux associés de promo. Sites sur mesure, WordPress, formation, recrutement. Premières incursions dans React et Node.js.",
   },
 ];
 

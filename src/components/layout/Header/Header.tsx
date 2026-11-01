@@ -42,10 +42,7 @@ export function Header() {
   const [titleAnimationFinished, setTitleAnimationFinished] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const activePath = (
-    NAV_ITEMS.find((item) => item.to === pathname) ?? NAV_ITEMS[0]
-  ).to;
-  const { navRef, indicatorRef, linkRefs } = useNavIndicator(activePath);
+  const { navRef, indicatorRef, linkRefs } = useNavIndicator(pathname);
 
   useBodyOverflow(mobileOpen);
 

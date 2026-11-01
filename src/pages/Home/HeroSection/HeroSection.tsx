@@ -64,7 +64,7 @@ export function HeroSection() {
               Développeur JS Full-Stack avec plus de 15 ans d&apos;expérience,
               je crée des expériences digitales modernes et performantes.
               Spécialisé React et Node.js, j&apos;accompagne agences et
-              entreprises dans la conception de solutions sur-mesure qui allient
+              entreprises dans la conception de solutions sur mesure qui allient
               esthétique et fonctionnalité.
             </AnimatedText>
             <AnimatedText
@@ -72,7 +72,7 @@ export function HeroSection() {
               orchestrated
             >
               De la conception à la mise en production, je m&apos;assure que
-              chaque projet reflète l&apos;identity de la marque tout en offrant
+              chaque projet reflète l&apos;identité de la marque tout en offrant
               une expérience utilisateur exceptionnelle.
             </AnimatedText>
           </motion.div>

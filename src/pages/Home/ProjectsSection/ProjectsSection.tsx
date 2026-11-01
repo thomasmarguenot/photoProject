@@ -13,14 +13,14 @@ import './ProjectsSection.css';
 const PROJECTS: Project[] = [
   {
     id: '1',
-    title: 'Canal Plus',
+    title: 'Canal+',
     description:
-      "Développement sur MyCanal de cards de recommandation personnalisée et du module TVoD (achat de contenus à l'unité, internationalisation). Haute exigence qualité : CI/CD, tests unitaires, cycles agiles courts.",
+      "Développement sur MyCanal de cards de recommandation personnalisée et du module TVoD (achat de contenus à l'unité, internationalisation). Haute exigence de qualité : CI/CD, tests unitaires, cycles agiles courts.",
     image: canalImage,
     technologies: ['React', 'Redux', 'Redux-Saga', 'TypeScript'],
     details: [
       { label: 'Rôle', value: 'Développeur Front-End Senior' },
-      { label: 'Mission', value: 'Via Ekino pour Canal Plus (MyCanal)' },
+      { label: 'Mission', value: 'Via Ekino pour Canal+ (MyCanal)' },
       { label: 'Stack', value: 'React, Redux, Redux-Saga, TypeScript' },
       { label: 'Durée', value: '18 mois' },
     ],
@@ -60,7 +60,7 @@ const PROJECTS: Project[] = [
     id: '2',
     title: 'Tabac Info Service',
     description:
-      "Application mobile de sevrage tabagique de l'Institut National du Cancer. Ajout de fonctionnalités (conseils, rappels, calculateur d'économies). Découverte de React Native Reanimated et pattern custom hooks avancés.",
+      "Application mobile de sevrage tabagique de l'Institut National du Cancer. Ajout de fonctionnalités (conseils, rappels, calculateur d'économies). Découverte de React Native Reanimated et patterns de custom hooks avancés.",
     image: tabacInfoService,
     technologies: ['React Native', 'Reanimated', 'GraphQL'],
     details: [

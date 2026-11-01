@@ -71,28 +71,40 @@ export const COLORS: ColorToken[] = [
 ];
 
 export const TYPOGRAPHY_EXAMPLES: TypographyExample[] = [
-  { label: 'h1', element: 'h1', text: 'Titre H1 - 72px / Poppins ExtraBold' },
-  { label: 'h2', element: 'h2', text: 'Titre H2 - 56px / Poppins Bold' },
-  { label: 'h3', element: 'h3', text: 'Titre H3 - 40px / Poppins SemiBold' },
-  { label: 'h4', element: 'h4', text: 'Titre H4 - 32px / Poppins SemiBold' },
-  { label: 'h5', element: 'h5', text: 'Titre H5 - 24px / Poppins Medium' },
-  { label: 'h6', element: 'h6', text: 'Titre H6 - 20px / Poppins Medium' },
+  {
+    label: 'h1',
+    element: 'h1',
+    text: 'Titre H1 - 72px / Inter Tight ExtraBold',
+  },
+  { label: 'h2', element: 'h2', text: 'Titre H2 - 56px / Inter Tight Bold' },
+  {
+    label: 'h3',
+    element: 'h3',
+    text: 'Titre H3 - 40px / Inter Tight SemiBold',
+  },
+  {
+    label: 'h4',
+    element: 'h4',
+    text: 'Titre H4 - 32px / Inter Tight SemiBold',
+  },
+  { label: 'h5', element: 'h5', text: 'Titre H5 - 24px / Inter Tight Medium' },
+  { label: 'h6', element: 'h6', text: 'Titre H6 - 20px / Inter Tight Medium' },
   {
     label: 'body-large',
     element: 'p',
-    text: 'Body Large - 18px / Space Grotesk - Pour les introductions et textes mis en avant',
+    text: 'Body Large - 18px / Quicksand - Pour les introductions et textes mis en avant',
     fontSize: 'var(--text-body-large)',
   },
   {
     label: 'body',
     element: 'p',
-    text: 'Body - 16px / Space Grotesk - Texte standard pour le contenu principal',
+    text: 'Body - 16px / Quicksand - Texte standard pour le contenu principal',
     fontSize: 'var(--text-body)',
   },
   {
     label: 'small',
     element: 'p',
-    text: 'Small - 14px / Space Grotesk - Texte secondaire, labels et annotations',
+    text: 'Small - 14px / Quicksand - Texte secondaire, labels et annotations',
     fontSize: 'var(--text-small)',
   },
 ];
@@ -125,15 +137,15 @@ export const RADII: ScaleToken[] = [
 
 export const DEMO_CARDS: CardExample[] = [
   {
-    title: 'Card Title',
+    title: 'Titre de carte',
     text: 'Exemple de carte avec effet glass et animation au hover. Le contenu est lisible et élégant.',
   },
   {
-    title: 'Another Card',
+    title: 'Deuxième carte',
     text: 'Les cartes utilisent backdrop-filter pour un effet de flou sophistiqué.',
   },
   {
-    title: 'Third Card',
+    title: 'Troisième carte',
     text: 'Chaque carte réagit au survol avec une animation fluide et naturelle.',
   },
 ];

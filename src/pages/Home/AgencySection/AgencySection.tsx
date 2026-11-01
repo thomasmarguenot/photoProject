@@ -19,7 +19,8 @@ import './AgencySection.css';
 const SERVICES = [
   {
     title: 'Site Web & App',
-    detail: 'UX · Webdesign · Développement · Mobile · E-Commerce',
+    // Word joiner after the hyphen: keeps "E-Commerce" on one line.
+    detail: 'UX · Webdesign · Développement · Mobile · E-⁠Commerce',
   },
   {
     title: 'Création graphique',
@@ -85,7 +86,7 @@ export function AgencySection() {
               className="agency-description"
               variants={fadeUpVariants30}
             >
-              En parallèle de mes missions développement, j&apos;ai co-fondé
+              En parallèle de mes missions de développement, j&apos;ai cofondé
               Belle Époque. Nous produisons des identités visuelles, des
               contenus digitaux, de l&apos;édition et de la publicité porteuse
               de sens, de créativité et de simplicité.
