@@ -29,7 +29,7 @@ git add src/assets/pictures public/images src/assets/gallery-manifest.json
 
 The location shown in the gallery filter comes from the file name prefix: `athenes_`, `coree_`, `japon_`, `marseille_`, `paris_`, `sardaigne_` or `vietnam_` (default: Japon). To add a location, update `LOCATION_MAP` in `scripts/generate-gallery-manifest.js`.
 
-Places with only a few photos (`normandie_`, `palerme_`, `vienne_`) are listed in `OTHER_PLACES`: they share the "Autres" filter, while the grid and the lightbox still show their own name.
+Places with only a few photos (`bratislava_`, `normandie_`, `palerme_`, `vienne_`) are listed in `OTHER_PLACES`: they share the "Autres" filter, while the grid and the lightbox still show their own name.
 
 ## 1. `pnpm optimize-images`
 

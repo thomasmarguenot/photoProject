@@ -740,6 +740,43 @@
     ]
   },
   {
+    "file": "bratislava_001.webp",
+    "src": "/images/bratislava_001.webp",
+    "location": "Autres",
+    "place": "Bratislava",
+    "width": 1800,
+    "height": 1200,
+    "exif": {
+      "make": "FUJIFILM",
+      "model": "X-S20",
+      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+      "focalLength": 26,
+      "focalLength35": 40,
+      "fNumber": 22,
+      "exposureTime": "1/4000",
+      "exposureBias": 0,
+      "iso": 12800,
+      "takenAt": "2026-08-16"
+    },
+    "variants": [
+      {
+        "src": "/images/bratislava_001-600w.webp",
+        "width": 600,
+        "height": 400
+      },
+      {
+        "src": "/images/bratislava_001-1200w.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/bratislava_001-1800w.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    ]
+  },
+  {
     "file": "coree_001.webp",
     "src": "/images/coree_001.webp",
     "location": "Corée",
@@ -5849,7 +5886,7 @@
     "file": "vienne_001.webp",
     "src": "/images/vienne_001.webp",
     "location": "Autres",
-    "place": "Vienne & Bratislava",
+    "place": "Vienne",
     "width": 1800,
     "height": 1200,
     "exif": {
@@ -5886,20 +5923,20 @@
     "file": "vienne_002.webp",
     "src": "/images/vienne_002.webp",
     "location": "Autres",
-    "place": "Vienne & Bratislava",
+    "place": "Vienne",
     "width": 1800,
     "height": 1200,
     "exif": {
       "make": "FUJIFILM",
       "model": "X-S20",
       "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
-      "focalLength": 26,
-      "focalLength35": 40,
+      "focalLength": 25,
+      "focalLength35": 37,
       "fNumber": 22,
       "exposureTime": "1/4000",
       "exposureBias": 0,
       "iso": 12800,
-      "takenAt": "2026-08-16"
+      "takenAt": "2026-08-17"
     },
     "variants": [
       {
@@ -5920,47 +5957,10 @@
     ]
   },
   {
-    "file": "vienne_003.webp",
-    "src": "/images/vienne_003.webp",
-    "location": "Autres",
-    "place": "Vienne & Bratislava",
-    "width": 1800,
-    "height": 1200,
-    "exif": {
-      "make": "FUJIFILM",
-      "model": "X-S20",
-      "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
-      "focalLength": 25,
-      "focalLength35": 37,
-      "fNumber": 22,
-      "exposureTime": "1/4000",
-      "exposureBias": 0,
-      "iso": 12800,
-      "takenAt": "2026-08-17"
-    },
-    "variants": [
-      {
-        "src": "/images/vienne_003-600w.webp",
-        "width": 600,
-        "height": 400
-      },
-      {
-        "src": "/images/vienne_003-1200w.webp",
-        "width": 1200,
-        "height": 800
-      },
-      {
-        "src": "/images/vienne_003-1800w.webp",
-        "width": 1800,
-        "height": 1200
-      }
-    ]
-  },
-  {
     "file": "vienne_p_001.webp",
     "src": "/images/vienne_p_001.webp",
     "location": "Autres",
-    "place": "Vienne & Bratislava",
+    "place": "Vienne",
     "width": 1800,
     "height": 2700,
     "exif": {
@@ -5997,7 +5997,7 @@
     "file": "vienne_p_002.webp",
     "src": "/images/vienne_p_002.webp",
     "location": "Autres",
-    "place": "Vienne & Bratislava",
+    "place": "Vienne",
     "width": 1800,
     "height": 2700,
     "exif": {

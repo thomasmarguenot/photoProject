@@ -239,6 +239,18 @@
     "iso": 6400,
     "takenAt": "2026-05-23"
   },
+  "bratislava_001.webp": {
+    "make": "FUJIFILM",
+    "model": "X-S20",
+    "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
+    "focalLength": 26,
+    "focalLength35": 40,
+    "fNumber": 22,
+    "exposureTime": "1/4000",
+    "exposureBias": 0,
+    "iso": 12800,
+    "takenAt": "2026-08-16"
+  },
   "coree_001.webp": {
     "make": "FUJIFILM",
     "model": "X-S20",
@@ -1908,18 +1920,6 @@
     "takenAt": "2026-08-15"
   },
   "vienne_002.webp": {
-    "make": "FUJIFILM",
-    "model": "X-S20",
-    "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",
-    "focalLength": 26,
-    "focalLength35": 40,
-    "fNumber": 22,
-    "exposureTime": "1/4000",
-    "exposureBias": 0,
-    "iso": 12800,
-    "takenAt": "2026-08-16"
-  },
-  "vienne_003.webp": {
     "make": "FUJIFILM",
     "model": "X-S20",
     "lensModel": "XC15-45mmF3.5-5.6 OIS PZ",

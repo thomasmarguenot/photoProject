@@ -140,9 +140,10 @@ const LOCATION_MAP = {
 
 // Places with too few photos for their own filter, grouped under "Autres".
 const OTHER_PLACES = {
+  bratislava: 'Bratislava',
   normandie: 'Normandie',
   palerme: 'Palerme',
-  vienne: 'Vienne & Bratislava',
+  vienne: 'Vienne',
 };
 
 function getPlaceFromFilename(filename) {
